@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Declaration of the Fourth International — Antifascist Forum, Brazil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Sans+Arabic:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red: #C8102E;
+  --red-dark: #8B0000;
+  --red-bright: #E63946;
+  --red-glow: #FF1744;
+  --black: #0A0A0A;
+  --off-black: #141414;
+  --white: #F5F0EB;
+  --cream: #FAF7F2;
+  --gray: #888;
+  --text-body: rgba(245,240,235,0.85);
+  --bg-hero-red: rgba(200,16,46,0.18);
+  --bg-hero-red2: rgba(200,16,46,0.08);
+  --bg-hero-dark: rgba(139,0,0,0.1);
+  --stripe-opacity: 0.04;
+  --graphic-opacity: 0.06;
+  --langbar-bg: rgba(10,10,10,0.92);
+  --langbar-border: rgba(245,240,235,0.15);
+  --divider-red-alpha: rgba(200,16,46,0.3);
+  --closing-glow: rgba(200,16,46,0.12);
+  --ornament-line: linear-gradient(90deg, transparent, var(--red), transparent);
+  --footer-border: rgba(200,16,46,0.15);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-arabic: 'Noto Sans Arabic', 'Inter', sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --black: #FAF7F2;
+    --off-black: #F0EBE3;
+    --white: #1A1A1A;
+    --cream: #FFFFFF;
+    --gray: #666;
+    --text-body: rgba(26,26,26,0.8);
+    --bg-hero-red: rgba(200,16,46,0.08);
+    --bg-hero-red2: rgba(200,16,46,0.04);
+    --bg-hero-dark: rgba(139,0,0,0.04);
+    --stripe-opacity: 0.03;
+    --graphic-opacity: 0.04;
+    --langbar-bg: rgba(250,247,242,0.95);
+    --langbar-border: rgba(26,26,26,0.12);
+    --divider-red-alpha: rgba(200,16,46,0.2);
+    --closing-glow: rgba(200,16,46,0.06);
+    --footer-border: rgba(200,16,46,0.12);
+  }
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[dir="rtl"] body { font-family: var(--font-arabic); }
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3,
+html[dir="rtl"] .hero-title, html[dir="rtl"] .hero-subtitle {
+  font-family: var(--font-arabic);
+}
+
+/* ==================== LANGUAGE BAR ==================== */
+.lang-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.6rem 1rem;
+  background: var(--langbar-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--divider-red-alpha);
+  transition: transform 0.3s ease;
+}
+
+.lang-bar button {
+  background: none;
+  border: 1px solid var(--langbar-border);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 2px;
+}
+
+.lang-bar button:hover { border-color: var(--red); color: var(--red); }
+.lang-bar button.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: white;
+}
+
+.lang-bar .print-btn {
+  margin-left: 1rem;
+  border-color: var(--langbar-border);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lang-bar .print-btn svg { width: 14px; height: 14px; }
+.lang-bar .print-btn:hover { border-color: var(--white); color: var(--white); }
+
+/* ==================== HERO ==================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, var(--bg-hero-red) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, var(--bg-hero-red2) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, var(--bg-hero-dark) 0%, transparent 60%);
+  z-index: 0;
+}
+
+/* Animated diagonal stripes */
+.hero-stripes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: var(--stripe-opacity);
+}
+
+.hero-stripes::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    var(--red) 40px,
+    var(--red) 42px
+  );
+  animation: stripe-drift 30s linear infinite;
+}
+
+@keyframes stripe-drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(60px, 60px); }
+}
+
+/* Fist SVG graphic */
+.hero-graphic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: var(--graphic-opacity);
+  width: min(80vw, 600px);
+  height: auto;
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 900px; }
+
+.hero-overline {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 1.2rem;
+  border: 1px solid var(--divider-red-alpha);
+  border-radius: 2px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--red);
+  display: inline;
+}
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--red-bright);
+  margin-bottom: 2rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-slogans {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-slogan {
+  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-body);
+  text-transform: uppercase;
+}
+
+.hero-scroll {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: pulse-scroll 2s ease-in-out infinite;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.hero-scroll svg { width: 20px; height: 20px; }
+
+@keyframes pulse-scroll {
+  0%, 100% { opacity: 0.5; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(5px); }
+}
+
+/* ==================== RED DIVIDER ==================== */
+.red-divider {
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+
+.red-divider.thick {
+  height: 6px;
+  background: linear-gradient(90deg, transparent 5%, var(--red) 30%, var(--red-dark) 70%, transparent 95%);
+}
+
+/* ==================== BODY CONTENT ==================== */
+.declaration-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+.section-block {
+  margin-bottom: 3.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--red);
+  margin-bottom: 1.5rem;
+}
+
+.section-block p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-body);
+  margin-bottom: 1.25rem;
+}
+
+.section-block p:last-child { margin-bottom: 0; }
+
+
+/* ==================== CLOSING ==================== */
+.closing {
+  text-align: center;
+  padding: 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.closing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, var(--closing-glow), transparent 70%);
+}
+
+.closing-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+.closing-slogan {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--red);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 60px rgba(200,16,46,0.3);
+}
+
+.closing-sub {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 60px rgba(200,16,46,0.3);
+  margin-bottom: 1rem;
+}
+
+/* ==================== STAR ORNAMENT ==================== */
+.star-ornament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+  gap: 1.25rem;
+}
+
+.star-ornament .line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+
+.star-ornament svg { width: 28px; height: 28px; fill: var(--red); }
+
+/* Closing logo */
+.closing-logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  opacity: 1;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.75rem;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+  border-top: 1px solid var(--footer-border);
+}
+
+/* ==================== SCROLL PROGRESS ==================== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red-dark), var(--red-bright), var(--red-glow));
+  z-index: 1001;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+  @page { margin: 2.5cm 3cm; }
+  .lang-bar, .scroll-progress, .hero-scroll, .hero-stripes, .hero-graphic { display: none !important; }
+  body { background: white !important; color: black !important; font-size: 9pt; line-height: 1.5; }
+  .hero { min-height: auto; padding: 1.5rem 0; }
+  .hero::before { display: none; }
+  .hero-title { color: black !important; font-size: 22pt; }
+  .hero-title em { color: var(--red) !important; }
+  .hero-subtitle { color: var(--red) !important; font-size: 11pt; }
+  .hero-slogan { color: #333 !important; font-size: 8pt; }
+  .hero-overline { color: var(--red) !important; border-color: var(--red) !important; font-size: 7pt; }
+  .section-block { opacity: 1 !important; transform: none !important; margin-bottom: 1.5rem; }
+  .section-heading { color: var(--red) !important; font-size: 13pt; margin-bottom: 0.6rem; }
+  .section-block p { color: #222 !important; font-size: 9pt; line-height: 1.5; margin-bottom: 0.5rem; }
+
+  .closing-slogan { color: var(--red) !important; font-size: 16pt; }
+  .closing-sub { color: black !important; font-size: 12pt; }
+  .closing { padding: 2rem 0; }
+  .closing::before { display: none; }
+  .red-divider { background: var(--red) !important; height: 1px !important; }
+  .declaration-body { padding: 0.5rem 0; max-width: 100%; }
+  .star-ornament { padding: 0.8rem 0; }
+  footer { color: #666 !important; border-color: #ccc !important; font-size: 7pt; padding: 0.8rem 0; }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 640px) {
+  .hero { padding: 5rem 1.25rem 3rem; }
+  .declaration-body { padding: 2.5rem 1.25rem 4rem; }
+
+  .section-heading { font-size: 1.4rem; }
+  .lang-bar { gap: 0.15rem; flex-wrap: wrap; padding: 0.5rem 0.5rem; }
+  .lang-bar button { font-size: 0.65rem; padding: 0.25rem 0.5rem; }
+  .lang-bar .print-btn { margin-left: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Language bar -->
+<nav class="lang-bar" role="navigation" aria-label="Language selection">
+  <button class="active" data-lang="en" onclick="setLang('en')">English</button>
+  <button data-lang="fr" onclick="setLang('fr')">Français</button>
+  <button data-lang="es" onclick="setLang('es')">Español</button>
+  <button data-lang="ar" onclick="setLang('ar')">العربية</button>
+  <button class="print-btn" onclick="window.print()" title="Print / Save as PDF">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    <span data-i18n="print">Print</span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-stripes"></div>
+
+  <!-- Fourth International logo -->
+  <svg class="hero-graphic" viewBox="0 0 1079 1081" fill="currentColor" color="var(--red)">
+    <g transform="translate(-652.248105,-1003.137222)">
+      <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1187.155773,1568.488198)"><path d="M0,5.914L1.769,5.914L6.055,0.997L9.337,0.997L10.168,0L5.482,0L0,5.914Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1258.140989,1478.695529)"><path d="M0,-11.521L4.532,-6.689L-2.959,1.007L-4.105,1.007L3.079,-6.604L1.316,-6.588L-6.483,1.839L2.818,1.839L5.373,-0.917L4.147,-0.917L2.334,1.007L1.08,1.007L6.756,-4.466L11.246,0.323L14.923,-3.098L7.868,-10.538C6.157,-8.827 5.259,-9.725 5.259,-9.725L1.881,-13.36L0,-11.521Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
+    </g>
+  </svg>
+
+  <div class="hero-content">
+    <span class="hero-overline" data-i18n="overline">Fourth International — Antifascist Forum, Brazil 2026</span>
+    <h1 class="hero-title" data-i18n="title">Against Neo-Fascist Authoritarianism and All Forms of <em data-i18n="title-em">Imperialism</em></h1>
+    <p class="hero-subtitle" data-i18n="subtitle">Declaration of the Fourth International at the Anti-Fascist Conference</p>
+    <div class="hero-slogans">
+      <span class="hero-slogan" data-i18n="slogan1">Unite the anti-fascist struggle throughout Latin America!</span>
+      <span class="hero-slogan" data-i18n="slogan2">For a global anti-fascist and anti-imperialist front!</span>
+    </div>
+  </div>
+  <a href="#declaration" class="hero-scroll">
+    <span data-i18n="scroll">Read the Declaration</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</header>
+
+<div class="red-divider thick"></div>
+
+<!-- DECLARATION BODY -->
+<main class="declaration-body" id="declaration">
+
+  <!-- Section 1 -->
+  <section class="section-block">
+    <p data-i18n="s1p1">Donald Trump's second term, with its far-right agenda, has brought about a shift in the international situation. In his eagerness to reaffirm a hegemony as weakened as his economy, he tramples on the United Nations Charter and the sovereignty of peoples with a foreign policy of recolonization and war.</p>
+    <p data-i18n="s1p2">Together with his partner in massacres, Netanyahu, Trump is bombing Iran to ensure complete domination of the oil and gas market. This comes after the genocide of the people of Gaza, the invasion of Venezuela, the attempt to strangle Cuba, and threats to annex Greenland.</p>
+    <p data-i18n="s1p3">The tyrant is striving to normalize genocidal language, blackmail, and interventionism, as well as racism, misogyny, and hatred of migrants — attempting to expel millions of workers from the United States. He supports Bolsonaro, Milei, Bukele, and the "patriotic" (read: far-right) European parties.</p>
+    <p data-i18n="s1p4">Bloody authoritarianism is the central instrument of imperialism in our time, because it needs to impose policies of hunger, the proliferation of ecocidal technologies and practices, the excessive power of <em>Big Tech</em>, the dispossession of natural and energy resources from all peoples, and increased military spending. If it is not defeated, Yankee imperialism will embark on a blind march toward ecological disaster.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 2 -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h2">The peoples of the United States, Argentina, and India show the way</h2>
+    <p data-i18n="s2p1">But imperialism's march is already beginning to encounter tremendous obstacles. The victorious struggle of the people of Minneapolis/Saint Paul and of all the community and popular resistance in the United States to the persecution of migrants points the way to defeating the extreme right. Only the combination of the international struggle of the peoples with a defeat of Trump on his own turf can stop their joint project.</p>
+    <p data-i18n="s2p2">The same is true of the working classes in Argentina against Milei and the peasants in India against Modi's policies. In Argentina, Milei faced the fourth general strike, now against labour reform, in an example of unified struggle that has the left as one of its pillars, with 90% of the population opposed to this measure. In Brazil, the victory of the indigenous resistance struggle against Cargill and the privatization of large Amazonian rivers points to hope and paths forward.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 3 -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h3">A united front of the exploited and oppressed!</h2>
+    <p data-i18n="s3p1">There is an urgent need for a united front of the exploited and oppressed, free from subordination to governments and parties, capable of acting with full independence to confront the new faces of fascism <strong>with mobilization and coordination among the oppressed.</strong></p>
+    <p data-i18n="s3p2">This Anti-Fascist Conference is an extraordinary opportunity to deploy across the globe, starting with the American continent, a strong united action by the forces present here against hegemonic imperialism. New conferences and meetings must be held on other continents and in other major regions: the United States, Europe, Africa, Asia. Let us make this meeting a modest but strong starting point for an international campaign that serves the struggles and, at the same time, the construction of an alternative program to that presented to us by the representatives of capital.</p>
+    <p data-i18n="s3p3">The far right is growing by presenting itself as a radical alternative to the status quo, its elites, and its parties. We know that it does so demagogically to defend the system it claims to challenge, but there is a key lesson here: in order to grow, resistance must also be a radical alternative to the crisis of the prevailing system, its policies of hunger and repression, its worn-out institutions, and its parties.</p>
+    <p data-i18n="s3p4">The crisis of capitalist civilization (economic, political, ecological, climatic) raises the possibility and necessity of linking immediate concerns, including the anti-fascist struggle, with the need to overcome capitalism. A set of demands is needed that, based on the most urgent popular concerns, leads to the questioning of private control of production and to an understanding of the need to place it under the democratic control of working people and their communities.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 4 -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h4">No illusions in capitalist "models"</h2>
+    <p data-i18n="s4p1">Trump's national security strategy states: "The disproportionate influence of the largest, richest, and strongest nations is an immemorial truth of international relations." It is, quite simply, an invitation to divide the world among the most powerful.</p>
+    <p data-i18n="s4p2">There is no room for illusions here. Neither the European Union or its components, nor the governments of Russia or China represent an alternative or a wall of defense against US imperialism — as their sterile actions in the face of US attacks on Venezuela, Cuba, and Iran have shown us.</p>
+    <p data-i18n="s4p3">China has become a capitalist power more interested in consolidating its business and its own areas of military (in Asia) and economic (Eurasia, Africa, and Latin America) influence. More regional in nature, Putin's Russia seeks to reestablish what was once the Tsarist empire, with a militarized economy and an increasingly authoritarian regime. In this context of tensions between old and new or aspiring powers, the task of the left cannot be to celebrate the multipolarity resulting from the confrontation between capitalist projects.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 5 -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h5">Solidarity with the oppressed of the world!</h2>
+    <p data-i18n="s5p1">To Trump's supposed "immemorial truth" of the domination of the powerful, we oppose three orientations: the defense of the right of all peoples to self-determination, solidarity with the exploited and oppressed in all countries, and therefore opposition to all forms of imperialism.</p>
+    <p data-i18n="s5p2">We reject the United States' aggression against Venezuela and the kidnapping of its president and former deputy, and we also reject the Russian Federation's aggression against Ukraine. We recognize the right of Venezuela, Cuba, Iran, and any country attacked by the United States to defend itself, including militarily, and to seek the material means necessary for that resistance wherever they can find them, and we recognize the same right for Ukraine, which is under attack by Russian imperialism.</p>
+    <p data-i18n="s5p3">We denounce and combat anti-immigrant, xenophobic, and Islamophobic policies in the United States and Western Europe. We take the same stance toward the Chinese government's repression of various peoples and ethnic groups.</p>
+    <p data-i18n="s5p4">We repudiate the persecution, repression, and censorship in the United States, the United Kingdom, Germany, and other countries of protests against the genocide in Palestine, and we also denounce the repression and imprisonment in Russia of opponents of the war of aggression against Ukraine.</p>
+    <p data-i18n="s5p5">We do not support the Maduro government. We denounce its anti-democratic and anti-worker actions. But no objectionable action by the Maduro government can validate the United States' aggression against Venezuela. We therefore demand the withdrawal of the US from Venezuela and the release of former deputy Cilia and President Maduro.</p>
+    <p data-i18n="s5p6">We propose the dissolution of NATO, as well as the Collective Security Treaty Organization. We do not support the Zelensky government in Ukraine. We denounce its anti-worker, corrupt, anti-democratic, and chauvinist policies. But no questionable policy of this government justifies the Russian invasion and bombing. Therefore, we organize our solidarity with the Ukrainian people.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 6 -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h6">Reject intervention, support the struggles</h2>
+    <p data-i18n="s6p1">Bourgeois governments refuse to recognize that popular mobilizations against them are the result of deep social contradictions. Typically, they attribute them to the action of internal or external "agents." We cannot accept this conspiracy conception of history. Undoubtedly, imperialism and its agencies try to take advantage of struggles, such as that of the Iranian people against authoritarian theocracy, but that does not reduce those struggles to an operation of imperialism. We must oppose such intervention, while continuing to support those struggles.</p>
+    <p data-i18n="s6p2">Preaching to the people that they must accept dictatorships that oppress and mistreat them as the "lesser evil" turns those who do so into promoters of resignation and submission. Oppressed peoples will have little interest in anti-imperialism or geopolitical analysis that excludes their most pressing democratic and economic demands. It is up to us to ensure that activists see our anti-imperialism as their ally, or that, tragically, they will find encouragement and support only in the camp of imperialism that seeks to exploit them.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 7 -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h7">Universal demands of the working class</h2>
+    <p data-i18n="s7p1">Historically, US and NATO imperialism have acted in the name of freedom, democracy, etc. The left is not fooled by these proclamations. But we must be consistent. The same is true of rival imperialisms: we must explain how, in the name of multipolarity, anti-hegemony, rejection of the hypocritical model of Western democracy and Eurocentrism, attempts are made to justify the denial of democratic rights to the working class, women, religious minorities and LGBTTQI+ people.</p>
+    <p data-i18n="s7p2">In the face of cultural relativism tailored to authoritarian governments (in Russia and China, among others), we affirm that trade-union rights, women's rights, freedom of expression, assembly, and association, and the election and recall of rulers are not "Western values" or "liberal models" or Eurocentric ideas that imperialism seeks to impose: they are historical demands of the international working class. That is why we defend them throughout the world, in all countries, without exception.</p>
+    <p data-i18n="s7p3">We reject the blackmail that any criticism or demand made of progressive governments, or those that proclaim themselves progressive, is destructive and favorable to imperialism. What weakens the struggle is not criticism and debate, but their suppression.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 8 -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h8">The hypocrisy of the West and consistent anti-imperialism</h2>
+    <p data-i18n="s8p1">We are familiar with the hypocrisy of Western imperialism when it denounces repression in Iran or the invasion of Ukraine. What moral authority can the accomplices of genocide in Gaza claim? What respect can those who have just kidnapped the president of Venezuela deserve? But denouncing the hypocrisy of the West and its crimes cannot become our silence on the abuses of the governments of Putin or Xi Jinping, or the idea that these abuses are "inventions of imperialism."</p>
+    <p data-i18n="s8p2">We do not oppose the double standards of Western imperialism with another double standard, but with the rejection of all those who exploit and oppress.</p>
+    <p data-i18n="s8p3">Today more than ever, we must practice consistent internationalism, a solidarity without borders that encompasses the struggles of workers, the oppressed, and for self-determination in all countries of the world, without exception. It is a policy that opposes all forms of imperialism. It does not subordinate the struggle in any country to that of another country. It is the policy that corresponds to the slogan <em>Workers of the world, unite!</em></p>
+  </section>
+
+</main>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="closing-content section-block">
+    <p class="closing-slogan" data-i18n="closing1">For solidarity without borders!</p>
+    <p class="closing-sub" data-i18n="closing2">For internationalism without exceptions!</p>
+    <div class="closing-logo">
+      <svg viewBox="0 0 1079 1081" fill="var(--red)" width="80" height="80">
+        <g transform="translate(-652.248105,-1003.137222)">
+          <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1187.155773,1568.488198)"><path d="M0,5.914L1.769,5.914L6.055,0.997L9.337,0.997L10.168,0L5.482,0L0,5.914Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1258.140989,1478.695529)"><path d="M0,-11.521L4.532,-6.689L-2.959,1.007L-4.105,1.007L3.079,-6.604L1.316,-6.588L-6.483,1.839L2.818,1.839L5.373,-0.917L4.147,-0.917L2.334,1.007L1.08,1.007L6.756,-4.466L11.246,0.323L14.923,-3.098L7.868,-10.538C6.157,-8.827 5.259,-9.725 5.259,-9.725L1.881,-13.36L0,-11.521Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span data-i18n="footer">Fourth International — Antifascist Forum, Brazil, 2026</span>
+</footer>
+
+<script>
+// ========== TRANSLATIONS ==========
+const translations = {
+  en: {
+    overline: "Fourth International — Antifascist Forum, Brazil 2026",
+    title: 'Against Neo-Fascist Authoritarianism and All Forms of <em>Imperialism</em>',
+    subtitle: "Declaration of the Fourth International at the Anti-Fascist Conference",
+    slogan1: "Unite the anti-fascist struggle throughout Latin America!",
+    slogan2: "For a global anti-fascist and anti-imperialist front!",
+    scroll: "Read the Declaration",
+    print: "Print",
+    h2: "The peoples of the United States, Argentina, and India show the way",
+    h3: "A united front of the exploited and oppressed!",
+    h4: 'No illusions in capitalist "models"',
+    h5: "Solidarity with the oppressed of the world!",
+    h6: "Reject intervention, support the struggles",
+    h7: "Universal demands of the working class",
+    h8: "The hypocrisy of the West and consistent anti-imperialism",
+    s1p1: "Donald Trump's second term, with its far-right agenda, has brought about a shift in the international situation. In his eagerness to reaffirm a hegemony as weakened as his economy, he tramples on the United Nations Charter and the sovereignty of peoples with a foreign policy of recolonization and war.",
+    s1p2: "Together with his partner in massacres, Netanyahu, Trump is bombing Iran to ensure complete domination of the oil and gas market. This comes after the genocide of the people of Gaza, the invasion of Venezuela, the attempt to strangle Cuba, and threats to annex Greenland.",
+    s1p3: 'The tyrant is striving to normalize genocidal language, blackmail, and interventionism, as well as racism, misogyny, and hatred of migrants — attempting to expel millions of workers from the United States. He supports Bolsonaro, Milei, Bukele, and the "patriotic" (read: far-right) European parties.',
+    s1p4: 'Bloody authoritarianism is the central instrument of imperialism in our time, because it needs to impose policies of hunger, the proliferation of ecocidal technologies and practices, the excessive power of <em>Big Tech</em>, the dispossession of natural and energy resources from all peoples, and increased military spending. If it is not defeated, Yankee imperialism will embark on a blind march toward ecological disaster.',
+    s2p1: "But imperialism's march is already beginning to encounter tremendous obstacles. The victorious struggle of the people of Minneapolis/Saint Paul and of all the community and popular resistance in the United States to the persecution of migrants points the way to defeating the extreme right. Only the combination of the international struggle of the peoples with a defeat of Trump on his own turf can stop their joint project.",
+    s2p2: "The same is true of the working classes in Argentina against Milei and the peasants in India against Modi's policies. In Argentina, Milei faced the fourth general strike, now against labour reform, in an example of unified struggle that has the left as one of its pillars, with 90% of the population opposed to this measure. In Brazil, the victory of the indigenous resistance struggle against Cargill and the privatization of large Amazonian rivers points to hope and paths forward.",
+    s3p1: 'There is an urgent need for a united front of the exploited and oppressed, free from subordination to governments and parties, capable of acting with full independence to confront the new faces of fascism <strong>with mobilization and coordination among the oppressed.</strong>',
+    s3p2: "This Anti-Fascist Conference is an extraordinary opportunity to deploy across the globe, starting with the American continent, a strong united action by the forces present here against hegemonic imperialism. New conferences and meetings must be held on other continents and in other major regions: the United States, Europe, Africa, Asia. Let us make this meeting a modest but strong starting point for an international campaign that serves the struggles and, at the same time, the construction of an alternative program to that presented to us by the representatives of capital.",
+    s3p3: "The far right is growing by presenting itself as a radical alternative to the status quo, its elites, and its parties. We know that it does so demagogically to defend the system it claims to challenge, but there is a key lesson here: in order to grow, resistance must also be a radical alternative to the crisis of the prevailing system, its policies of hunger and repression, its worn-out institutions, and its parties.",
+    s3p4: "The crisis of capitalist civilization (economic, political, ecological, climatic) raises the possibility and necessity of linking immediate concerns, including the anti-fascist struggle, with the need to overcome capitalism. A set of demands is needed that, based on the most urgent popular concerns, leads to the questioning of private control of production and to an understanding of the need to place it under the democratic control of working people and their communities.",
+    s4p1: 'Trump\'s national security strategy states: "The disproportionate influence of the largest, richest, and strongest nations is an immemorial truth of international relations." It is, quite simply, an invitation to divide the world among the most powerful.',
+    s4p2: "There is no room for illusions here. Neither the European Union or its components, nor the governments of Russia or China represent an alternative or a wall of defense against US imperialism — as their sterile actions in the face of US attacks on Venezuela, Cuba, and Iran have shown us.",
+    s4p3: "China has become a capitalist power more interested in consolidating its business and its own areas of military (in Asia) and economic (Eurasia, Africa, and Latin America) influence. More regional in nature, Putin's Russia seeks to reestablish what was once the Tsarist empire, with a militarized economy and an increasingly authoritarian regime. In this context of tensions between old and new or aspiring powers, the task of the left cannot be to celebrate the multipolarity resulting from the confrontation between capitalist projects.",
+    s5p1: 'To Trump\'s supposed "immemorial truth" of the domination of the powerful, we oppose three orientations: the defense of the right of all peoples to self-determination, solidarity with the exploited and oppressed in all countries, and therefore opposition to all forms of imperialism.',
+    s5p2: "We reject the United States' aggression against Venezuela and the kidnapping of its president and former deputy, and we also reject the Russian Federation's aggression against Ukraine. We recognize the right of Venezuela, Cuba, Iran, and any country attacked by the United States to defend itself, including militarily, and to seek the material means necessary for that resistance wherever they can find them, and we recognize the same right for Ukraine, which is under attack by Russian imperialism.",
+    s5p3: "We denounce and combat anti-immigrant, xenophobic, and Islamophobic policies in the United States and Western Europe. We take the same stance toward the Chinese government's repression of various peoples and ethnic groups.",
+    s5p4: "We repudiate the persecution, repression, and censorship in the United States, the United Kingdom, Germany, and other countries of protests against the genocide in Palestine, and we also denounce the repression and imprisonment in Russia of opponents of the war of aggression against Ukraine.",
+    s5p5: "We do not support the Maduro government. We denounce its anti-democratic and anti-worker actions. But no objectionable action by the Maduro government can validate the United States' aggression against Venezuela. We therefore demand the withdrawal of the US from Venezuela and the release of former deputy Cilia and President Maduro.",
+    s5p6: "We propose the dissolution of NATO, as well as the Collective Security Treaty Organization. We do not support the Zelensky government in Ukraine. We denounce its anti-worker, corrupt, anti-democratic, and chauvinist policies. But no questionable policy of this government justifies the Russian invasion and bombing. Therefore, we organize our solidarity with the Ukrainian people.",
+    s6p1: 'Bourgeois governments refuse to recognize that popular mobilizations against them are the result of deep social contradictions. Typically, they attribute them to the action of internal or external "agents." We cannot accept this conspiracy conception of history. Undoubtedly, imperialism and its agencies try to take advantage of struggles, such as that of the Iranian people against authoritarian theocracy, but that does not reduce those struggles to an operation of imperialism. We must oppose such intervention, while continuing to support those struggles.',
+    s6p2: 'Preaching to the people that they must accept dictatorships that oppress and mistreat them as the "lesser evil" turns those who do so into promoters of resignation and submission. Oppressed peoples will have little interest in anti-imperialism or geopolitical analysis that excludes their most pressing democratic and economic demands. It is up to us to ensure that activists see our anti-imperialism as their ally, or that, tragically, they will find encouragement and support only in the camp of imperialism that seeks to exploit them.',
+    s7p1: "Historically, US and NATO imperialism have acted in the name of freedom, democracy, etc. The left is not fooled by these proclamations. But we must be consistent. The same is true of rival imperialisms: we must explain how, in the name of multipolarity, anti-hegemony, rejection of the hypocritical model of Western democracy and Eurocentrism, attempts are made to justify the denial of democratic rights to the working class, women, religious minorities and LGBTTQI+ people.",
+    s7p2: 'In the face of cultural relativism tailored to authoritarian governments (in Russia and China, among others), we affirm that trade-union rights, women\u2019s rights, freedom of expression, assembly, and association, and the election and recall of rulers are not \u201CWestern values\u201D or \u201Cliberal models\u201D or Eurocentric ideas that imperialism seeks to impose: they are historical demands of the international working class. That is why we defend them throughout the world, in all countries, without exception.',
+    s7p3: "We reject the blackmail that any criticism or demand made of progressive governments, or those that proclaim themselves progressive, is destructive and favorable to imperialism. What weakens the struggle is not criticism and debate, but their suppression.",
+    s8p1: 'We are familiar with the hypocrisy of Western imperialism when it denounces repression in Iran or the invasion of Ukraine. What moral authority can the accomplices of genocide in Gaza claim? What respect can those who have just kidnapped the president of Venezuela deserve? But denouncing the hypocrisy of the West and its crimes cannot become our silence on the abuses of the governments of Putin or Xi Jinping, or the idea that these abuses are \u201Cinventions of imperialism.\u201D',
+    s8p2: "We do not oppose the double standards of Western imperialism with another double standard, but with the rejection of all those who exploit and oppress.",
+    s8p3: 'Today more than ever, we must practice consistent internationalism, a solidarity without borders that encompasses the struggles of workers, the oppressed, and for self-determination in all countries of the world, without exception. It is a policy that opposes all forms of imperialism. It does not subordinate the struggle in any country to that of another country. It is the policy that corresponds to the slogan <em>Workers of the world, unite!</em>',
+    closing1: "For solidarity without borders!",
+    closing2: "For internationalism without exceptions!",
+    footer: "Fourth International — Antifascist Forum, Brazil, 2026"
+  },
+
+  fr: {
+    overline: "Quatrième Internationale — Forum antifasciste, Brésil 2026",
+    title: "Contre l'autoritarisme néo-fasciste et toutes les formes d'<em>impérialisme</em>",
+    subtitle: "Déclaration de la Quatrième Internationale à la Conférence antifasciste",
+    slogan1: "Unissons la lutte antifasciste dans toute l'Amérique latine !",
+    slogan2: "Pour un front antifasciste et anti-impérialiste mondial !",
+    scroll: "Lire la Déclaration",
+    print: "Imprimer",
+    h2: "Les peuples des États-Unis, d'Argentine et d'Inde montrent la voie",
+    h3: "Un front uni des exploités et des opprimés !",
+    h4: "Pas d'illusions dans les « modèles » capitalistes",
+    h5: "Solidarité avec les opprimés du monde entier !",
+    h6: "Rejeter l'intervention, soutenir les luttes",
+    h7: "Revendications universelles de la classe ouvrière",
+    h8: "L'hypocrisie de l'Occident et un anti-impérialisme conséquent",
+    s1p1: "Le second mandat de Donald Trump, avec son programme d'extrême droite, a provoqué un tournant dans la situation internationale. Dans son empressement à réaffirmer une hégémonie aussi affaiblie que son économie, il piétine la Charte des Nations Unies et la souveraineté des peuples avec une politique étrangère de recolonisation et de guerre.",
+    s1p2: "Avec son partenaire dans les massacres, Netanyahou, Trump bombarde l'Iran pour assurer la domination totale du marché du pétrole et du gaz. Cela fait suite au génocide du peuple de Gaza, à l'invasion du Venezuela, à la tentative d'étrangler Cuba et aux menaces d'annexer le Groenland.",
+    s1p3: "Le tyran s'efforce de normaliser le langage génocidaire, le chantage et l'interventionnisme, ainsi que le racisme, la misogynie et la haine des migrants — cherchant à expulser des millions de travailleurs des États-Unis. Il soutient Bolsonaro, Milei, Bukele et les partis européens « patriotiques » (lisez : d'extrême droite).",
+    s1p4: "L'autoritarisme sanglant est l'instrument central de l'impérialisme à notre époque, car il a besoin d'imposer des politiques de famine, la prolifération de technologies et pratiques écocides, le pouvoir excessif des Big Tech, la dépossession des ressources naturelles et énergétiques de tous les peuples, et l'augmentation des dépenses militaires. S'il n'est pas vaincu, l'impérialisme yankee s'engagera dans une marche aveugle vers la catastrophe écologique.",
+    s2p1: "Mais la marche de l'impérialisme commence déjà à rencontrer des obstacles considérables. La lutte victorieuse du peuple de Minneapolis/Saint Paul et de toute la résistance communautaire et populaire aux États-Unis contre la persécution des migrants montre la voie pour vaincre l'extrême droite. Seule la combinaison de la lutte internationale des peuples avec une défaite de Trump sur son propre terrain peut arrêter leur projet commun.",
+    s2p2: "Il en va de même des classes ouvrières en Argentine contre Milei et des paysans en Inde contre les politiques de Modi. En Argentine, Milei a fait face à la quatrième grève générale, cette fois contre la réforme du travail, dans un exemple de lutte unifiée qui a la gauche comme l'un de ses piliers, avec 90 % de la population opposée à cette mesure.",
+    s2p3: "Au Brésil, la victoire de la lutte de résistance indigène contre Cargill et la privatisation des grands fleuves amazoniens ouvre l'espoir et des chemins vers l'avenir.",
+    s3p1: "Il y a un besoin urgent d'un front uni des exploités et des opprimés, libre de toute subordination aux gouvernements et aux partis, capable d'agir en toute indépendance pour affronter les nouveaux visages du fascisme par la mobilisation et la coordination entre les opprimés.",
+    s3p2: "Cette Conférence antifasciste est une occasion extraordinaire de déployer à travers le globe, en commençant par le continent américain, une action unie forte des forces présentes ici contre l'impérialisme hégémonique. De nouvelles conférences et réunions doivent se tenir sur d'autres continents et dans d'autres grandes régions : les États-Unis, l'Europe, l'Afrique, l'Asie.",
+    pq1: "Faisons de cette réunion un point de départ modeste mais fort pour une campagne internationale qui serve les luttes et, en même temps, la construction d'un programme alternatif à celui que nous présentent les représentants du capital.",
+    s3p3: "L'extrême droite grandit en se présentant comme une alternative radicale au statu quo, à ses élites et à ses partis. Nous savons qu'elle le fait de manière démagogique pour défendre le système qu'elle prétend contester, mais il y a une leçon clé ici : pour grandir, la résistance doit aussi être une alternative radicale à la crise du système en place, de ses politiques de famine et de répression, de ses institutions usées et de ses partis.",
+    s3p4: "La crise de la civilisation capitaliste (économique, politique, écologique, climatique) soulève la possibilité et la nécessité de relier les préoccupations immédiates, y compris la lutte antifasciste, au besoin de dépasser le capitalisme. Un ensemble de revendications est nécessaire qui, à partir des préoccupations populaires les plus urgentes, mène à la remise en question du contrôle privé de la production et à la compréhension de la nécessité de le placer sous le contrôle démocratique des travailleurs et de leurs communautés.",
+    s4p1: "La stratégie de sécurité nationale de Trump déclare : « L'influence disproportionnée des nations les plus grandes, les plus riches et les plus fortes est une vérité immémoriale des relations internationales. » C'est, tout simplement, une invitation à diviser le monde entre les plus puissants. Il n'y a pas de place pour les illusions ici.",
+    s4p2: "Ni l'Union européenne ou ses composantes, ni les gouvernements de la Russie ou de la Chine ne représentent une alternative ou un mur de défense contre l'impérialisme américain — comme leurs actions stériles face aux attaques américaines contre le Venezuela, Cuba et l'Iran nous l'ont montré.",
+    s4p3: "La Chine est devenue une puissance capitaliste plus intéressée par la consolidation de ses affaires et de ses propres zones d'influence militaire (en Asie) et économique (Eurasie, Afrique et Amérique latine). Plus régionale par nature, la Russie de Poutine cherche à rétablir ce qui fut autrefois l'empire tsariste, avec une économie militarisée et un régime de plus en plus autoritaire.",
+    s4p4: "Dans ce contexte de tensions entre anciennes et nouvelles puissances ou puissances aspirantes, la tâche de la gauche ne peut être de célébrer la multipolarité résultant de la confrontation entre projets capitalistes.",
+    s5p1: "À la prétendue « vérité immémoriale » de Trump sur la domination des puissants, nous opposons trois orientations : la défense du droit de tous les peuples à l'autodétermination, la solidarité avec les exploités et les opprimés dans tous les pays, et donc l'opposition à toutes les formes d'impérialisme.",
+    s5p2: "Nous rejetons l'agression des États-Unis contre le Venezuela et l'enlèvement de son président et de son ancien député, et nous rejetons également l'agression de la Fédération de Russie contre l'Ukraine. Nous reconnaissons le droit du Venezuela, de Cuba, de l'Iran et de tout pays attaqué par les États-Unis de se défendre, y compris militairement, et de chercher les moyens matériels nécessaires à cette résistance où qu'ils puissent les trouver, et nous reconnaissons le même droit pour l'Ukraine, qui est attaquée par l'impérialisme russe.",
+    s5p3: "Nous dénonçons et combattons les politiques anti-immigrés, xénophobes et islamophobes aux États-Unis et en Europe occidentale. Nous adoptons la même position envers la répression par le gouvernement chinois de divers peuples et groupes ethniques.",
+    s5p4: "Nous répudions la persécution, la répression et la censure aux États-Unis, au Royaume-Uni, en Allemagne et dans d'autres pays des manifestations contre le génocide en Palestine, et nous dénonçons également la répression et l'emprisonnement en Russie des opposants à la guerre d'agression contre l'Ukraine.",
+    s5p5: "Nous ne soutenons pas le gouvernement Maduro. Nous dénonçons ses actions anti-démocratiques et anti-ouvrières. Mais aucune action répréhensible du gouvernement Maduro ne peut valider l'agression des États-Unis contre le Venezuela. Nous exigeons donc le retrait des États-Unis du Venezuela et la libération de l'ancienne députée Cilia et du président Maduro.",
+    s5p6: "Nous proposons la dissolution de l'OTAN, ainsi que de l'Organisation du traité de sécurité collective.",
+    s5p7: "Nous ne soutenons pas le gouvernement Zelensky en Ukraine. Nous dénonçons ses politiques anti-ouvrières, corrompues, anti-démocratiques et chauvines. Mais aucune politique contestable de ce gouvernement ne justifie l'invasion et les bombardements russes. C'est pourquoi nous organisons notre solidarité avec le peuple ukrainien.",
+    s6p1: "Les gouvernements bourgeois refusent de reconnaître que les mobilisations populaires contre eux sont le résultat de profondes contradictions sociales. Typiquement, ils les attribuent à l'action d'« agents » internes ou externes. Nous ne pouvons accepter cette conception conspirationniste de l'histoire.",
+    s6p2: "Sans aucun doute, l'impérialisme et ses agences tentent de profiter des luttes, comme celle du peuple iranien contre la théocratie autoritaire, mais cela ne réduit pas ces luttes à une opération de l'impérialisme. Nous devons nous opposer à une telle intervention, tout en continuant à soutenir ces luttes.",
+    pq2: "Prêcher au peuple qu'il doit accepter les dictatures qui l'oppriment et le maltraitent comme le « moindre mal » fait de ceux qui le font des promoteurs de la résignation et de la soumission.",
+    s6p3: "Les peuples opprimés auront peu d'intérêt pour un anti-impérialisme ou une analyse géopolitique qui exclut leurs revendications démocratiques et économiques les plus pressantes. Il nous appartient de faire en sorte que les militants voient notre anti-impérialisme comme leur allié, ou que, tragiquement, ils ne trouvent encouragement et soutien que dans le camp de l'impérialisme qui cherche à les exploiter.",
+    s7p1: "Historiquement, l'impérialisme américain et de l'OTAN a agi au nom de la liberté, de la démocratie, etc. La gauche n'est pas dupe de ces proclamations. Mais nous devons être conséquents. Il en va de même des impérialismes rivaux : nous devons expliquer comment, au nom de la multipolarité, de l'anti-hégémonie, du rejet du modèle hypocrite de la démocratie occidentale et de l'eurocentrisme, on tente de justifier le déni des droits démocratiques de la classe ouvrière, des femmes, des minorités religieuses et des personnes LGBTTQI+.",
+    pq3: "Les droits syndicaux, les droits des femmes, la liberté d'expression, de réunion et d'association, et l'élection et la révocation des dirigeants ne sont pas des « valeurs occidentales » ou des « modèles libéraux » ou des idées eurocentriques que l'impérialisme cherche à imposer : ce sont des revendications historiques de la classe ouvrière internationale.",
+    s7p2: "C'est pourquoi nous les défendons dans le monde entier, dans tous les pays, sans exception. Nous rejetons le chantage selon lequel toute critique ou revendication faite aux gouvernements progressistes, ou à ceux qui se proclament progressistes, est destructrice et favorable à l'impérialisme. Ce qui affaiblit la lutte, ce n'est pas la critique et le débat, mais leur suppression.",
+    s8p1: "Nous connaissons l'hypocrisie de l'impérialisme occidental lorsqu'il dénonce la répression en Iran ou l'invasion de l'Ukraine. Quelle autorité morale peuvent revendiquer les complices du génocide à Gaza ? Quel respect peuvent mériter ceux qui viennent d'enlever le président du Venezuela ?",
+    s8p2: "Mais dénoncer l'hypocrisie de l'Occident et ses crimes ne peut devenir notre silence sur les abus des gouvernements de Poutine ou de Xi Jinping, ni l'idée que ces abus sont des « inventions de l'impérialisme ».",
+    s8p3: "Nous n'opposons pas aux doubles standards de l'impérialisme occidental un autre double standard, mais le rejet de tous ceux qui exploitent et oppriment.",
+    pq4: "Aujourd'hui plus que jamais, nous devons pratiquer un internationalisme conséquent, une solidarité sans frontières qui englobe les luttes des travailleurs, des opprimés et pour l'autodétermination dans tous les pays du monde, sans exception. C'est une politique qui s'oppose à toutes les formes d'impérialisme. Elle ne subordonne la lutte d'aucun pays à celle d'un autre.",
+    s8p4: "C'est la politique qui correspond au mot d'ordre Prolétaires de tous les pays, unissez-vous !",
+    closing1: "Pour la solidarité sans frontières !",
+    closing2: "Pour l'internationalisme sans exceptions !",
+    footer: "Quatrième Internationale — Forum antifasciste, Brésil, 2026"
+  },
+
+  es: {
+    overline: "Cuarta Internacional — Foro Antifascista, Brasil 2026",
+    title: "Contra el autoritarismo neofascista y todas las formas de <em>imperialismo</em>",
+    subtitle: "Declaración de la Cuarta Internacional en la Conferencia Antifascista",
+    slogan1: "¡Unir la lucha antifascista en toda América Latina!",
+    slogan2: "¡Por un frente antifascista y antiimperialista global!",
+    scroll: "Leer la Declaración",
+    print: "Imprimir",
+    h2: "Los pueblos de Estados Unidos, Argentina e India muestran el camino",
+    h3: "¡Un frente unido de los explotados y oprimidos!",
+    h4: 'Sin ilusiones en los "modelos" capitalistas',
+    h5: "¡Solidaridad con los oprimidos del mundo!",
+    h6: "Rechazar la intervención, apoyar las luchas",
+    h7: "Demandas universales de la clase trabajadora",
+    h8: "La hipocresía de Occidente y un antiimperialismo consecuente",
+    s1p1: "El segundo mandato de Donald Trump, con su agenda de extrema derecha, ha provocado un giro en la situación internacional. En su afán de reafirmar una hegemonía tan debilitada como su economía, pisotea la Carta de las Naciones Unidas y la soberanía de los pueblos con una política exterior de recolonización y guerra.",
+    s1p2: "Junto con su socio en las masacres, Netanyahu, Trump bombardea Irán para asegurar el dominio total del mercado del petróleo y el gas. Esto viene después del genocidio del pueblo de Gaza, la invasión de Venezuela, el intento de estrangular a Cuba y las amenazas de anexar Groenlandia.",
+    s1p3: "El tirano se esfuerza por normalizar el lenguaje genocida, el chantaje y el intervencionismo, así como el racismo, la misoginia y el odio a los migrantes — intentando expulsar a millones de trabajadores de Estados Unidos. Apoya a Bolsonaro, Milei, Bukele y a los partidos europeos \"patrióticos\" (léase: de extrema derecha).",
+    s1p4: "El autoritarismo sangriento es el instrumento central del imperialismo en nuestro tiempo, porque necesita imponer políticas de hambre, la proliferación de tecnologías y prácticas ecocidas, el poder excesivo de las Big Tech, el despojo de recursos naturales y energéticos de todos los pueblos y el aumento del gasto militar. Si no es derrotado, el imperialismo yanqui emprenderá una marcha ciega hacia el desastre ecológico.",
+    s2p1: "Pero la marcha del imperialismo ya está comenzando a encontrar obstáculos tremendos. La lucha victoriosa del pueblo de Minneapolis/Saint Paul y de toda la resistencia comunitaria y popular en Estados Unidos contra la persecución de los migrantes señala el camino para derrotar a la extrema derecha. Solo la combinación de la lucha internacional de los pueblos con una derrota de Trump en su propio terreno puede detener su proyecto conjunto.",
+    s2p2: "Lo mismo ocurre con las clases trabajadoras de Argentina contra Milei y los campesinos de India contra las políticas de Modi. En Argentina, Milei enfrentó la cuarta huelga general, ahora contra la reforma laboral, en un ejemplo de lucha unificada que tiene a la izquierda como uno de sus pilares, con el 90% de la población opuesta a esta medida.",
+    s2p3: "En Brasil, la victoria de la lucha de resistencia indígena contra Cargill y la privatización de los grandes ríos amazónicos apunta a la esperanza y a caminos hacia adelante.",
+    s3p1: "Existe una necesidad urgente de un frente unido de los explotados y oprimidos, libre de subordinación a gobiernos y partidos, capaz de actuar con plena independencia para enfrentar las nuevas caras del fascismo con movilización y coordinación entre los oprimidos.",
+    s3p2: "Esta Conferencia Antifascista es una oportunidad extraordinaria para desplegar a lo largo del globo, comenzando por el continente americano, una fuerte acción unitaria de las fuerzas aquí presentes contra el imperialismo hegemónico. Nuevas conferencias y reuniones deben celebrarse en otros continentes y en otras grandes regiones: Estados Unidos, Europa, África, Asia.",
+    pq1: "Hagamos de este encuentro un punto de partida modesto pero fuerte para una campaña internacional que sirva a las luchas y, al mismo tiempo, a la construcción de un programa alternativo al que nos presentan los representantes del capital.",
+    s3p3: "La extrema derecha crece presentándose como una alternativa radical al statu quo, a sus élites y a sus partidos. Sabemos que lo hace demagógicamente para defender el sistema que dice desafiar, pero hay una lección clave aquí: para crecer, la resistencia también debe ser una alternativa radical a la crisis del sistema prevaleciente, sus políticas de hambre y represión, sus instituciones desgastadas y sus partidos.",
+    s3p4: "La crisis de la civilización capitalista (económica, política, ecológica, climática) plantea la posibilidad y la necesidad de vincular las preocupaciones inmediatas, incluida la lucha antifascista, con la necesidad de superar el capitalismo. Se necesita un conjunto de demandas que, partiendo de las preocupaciones populares más urgentes, conduzca al cuestionamiento del control privado de la producción y a la comprensión de la necesidad de colocarlo bajo el control democrático de los trabajadores y sus comunidades.",
+    s4p1: "La estrategia de seguridad nacional de Trump afirma: \"La influencia desproporcionada de las naciones más grandes, más ricas y más fuertes es una verdad inmemorial de las relaciones internacionales.\" Es, sencillamente, una invitación a dividir el mundo entre los más poderosos. No hay lugar para ilusiones aquí.",
+    s4p2: "Ni la Unión Europea o sus componentes, ni los gobiernos de Rusia o China representan una alternativa o un muro de defensa contra el imperialismo estadounidense — como sus estériles acciones frente a los ataques de EE.UU. contra Venezuela, Cuba e Irán nos han demostrado.",
+    s4p3: "China se ha convertido en una potencia capitalista más interesada en consolidar sus negocios y sus propias áreas de influencia militar (en Asia) y económica (Eurasia, África y América Latina). De naturaleza más regional, la Rusia de Putin busca restablecer lo que fue el imperio zarista, con una economía militarizada y un régimen cada vez más autoritario.",
+    s4p4: "En este contexto de tensiones entre potencias antiguas y nuevas o aspirantes, la tarea de la izquierda no puede ser celebrar la multipolaridad resultante de la confrontación entre proyectos capitalistas.",
+    s5p1: "A la supuesta \"verdad inmemorial\" de Trump sobre la dominación de los poderosos, oponemos tres orientaciones: la defensa del derecho de todos los pueblos a la autodeterminación, la solidaridad con los explotados y oprimidos en todos los países y, por lo tanto, la oposición a todas las formas de imperialismo.",
+    s5p2: "Rechazamos la agresión de Estados Unidos contra Venezuela y el secuestro de su presidente y ex vicepresidenta, y también rechazamos la agresión de la Federación Rusa contra Ucrania. Reconocemos el derecho de Venezuela, Cuba, Irán y de cualquier país atacado por Estados Unidos a defenderse, incluso militarmente, y a buscar los medios materiales necesarios para esa resistencia dondequiera que puedan encontrarlos, y reconocemos el mismo derecho para Ucrania, que está bajo ataque del imperialismo ruso.",
+    s5p3: "Denunciamos y combatimos las políticas antiinmigrantes, xenófobas e islamófobas en Estados Unidos y Europa Occidental. Adoptamos la misma posición frente a la represión del gobierno chino contra diversos pueblos y grupos étnicos.",
+    s5p4: "Repudiamos la persecución, represión y censura en Estados Unidos, Reino Unido, Alemania y otros países de las protestas contra el genocidio en Palestina, y también denunciamos la represión y el encarcelamiento en Rusia de los opositores a la guerra de agresión contra Ucrania.",
+    s5p5: "No apoyamos al gobierno de Maduro. Denunciamos sus acciones antidemocráticas y antiobreras. Pero ninguna acción censurable del gobierno de Maduro puede validar la agresión de Estados Unidos contra Venezuela. Por lo tanto, exigimos la retirada de EE.UU. de Venezuela y la liberación de la ex diputada Cilia y del presidente Maduro.",
+    s5p6: "Proponemos la disolución de la OTAN, así como de la Organización del Tratado de Seguridad Colectiva.",
+    s5p7: "No apoyamos al gobierno de Zelensky en Ucrania. Denunciamos sus políticas antiobreras, corruptas, antidemocráticas y chovinistas. Pero ninguna política cuestionable de este gobierno justifica la invasión y los bombardeos rusos. Por ello, organizamos nuestra solidaridad con el pueblo ucraniano.",
+    s6p1: "Los gobiernos burgueses se niegan a reconocer que las movilizaciones populares en su contra son resultado de profundas contradicciones sociales. Típicamente, las atribuyen a la acción de \"agentes\" internos o externos. No podemos aceptar esta concepción conspirativa de la historia.",
+    s6p2: "Sin duda, el imperialismo y sus agencias intentan aprovechar las luchas, como la del pueblo iraní contra la teocracia autoritaria, pero eso no reduce esas luchas a una operación del imperialismo. Debemos oponernos a dicha intervención, mientras continuamos apoyando esas luchas.",
+    pq2: "Predicar al pueblo que debe aceptar dictaduras que lo oprimen y maltratan como el \"mal menor\" convierte a quienes lo hacen en promotores de la resignación y la sumisión.",
+    s6p3: "Los pueblos oprimidos tendrán poco interés en un antiimperialismo o análisis geopolítico que excluya sus demandas democráticas y económicas más apremiantes. Nos corresponde asegurar que los activistas vean nuestro antiimperialismo como su aliado, o que, trágicamente, solo encuentren aliento y apoyo en el campo del imperialismo que busca explotarlos.",
+    s7p1: "Históricamente, el imperialismo de EE.UU. y la OTAN ha actuado en nombre de la libertad, la democracia, etc. La izquierda no se deja engañar por estas proclamaciones. Pero debemos ser consecuentes. Lo mismo vale para los imperialismos rivales: debemos explicar cómo, en nombre de la multipolaridad, la anti-hegemonía, el rechazo al modelo hipócrita de la democracia occidental y el eurocentrismo, se intenta justificar la negación de derechos democráticos a la clase trabajadora, las mujeres, las minorías religiosas y las personas LGBTTQI+.",
+    pq3: "Los derechos sindicales, los derechos de las mujeres, la libertad de expresión, reunión y asociación, y la elección y revocación de los gobernantes no son \"valores occidentales\" ni \"modelos liberales\" ni ideas eurocéntricas que el imperialismo busca imponer: son demandas históricas de la clase obrera internacional.",
+    s7p2: "Por eso los defendemos en todo el mundo, en todos los países, sin excepción. Rechazamos el chantaje de que toda crítica o demanda hecha a gobiernos progresistas, o que se proclaman progresistas, es destructiva y favorable al imperialismo. Lo que debilita la lucha no es la crítica y el debate, sino su supresión.",
+    s8p1: "Conocemos la hipocresía del imperialismo occidental cuando denuncia la represión en Irán o la invasión de Ucrania. ¿Qué autoridad moral pueden reclamar los cómplices del genocidio en Gaza? ¿Qué respeto pueden merecer quienes acaban de secuestrar al presidente de Venezuela?",
+    s8p2: "Pero denunciar la hipocresía de Occidente y sus crímenes no puede convertirse en nuestro silencio sobre los abusos de los gobiernos de Putin o Xi Jinping, ni en la idea de que estos abusos son \"invenciones del imperialismo\".",
+    s8p3: "No oponemos a los dobles estándares del imperialismo occidental otro doble estándar, sino el rechazo a todos los que explotan y oprimen.",
+    pq4: "Hoy más que nunca, debemos practicar un internacionalismo consecuente, una solidaridad sin fronteras que abarque las luchas de los trabajadores, los oprimidos y por la autodeterminación en todos los países del mundo, sin excepción. Es una política que se opone a todas las formas de imperialismo. No subordina la lucha de ningún país a la de otro.",
+    s8p4: "Es la política que corresponde a la consigna ¡Proletarios de todos los países, uníos!",
+    closing1: "¡Por la solidaridad sin fronteras!",
+    closing2: "¡Por el internacionalismo sin excepciones!",
+    footer: "Cuarta Internacional — Foro Antifascista, Brasil, 2026"
+  },
+
+  ar: {
+    overline: "الأممية الرابعة — المنتدى المناهض للفاشية، البرازيل 2026",
+    title: "ضد الاستبداد النيوفاشي وجميع أشكال <em>الإمبريالية</em>",
+    subtitle: "إعلان الأممية الرابعة في المؤتمر المناهض للفاشية",
+    slogan1: "!توحيد النضال المناهض للفاشية في جميع أنحاء أمريكا اللاتينية",
+    slogan2: "!من أجل جبهة عالمية مناهضة للفاشية والإمبريالية",
+    scroll: "اقرأ الإعلان",
+    print: "طباعة",
+    h2: "شعوب الولايات المتحدة والأرجنتين والهند تُري الطريق",
+    h3: "!جبهة موحدة للمستغَلين والمضطهَدين",
+    h4: "لا أوهام في \"النماذج\" الرأسمالية",
+    h5: "!التضامن مع مضطهَدي العالم",
+    h6: "رفض التدخل، دعم النضالات",
+    h7: "المطالب العالمية للطبقة العاملة",
+    h8: "نفاق الغرب ومناهضة الإمبريالية المتسقة",
+    s1p1: "أحدثت الولاية الثانية لدونالد ترامب، بأجندتها اليمينية المتطرفة، تحولاً في الوضع الدولي. في حرصه على إعادة تأكيد هيمنة ضعيفة كاقتصاده، يدوس على ميثاق الأمم المتحدة وسيادة الشعوب بسياسة خارجية قائمة على إعادة الاستعمار والحرب.",
+    s1p2: "بالتعاون مع شريكه في المجازر، نتنياهو، يقصف ترامب إيران لضمان السيطرة الكاملة على سوق النفط والغاز. يأتي هذا بعد الإبادة الجماعية لشعب غزة، وغزو فنزويلا، ومحاولة خنق كوبا، والتهديد بضم غرينلاند.",
+    s1p3: "يسعى الطاغية لتطبيع خطاب الإبادة والابتزاز والتدخل، فضلاً عن العنصرية وكراهية النساء وكراهية المهاجرين — في محاولة لطرد ملايين العمال من الولايات المتحدة. يدعم بولسونارو وميلي وبوكيلي والأحزاب الأوروبية \"الوطنية\" (اقرأ: اليمينية المتطرفة).",
+    s1p4: "الاستبداد الدموي هو الأداة المركزية للإمبريالية في عصرنا، لأنها تحتاج إلى فرض سياسات الجوع، وانتشار التكنولوجيات والممارسات المدمرة للبيئة، والسلطة المفرطة لشركات التكنولوجيا الكبرى، ونهب الموارد الطبيعية والطاقوية من جميع الشعوب، وزيادة الإنفاق العسكري. إذا لم تُهزم، فإن الإمبريالية الأمريكية ستنطلق في مسيرة عمياء نحو الكارثة البيئية.",
+    s2p1: "لكن مسيرة الإمبريالية بدأت بالفعل في مواجهة عقبات هائلة. يشير النضال المنتصر لشعب مينيابوليس/سانت بول وكل المقاومة المجتمعية والشعبية في الولايات المتحدة ضد اضطهاد المهاجرين إلى الطريق لهزيمة اليمين المتطرف. فقط الجمع بين النضال الدولي للشعوب وهزيمة ترامب في عقر داره يمكن أن يوقف مشروعهم المشترك.",
+    s2p2: "ينطبق الأمر نفسه على الطبقات العاملة في الأرجنتين ضد ميلي والفلاحين في الهند ضد سياسات مودي. في الأرجنتين، واجه ميلي الإضراب العام الرابع، هذه المرة ضد إصلاح العمل، في مثال على النضال الموحد الذي تشكل اليسار أحد أعمدته، مع معارضة 90% من السكان لهذا الإجراء.",
+    s2p3: "في البرازيل، يشير انتصار نضال المقاومة الأصلية ضد كارغيل وخصخصة الأنهار الأمازونية الكبرى إلى الأمل والمسارات المستقبلية.",
+    s3p1: "هناك حاجة ملحة لجبهة موحدة للمستغَلين والمضطهَدين، حرة من التبعية للحكومات والأحزاب، قادرة على العمل باستقلالية تامة لمواجهة الوجوه الجديدة للفاشية بالتعبئة والتنسيق بين المضطهَدين.",
+    s3p2: "يُعدّ هذا المؤتمر المناهض للفاشية فرصة استثنائية لنشر عمل موحد قوي عبر الكرة الأرضية، بدءاً من القارة الأمريكية، من قبل القوى الحاضرة هنا ضد الإمبريالية المهيمنة. يجب عقد مؤتمرات واجتماعات جديدة في قارات ومناطق كبرى أخرى: الولايات المتحدة وأوروبا وأفريقيا وآسيا.",
+    pq1: "لنجعل من هذا الاجتماع نقطة انطلاق متواضعة لكن قوية لحملة دولية تخدم النضالات وفي الوقت نفسه بناء برنامج بديل لذلك الذي يقدمه لنا ممثلو رأس المال.",
+    s3p3: "ينمو اليمين المتطرف بتقديم نفسه كبديل جذري للوضع الراهن ونخبه وأحزابه. نعلم أنه يفعل ذلك بشكل ديماغوجي للدفاع عن النظام الذي يدّعي تحديه، لكن هناك درس أساسي هنا: لكي تنمو المقاومة، يجب أن تكون أيضاً بديلاً جذرياً لأزمة النظام السائد وسياسات الجوع والقمع ومؤسساته البالية وأحزابه.",
+    s3p4: "تطرح أزمة الحضارة الرأسمالية (الاقتصادية والسياسية والبيئية والمناخية) إمكانية وضرورة ربط الاهتمامات الفورية، بما فيها النضال المناهض للفاشية، بالحاجة إلى تجاوز الرأسمالية. هناك حاجة إلى مجموعة من المطالب التي، انطلاقاً من الاهتمامات الشعبية الأكثر إلحاحاً، تقود إلى التشكيك في السيطرة الخاصة على الإنتاج وفهم الحاجة إلى وضعها تحت السيطرة الديمقراطية للعمال ومجتمعاتهم.",
+    s4p1: "تنص استراتيجية الأمن القومي لترامب: \"النفوذ غير المتناسب للأمم الأكبر والأغنى والأقوى هو حقيقة أزلية في العلاقات الدولية.\" إنها ببساطة دعوة لتقسيم العالم بين الأقوى. لا مجال للأوهام هنا.",
+    s4p2: "لا الاتحاد الأوروبي أو مكوناته، ولا حكومات روسيا أو الصين تمثل بديلاً أو جدار دفاع ضد الإمبريالية الأمريكية — كما أظهرت لنا أعمالهم العقيمة في مواجهة الهجمات الأمريكية على فنزويلا وكوبا وإيران.",
+    s4p3: "أصبحت الصين قوة رأسمالية أكثر اهتماماً بتوطيد أعمالها ومناطق نفوذها العسكرية (في آسيا) والاقتصادية (أوراسيا وأفريقيا وأمريكا اللاتينية). أما روسيا بوتين الأكثر إقليمية، فتسعى لإعادة تأسيس ما كان الإمبراطورية القيصرية، باقتصاد عسكري ونظام متزايد الاستبداد.",
+    s4p4: "في سياق التوترات بين القوى القديمة والجديدة أو الطامحة، لا يمكن أن تكون مهمة اليسار الاحتفاء بالتعددية القطبية الناتجة عن المواجهة بين المشاريع الرأسمالية.",
+    s5p1: "في مواجهة \"الحقيقة الأزلية\" المزعومة لترامب حول هيمنة الأقوياء، نقدم ثلاثة توجهات: الدفاع عن حق جميع الشعوب في تقرير المصير، والتضامن مع المستغَلين والمضطهَدين في جميع البلدان، وبالتالي معارضة جميع أشكال الإمبريالية.",
+    s5p2: "نرفض عدوان الولايات المتحدة على فنزويلا واختطاف رئيسها ونائبه السابق، كما نرفض عدوان الاتحاد الروسي على أوكرانيا. نعترف بحق فنزويلا وكوبا وإيران وأي بلد تهاجمه الولايات المتحدة في الدفاع عن نفسه، بما في ذلك عسكرياً، وفي البحث عن الوسائل المادية اللازمة لتلك المقاومة أينما وجدها، ونعترف بنفس الحق لأوكرانيا التي تتعرض لهجوم الإمبريالية الروسية.",
+    s5p3: "ندين ونكافح السياسات المعادية للمهاجرين والعنصرية وكراهية الإسلام في الولايات المتحدة وأوروبا الغربية. ونتخذ نفس الموقف تجاه قمع الحكومة الصينية لمختلف الشعوب والمجموعات العرقية.",
+    s5p4: "نستنكر الاضطهاد والقمع والرقابة في الولايات المتحدة والمملكة المتحدة وألمانيا ودول أخرى للاحتجاجات ضد الإبادة الجماعية في فلسطين، كما ندين القمع والسجن في روسيا لمعارضي حرب العدوان على أوكرانيا.",
+    s5p5: "لا ندعم حكومة مادورو. ندين أفعالها المعادية للديمقراطية والعمال. لكن لا يمكن لأي عمل مرفوض من حكومة مادورو أن يبرر عدوان الولايات المتحدة على فنزويلا. لذلك نطالب بانسحاب الولايات المتحدة من فنزويلا والإفراج عن النائبة السابقة سيليا والرئيس مادورو.",
+    s5p6: "نقترح حل حلف الناتو، وكذلك منظمة معاهدة الأمن الجماعي.",
+    s5p7: "لا ندعم حكومة زيلينسكي في أوكرانيا. ندين سياساتها المعادية للعمال والفاسدة والمعادية للديمقراطية والشوفينية. لكن لا تبرر أي سياسة مشكوك فيها لهذه الحكومة الغزو والقصف الروسي. لذلك ننظم تضامننا مع الشعب الأوكراني.",
+    s6p1: "ترفض الحكومات البرجوازية الاعتراف بأن التعبئة الشعبية ضدها هي نتيجة تناقضات اجتماعية عميقة. عادة ما تنسبها إلى عمل \"عملاء\" داخليين أو خارجيين. لا يمكننا قبول هذا التصور التآمري للتاريخ.",
+    s6p2: "بلا شك، تحاول الإمبريالية ووكالاتها الاستفادة من النضالات، مثل نضال الشعب الإيراني ضد الثيوقراطية الاستبدادية، لكن ذلك لا يختزل تلك النضالات في عملية إمبريالية. يجب أن نعارض مثل هذا التدخل، مع الاستمرار في دعم تلك النضالات.",
+    pq2: "الوعظ للشعب بأنه يجب عليه قبول الديكتاتوريات التي تقمعه وتسيء معاملته باعتبارها \"أهون الشرين\" يحوّل من يفعل ذلك إلى مروّجين للاستسلام والخضوع.",
+    s6p3: "لن يكون لدى الشعوب المضطهَدة اهتمام كبير بمناهضة الإمبريالية أو التحليل الجيوسياسي الذي يستبعد مطالبها الديمقراطية والاقتصادية الأكثر إلحاحاً. يقع على عاتقنا ضمان أن يرى الناشطون مناهضتنا للإمبريالية كحليف لهم، أو أنهم — للأسف — لن يجدوا التشجيع والدعم إلا في معسكر الإمبريالية التي تسعى لاستغلالهم.",
+    s7p1: "تاريخياً، تصرفت الإمبريالية الأمريكية وحلف الناتو باسم الحرية والديمقراطية وغيرها. اليسار لا ينخدع بهذه الادعاءات. لكن يجب أن نكون متسقين. ينطبق الأمر نفسه على الإمبرياليات المنافسة: يجب أن نوضح كيف يُحاول، باسم التعددية القطبية ومناهضة الهيمنة ورفض النموذج المنافق للديمقراطية الغربية والمركزية الأوروبية، تبرير حرمان الطبقة العاملة والنساء والأقليات الدينية ومجتمع الميم من حقوقها الديمقراطية.",
+    pq3: "الحقوق النقابية وحقوق المرأة وحرية التعبير والتجمع وتكوين الجمعيات وانتخاب الحكام وعزلهم ليست \"قيماً غربية\" أو \"نماذج ليبرالية\" أو أفكاراً مركزية أوروبية تسعى الإمبريالية لفرضها: إنها مطالب تاريخية للطبقة العاملة الدولية.",
+    s7p2: "لهذا السبب ندافع عنها في جميع أنحاء العالم، في جميع البلدان، دون استثناء. نرفض الابتزاز القائل بأن أي نقد أو مطلب موجه إلى الحكومات التقدمية، أو التي تعلن نفسها تقدمية، هو مدمر ومناسب للإمبريالية. ما يُضعف النضال ليس النقد والنقاش، بل قمعهما.",
+    s8p1: "نحن نعرف نفاق الإمبريالية الغربية عندما تدين القمع في إيران أو غزو أوكرانيا. أي سلطة أخلاقية يمكن أن يدّعيها شركاء الإبادة الجماعية في غزة؟ أي احترام يستحقه من اختطفوا للتو رئيس فنزويلا؟",
+    s8p2: "لكن فضح نفاق الغرب وجرائمه لا يمكن أن يصبح صمتنا على انتهاكات حكومتي بوتين أو شي جين بينغ، أو الفكرة القائلة بأن هذه الانتهاكات \"اختراعات إمبريالية\".",
+    s8p3: "لا نواجه المعايير المزدوجة للإمبريالية الغربية بمعايير مزدوجة أخرى، بل برفض كل من يستغل ويضطهد.",
+    pq4: "اليوم أكثر من أي وقت مضى، يجب أن نمارس أممية متسقة، تضامناً بلا حدود يشمل نضالات العمال والمضطهَدين ومن أجل تقرير المصير في جميع بلدان العالم، دون استثناء. إنها سياسة تعارض جميع أشكال الإمبريالية. لا تُخضع نضال أي بلد لنضال بلد آخر.",
+    s8p4: "إنها السياسة التي تتوافق مع شعار: يا عمال العالم، اتحدوا!",
+    closing1: "!من أجل التضامن بلا حدود",
+    closing2: "!من أجل الأممية بلا استثناءات",
+    footer: "الأممية الرابعة — المنتدى المناهض للفاشية، البرازيل، 2026"
+  }
+};
+
+// ========== SET LANGUAGE ==========
+function setLang(lang) {
+  const html = document.documentElement;
+  html.lang = lang;
+  html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+  // Update active button
+  document.querySelectorAll('.lang-bar button[data-lang]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Update all translatable elements
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      if (t[key].includes('<em>') || t[key].includes('<strong>')) {
+        el.innerHTML = t[key];
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+}
+
+// ========== SCROLL ANIMATIONS ==========
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.section-block').forEach(block => observer.observe(block));
+
+// ========== SCROLL PROGRESS BAR ==========
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollProgress').style.width = progress + '%';
+}, { passive: true });
+</script>
+</body>
+</html>
