@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URGENT — Stop the Imperialist Aggression Against Venezuela! — Fourth International</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Sans+Arabic:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red: #C8102E;
+  --red-dark: #8B0000;
+  --red-bright: #E63946;
+  --red-glow: #FF1744;
+  --black: #0A0A0A;
+  --off-black: #141414;
+  --white: #F5F0EB;
+  --cream: #FAF7F2;
+  --gray: #888;
+  --text-body: rgba(245,240,235,0.85);
+  --bg-hero-red: rgba(200,16,46,0.18);
+  --bg-hero-red2: rgba(200,16,46,0.08);
+  --bg-hero-dark: rgba(139,0,0,0.1);
+  --stripe-opacity: 0.04;
+  --graphic-opacity: 0.06;
+  --langbar-bg: rgba(10,10,10,0.92);
+  --langbar-border: rgba(245,240,235,0.15);
+  --divider-red-alpha: rgba(200,16,46,0.3);
+  --closing-glow: rgba(200,16,46,0.12);
+  --ornament-line: linear-gradient(90deg, transparent, var(--red), transparent);
+  --footer-border: rgba(200,16,46,0.15);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-arabic: 'Noto Sans Arabic', 'Inter', sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --black: #FAF7F2;
+    --off-black: #F0EBE3;
+    --white: #1A1A1A;
+    --cream: #FFFFFF;
+    --gray: #666;
+    --text-body: rgba(26,26,26,0.8);
+    --bg-hero-red: rgba(200,16,46,0.08);
+    --bg-hero-red2: rgba(200,16,46,0.04);
+    --bg-hero-dark: rgba(139,0,0,0.04);
+    --stripe-opacity: 0.03;
+    --graphic-opacity: 0.04;
+    --langbar-bg: rgba(250,247,242,0.95);
+    --langbar-border: rgba(26,26,26,0.12);
+    --divider-red-alpha: rgba(200,16,46,0.2);
+    --closing-glow: rgba(200,16,46,0.06);
+    --footer-border: rgba(200,16,46,0.12);
+  }
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[dir="rtl"] body { font-family: var(--font-arabic); }
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3,
+html[dir="rtl"] .hero-title, html[dir="rtl"] .hero-subtitle {
+  font-family: var(--font-arabic);
+}
+
+/* ==================== LANGUAGE BAR ==================== */
+.lang-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.6rem 1rem;
+  background: var(--langbar-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--divider-red-alpha);
+  transition: transform 0.3s ease;
+}
+
+.lang-bar button {
+  background: none;
+  border: 1px solid var(--langbar-border);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 2px;
+}
+
+.lang-bar button:hover { border-color: var(--red); color: var(--red); }
+.lang-bar button.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: white;
+}
+
+.lang-bar .print-btn {
+  margin-left: 1rem;
+  border-color: var(--langbar-border);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lang-bar .print-btn svg { width: 14px; height: 14px; }
+.lang-bar .print-btn:hover { border-color: var(--white); color: var(--white); }
+
+/* ==================== HERO ==================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, var(--bg-hero-red) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, var(--bg-hero-red2) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, var(--bg-hero-dark) 0%, transparent 60%);
+  z-index: 0;
+}
+
+/* Animated diagonal stripes */
+.hero-stripes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: var(--stripe-opacity);
+}
+
+.hero-stripes::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    var(--red) 40px,
+    var(--red) 42px
+  );
+  animation: stripe-drift 30s linear infinite;
+}
+
+@keyframes stripe-drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(60px, 60px); }
+}
+
+/* Fist SVG graphic */
+.hero-graphic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: var(--graphic-opacity);
+  width: min(80vw, 600px);
+  height: auto;
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 900px; }
+
+.hero-overline {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 1.2rem;
+  border: 1px solid var(--divider-red-alpha);
+  border-radius: 2px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--red);
+  display: inline;
+}
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--red-bright);
+  margin-bottom: 2rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-slogans {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-slogan {
+  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-body);
+  text-transform: uppercase;
+}
+
+.hero-scroll {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: pulse-scroll 2s ease-in-out infinite;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.hero-scroll svg { width: 20px; height: 20px; }
+
+@keyframes pulse-scroll {
+  0%, 100% { opacity: 0.5; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(5px); }
+}
+
+/* ==================== RED DIVIDER ==================== */
+.red-divider {
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+
+.red-divider.thick {
+  height: 6px;
+  background: linear-gradient(90deg, transparent 5%, var(--red) 30%, var(--red-dark) 70%, transparent 95%);
+}
+
+/* ==================== BODY CONTENT ==================== */
+.declaration-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+.section-block {
+  margin-bottom: 3.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--red);
+  margin-bottom: 1.5rem;
+}
+
+.section-block p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-body);
+  margin-bottom: 1.25rem;
+}
+
+.section-block p:last-child { margin-bottom: 0; }
+
+
+/* ==================== CLOSING ==================== */
+.closing {
+  text-align: center;
+  padding: 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.closing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, var(--closing-glow), transparent 70%);
+}
+
+.closing-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+.closing-slogan {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--red);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 60px rgba(200,16,46,0.3);
+}
+
+.closing-sub {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 60px rgba(200,16,46,0.3);
+  margin-bottom: 1rem;
+}
+
+/* ==================== STAR ORNAMENT ==================== */
+.star-ornament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+  gap: 1.25rem;
+}
+
+.star-ornament .line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+
+.star-ornament svg { width: 28px; height: 28px; fill: var(--red); }
+
+/* Closing logo */
+.closing-logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  opacity: 1;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.75rem;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+  border-top: 1px solid var(--footer-border);
+}
+
+/* ==================== SCROLL PROGRESS ==================== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red-dark), var(--red-bright), var(--red-glow));
+  z-index: 1001;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar-toggle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  background: var(--langbar-bg);
+  border: none;
+  border-right: 1px solid var(--langbar-border);
+  border-bottom: 1px solid var(--langbar-border);
+  color: var(--white);
+  cursor: pointer;
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+[dir="rtl"] .sidebar-toggle {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--langbar-border);
+}
+.sidebar-toggle:hover { border-color: var(--red); color: var(--red); }
+.sidebar-toggle svg { width: 16px; height: 16px; }
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.sidebar-overlay.open { opacity: 1; visibility: visible; }
+
+.sidebar-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1101;
+  width: 320px;
+  max-width: 85vw;
+  background: var(--off-black);
+  border-right: 1px solid var(--divider-red-alpha);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+html[dir="rtl"] .sidebar-panel {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--divider-red-alpha);
+  transform: translateX(100%);
+}
+.sidebar-overlay.open + .sidebar-panel,
+.sidebar-panel.open { transform: translateX(0); }
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--divider-red-alpha);
+}
+.sidebar-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+}
+html[dir="rtl"] .sidebar-header h2 { font-family: var(--font-arabic); }
+.sidebar-close {
+  background: none;
+  border: none;
+  color: var(--gray);
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+.sidebar-close:hover { color: var(--white); }
+.sidebar-close svg { width: 20px; height: 20px; }
+
+.sidebar-list {
+  list-style: none;
+  padding: 0.75rem 0;
+  margin: 0;
+}
+.sidebar-list li { padding: 0; }
+.sidebar-list a {
+  display: block;
+  padding: 0.85rem 1.25rem;
+  text-decoration: none;
+  color: var(--text-body);
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+html[dir="rtl"] .sidebar-list a {
+  border-left: none;
+  border-right: 3px solid transparent;
+}
+.sidebar-list a:hover { background: rgba(200,16,46,0.06); }
+.sidebar-list a.current {
+  border-left-color: var(--red);
+  background: rgba(200,16,46,0.1);
+}
+html[dir="rtl"] .sidebar-list a.current {
+  border-left-color: transparent;
+  border-right-color: var(--red);
+}
+.sidebar-list a.placeholder { opacity: 0.55; }
+.sidebar-list .decl-title {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--white);
+}
+.sidebar-list a.placeholder .decl-title { color: var(--text-body); }
+.sidebar-list .decl-date {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray);
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .sidebar-panel { max-width: calc(85vw); width: 360px; }
+  .sidebar-toggle { padding: 0.35rem 0.5rem; }
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+  @page { margin: 2.5cm 3cm; }
+  .lang-bar, .scroll-progress, .hero-scroll, .hero-stripes, .hero-graphic, .sidebar-overlay, .sidebar-panel, .sidebar-toggle { display: none !important; }
+  body { background: white !important; color: black !important; font-size: 9pt; line-height: 1.5; }
+  .hero { min-height: auto; padding: 1.5rem 0; }
+  .hero::before { display: none; }
+  .hero-title { color: black !important; font-size: 22pt; }
+  .hero-title em { color: var(--red) !important; }
+  .hero-subtitle { color: var(--red) !important; font-size: 11pt; }
+  .hero-slogan { color: #333 !important; font-size: 8pt; }
+  .hero-overline { color: var(--red) !important; border-color: var(--red) !important; font-size: 7pt; }
+  .section-block { opacity: 1 !important; transform: none !important; margin-bottom: 1.5rem; }
+  .section-heading { color: var(--red) !important; font-size: 13pt; margin-bottom: 0.6rem; }
+  .section-block p { color: #222 !important; font-size: 9pt; line-height: 1.5; margin-bottom: 0.5rem; }
+
+  .closing-slogan { color: var(--red) !important; font-size: 16pt; }
+  .closing-sub { color: black !important; font-size: 12pt; }
+  .closing { padding: 2rem 0; }
+  .closing::before { display: none; }
+  .red-divider { background: var(--red) !important; height: 1px !important; }
+  .declaration-body { padding: 0.5rem 0; max-width: 100%; }
+  .star-ornament { padding: 0.8rem 0; }
+  footer { color: #666 !important; border-color: #ccc !important; font-size: 7pt; padding: 0.8rem 0; }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 640px) {
+  .hero { padding: 5rem 1.25rem 3rem; }
+  .declaration-body { padding: 2.5rem 1.25rem 4rem; }
+
+  .section-heading { font-size: 1.4rem; }
+  .lang-bar { gap: 0.15rem; flex-wrap: wrap; padding: 0.5rem 0.5rem; }
+  .lang-bar button { font-size: 0.65rem; padding: 0.25rem 0.5rem; }
+  .lang-bar .print-btn { margin-left: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Sidebar toggle -->
+<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open declarations menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
+<!-- Language bar -->
+<nav class="lang-bar" role="navigation" aria-label="Language selection">
+  <button data-lang="pt" onclick="setLang('pt')">Portugu&ecirc;s</button>
+  <button data-lang="es" onclick="setLang('es')">Espa&ntilde;ol</button>
+  <button data-lang="fr" onclick="setLang('fr')">Fran&ccedil;ais</button>
+  <button class="active" data-lang="en" onclick="setLang('en')">English</button>
+  <button data-lang="ar" onclick="setLang('ar')">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</button>
+  <button class="print-btn" onclick="window.print()" title="Print / Save as PDF">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    <span data-i18n="print">Print</span>
+  </button>
+</nav>
+
+<!-- Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar-panel" id="sidebarPanel">
+  <div class="sidebar-header">
+    <h2 id="sidebarTitle">Declarations</h2>
+    <button class="sidebar-close" onclick="toggleSidebar()" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <ul class="sidebar-list" id="sidebarList"></ul>
+</aside>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-stripes"></div>
+
+  <!-- Fourth International logo -->
+  <svg class="hero-graphic" viewBox="0 0 1079 1081" fill="currentColor" color="var(--red)">
+    <g transform="translate(-652.248105,-1003.137222)">
+      <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1187.155773,1568.488198)"><path d="M0,5.914L1.769,5.914L6.055,0.997L9.337,0.997L10.168,0L5.482,0L0,5.914Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1258.140989,1478.695529)"><path d="M0,-11.521L4.532,-6.689L-2.959,1.007L-4.105,1.007L3.079,-6.604L1.316,-6.588L-6.483,1.839L2.818,1.839L5.373,-0.917L4.147,-0.917L2.334,1.007L1.08,1.007L6.756,-4.466L11.246,0.323L14.923,-3.098L7.868,-10.538C6.157,-8.827 5.259,-9.725 5.259,-9.725L1.881,-13.36L0,-11.521Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
+    </g>
+  </svg>
+
+  <div class="hero-content">
+    <span class="hero-overline" data-i18n="overline">Fourth International — Executive Bureau, 3 January 2026</span>
+    <h1 class="hero-title" data-i18n="title">Stop the Imperialist Aggression Against <em data-i18n="title-em">Venezuela!</em></h1>
+    <p class="hero-subtitle" data-i18n="subtitle">Declaration of the Fourth International on the US military aggression against Venezuela</p>
+    <div class="hero-slogans">
+      <span class="hero-slogan" data-i18n="slogan1">Free Maduro! End the military aggression!</span>
+      <span class="hero-slogan" data-i18n="slogan2">Respect the sovereignty of Venezuela and Latin America!</span>
+    </div>
+  </div>
+  <a href="#declaration" class="hero-scroll">
+    <span data-i18n="scroll">Read the Declaration</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</header>
+
+<div class="red-divider thick"></div>
+
+<!-- DECLARATION BODY -->
+<main class="declaration-body" id="declaration">
+
+  <!-- Section 1 -->
+  <section class="section-block">
+    <p data-i18n="s1p1">The Donald Trump administration has carried out a military air strike against surgical targets in Venezuelan territory, that is, bombing attacks on official buildings and military bases in the country. The event, unprecedented on the continent for almost three decades, constitutes a flagrant violation of Venezuelan sovereignty, of Latin America as a whole, in total disregard for international law.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 2 -->
+  <section class="section-block">
+    <p data-i18n="s1p2">During the early hours of Saturday, January 3, bombings and explosions in Caracas and two other states in Venezuela created a smokescreen to capture and kidnap President Nicolas Maduro, as Trump himself confessed on his Truth Social account. The president's fate has not yet been confirmed, much less whether and which internal sectors may have collaborated in Maduro's capture.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 3 -->
+  <section class="section-block">
+    <p data-i18n="s1p3">The uncertainty about the country's future makes it more urgent than ever for all progressive, democratic, socialist, and revolutionary forces to launch an international movement against imperialist aggression and for the Venezuelan people's right to decide their destiny autonomously and sovereignly. Regardless of one's opinion or position on the regime of the apparently deposed president, imperialist intervention is not a solution for the long-suffering people of Venezuela, the peoples of Latin America, or any of those oppressed by imperialism around the world. Such intervention has always been and continues to be contrary to their interests. It can only lead to death, repression, and injustice.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 4 -->
+  <section class="section-block">
+    <p data-i18n="s1p4">The necessary global campaign must include demonstrations and rallies in front of US embassies in every country, as a show of unity among the peoples against imperialist aggression, such as the present one.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 5 -->
+  <section class="section-block">
+    <p data-i18n="s1p5">The Fourth International stands in solidarity with the Venezuelan people and working class, demanding the immediate withdrawal of the military deployment that has maintained an immense US military force in the Caribbean in recent months. We demand the release of Nicolas Maduro and his wife Cilia Adela Flores &mdash; it is up to the Venezuelan people alone to elect and throw out their governments.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 6 -->
+  <section class="section-block">
+    <p data-i18n="s1p6"><strong>We demand an end to the military aggression and respect for the territorial and political sovereignty of Venezuela and Latin America!</strong></p>
+  </section>
+
+</main>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="closing-content section-block">
+    <p class="closing-slogan" data-i18n="closing1">Free Maduro!</p>
+    <p class="closing-sub" data-i18n="closing2">End the aggression! Respect sovereignty!</p>
+    <div class="closing-logo">
+      <svg viewBox="0 0 1079 1081" fill="var(--red)" width="80" height="80">
+        <g transform="translate(-652.248105,-1003.137222)">
+          <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1187.155773,1568.488198)"><path d="M0,5.914L1.769,5.914L6.055,0.997L9.337,0.997L10.168,0L5.482,0L0,5.914Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1258.140989,1478.695529)"><path d="M0,-11.521L4.532,-6.689L-2.959,1.007L-4.105,1.007L3.079,-6.604L1.316,-6.588L-6.483,1.839L2.818,1.839L5.373,-0.917L4.147,-0.917L2.334,1.007L1.08,1.007L6.756,-4.466L11.246,0.323L14.923,-3.098L7.868,-10.538C6.157,-8.827 5.259,-9.725 5.259,-9.725L1.881,-13.36L0,-11.521Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span data-i18n="footer">Fourth International &mdash; Executive Bureau, 3 January 2026</span>
+</footer>
+
+<script>
+// ========== TRANSLATIONS ==========
+const translations = {
+  en: {
+    overline: "Fourth International \u2014 Executive Bureau, 3 January 2026",
+    title: 'Stop the Imperialist Aggression Against <em>Venezuela!</em>',
+    "title-em": "Venezuela!",
+    subtitle: "Declaration of the Fourth International on the US military aggression against Venezuela",
+    slogan1: "Free Maduro! End the military aggression!",
+    slogan2: "Respect the sovereignty of Venezuela and Latin America!",
+    scroll: "Read the Declaration",
+    print: "Print",
+    s1p1: "The Donald Trump administration has carried out a military air strike against surgical targets in Venezuelan territory, that is, bombing attacks on official buildings and military bases in the country. The event, unprecedented on the continent for almost three decades, constitutes a flagrant violation of Venezuelan sovereignty, of Latin America as a whole, in total disregard for international law.",
+    s1p2: "During the early hours of Saturday, January 3, bombings and explosions in Caracas and two other states in Venezuela created a smokescreen to capture and kidnap President Nicol\u00e1s Maduro, as Trump himself confessed on his Truth Social account. The president\u2019s fate has not yet been confirmed, much less whether and which internal sectors may have collaborated in Maduro\u2019s capture.",
+    s1p3: "The uncertainty about the country\u2019s future makes it more urgent than ever for all progressive, democratic, socialist, and revolutionary forces to launch an international movement against imperialist aggression and for the Venezuelan people\u2019s right to decide their destiny autonomously and sovereignly. Regardless of one\u2019s opinion or position on the regime of the apparently deposed president, imperialist intervention is not a solution for the long-suffering people of Venezuela, the peoples of Latin America, or any of those oppressed by imperialism around the world. Such intervention has always been and continues to be contrary to their interests. It can only lead to death, repression, and injustice.",
+    s1p4: "The necessary global campaign must include demonstrations and rallies in front of US embassies in every country, as a show of unity among the peoples against imperialist aggression, such as the present one.",
+    s1p5: "The Fourth International stands in solidarity with the Venezuelan people and working class, demanding the immediate withdrawal of the military deployment that has maintained an immense US military force in the Caribbean in recent months. We demand the release of Nicol\u00e1s Maduro and his wife Cilia Adela Flores \u2014 it is up to the Venezuelan people alone to elect and throw out their governments.",
+    s1p6: '<strong>We demand an end to the military aggression and respect for the territorial and political sovereignty of Venezuela and Latin America!</strong>',
+    closing1: "Free Maduro!",
+    closing2: "End the aggression! Respect sovereignty!",
+    footer: "Fourth International \u2014 Executive Bureau, 3 January 2026",
+    sidebar_title: "Declarations"
+  },
+
+  es: {
+    overline: "Cuarta Internacional \u2014 Bur\u00f3 Ejecutivo, 3 de enero de 2026",
+    title: '\u00a1Alto a la agresi\u00f3n imperialista contra <em>Venezuela!</em>',
+    "title-em": "Venezuela!",
+    subtitle: "Declaraci\u00f3n de la Cuarta Internacional sobre la agresi\u00f3n militar de EE.UU. contra Venezuela",
+    slogan1: "\u00a1Libertad para Maduro! \u00a1Cese de la agresi\u00f3n militar!",
+    slogan2: "\u00a1Respeto a la soberan\u00eda de Venezuela y Am\u00e9rica Latina!",
+    scroll: "Leer la Declaraci\u00f3n",
+    print: "Imprimir",
+    s1p1: "La administraci\u00f3n de Donald Trump ha consumado un ataque militar a\u00e9reo contra objetivos espec\u00edficos en territorio venezolano, es decir, ataques con bombas a edificios oficiales y bases militares del pa\u00eds. El evento, in\u00e9dito en el continente hace m\u00e1s de tres d\u00e9cadas, constituye una flagrante violaci\u00f3n de la soberan\u00eda venezolana, de Am\u00e9rica Latina en su conjunto y de los principios m\u00e1s elementales del derecho internacional.",
+    s1p2: "Durante horas de la madrugada del s\u00e1bado 3 de enero, bombardeos y explosiones en Caracas y otros dos estados de Venezuela han servido de cortina de humo para apresar y secuestrar al presidente Nicol\u00e1s Maduro, como lo ha confesado el propio Trump en su cuenta de la red Truth Social. Todav\u00eda no est\u00e1 comprobado el destino del presidente, mucho menos si hubo colaboraci\u00f3n interna y cu\u00e1les de estos sectores podr\u00edan haber colaborado para lograr la captura de Maduro.",
+    s1p3: "La indefinici\u00f3n sobre el futuro del pa\u00eds hace m\u00e1s urgente que nunca que todas las fuerzas progresistas, democr\u00e1ticas, socialistas y revolucionarias pongan en marcha un movimiento internacional contra la agresi\u00f3n imperialista y por el derecho del pueblo venezolano a decidir sobre su destino de manera aut\u00f3noma y soberana. Independientemente de la opini\u00f3n o postura sobre el r\u00e9gimen del presidente aparentemente depuesto, la intervenci\u00f3n imperialista no es una salida para el sufrido pueblo de Venezuela, los pueblos de Am\u00e9rica Latina, y cualquiera oprimido por el imperialismo alrededor del mundo. Esa intervenci\u00f3n siempre ha sido y sigue siendo contraria a sus intereses. Solo puede conducir a la muerte, la opresi\u00f3n y la injusticia.",
+    s1p4: "La campa\u00f1a mundial necesaria debe incluir movilizaciones y concentraciones frente a las embajadas norteamericanas en cada pa\u00eds, como una muestra de la unidad de los pueblos contra las agresiones imperialistas como la presente.",
+    s1p5: "La IV Internacional se solidariza con el pueblo y la clase trabajadora venezolana, y exige el retiro inmediato del despliegue militar que durante los \u00faltimos meses mantiene una inmensa fuerza militar de EEUU en el Caribe. Exigimos la liberaci\u00f3n de Nicol\u00e1s Maduro y de su esposa Cilia Adela Flores \u2014 solo corresponde al pueblo venezolano elegir y echar a sus gobiernos.",
+    s1p6: '<strong>\u00a1Exigimos el cese de la agresi\u00f3n militar y el respeto a la soberan\u00eda territorial y pol\u00edtica de Venezuela y de toda Am\u00e9rica Latina!</strong>',
+    closing1: "\u00a1Libertad para Maduro!",
+    closing2: "\u00a1Cese de la agresi\u00f3n! \u00a1Respeto a la soberan\u00eda!",
+    footer: "Cuarta Internacional \u2014 Bur\u00f3 Ejecutivo, 3 de enero de 2026",
+    sidebar_title: "Declaraciones"
+  },
+
+  fr: {
+    overline: "Quatri\u00e8me Internationale \u2014 Bureau ex\u00e9cutif, 3 janvier 2026",
+    title: "Halte \u00e0 l\u2019agression imp\u00e9rialiste contre le <em>Venezuela\u00a0!</em>",
+    "title-em": "Venezuela\u00a0!",
+    subtitle: "D\u00e9claration de la Quatri\u00e8me Internationale sur l\u2019agression militaire am\u00e9ricaine contre le Venezuela",
+    slogan1: "Lib\u00e9rez Maduro\u00a0! Fin de l\u2019agression militaire\u00a0!",
+    slogan2: "Respect de la souverainet\u00e9 du Venezuela et de l\u2019Am\u00e9rique latine\u00a0!",
+    scroll: "Lire la D\u00e9claration",
+    print: "Imprimer",
+    s1p1: "L\u2019administration de Donald Trump a men\u00e9 une attaque a\u00e9rienne militaire contre des cibles chirurgicales sur le territoire v\u00e9n\u00e9zu\u00e9lien, c\u2019est-\u00e0-dire des bombardements contre des b\u00e2timents officiels et des bases militaires du pays. Cet \u00e9v\u00e9nement, sans pr\u00e9c\u00e9dent sur le continent depuis pr\u00e8s de trois d\u00e9cennies, constitue une violation flagrante de la souverainet\u00e9 v\u00e9n\u00e9zu\u00e9lienne, de l\u2019Am\u00e9rique latine dans son ensemble, en totale violation du droit international.",
+    s1p2: "Au petit matin du samedi 3 janvier, des bombardements et des explosions \u00e0 Caracas et dans deux autres \u00c9tats du Venezuela ont servi de diversion pour arr\u00eater et kidnapper le pr\u00e9sident Nicol\u00e1s Maduro, comme l\u2019a avou\u00e9 Trump lui-m\u00eame sur son r\u00e9seau Truth Social. Le sort du pr\u00e9sident n\u2019est pas encore connu, et on ignore encore si et quels secteurs internes ont pu collaborer \u00e0 la capture de Maduro.",
+    s1p3: "L\u2019incertitude quant \u00e0 l\u2019avenir du pays rend plus urgent que jamais que toutes les forces progressistes, d\u00e9mocratiques, socialistes et r\u00e9volutionnaires lancent un mouvement international contre l\u2019agression imp\u00e9rialiste et pour le droit du peuple v\u00e9n\u00e9zu\u00e9lien \u00e0 d\u00e9cider de son destin de mani\u00e8re autonome et souveraine. Ind\u00e9pendamment de l\u2019opinion ou de la position sur le r\u00e9gime du pr\u00e9sident apparemment destitu\u00e9, l\u2019intervention imp\u00e9rialiste n\u2019est pas une solution pour les souffrances du peuple v\u00e9n\u00e9zu\u00e9lien, les peuples d\u2019Am\u00e9rique latine et pour aucun des peuples opprim\u00e9s par l\u2019imp\u00e9rialisme dans le monde. Une telle intervention a toujours \u00e9t\u00e9 et continue \u00e0 \u00eatre contraire \u00e0 leurs int\u00e9r\u00eats. Cela ne peut apporter que la mort, la r\u00e9pression et l\u2019injustice.",
+    s1p4: "La campagne mondiale n\u00e9cessaire doit inclure des mobilisations et des rassemblements devant les ambassades am\u00e9ricaines dans chaque pays, afin de montrer l\u2019unit\u00e9 des peuples contre les agressions imp\u00e9rialistes, comme celle-ci.",
+    s1p5: "La IVe Internationale est solidaire du peuple et de la classe ouvri\u00e8re v\u00e9n\u00e9zu\u00e9liens, exigeant le retrait imm\u00e9diat du d\u00e9ploiement militaire qui, depuis plusieurs mois, maintient une immense force militaire am\u00e9ricaine dans les Cara\u00efbes. Nous exigeons la lib\u00e9ration de Nicol\u00e1s Maduro et de son \u00e9pouse Cilia Adela Flores. Il appartient au peuple v\u00e9n\u00e9zu\u00e9lien d\u2019\u00e9lire et de chasser ses gouvernements.",
+    s1p6: '<strong>Nous voulons la fin de l\u2019agression militaire et le respect de la souverainet\u00e9 territoriale et politique du Venezuela et de l\u2019Am\u00e9rique latine\u00a0!</strong>',
+    closing1: "Lib\u00e9rez Maduro\u00a0!",
+    closing2: "Fin de l\u2019agression\u00a0! Respect de la souverainet\u00e9\u00a0!",
+    footer: "Quatri\u00e8me Internationale \u2014 Bureau ex\u00e9cutif, 3 janvier 2026",
+    sidebar_title: "D\u00e9clarations"
+  },
+
+  pt: {
+    overline: "Quarta Internacional \u2014 Bureau Executivo, 3 de janeiro de 2026",
+    title: 'Parar a agress\u00e3o imperialista contra a <em>Venezuela!</em>',
+    "title-em": "Venezuela!",
+    subtitle: "Declara\u00e7\u00e3o da IV Internacional sobre as recentes agress\u00f5es imperialistas contra a Venezuela e o sequestro do presidente Nicol\u00e1s Maduro",
+    slogan1: "Libertem Maduro! Fim da agress\u00e3o militar!",
+    slogan2: "Respeitem a soberania da Venezuela e da Am\u00e9rica Latina!",
+    scroll: "Leia a Declara\u00e7\u00e3o",
+    print: "Imprimir",
+    s1p1: "O governo de Donald Trump realizou um ataque a\u00e9reo militar contra alvos espec\u00edficos em territ\u00f3rio venezuelano, ou seja, ataques com bombas a edif\u00edcios oficiais e bases militares do pa\u00eds. O evento, in\u00e9dito no continente h\u00e1 mais de tr\u00eas d\u00e9cadas, constitui uma viola\u00e7\u00e3o flagrante da soberania venezuelana, da Am\u00e9rica Latina como um todo e dos princ\u00edpios mais elementares do direito internacional.",
+    s1p2: "Durante as primeiras horas da madrugada de s\u00e1bado, 3 de janeiro, bombardeios e explos\u00f5es em Caracas e em outros dois estados da Venezuela serviram como cortina de fuma\u00e7a para prender e sequestrar o presidente Nicol\u00e1s Maduro, como o pr\u00f3prio Trump confessou em sua conta na rede Truth Social. Ainda n\u00e3o foi comprovado o destino do presidente, muito menos se houve colabora\u00e7\u00e3o interna e quais desses setores poderiam ter colaborado para conseguir a captura de Maduro.",
+    s1p3: "A indefini\u00e7\u00e3o sobre o futuro do pa\u00eds torna mais urgente do que nunca que todas as for\u00e7as progressistas, democr\u00e1ticas, socialistas e revolucion\u00e1rias lancem um movimento internacional contra a agress\u00e3o imperialista e pelo direito do povo venezuelano de decidir sobre seu destino de forma aut\u00f4noma e soberana. Independentemente da opini\u00e3o ou posi\u00e7\u00e3o sobre o regime do presidente aparentemente deposto, a interven\u00e7\u00e3o imperialista n\u00e3o \u00e9 uma sa\u00edda para o sofrido povo da Venezuela, os povos da Am\u00e9rica Latina e qualquer outro oprimido pelo imperialismo em todo o mundo. Essa interven\u00e7\u00e3o sempre foi e continua sendo contr\u00e1ria aos seus interesses. Ela s\u00f3 pode levar \u00e0 morte, \u00e0 opress\u00e3o e \u00e0 injusti\u00e7a.",
+    s1p4: "A campanha mundial necess\u00e1ria deve incluir mobiliza\u00e7\u00f5es e concentra\u00e7\u00f5es em frente \u00e0s embaixadas americanas em cada pa\u00eds, como uma demonstra\u00e7\u00e3o da unidade dos povos contra as agress\u00f5es imperialistas como a atual.",
+    s1p5: "A IV Internacional se solidariza com o povo e a classe trabalhadora venezuelana e exige a retirada imediata do destacamento militar que, nos \u00faltimos meses, mant\u00e9m uma imensa for\u00e7a militar dos EUA no Caribe. Exigimos a liberta\u00e7\u00e3o de Nicol\u00e1s Maduro e sua esposa Cilia Adela Flores \u2014 cabe exclusivamente ao povo venezuelano eleger e destituir seus governos.",
+    s1p6: '<strong>Exigimos o fim da agress\u00e3o militar e o respeito \u00e0 soberania territorial e pol\u00edtica da Venezuela e de toda a Am\u00e9rica Latina!</strong>',
+    closing1: "Libertem Maduro!",
+    closing2: "Fim da agress\u00e3o! Respeitem a soberania!",
+    footer: "Quarta Internacional \u2014 Bureau Executivo, 3 de janeiro de 2026",
+    sidebar_title: "Declara\u00e7\u00f5es"
+  },
+
+  ar: {
+    overline: "\u0627\u0644\u0623\u0645\u0645\u064a\u0629 \u0627\u0644\u0631\u0627\u0628\u0639\u0629 \u2014 \u0627\u0644\u0645\u0643\u062a\u0628 \u0627\u0644\u062a\u0646\u0641\u064a\u0630\u064a\u060c 3 \u064a\u0646\u0627\u064a\u0631 2026",
+    title: '\u0623\u0648\u0642\u0641\u0648\u0627 \u0627\u0644\u0639\u062f\u0648\u0627\u0646 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a \u0639\u0644\u0649 <em>\u0641\u0646\u0632\u0648\u064a\u0644\u0627!</em>',
+    "title-em": "\u0641\u0646\u0632\u0648\u064a\u0644\u0627!",
+    subtitle: "\u0647\u0630\u0647 \u0627\u0644\u062a\u0631\u062c\u0645\u0629 \u063a\u064a\u0631 \u0645\u062a\u0648\u0641\u0631\u0629 \u0628\u0639\u062f.",
+    slogan1: "",
+    slogan2: "",
+    scroll: "\u0627\u0642\u0631\u0623 \u0627\u0644\u0625\u0639\u0644\u0627\u0646",
+    print: "\u0637\u0628\u0627\u0639\u0629",
+    s1p1: "This translation is not yet available. / Esta traducci\u00f3n a\u00fan no est\u00e1 disponible. / Cette traduction n\u2019est pas encore disponible. / Esta tradu\u00e7\u00e3o ainda n\u00e3o est\u00e1 dispon\u00edvel. / \u0647\u0630\u0647 \u0627\u0644\u062a\u0631\u062c\u0645\u0629 \u063a\u064a\u0631 \u0645\u062a\u0648\u0641\u0631\u0629 \u0628\u0639\u062f.",
+    s1p2: "",
+    s1p3: "",
+    s1p4: "",
+    s1p5: "",
+    s1p6: "",
+    closing1: "!\u0623\u0637\u0644\u0642\u0648\u0627 \u0633\u0631\u0627\u062d \u0645\u0627\u062f\u0648\u0631\u0648",
+    closing2: "!\u0623\u0648\u0642\u0641\u0648\u0627 \u0627\u0644\u0639\u062f\u0648\u0627\u0646",
+    footer: "\u0627\u0644\u0623\u0645\u0645\u064a\u0629 \u0627\u0644\u0631\u0627\u0628\u0639\u0629 \u2014 \u0627\u0644\u0645\u0643\u062a\u0628 \u0627\u0644\u062a\u0646\u0641\u064a\u0630\u064a\u060c 3 \u064a\u0646\u0627\u064a\u0631 2026",
+    sidebar_title: "\u0627\u0644\u0625\u0639\u0644\u0627\u0646\u0627\u062a"
+  }
+};
+
+// ========== DECLARATIONS DATA ==========
+const declarations = [
+  { title: { en: "Against Neo-Fascist Authoritarianism and All Forms of Imperialism", pt: "Contra o autoritarismo neofascista e todas as formas de imperialismo", fr: "Contre l'autoritarisme n\u00e9o-fasciste et toutes les formes d'imp\u00e9rialisme", es: "Contra el autoritarismo neofascista y todas las formas de imperialismo", ar: "\u0636\u062f \u0627\u0644\u0627\u0633\u062a\u0628\u062f\u0627\u062f \u0627\u0644\u0646\u064a\u0648\u0641\u0627\u0634\u064a \u0648\u062c\u0645\u064a\u0639 \u0623\u0634\u0643\u0627\u0644 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u0629" }, date: "2026-03-15", url: "index.html", current: false },
+  { title: { en: "Defeat the Imperialist Aggressors! Stop the US-Israeli War on Iran!", pt: "Para a derrota dos agressores imperialistas!", fr: "Pour la d\u00e9faite des agresseurs imp\u00e9rialistes !", es: "\u00a1Por la derrota de los agresores imperialistas!", ar: "\u0645\u0646 \u0623\u062c\u0644 \u0647\u0632\u064a\u0645\u0629 \u0627\u0644\u063a\u0632\u0627\u0629 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u064a\u0646!" }, date: "2026-03-13", url: "750-defeat-imperialist-aggressors.html", current: false },
+  { title: { en: "US/Israel Hands Off Iran! No Liberation Through US Bombs!", pt: "Estados Unidos/Israel, cessem toda interven\u00e7\u00e3o no Ir\u00e3!", fr: "\u00c9tats-Unis/Isra\u00ebl, cessez toute intervention en Iran !", es: "\u00a1EE. UU. e Israel fuera de Ir\u00e1n!", ar: "\u0627\u0644\u0648\u0644\u0627\u064a\u0627\u062a \u0627\u0644\u0645\u062a\u062d\u062f\u0629/\u0625\u0633\u0631\u0627\u0626\u064a\u0644 \u0627\u0631\u0641\u0639\u0648\u0627 \u0623\u064a\u062f\u064a\u0643\u0645 \u0639\u0646 \u0625\u064a\u0631\u0627\u0646!" }, date: "2026-02-28", url: "748-us-israel-hands-off-iran.html", current: false },
+  { title: { en: "Against the Theocratic and Authoritarian Regime in Iran and Imperialist Interference", pt: "Contra o regime teocr\u00e1tico e autorit\u00e1rio no Ir\u00e3 e a inger\u00eancia imperialista", fr: "Contre le r\u00e9gime th\u00e9ocratique et autoritaire de l'Iran et les ing\u00e9rences imp\u00e9rialistes", es: "Contra el r\u00e9gimen teocr\u00e1tico y autoritario de Ir\u00e1n y las injerencias imperialistas", ar: "\u0636\u062f \u0627\u0644\u0646\u0638\u0627\u0645 \u0627\u0644\u062b\u064a\u0648\u0642\u0631\u0627\u0637\u064a \u0627\u0644\u0645\u0633\u062a\u0628\u062f \u0641\u064a \u0625\u064a\u0631\u0627\u0646 \u0648\u0636\u062f \u0627\u0644\u062a\u062f\u062e\u0644\u0627\u062a \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u0629" }, date: "2026-01-05", url: "744-iran-solidarity.html", current: false },
+  { title: { en: "URGENT \u2014 Stop the Imperialist Aggression Against Venezuela!", pt: "URGENTE! Parar a agress\u00e3o imperialista contra a Venezuela!", fr: "URGENT \u2014 Halte \u00e0 l\u2019agression imp\u00e9rialiste contre le Venezuela !", es: "URGENTE \u2014 \u00a1Alto a la agresi\u00f3n imperialista contra Venezuela!", ar: "\u0639\u0627\u062c\u0644 \u2014 \u0623\u0648\u0642\u0641\u0648\u0627 \u0627\u0644\u0639\u062f\u0648\u0627\u0646 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a \u0639\u0644\u0649 \u0641\u0646\u0632\u0648\u064a\u0644\u0627!" }, date: "2026-01-03", url: "743-stop-aggression-venezuela.html", current: true },
+  { title: { en: "Trump: Hands Off Venezuela and Latin America!", pt: "Trump: tire as m\u00e3os da Venezuela e da Am\u00e9rica Latina!", fr: "Halte aux attaques de Trump contre le Venezuela et l'Am\u00e9rique latine", es: "Trump: \u00a1Quita las manos de Venezuela y de Am\u00e9rica Latina!", ar: "\u062a\u0631\u0627\u0645\u0628: \u0627\u0631\u0641\u0639 \u064a\u062f\u064a\u0643 \u0639\u0646 \u0641\u0646\u0632\u0648\u064a\u0644\u0627 \u0648\u0623\u0645\u0631\u064a\u0643\u0627 \u0627\u0644\u0644\u0627\u062a\u064a\u0646\u064a\u0629!" }, date: "2025-10-27", url: "734-trump-hands-off-venezuela.html", current: false },
+  { title: { en: "After the Ceasefire: Our Tasks for the Liberation of Palestine", pt: "Ap\u00f3s o cessar-fogo: nossas tarefas para a liberta\u00e7\u00e3o da Palestina", fr: "Apr\u00e8s le cessez-le-feu, nos t\u00e2ches pour la lib\u00e9ration de la Palestine", es: "Despu\u00e9s del alto el fuego, nuestras tareas para la liberaci\u00f3n de Palestina", ar: "\u0628\u0639\u062f \u0648\u0642\u0641 \u0625\u0637\u0644\u0627\u0642 \u0627\u0644\u0646\u0627\u0631: \u0645\u0647\u0627\u0645\u0646\u0627 \u0644\u062a\u062d\u0631\u064a\u0631 \u0641\u0644\u0633\u0637\u064a\u0646" }, date: "2025-10-27", url: "735-palestine-ceasefire-tasks.html", current: false },
+  { title: { en: "Meeting of the Fourth International Bureau: Organizing to Act", pt: "Reuni\u00e3o do Bureau da Internacional: organizar-se para agir", fr: "R\u00e9union du Bureau de l'Internationale : s'organiser pour agir", es: "Reuni\u00f3n del Bur\u00f3 de la Internacional: organizarse para actuar", ar: "\u0627\u062c\u062a\u0645\u0627\u0639 \u0645\u0643\u062a\u0628 \u0627\u0644\u0623\u0645\u0645\u064a\u0629: \u062a\u0646\u0638\u064a\u0645 \u0627\u0644\u0639\u0645\u0644 \u0645\u0646 \u0623\u062c\u0644 \u0627\u0644\u0641\u0639\u0644" }, date: "2025-07-17", url: "724-bureau-meeting.html", current: false },
+  { title: { en: "Building a Global Movement Against Genocide in Palestine", pt: "Construindo um movimento global contra o genoc\u00eddio na Palestina", fr: "Construire un mouvement mondial contre le g\u00e9nocide en Palestine", es: "Construyendo un movimiento global contra el genocidio en Palestina", ar: "\u0628\u0646\u0627\u0621 \u062d\u0631\u0643\u0629 \u0639\u0627\u0644\u0645\u064a\u0629 \u0636\u062f \u0627\u0644\u0625\u0628\u0627\u062f\u0629 \u0627\u0644\u062c\u0645\u0627\u0639\u064a\u0629 \u0641\u064a \u0641\u0644\u0633\u0637\u064a\u0646" }, date: "2025-07-13", url: "721-global-movement-palestine.html", current: false },
+  { title: { en: "Trump's First Six Months: A Threat to Our Planet and Its Peoples", pt: "Os seis primeiros meses de Trump: uma amea\u00e7a ao nosso planeta e seus povos", fr: "Les six premiers mois de Trump : Une menace pour notre plan\u00e8te et ses peuples", es: "Los seis primeros meses de Trump: Una amenaza para nuestro planeta y sus pueblos", ar: "\u0623\u0634\u0647\u0631 \u062a\u0631\u0627\u0645\u0628 \u0627\u0644\u0633\u062a\u0629 \u0627\u0644\u0623\u0648\u0644\u0649: \u062a\u0647\u062f\u064a\u062f \u0644\u0643\u0648\u0643\u0628\u0646\u0627 \u0648\u0644\u0634\u0639\u0648\u0628\u0647" }, date: "2025-07-13", url: "720-trumps-first-six-months.html", current: false }
+];
+
+// ========== SIDEBAR ==========
+function toggleSidebar() {
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+  document.getElementById('sidebarPanel').classList.toggle('open');
+}
+
+function renderSidebar(lang) {
+  const t = translations[lang];
+  document.getElementById('sidebarTitle').textContent = t.sidebar_title || 'Declarations';
+  const list = document.getElementById('sidebarList');
+  list.innerHTML = declarations.map(d => {
+    const cls = [d.current ? 'current' : '', d.url === '#' ? 'placeholder' : ''].filter(Boolean).join(' ');
+    return `<li><a href="${d.url}" class="${cls}"><span class="decl-title">${d.title[lang] || d.title.en}</span><span class="decl-date">${d.date}</span></a></li>`;
+  }).join('');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const overlay = document.getElementById('sidebarOverlay');
+    if (overlay.classList.contains('open')) toggleSidebar();
+  }
+});
+
+// ========== SET LANGUAGE ==========
+function setLang(lang) {
+  const html = document.documentElement;
+  html.lang = lang;
+  html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+  // Update active button
+  document.querySelectorAll('.lang-bar button[data-lang]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Update all translatable elements
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      if (t[key].includes('<em>') || t[key].includes('<strong>')) {
+        el.innerHTML = t[key];
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+
+  // Update sidebar
+  renderSidebar(lang);
+}
+
+// ========== AUTO-DETECT LANGUAGE ==========
+(function() {
+  const supported = ['pt', 'es', 'fr', 'en', 'ar'];
+  const langs = navigator.languages || [navigator.language || 'en'];
+  let match = 'en';
+  for (const l of langs) {
+    const code = l.split('-')[0].toLowerCase();
+    if (supported.includes(code)) { match = code; break; }
+  }
+  setLang(match);
+})();
+
+// ========== SCROLL ANIMATIONS ==========
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.section-block').forEach(block => observer.observe(block));
+
+// ========== SCROLL PROGRESS BAR ==========
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollProgress').style.width = progress + '%';
+}, { passive: true });
+</script>
+</body>
+</html>

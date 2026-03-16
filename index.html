@@ -410,10 +410,150 @@ footer {
   transition: width 0.1s linear;
 }
 
+/* ==================== SIDEBAR ==================== */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  background: var(--langbar-bg);
+  border: none;
+  border-right: 1px solid var(--langbar-border);
+  border-bottom: 1px solid var(--langbar-border);
+  color: var(--white);
+  cursor: pointer;
+  padding: 0.6rem 0.75rem;
+  /* display: flex; — hidden for now */
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+[dir="rtl"] .sidebar-toggle {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--langbar-border);
+}
+.sidebar-toggle:hover { border-color: var(--red); color: var(--red); }
+.sidebar-toggle svg { width: 16px; height: 16px; }
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.sidebar-overlay.open { opacity: 1; visibility: visible; }
+
+.sidebar-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1101;
+  width: 320px;
+  max-width: 85vw;
+  background: var(--off-black);
+  border-right: 1px solid var(--divider-red-alpha);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+html[dir="rtl"] .sidebar-panel {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--divider-red-alpha);
+  transform: translateX(100%);
+}
+.sidebar-overlay.open + .sidebar-panel,
+.sidebar-panel.open { transform: translateX(0); }
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--divider-red-alpha);
+}
+.sidebar-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+}
+html[dir="rtl"] .sidebar-header h2 { font-family: var(--font-arabic); }
+.sidebar-close {
+  background: none;
+  border: none;
+  color: var(--gray);
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+.sidebar-close:hover { color: var(--white); }
+.sidebar-close svg { width: 20px; height: 20px; }
+
+.sidebar-list {
+  list-style: none;
+  padding: 0.75rem 0;
+  margin: 0;
+}
+.sidebar-list li { padding: 0; }
+.sidebar-list a {
+  display: block;
+  padding: 0.85rem 1.25rem;
+  text-decoration: none;
+  color: var(--text-body);
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+html[dir="rtl"] .sidebar-list a {
+  border-left: none;
+  border-right: 3px solid transparent;
+}
+.sidebar-list a:hover { background: rgba(200,16,46,0.06); }
+.sidebar-list a.current {
+  border-left-color: var(--red);
+  background: rgba(200,16,46,0.1);
+}
+html[dir="rtl"] .sidebar-list a.current {
+  border-left-color: transparent;
+  border-right-color: var(--red);
+}
+.sidebar-list a.placeholder { opacity: 0.55; }
+.sidebar-list .decl-title {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--white);
+}
+.sidebar-list a.placeholder .decl-title { color: var(--text-body); }
+.sidebar-list .decl-date {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray);
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .sidebar-panel { max-width: calc(85vw); width: 360px; }
+  .sidebar-toggle { padding: 0.35rem 0.5rem; }
+}
+
 /* ==================== PRINT STYLES ==================== */
 @media print {
   @page { margin: 2.5cm 3cm; }
-  .lang-bar, .scroll-progress, .hero-scroll, .hero-stripes, .hero-graphic { display: none !important; }
+  .lang-bar, .scroll-progress, .hero-scroll, .hero-stripes, .hero-graphic, .sidebar-overlay, .sidebar-panel, .sidebar-toggle { display: none !important; }
   body { background: white !important; color: black !important; font-size: 9pt; line-height: 1.5; }
   .hero { min-height: auto; padding: 1.5rem 0; }
   .hero::before { display: none; }
@@ -453,6 +593,11 @@ footer {
 <!-- Scroll progress -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
+<!-- Sidebar toggle -->
+<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open declarations menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
 <!-- Language bar -->
 <nav class="lang-bar" role="navigation" aria-label="Language selection">
   <button data-lang="pt" onclick="setLang('pt')">Português</button>
@@ -465,6 +610,18 @@ footer {
     <span data-i18n="print">Print</span>
   </button>
 </nav>
+
+<!-- Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar-panel" id="sidebarPanel">
+  <div class="sidebar-header">
+    <h2 id="sidebarTitle">Declarations</h2>
+    <button class="sidebar-close" onclick="toggleSidebar()" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <ul class="sidebar-list" id="sidebarList"></ul>
+</aside>
 
 <!-- HERO -->
 <header class="hero">
@@ -651,7 +808,8 @@ const translations = {
     s8p3: 'Today more than ever, we must practice consistent internationalism, a solidarity without borders that encompasses the struggles of workers, the oppressed, and for self-determination in all countries of the world, without exception. It is a policy that opposes all forms of imperialism. It does not subordinate the struggle in any country to that of another country. It is the policy that corresponds to the slogan <em>Workers of the world, unite!</em>',
     closing1: "For solidarity without borders!",
     closing2: "For internationalism without exceptions!",
-    footer: "Fourth International — Antifascist Forum, Brazil, 2026"
+    footer: "Fourth International — Antifascist Forum, Brazil, 2026",
+    sidebar_title: "Declarations"
   },
 
   fr: {
@@ -706,7 +864,8 @@ const translations = {
     s8p4: "C'est la politique qui correspond au mot d'ordre Prolétaires de tous les pays, unissez-vous !",
     closing1: "Pour la solidarité sans frontières !",
     closing2: "Pour l'internationalisme sans exceptions !",
-    footer: "Quatrième Internationale — Forum antifasciste, Brésil, 2026"
+    footer: "Quatrième Internationale — Forum antifasciste, Brésil, 2026",
+    sidebar_title: "Déclarations"
   },
 
   es: {
@@ -761,7 +920,8 @@ const translations = {
     s8p4: "Es la política que corresponde a la consigna ¡Proletarios de todos los países, uníos!",
     closing1: "¡Por la solidaridad sin fronteras!",
     closing2: "¡Por el internacionalismo sin excepciones!",
-    footer: "Cuarta Internacional — Foro Antifascista, Brasil, 2026"
+    footer: "Cuarta Internacional — Foro Antifascista, Brasil, 2026",
+    sidebar_title: "Declaraciones"
   },
 
   ar: {
@@ -816,7 +976,8 @@ const translations = {
     s8p4: "إنها السياسة التي تتوافق مع شعار: يا عمال العالم، اتحدوا!",
     closing1: "!من أجل التضامن بلا حدود",
     closing2: "!من أجل الأممية بلا استثناءات",
-    footer: "الأممية الرابعة — المنتدى المناهض للفاشية، البرازيل، 2026"
+    footer: "الأممية الرابعة — المنتدى المناهض للفاشية، البرازيل، 2026",
+    sidebar_title: "الإعلانات"
   },
 
   pt: {
@@ -863,9 +1024,97 @@ const translations = {
     s8p3: 'Hoje mais do que nunca, devemos praticar um internacionalismo consequente, uma solidariedade sem fronteiras que abranja as lutas dos trabalhadores, dos oprimidos e pela autodeterminação em todos os países do mundo, sem exceção. É uma política que se opõe a todas as formas de imperialismo. Não subordina a luta de nenhum país à de outro. É a política que corresponde à palavra de ordem <em>Trabalhadores de todo o mundo, uni-vos!</em>',
     closing1: "Pela solidariedade sem fronteiras!",
     closing2: "Pelo internacionalismo sem exceções!",
-    footer: "Quarta Internacional — Fórum Antifascista, Brasil, 2026"
+    footer: "Quarta Internacional — Fórum Antifascista, Brasil, 2026",
+    sidebar_title: "Declarações"
   }
 };
+
+// ========== DECLARATIONS DATA ==========
+const declarations = [
+  {
+    title: { en: "Against Neo-Fascist Authoritarianism and All Forms of Imperialism", pt: "Contra o autoritarismo neofascista e todas as formas de imperialismo", fr: "Contre l'autoritarisme néo-fasciste et toutes les formes d'impérialisme", es: "Contra el autoritarismo neofascista y todas las formas de imperialismo", ar: "ضد الاستبداد النيوفاشي وجميع أشكال الإمبريالية" },
+    date: "2026-03-15",
+    url: "index.html",
+    current: true
+  },
+  {
+    title: { en: "Defeat the Imperialist Aggressors! Stop the US-Israeli War on Iran!", pt: "Para a derrota dos agressores imperialistas! Pare a guerra israelo-estadunidense contra o Irã!", fr: "Pour la défaite des agresseurs impérialistes ! Stop à la guerre israélo-étatsunienne contre l'Iran !", es: "¡Por la derrota de los agresores imperialistas! ¡Parar la guerra estadounidense-israelí contra Irán!", ar: "من أجل هزيمة الغزاة الإمبرياليين! لنوقف الحرب الإسرائيلية-الأمريكية ضد إيران!" },
+    date: "2026-03-13",
+    url: "750-defeat-imperialist-aggressors.html",
+    current: false
+  },
+  {
+    title: { en: "US/Israel Hands Off Iran! No Liberation Through US Bombs!", pt: "Estados Unidos/Israel, cessem toda intervenção no Irã! Nenhuma libertação por bombas americanas!", fr: "États-Unis/Israël, cessez toute intervention en Iran ! Pas de libération par les bombes américaines !", es: "¡EE. UU. e Israel fuera de Irán! No habrá liberación con bombas estadounidenses", ar: "الولايات المتحدة/إسرائيل ارفعوا أيديكم عن إيران! لا تحرير بالقنابل الأمريكية!" },
+    date: "2026-02-28",
+    url: "748-us-israel-hands-off-iran.html",
+    current: false
+  },
+  {
+    title: { en: "Against the Theocratic and Authoritarian Regime in Iran and Imperialist Interference", pt: "Contra o regime teocrático e autoritário no Irã e a ingerência imperialista", fr: "Contre le régime théocratique et autoritaire de l'Iran et les ingérences impérialistes", es: "Contra el régimen teocrático y autoritario de Irán y las injerencias imperialistas", ar: "ضد النظام الثيوقراطي المستبد في إيران وضد التدخلات الإمبريالية" },
+    date: "2026-01-05",
+    url: "744-iran-solidarity.html",
+    current: false
+  },
+  {
+    title: { en: "URGENT — Stop the Imperialist Aggression Against Venezuela!", pt: "URGENTE! Parar a agressão imperialista contra a Venezuela!", fr: "URGENT — Halte à l'agression impérialiste contre le Venezuela !", es: "URGENTE — ¡Alto a la agresión imperialista contra Venezuela!", ar: "عاجل — أوقفوا العدوان الإمبريالي على فنزويلا!" },
+    date: "2026-01-03",
+    url: "743-stop-aggression-venezuela.html",
+    current: false
+  },
+  {
+    title: { en: "Trump: Hands Off Venezuela and Latin America!", pt: "Trump: tire as mãos da Venezuela e da América Latina!", fr: "Halte aux attaques de Trump contre le Venezuela et l'Amérique latine", es: "Trump: ¡Quita las manos de Venezuela y de América Latina!", ar: "ترامب: ارفع يديك عن فنزويلا وأمريكا اللاتينية!" },
+    date: "2025-10-27",
+    url: "734-trump-hands-off-venezuela.html",
+    current: false
+  },
+  {
+    title: { en: "After the Ceasefire: Our Tasks for the Liberation of Palestine", pt: "Após o cessar-fogo: nossas tarefas para a libertação da Palestina", fr: "Après le cessez-le-feu, nos tâches pour la libération de la Palestine", es: "Después del alto el fuego, nuestras tareas para la liberación de Palestina", ar: "بعد وقف إطلاق النار: مهامنا لتحرير فلسطين" },
+    date: "2025-10-27",
+    url: "735-palestine-ceasefire-tasks.html",
+    current: false
+  },
+  {
+    title: { en: "Meeting of the Fourth International Bureau: Organizing to Act", pt: "Reunião do Bureau da Internacional: organizar-se para agir", fr: "Réunion du Bureau de l'Internationale : s'organiser pour agir", es: "Reunión del Buró de la Internacional: organizarse para actuar", ar: "اجتماع مكتب الأممية: تنظيم العمل من أجل الفعل" },
+    date: "2025-07-17",
+    url: "724-bureau-meeting.html",
+    current: false
+  },
+  {
+    title: { en: "Building a Global Movement Against Genocide in Palestine", pt: "Construindo um movimento global contra o genocídio na Palestina", fr: "Construire un mouvement mondial contre le génocide en Palestine", es: "Construyendo un movimiento global contra el genocidio en Palestina", ar: "بناء حركة عالمية ضد الإبادة الجماعية في فلسطين" },
+    date: "2025-07-13",
+    url: "721-global-movement-palestine.html",
+    current: false
+  },
+  {
+    title: { en: "Trump's First Six Months: A Threat to Our Planet and Its Peoples", pt: "Os seis primeiros meses de Trump: uma ameaça ao nosso planeta e seus povos", fr: "Les six premiers mois de Trump : Une menace pour notre planète et ses peuples", es: "Los seis primeros meses de Trump: Una amenaza para nuestro planeta y sus pueblos", ar: "أشهر ترامب الستة الأولى: تهديد لكوكبنا ولشعوبه" },
+    date: "2025-07-13",
+    url: "720-trumps-first-six-months.html",
+    current: false
+  }
+];
+
+// ========== SIDEBAR ==========
+function toggleSidebar() {
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+  document.getElementById('sidebarPanel').classList.toggle('open');
+}
+
+function renderSidebar(lang) {
+  const t = translations[lang];
+  document.getElementById('sidebarTitle').textContent = t.sidebar_title || 'Declarations';
+  const list = document.getElementById('sidebarList');
+  list.innerHTML = declarations.map(d => {
+    const cls = [d.current ? 'current' : '', d.url === '#' ? 'placeholder' : ''].filter(Boolean).join(' ');
+    return `<li><a href="${d.url}" class="${cls}"><span class="decl-title">${d.title[lang] || d.title.en}</span><span class="decl-date">${d.date}</span></a></li>`;
+  }).join('');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const overlay = document.getElementById('sidebarOverlay');
+    if (overlay.classList.contains('open')) toggleSidebar();
+  }
+});
 
 // ========== SET LANGUAGE ==========
 function setLang(lang) {
@@ -890,6 +1139,9 @@ function setLang(lang) {
       }
     }
   });
+
+  // Update sidebar
+  renderSidebar(lang);
 }
 
 // ========== AUTO-DETECT LANGUAGE ==========

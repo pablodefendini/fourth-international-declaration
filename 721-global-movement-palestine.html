@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building a Global Movement Against Genocide in Palestine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Sans+Arabic:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red: #C8102E;
+  --red-dark: #8B0000;
+  --red-bright: #E63946;
+  --red-glow: #FF1744;
+  --black: #0A0A0A;
+  --off-black: #141414;
+  --white: #F5F0EB;
+  --cream: #FAF7F2;
+  --gray: #888;
+  --text-body: rgba(245,240,235,0.85);
+  --bg-hero-red: rgba(200,16,46,0.18);
+  --bg-hero-red2: rgba(200,16,46,0.08);
+  --bg-hero-dark: rgba(139,0,0,0.1);
+  --stripe-opacity: 0.04;
+  --graphic-opacity: 0.06;
+  --langbar-bg: rgba(10,10,10,0.92);
+  --langbar-border: rgba(245,240,235,0.15);
+  --divider-red-alpha: rgba(200,16,46,0.3);
+  --closing-glow: rgba(200,16,46,0.12);
+  --ornament-line: linear-gradient(90deg, transparent, var(--red), transparent);
+  --footer-border: rgba(200,16,46,0.15);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-arabic: 'Noto Sans Arabic', 'Inter', sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --black: #FAF7F2;
+    --off-black: #F0EBE3;
+    --white: #1A1A1A;
+    --cream: #FFFFFF;
+    --gray: #666;
+    --text-body: rgba(26,26,26,0.8);
+    --bg-hero-red: rgba(200,16,46,0.08);
+    --bg-hero-red2: rgba(200,16,46,0.04);
+    --bg-hero-dark: rgba(139,0,0,0.04);
+    --stripe-opacity: 0.03;
+    --graphic-opacity: 0.04;
+    --langbar-bg: rgba(250,247,242,0.95);
+    --langbar-border: rgba(26,26,26,0.12);
+    --divider-red-alpha: rgba(200,16,46,0.2);
+    --closing-glow: rgba(200,16,46,0.06);
+    --footer-border: rgba(200,16,46,0.12);
+  }
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-body); background: var(--black); color: var(--white); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+html[dir="rtl"] body { font-family: var(--font-arabic); }
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] .hero-title, html[dir="rtl"] .hero-subtitle { font-family: var(--font-arabic); }
+
+.lang-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 0.25rem; padding: 0.6rem 1rem; background: var(--langbar-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--divider-red-alpha); transition: transform 0.3s ease; }
+.lang-bar button { background: none; border: 1px solid var(--langbar-border); color: var(--white); font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.75rem; cursor: pointer; transition: all 0.25s ease; border-radius: 2px; }
+.lang-bar button:hover { border-color: var(--red); color: var(--red); }
+.lang-bar button.active { background: var(--red); border-color: var(--red); color: white; }
+.lang-bar .print-btn { margin-left: 1rem; border-color: var(--langbar-border); display: flex; align-items: center; gap: 0.35rem; }
+.lang-bar .print-btn svg { width: 14px; height: 14px; }
+.lang-bar .print-btn:hover { border-color: var(--white); color: var(--white); }
+
+.hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 6rem 2rem 4rem; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, var(--bg-hero-red) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 20% 80%, var(--bg-hero-red2) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 80% 20%, var(--bg-hero-dark) 0%, transparent 60%); z-index: 0; }
+.hero-stripes { position: absolute; inset: 0; z-index: 0; overflow: hidden; opacity: var(--stripe-opacity); }
+.hero-stripes::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: repeating-linear-gradient(-45deg, transparent, transparent 40px, var(--red) 40px, var(--red) 42px); animation: stripe-drift 30s linear infinite; }
+@keyframes stripe-drift { from { transform: translate(0, 0); } to { transform: translate(60px, 60px); } }
+.hero-graphic { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; opacity: var(--graphic-opacity); width: min(80vw, 600px); height: auto; }
+.hero-content { position: relative; z-index: 1; max-width: 900px; }
+.hero-overline { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red-bright); margin-bottom: 1.5rem; padding: 0.4rem 1.2rem; border: 1px solid var(--divider-red-alpha); border-radius: 2px; }
+.hero-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.8rem, 7vw, 5.5rem); line-height: 1.05; color: var(--white); margin-bottom: 1.5rem; text-wrap: balance; }
+.hero-title em { font-style: italic; color: var(--red); display: inline; }
+.hero-subtitle { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.1rem, 2.5vw, 1.6rem); line-height: 1.4; color: var(--red-bright); margin-bottom: 2rem; max-width: 750px; margin-left: auto; margin-right: auto; }
+.hero-slogans { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2.5rem; }
+.hero-slogan { font-size: clamp(0.85rem, 1.8vw, 1.05rem); font-weight: 500; letter-spacing: 0.04em; color: var(--text-body); text-transform: uppercase; }
+.hero-scroll { margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--gray); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; animation: pulse-scroll 2s ease-in-out infinite; cursor: pointer; text-decoration: none; }
+.hero-scroll svg { width: 20px; height: 20px; }
+@keyframes pulse-scroll { 0%, 100% { opacity: 0.5; transform: translateY(0); } 50% { opacity: 1; transform: translateY(5px); } }
+
+.red-divider { height: 4px; background: linear-gradient(90deg, transparent, var(--red), transparent); }
+.red-divider.thick { height: 6px; background: linear-gradient(90deg, transparent 5%, var(--red) 30%, var(--red-dark) 70%, transparent 95%); }
+
+.declaration-body { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+.section-block { margin-bottom: 3.5rem; opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.section-block.visible { opacity: 1; transform: translateY(0); }
+.section-heading { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2; color: var(--red); margin-bottom: 1.5rem; }
+.section-block p { font-size: 1.05rem; line-height: 1.85; color: var(--text-body); margin-bottom: 1.25rem; }
+.section-block p:last-child { margin-bottom: 0; }
+
+.closing { text-align: center; padding: 2rem 2rem; position: relative; overflow: hidden; }
+.closing::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, var(--closing-glow), transparent 70%); }
+.closing-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.closing-slogan { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.2rem, 6vw, 4.5rem); line-height: 1.1; color: var(--red); margin-bottom: 1.25rem; text-transform: uppercase; letter-spacing: 0.02em; text-shadow: 0 0 60px rgba(200,16,46,0.3); }
+.closing-sub { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.8rem, 5vw, 3.5rem); line-height: 1.1; color: var(--red); text-transform: uppercase; letter-spacing: 0.02em; text-shadow: 0 0 60px rgba(200,16,46,0.3); margin-bottom: 1rem; }
+
+.star-ornament { display: flex; justify-content: center; align-items: center; padding: 3rem 0; gap: 1.25rem; }
+.star-ornament .line { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--red), transparent); }
+.star-ornament svg { width: 28px; height: 28px; fill: var(--red); }
+.closing-logo { display: flex; justify-content: center; margin-top: 2rem; opacity: 1; }
+
+footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--gray); letter-spacing: 0.05em; border-top: 1px solid var(--footer-border); }
+
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--red-dark), var(--red-bright), var(--red-glow)); z-index: 1001; width: 0%; transition: width 0.1s linear; }
+
+.sidebar-toggle { position: fixed; top: 0; left: 0; z-index: 1001; background: var(--langbar-bg); border: none; border-right: 1px solid var(--langbar-border); border-bottom: 1px solid var(--langbar-border); color: var(--white); cursor: pointer; padding: 0.6rem 0.75rem; display: flex; align-items: center; justify-content: center; transition: all 0.25s ease; }
+[dir="rtl"] .sidebar-toggle { left: auto; right: 0; border-right: none; border-left: 1px solid var(--langbar-border); }
+.sidebar-toggle:hover { border-color: var(--red); color: var(--red); }
+.sidebar-toggle svg { width: 16px; height: 16px; }
+.sidebar-overlay { position: fixed; inset: 0; z-index: 1100; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+.sidebar-overlay.open { opacity: 1; visibility: visible; }
+.sidebar-panel { position: fixed; top: 0; left: 0; bottom: 0; z-index: 1101; width: 320px; max-width: 85vw; background: var(--off-black); border-right: 1px solid var(--divider-red-alpha); transform: translateX(-100%); transition: transform 0.3s ease; overflow-y: auto; display: flex; flex-direction: column; }
+html[dir="rtl"] .sidebar-panel { left: auto; right: 0; border-right: none; border-left: 1px solid var(--divider-red-alpha); transform: translateX(100%); }
+.sidebar-overlay.open + .sidebar-panel, .sidebar-panel.open { transform: translateX(0); }
+.sidebar-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--divider-red-alpha); }
+.sidebar-header h2 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--white); margin: 0; }
+html[dir="rtl"] .sidebar-header h2 { font-family: var(--font-arabic); }
+.sidebar-close { background: none; border: none; color: var(--gray); cursor: pointer; padding: 0.25rem; transition: color 0.2s ease; }
+.sidebar-close:hover { color: var(--white); }
+.sidebar-close svg { width: 20px; height: 20px; }
+.sidebar-list { list-style: none; padding: 0.75rem 0; margin: 0; }
+.sidebar-list li { padding: 0; }
+.sidebar-list a { display: block; padding: 0.85rem 1.25rem; text-decoration: none; color: var(--text-body); border-left: 3px solid transparent; transition: all 0.2s ease; }
+html[dir="rtl"] .sidebar-list a { border-left: none; border-right: 3px solid transparent; }
+.sidebar-list a:hover { background: rgba(200,16,46,0.06); }
+.sidebar-list a.current { border-left-color: var(--red); background: rgba(200,16,46,0.1); }
+html[dir="rtl"] .sidebar-list a.current { border-left-color: transparent; border-right-color: var(--red); }
+.sidebar-list a.placeholder { opacity: 0.55; }
+.sidebar-list .decl-title { display: block; font-size: 0.9rem; font-weight: 500; line-height: 1.4; color: var(--white); }
+.sidebar-list a.placeholder .decl-title { color: var(--text-body); }
+.sidebar-list .decl-date { display: block; font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem; }
+
+@media (max-width: 640px) {
+  .sidebar-panel { max-width: calc(85vw); width: 360px; }
+  .sidebar-toggle { padding: 0.35rem 0.5rem; }
+}
+
+@media print {
+  @page { margin: 2.5cm 3cm; }
+  .lang-bar, .scroll-progress, .hero-scroll, .hero-stripes, .hero-graphic, .sidebar-overlay, .sidebar-panel, .sidebar-toggle { display: none !important; }
+  body { background: white !important; color: black !important; font-size: 9pt; line-height: 1.5; }
+  .hero { min-height: auto; padding: 1.5rem 0; }
+  .hero::before { display: none; }
+  .hero-title { color: black !important; font-size: 22pt; }
+  .hero-title em { color: var(--red) !important; }
+  .hero-subtitle { color: var(--red) !important; font-size: 11pt; }
+  .hero-slogan { color: #333 !important; font-size: 8pt; }
+  .hero-overline { color: var(--red) !important; border-color: var(--red) !important; font-size: 7pt; }
+  .section-block { opacity: 1 !important; transform: none !important; margin-bottom: 1.5rem; }
+  .section-heading { color: var(--red) !important; font-size: 13pt; margin-bottom: 0.6rem; }
+  .section-block p { color: #222 !important; font-size: 9pt; line-height: 1.5; margin-bottom: 0.5rem; }
+  .closing-slogan { color: var(--red) !important; font-size: 16pt; }
+  .closing-sub { color: black !important; font-size: 12pt; }
+  .closing { padding: 2rem 0; }
+  .closing::before { display: none; }
+  .red-divider { background: var(--red) !important; height: 1px !important; }
+  .declaration-body { padding: 0.5rem 0; max-width: 100%; }
+  .star-ornament { padding: 0.8rem 0; }
+  footer { color: #666 !important; border-color: #ccc !important; font-size: 7pt; padding: 0.8rem 0; }
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 5rem 1.25rem 3rem; }
+  .declaration-body { padding: 2.5rem 1.25rem 4rem; }
+  .section-heading { font-size: 1.4rem; }
+  .lang-bar { gap: 0.15rem; flex-wrap: wrap; padding: 0.5rem 0.5rem; }
+  .lang-bar button { font-size: 0.65rem; padding: 0.25rem 0.5rem; }
+  .lang-bar .print-btn { margin-left: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open declarations menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
+<nav class="lang-bar" role="navigation" aria-label="Language selection">
+  <button data-lang="pt" onclick="setLang('pt')">Portugu&ecirc;s</button>
+  <button data-lang="es" onclick="setLang('es')">Espa&ntilde;ol</button>
+  <button data-lang="fr" onclick="setLang('fr')">Fran&ccedil;ais</button>
+  <button class="active" data-lang="en" onclick="setLang('en')">English</button>
+  <button data-lang="ar" onclick="setLang('ar')">&rlm;العربية</button>
+  <button class="print-btn" onclick="window.print()" title="Print / Save as PDF">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    <span data-i18n="print">Print</span>
+  </button>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar-panel" id="sidebarPanel">
+  <div class="sidebar-header">
+    <h2 id="sidebarTitle">Declarations</h2>
+    <button class="sidebar-close" onclick="toggleSidebar()" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <ul class="sidebar-list" id="sidebarList"></ul>
+</aside>
+
+<header class="hero">
+  <div class="hero-stripes"></div>
+  <svg class="hero-graphic" viewBox="0 0 1079 1081" fill="currentColor" color="var(--red)">
+    <g transform="translate(-652.248105,-1003.137222)">
+      <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1187.155773,1568.488198)"><path d="M0,5.914L1.769,5.914L6.055,0.997L9.337,0.997L10.168,0L5.482,0L0,5.914Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1258.140989,1478.695529)"><path d="M0,-11.521L4.532,-6.689L-2.959,1.007L-4.105,1.007L3.079,-6.604L1.316,-6.588L-6.483,1.839L2.818,1.839L5.373,-0.917L4.147,-0.917L2.334,1.007L1.08,1.007L6.756,-4.466L11.246,0.323L14.923,-3.098L7.868,-10.538C6.157,-8.827 5.259,-9.725 5.259,-9.725L1.881,-13.36L0,-11.521Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
+    </g>
+  </svg>
+
+  <div class="hero-content">
+    <span class="hero-overline" data-i18n="overline">Fourth International — Executive Bureau, July 2025</span>
+    <h1 class="hero-title" data-i18n="title">Building a Global Movement Against Genocide in <em data-i18n="title-em">Palestine</em></h1>
+    <p class="hero-subtitle" data-i18n="subtitle">Declaration of the Executive Bureau of the Fourth International</p>
+    <div class="hero-slogans">
+      <span class="hero-slogan" data-i18n="slogan1">Free Palestine, Palestine will free us all!</span>
+      <span class="hero-slogan" data-i18n="slogan2">From Ukraine to Palestine, occupation is a crime!</span>
+    </div>
+  </div>
+  <a href="#declaration" class="hero-scroll">
+    <span data-i18n="scroll">Read the Declaration</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</header>
+
+<div class="red-divider thick"></div>
+
+<main class="declaration-body" id="declaration">
+
+  <!-- Introduction -->
+  <section class="section-block">
+    <p data-i18n="s1p1"><strong data-i18n="s1p1_inner">A global movement of solidarity has emerged in response to the barbarity of the new genocide against the Palestinian people. Despite intense repression, this movement is bringing together millions across the world.</strong></p>
+    <p data-i18n="s1p2">For 77 years, imperialists have been trying to destroy and drive out the Palestinian people, exploiting the horrific genocide of the Jews in World War II to justify dispossession, ethnic cleansing, and genocide. Since October 2023, Israel has been trying to destroy Palestinian life in Gaza, to replicate the Nakba of 1948, committing itself in turn to a genocide without parallel in the 21st century. Meanwhile, settlers are stepping up their attacks in the West Bank, Palestinians inside the green line face greater discrimination than before and Israel has carried out military attacks against Lebanon, Syria, and Iran.</p>
+    <p data-i18n="s1p3">The direct participation or deep complicity of most of the Western imperialist powers is now clear, as is that of the Arab countries that are "normalizing" their relations with the genocidal state, while in many other countries, the ruling classes make polite criticisms but distance themselves from any real resistance. All this in the name of a sickening "right of Israel to defend itself," which attempts to portray the aggressor as the victim and vice versa.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Resistance in the Face of Repression -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h2">Resistance in the Face of Repression</h2>
+    <p data-i18n="s2p1">Fortunately, in much of the world, millions have mobilized to demand an end to the massacres, the blockade of Gaza, and sanctions against Israel. They have faced ruthless repression, including bans, imprisonment, police and judicial attacks, and false accusations of antisemitism.</p>
+    <p data-i18n="s2p2">The March for Gaza and the Soumud Convoy attempted to break the blockade of Gaza and bring aid to the Palestinians. The repression they were met with in Egypt and Libya showed the appalling complicity of those regimes. Thousands were beaten, intimidated, arrested, and sent back to their countries of origin, with little response from their governments.</p>
+    <p data-i18n="s2p3">The Freedom Flotillas, carrying world-renowned personalities, also attempted, more symbolically, to break the blockade. It succeeded in further highlighting the Zionist state's total contempt for international law, its contempt for truth and any limit to its jurisdiction, symbolizing its unlimited colonialism.</p>
+    <p data-i18n="s2p4">In a number of countries, it is simply forbidden to express solidarity and assert demands, like in Algeria, where the government claims to support Palestine but prevents solidarity from being expressed.</p>
+    <p data-i18n="s2p5">In the United States and elsewhere, protests and occupations have been banned or attacked violently by the state. University teachers have been sacked for supporting the movement. Students and people of colour, especially anyone from the Middle East, have been particular targets of repression.</p>
+    <p data-i18n="s2p6">Criminalization of solidarity organizations is another key tactic. The British government declared the direct action movement Palestine Action to be a terrorist organization, support for which is a criminal offence - lawyers, vicars and other notables were all arrested at an immediate protest action. The French state has been threatening to dissolve Urgence Palestine since April but has not yet done so perhaps because of a major international campaign of objections.</p>
+    <p data-i18n="s2p7">In Germany, tens of thousands of people who have mobilized are facing relentless repression. False accusations of antisemitism are being used to ban demonstrations, shut down media outlets, and discredit the entire movement. While the weaponisation of antisemitism is a particular problem in Germany, it is used against the movement everywhere -- including against Jewish organizations asserting "Not in our name".</p>
+    <p data-i18n="s2p8">In the state of Israel, even if a large majority of the Jewish population supports the action of the army, there is a reaction against the war crimes committed to the Palestinians, the actions of the settlers in the West Bank and the policy led by the far-right government of Netanyahu, in particular the criminal will to expel the population of Gaza.</p>
+    <p data-i18n="s2p9">Hypocrisy is rife as governments attack and criminalize all demonstrations of support and solidarity for the Palestinian resistance of whatever limited form - such as chants at a music festival - yet refuse to condemn and take sanctions against Israel.</p>
+    <p data-i18n="s2p10">But it is, of course, in Palestine that repression is most intense. In the West Bank, attacks have intensified in recent months, with daily attacks by settlers against Palestinians and the destruction of homes. It has also emerged that Israel has armed and financially supported Palestinian gangs and jihadist groups in order to undermine the resistance in Gaza from within.</p>
+    <p data-i18n="s2p11">The massacres in Gaza continue; in one month, more than 600 Palestinians were killed while waiting for food aid. Food distribution points are death traps. Several studies now suggest that hundreds of thousands of Gazans have died in the last two years.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Palestinian Resistance -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h3">Palestinian Resistance is a Key to the Global Situation</h2>
+    <p data-i18n="s3p1">The Palestinian people are resisting the second Nakba and their expulsion from their territory with the means at their disposal. So far, despite famine, terrible living conditions, and murderous attacks, they are standing their ground, refusing to disappear, and defending themselves.</p>
+    <p data-i18n="s3p2">The international solidarity movement has helped to expose the reality and scale of the genocide. It has mobilized millions, and the boycott divestment and sanctions campaign together with mass mobilizations can isolate this criminal regime as has happened before, for example for apartheid South Africa.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- This Movement Will Not Stop -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h4">This Movement Will Not Stop</h2>
+    <p data-i18n="s4p1">The fate of the Palestinian people is intimately linked to that of all oppressed peoples and the fight against global imperialist ambitions. We are living in a period of growing inter-imperialist contradictions but one which has limits too. Russia for example did not back Iran when Israel launched military attacks against it. The Israeli and US attacks on Lebanon, Syria, and Iran, and the complicity of Arab states point to the fact that the imperialist powers, led by the US, want to strengthen their domination over every inch of the globe in a period of intense economic and ecological crisis. And the Middle East remains one of the -- if not the central -- strategic battlefield.</p>
+    <p data-i18n="s4p2">Preventing the continuation of colonization in Palestine, pushing back Israel and the United States, and liberating Palestine from imperialism are key points in the global shift in the balance of power that we must build to change the world. Therefore, the Fourth International calls for redoubled efforts to build a global movement against genocide and for the liberation of Palestine, through mass and workers' action in particular. We will work to ensure that, on the occasion of 7 October 2025, broad mobilizations contribute to changing the balance of forces.</p>
+  </section>
+
+</main>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="closing-content section-block">
+    <p class="closing-slogan" data-i18n="closing1">Free Palestine, Palestine will free us all!</p>
+    <p class="closing-sub" data-i18n="closing2">From Ukraine to Palestine, occupation is a crime!</p>
+    <div class="closing-logo">
+      <svg viewBox="0 0 1079 1081" fill="var(--red)" width="80" height="80">
+        <g transform="translate(-652.248105,-1003.137222)">
+          <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1187.155773,1568.488198)"><path d="M0,5.914L1.769,5.914L6.055,0.997L9.337,0.997L10.168,0L5.482,0L0,5.914Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1258.140989,1478.695529)"><path d="M0,-11.521L4.532,-6.689L-2.959,1.007L-4.105,1.007L3.079,-6.604L1.316,-6.588L-6.483,1.839L2.818,1.839L5.373,-0.917L4.147,-0.917L2.334,1.007L1.08,1.007L6.756,-4.466L11.246,0.323L14.923,-3.098L7.868,-10.538C6.157,-8.827 5.259,-9.725 5.259,-9.725L1.881,-13.36L0,-11.521Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span data-i18n="footer">Fourth International — Executive Bureau, July 13, 2025</span>
+</footer>
+
+<script>
+const unavailable_msg = "This translation is not yet available. / Esta traducci\u00f3n a\u00fan no est\u00e1 disponible. / Cette traduction n'est pas encore disponible. / Esta tradu\u00e7\u00e3o ainda n\u00e3o est\u00e1 dispon\u00edvel. / \u0647\u0630\u0647 \u0627\u0644\u062a\u0631\u062c\u0645\u0629 \u063a\u064a\u0631 \u0645\u062a\u0648\u0641\u0631\u0629 \u0628\u0639\u062f.";
+
+const translations = {
+  en: {
+    overline: "Fourth International \u2014 Executive Bureau, July 2025",
+    title: 'Building a Global Movement Against Genocide in <em>Palestine</em>',
+    "title-em": "Palestine",
+    subtitle: "Declaration of the Executive Bureau of the Fourth International",
+    slogan1: "Free Palestine, Palestine will free us all!",
+    slogan2: "From Ukraine to Palestine, occupation is a crime!",
+    scroll: "Read the Declaration",
+    print: "Print",
+    s1p1: '<strong>A global movement of solidarity has emerged in response to the barbarity of the new genocide against the Palestinian people. Despite intense repression, this movement is bringing together millions across the world.</strong>',
+    s1p1_inner: "A global movement of solidarity has emerged in response to the barbarity of the new genocide against the Palestinian people. Despite intense repression, this movement is bringing together millions across the world.",
+    s1p2: 'For 77 years, imperialists have been trying to destroy and drive out the Palestinian people, exploiting the horrific genocide of the Jews in World War II to justify dispossession, ethnic cleansing, and genocide. Since October 2023, Israel has been trying to destroy Palestinian life in Gaza, to replicate the Nakba of 1948, committing itself in turn to a genocide without parallel in the 21st century. Meanwhile, settlers are stepping up their attacks in the West Bank, Palestinians inside the green line face greater discrimination than before and Israel has carried out military attacks against Lebanon, Syria, and Iran.',
+    s1p3: 'The direct participation or deep complicity of most of the Western imperialist powers is now clear, as is that of the Arab countries that are \u201Cnormalizing\u201D their relations with the genocidal state, while in many other countries, the ruling classes make polite criticisms but distance themselves from any real resistance. All this in the name of a sickening \u201Cright of Israel to defend itself,\u201D which attempts to portray the aggressor as the victim and vice versa.',
+    h2: "Resistance in the Face of Repression",
+    s2p1: "Fortunately, in much of the world, millions have mobilized to demand an end to the massacres, the blockade of Gaza, and sanctions against Israel. They have faced ruthless repression, including bans, imprisonment, police and judicial attacks, and false accusations of antisemitism.",
+    s2p2: "The March for Gaza and the Soumud Convoy attempted to break the blockade of Gaza and bring aid to the Palestinians. The repression they were met with in Egypt and Libya showed the appalling complicity of those regimes. Thousands were beaten, intimidated, arrested, and sent back to their countries of origin, with little response from their governments.",
+    s2p3: "The Freedom Flotillas, carrying world-renowned personalities, also attempted, more symbolically, to break the blockade. It succeeded in further highlighting the Zionist state\u2019s total contempt for international law, its contempt for truth and any limit to its jurisdiction, symbolizing its unlimited colonialism.",
+    s2p4: "In a number of countries, it is simply forbidden to express solidarity and assert demands, like in Algeria, where the government claims to support Palestine but prevents solidarity from being expressed.",
+    s2p5: "In the United States and elsewhere, protests and occupations have been banned or attacked violently by the state. University teachers have been sacked for supporting the movement. Students and people of colour, especially anyone from the Middle East, have been particular targets of repression.",
+    s2p6: "Criminalization of solidarity organizations is another key tactic. The British government declared the direct action movement Palestine Action to be a terrorist organization, support for which is a criminal offence - lawyers, vicars and other notables were all arrested at an immediate protest action. The French state has been threatening to dissolve Urgence Palestine since April but has not yet done so perhaps because of a major international campaign of objections.",
+    s2p7: 'In Germany, tens of thousands of people who have mobilized are facing relentless repression. False accusations of antisemitism are being used to ban demonstrations, shut down media outlets, and discredit the entire movement. While the weaponisation of antisemitism is a particular problem in Germany, it is used against the movement everywhere \u2014 including against Jewish organizations asserting \u201CNot in our name\u201D.',
+    s2p8: "In the state of Israel, even if a large majority of the Jewish population supports the action of the army, there is a reaction against the war crimes committed to the Palestinians, the actions of the settlers in the West Bank and the policy led by the far-right government of Netanyahu, in particular the criminal will to expel the population of Gaza.",
+    s2p9: "Hypocrisy is rife as governments attack and criminalize all demonstrations of support and solidarity for the Palestinian resistance of whatever limited form - such as chants at a music festival - yet refuse to condemn and take sanctions against Israel.",
+    s2p10: "But it is, of course, in Palestine that repression is most intense. In the West Bank, attacks have intensified in recent months, with daily attacks by settlers against Palestinians and the destruction of homes. It has also emerged that Israel has armed and financially supported Palestinian gangs and jihadist groups in order to undermine the resistance in Gaza from within.",
+    s2p11: "The massacres in Gaza continue; in one month, more than 600 Palestinians were killed while waiting for food aid. Food distribution points are death traps. Several studies now suggest that hundreds of thousands of Gazans have died in the last two years.",
+    h3: "Palestinian Resistance is a Key to the Global Situation",
+    s3p1: "The Palestinian people are resisting the second Nakba and their expulsion from their territory with the means at their disposal. So far, despite famine, terrible living conditions, and murderous attacks, they are standing their ground, refusing to disappear, and defending themselves.",
+    s3p2: "The international solidarity movement has helped to expose the reality and scale of the genocide. It has mobilized millions, and the boycott divestment and sanctions campaign together with mass mobilizations can isolate this criminal regime as has happened before, for example for apartheid South Africa.",
+    h4: "This Movement Will Not Stop",
+    s4p1: "The fate of the Palestinian people is intimately linked to that of all oppressed peoples and the fight against global imperialist ambitions. We are living in a period of growing inter-imperialist contradictions but one which has limits too. Russia for example did not back Iran when Israel launched military attacks against it. The Israeli and US attacks on Lebanon, Syria, and Iran, and the complicity of Arab states point to the fact that the imperialist powers, led by the US, want to strengthen their domination over every inch of the globe in a period of intense economic and ecological crisis. And the Middle East remains one of the \u2014 if not the central \u2014 strategic battlefield.",
+    s4p2: "Preventing the continuation of colonization in Palestine, pushing back Israel and the United States, and liberating Palestine from imperialism are key points in the global shift in the balance of power that we must build to change the world. Therefore, the Fourth International calls for redoubled efforts to build a global movement against genocide and for the liberation of Palestine, through mass and workers\u2019 action in particular. We will work to ensure that, on the occasion of 7 October 2025, broad mobilizations contribute to changing the balance of forces.",
+    closing1: "Free Palestine, Palestine will free us all!",
+    closing2: "From Ukraine to Palestine, occupation is a crime!",
+    footer: "Fourth International \u2014 Executive Bureau, July 13, 2025",
+    sidebar_title: "Declarations"
+  },
+
+  es: {
+    overline: "Cuarta Internacional \u2014 Bur\u00f3 Ejecutivo, julio 2025",
+    title: 'Construyendo un movimiento global contra el genocidio en <em>Palestina</em>',
+    "title-em": "Palestina",
+    subtitle: "Declaraci\u00f3n del Bur\u00f3 Ejecutivo de la Cuarta Internacional",
+    slogan1: "\u00a1Palestina libre, Palestina nos liberar\u00e1 a todes!",
+    slogan2: "\u00a1De Ucrania a Palestina, la ocupaci\u00f3n es un crimen!",
+    scroll: "Leer la Declaraci\u00f3n",
+    print: "Imprimir",
+    s1p1: '<strong>Desde hace 77 a\u00f1os, los imperialistas intentan destruir y expulsar al pueblo palestino, utilizando el horror del genocidio jud\u00edo durante la Segunda Guerra Mundial para justificar el despojo, la limpieza \u00e9tnica y el genocidio.</strong>',
+    s1p1_inner: "Desde hace 77 a\u00f1os, los imperialistas intentan destruir y expulsar al pueblo palestino, utilizando el horror del genocidio jud\u00edo durante la Segunda Guerra Mundial para justificar el despojo, la limpieza \u00e9tnica y el genocidio.",
+    s1p2: "Desde octubre de 2023, Israel intenta destruir la vida palestina en Gaza, replicar la Nakba de 1948 y comprometerse con un genocidio sin precedentes en el siglo XXI. Mientras tanto, los colonos intensifican sus ataques en Cisjordania, los palestinos dentro de la l\u00ednea verde sufren una discriminaci\u00f3n a\u00fan mayor que antes, e Israel ha llevado a cabo ataques militares contra L\u00edbano, Siria e Ir\u00e1n.",
+    s1p3: "La participaci\u00f3n directa o la profunda complicidad de la mayor\u00eda de las potencias imperialistas occidentales es hoy evidente, al igual que la de los pa\u00edses \u00e1rabes que est\u00e1n \u201Cnormalizando\u201D sus relaciones con el Estado genocida, mientras que en muchos otros pa\u00edses las clases dominantes hacen cr\u00edticas formales pero se mantienen al margen de cualquier forma de resistencia real. Todo esto en nombre de un repugnante \u201Cderecho de Israel a defenderse\u201D, que intenta presentar al agresor como v\u00edctima y a la v\u00edctima como agresor.",
+    h2: "Resistencia frente a la represi\u00f3n",
+    s2p1: "Afortunadamente, en gran parte del mundo, millones de personas se han movilizado para exigir el fin de las masacres, el levantamiento del bloqueo a Gaza y sanciones contra Israel. Han enfrentado una represi\u00f3n brutal, que incluye prohibiciones, encarcelamientos, ataques policiales y judiciales, y falsas acusaciones de antisemitismo.",
+    s2p2: "La Marcha por Gaza y la Caravana Soumud intentaron romper el bloqueo a Gaza y llevar ayuda al pueblo palestino. La represi\u00f3n que enfrentaron en Egipto y Libia evidenci\u00f3 la espantosa complicidad de esos reg\u00edmenes. Miles de personas fueron golpeadas, intimidadas, detenidas y deportadas a sus pa\u00edses de origen, con escasa o nula respuesta por parte de sus gobiernos.",
+    s2p3: "Las Flotillas de la Libertad, que transportaban a personalidades de renombre mundial, tambi\u00e9n intent\u00f3 \u2014de forma m\u00e1s simb\u00f3lica\u2014 romper el bloqueo. Logr\u00f3 visibilizar a\u00fan m\u00e1s el absoluto desprecio del Estado sionista por el derecho internacional, su desprecio por la verdad y por cualquier l\u00edmite a su jurisdicci\u00f3n, simbolizando as\u00ed su colonialismo sin restricciones.",
+    s2p4: "En numerosos pa\u00edses, directamente est\u00e1 prohibido expresar solidaridad y levantar reivindicaciones, como en Argelia, donde el gobierno dice apoyar a Palestina pero impide que se exprese la solidaridad.",
+    s2p5: "En Estados Unidos y otros pa\u00edses, las protestas y ocupaciones han sido prohibidas o reprimidas violentamente por el Estado. Docentes universitarios han sido despedidos por apoyar al movimiento. Estudiantes y personas racializadas \u2014especialmente quienes provienen de Medio Oriente\u2014 han sido blanco particular de la represi\u00f3n.",
+    s2p6: "La criminalizaci\u00f3n de las organizaciones solidarias es otra t\u00e1ctica clave. El gobierno brit\u00e1nico declar\u00f3 al movimiento de acci\u00f3n directa Palestine Action como una organizaci\u00f3n terrorista, y apoyar dicha organizaci\u00f3n se convirti\u00f3 en un delito penal: abogados, pastores y otras figuras reconocidas fueron arrestadas durante una acci\u00f3n de protesta inmediata. El Estado franc\u00e9s viene amenazando con disolver Urgence Palestine desde abril, aunque a\u00fan no lo ha hecho, quiz\u00e1s debido a una importante campa\u00f1a internacional de rechazo.",
+    s2p7: "En Alemania, decenas de miles de personas que se han movilizado enfrentan una represi\u00f3n implacable. Se utilizan falsas acusaciones de antisemitismo para prohibir manifestaciones, cerrar medios de comunicaci\u00f3n y desacreditar a todo el movimiento. Aunque la instrumentalizaci\u00f3n del antisemitismo es un problema particularmente agudo en Alemania, se utiliza contra el movimiento en todas partes \u2014incluso contra organizaciones jud\u00edas que afirman \u201CNo en nuestro nombre\u201D.",
+    s2p8: "En el Estado de Israel, si bien una gran mayor\u00eda de la poblaci\u00f3n jud\u00eda apoya la actuaci\u00f3n del ej\u00e9rcito, existe una reacci\u00f3n contra los cr\u00edmenes de guerra cometidos contra los palestinos, las acciones de los colonos en Cisjordania y la pol\u00edtica impulsada por el gobierno ultraderechista de Netanyahu, en particular la voluntad criminal de expulsar a la poblaci\u00f3n de Gaza.",
+    s2p9: "La hipocres\u00eda es total: los gobiernos atacan y criminalizan cualquier expresi\u00f3n de apoyo y solidaridad con la resistencia palestina, por limitada que sea \u2014como c\u00e1nticos en un festival de m\u00fasica\u2014, pero se niegan a condenar a Israel o imponerle sanciones.",
+    s2p10: "Pero es, por supuesto, en Palestina donde la represi\u00f3n es m\u00e1s intensa. En Cisjordania, los ataques se han intensificado en los \u00faltimos meses, con agresiones diarias de colonos contra palestinos y la destrucci\u00f3n de viviendas. Tambi\u00e9n ha salido a la luz que Israel ha armado y financiado a bandas palestinas y grupos yihadistas con el objetivo de socavar la resistencia en Gaza desde adentro.",
+    s2p11: "Las masacres en Gaza contin\u00faan; en un solo mes, m\u00e1s de 600 palestinos fueron asesinados mientras esperaban ayuda alimentaria. Los puntos de distribuci\u00f3n de alimentos se han convertido en trampas mortales. Varios estudios sugieren ahora que cientos de miles de gazat\u00edes han muerto en los \u00faltimos dos a\u00f1os.",
+    h3: "La resistencia palestina es clave para la situaci\u00f3n global",
+    s3p1: "El pueblo palestino est\u00e1 resistiendo una segunda Nakba y a la expulsi\u00f3n de su territorio con los medios que tiene a su alcance. Hasta ahora, a pesar de la hambruna, las terribles condiciones de vida y los ataques asesinos, se mantienen firmes, se niegan a desaparecer y se defienden.",
+    s3p2: "El movimiento internacional de solidaridad ha contribuido a visibilizar la realidad y la magnitud del genocidio. Ha movilizado a millones de personas, y la campa\u00f1a de boicot, desinversi\u00f3n y sanciones, junto con las movilizaciones masivas, puede aislar a este r\u00e9gimen criminal, como ya ha sucedido antes, por ejemplo con el apartheid en Sud\u00e1frica.",
+    h4: "Este movimiento no se va a detener",
+    s4p1: "El destino del pueblo palestino est\u00e1 \u00edntimamente ligado al de todos los pueblos oprimidos y a la lucha contra las ambiciones imperialistas globales. Estamos viviendo un per\u00edodo de crecientes contradicciones interimperialistas, pero tambi\u00e9n de sus l\u00edmites. Rusia, por ejemplo, no respald\u00f3 a Ir\u00e1n cuando Israel lanz\u00f3 ataques militares contra \u00e9l. Los ataques israel\u00edes y estadounidenses contra L\u00edbano, Siria e Ir\u00e1n, as\u00ed como la complicidad de los estados \u00e1rabes, muestran que las potencias imperialistas, encabezadas por Estados Unidos, buscan reforzar su dominio sobre cada rinc\u00f3n del planeta en un contexto de profunda crisis econ\u00f3mica y ecol\u00f3gica. Y Medio Oriente sigue siendo \u2014si no el principal\u2014 uno de los campos de batalla estrat\u00e9gicos centrales.",
+    s4p2: "Impedir la continuaci\u00f3n de la colonizaci\u00f3n en Palestina, hacer retroceder a Israel y a Estados Unidos, y liberar a Palestina del imperialismo son puntos clave en el cambio global de la relaci\u00f3n de fuerzas que debemos construir para transformar el mundo. Por eso, la Cuarta Internacional llama a redoblar los esfuerzos para construir un movimiento global contra el genocidio y por la liberaci\u00f3n de Palestina, a trav\u00e9s de la acci\u00f3n de masas y, en particular, de la acci\u00f3n obrera. Trabajaremos para que, con motivo del 7 de octubre de 2025, amplias movilizaciones contribuyan a cambiar la correlaci\u00f3n de fuerzas.",
+    closing1: "\u00a1Palestina libre, Palestina nos liberar\u00e1 a todes!",
+    closing2: "\u00a1De Ucrania a Palestina, la ocupaci\u00f3n es un crimen!",
+    footer: "Cuarta Internacional \u2014 Bur\u00f3 Ejecutivo, 13 de julio de 2025",
+    sidebar_title: "Declaraciones"
+  },
+
+  fr: {
+    overline: "Quatri\u00e8me Internationale \u2014 Bureau ex\u00e9cutif, juillet 2025",
+    title: 'Construire un mouvement mondial contre le g\u00e9nocide en <em>Palestine</em>',
+    "title-em": "Palestine",
+    subtitle: "D\u00e9claration du Bureau ex\u00e9cutif de la Quatri\u00e8me Internationale",
+    slogan1: "Lib\u00e9rons la Palestine, la Palestine nous lib\u00e9rera tou\u00b7tes !",
+    slogan2: "De l\u2019Ukraine \u00e0 la Palestine, l\u2019occupation est un crime !",
+    scroll: "Lire la D\u00e9claration",
+    print: "Imprimer",
+    s1p1: '<strong>Un mouvement mondial de solidarit\u00e9 s\u2019est form\u00e9 en r\u00e9ponse \u00e0 la barbarie de l\u2019actuel g\u00e9nocide contre le peuple palestinien. Malgr\u00e9 la r\u00e9pression intense qu\u2019il subit, il rassemble des millions de personnes dans le monde entier.</strong>',
+    s1p1_inner: "Un mouvement mondial de solidarit\u00e9 s\u2019est form\u00e9 en r\u00e9ponse \u00e0 la barbarie de l\u2019actuel g\u00e9nocide contre le peuple palestinien. Malgr\u00e9 la r\u00e9pression intense qu\u2019il subit, il rassemble des millions de personnes dans le monde entier.",
+    s1p2: "Depuis 77 ans, les imp\u00e9rialistes tentent de d\u00e9truire et chasser le peuple palestinien, en instrumentalisant l\u2019effroyable g\u00e9nocide des juifs commis pendant la Seconde Guerre mondiale pour justifier la d\u00e9possession, le nettoyage ethnique et le g\u00e9nocide. Depuis octobre 2023, Isra\u00ebl tente de d\u00e9truire la vie palestinienne \u00e0 Gaza, pour reproduire la Nakba de 1948, s\u2019engageant \u00e0 son tour dans un g\u00e9nocide sans comparaison au 21e si\u00e8cle. Tandis que les colons accroissent leurs attaques en Cisjordanie, les Palestinien\u00b7nes de 48 font face \u00e0 des discriminations plus fortes que jamais et qu\u2019Isra\u00ebl a men\u00e9 des attaques militaires contre le Liban, la Syrie et l\u2019Iran.",
+    s1p3: "La participation directe ou la complicit\u00e9 profonde de la plus grande partie des puissances imp\u00e9rialistes occidentales n\u2019est plus \u00e0 d\u00e9montrer, de m\u00eame que celles des pays arabes qui \u00ab normalisent \u00bb leurs relations avec l\u2019\u00c9tat g\u00e9nocidaire, tandis que dans de nombreux autres pays, les classes dirigeantes formulent des critiques polies, mais se distancient de toute r\u00e9sistance r\u00e9elle. Tout cela au nom d\u2019un \u00e9c\u0153urant \u00ab droit d\u2019Isra\u00ebl \u00e0 se d\u00e9fendre \u00bb qui tente de faire passer l\u2019agresseur pour la victime et r\u00e9ciproquement.",
+    h2: "La r\u00e9sistance face \u00e0 la r\u00e9pression",
+    s2p1: "Heureusement, dans une grande partie du monde, les masses populaires se sont mobilis\u00e9es pour revendiquer l\u2019arr\u00eat des massacres, la fin du blocus de Gaza, et des sanctions contre Isra\u00ebl. Elles ont fait face \u00e0 une r\u00e9pression implacable, par des interdictions, des emprisonnements, des attaques polici\u00e8re et judiciaires, des accusations mensong\u00e8res d\u2019antis\u00e9mitisme, etc.",
+    s2p2: "La caravane de la libert\u00e9 et la caravane Soumoud ont tent\u00e9 de briser le blocus de Gaza, apporter de l\u2019aide aux Palestinien\u00b7nes. La r\u00e9pression subie en \u00c9gypte et en Libye a montr\u00e9 l\u2019effroyable complicit\u00e9 des r\u00e9gimes au pouvoir avec le g\u00e9nocide. Des milliers de personnes ont subi des coups, des intimidations, des arrestations et ont \u00e9t\u00e9 renvoy\u00e9es dans leur pays d\u2019origine, dont les gouvernements ont tr\u00e8s timidement protest\u00e9.",
+    s2p3: "Les flottilles de la libert\u00e9, avec des personnalit\u00e9s mondialement connues, ont-elles aussi tent\u00e9, plus symboliquement, de briser le blocus. Elles ont r\u00e9ussi \u00e0 mettre en lumi\u00e8re le m\u00e9pris total de l\u2019\u00c9tat sioniste vis-\u00e0-vis du droit international, son m\u00e9pris de la v\u00e9rit\u00e9 et des fronti\u00e8res, symbolisant son colonialisme sans limite.",
+    s2p4: "Dans de nombreux pays, il est tout simplement interdit de manifester sa solidarit\u00e9 et d\u2019affirmer ses revendications, comme en Alg\u00e9rie o\u00f9 le pouvoir pr\u00e9tend soutenir la Palestine mais emp\u00eache la solidarit\u00e9 de s\u2019exprimer.",
+    s2p5: "Aux \u00c9tats-Unis et dans bien d\u2019autres pays, les mobilisations et les occupations ont \u00e9t\u00e9 interdites ou violemment attaqu\u00e9es par l\u2019\u00c9tat. Des professeur\u00b7es d\u2019universit\u00e9 ont \u00e9t\u00e9 r\u00e9prim\u00e9\u00b7es pour leur soutien au mouvement. Les \u00e9tudiant\u00b7es et les personnes racis\u00e9\u00b7es, notamment les personnes venant du Moyen-Orient, ont \u00e9t\u00e9 particuli\u00e8rement vis\u00e9es par la r\u00e9pression.",
+    s2p6: "La criminalisation des organisations de solidarit\u00e9 est une autre tactique essentielle. Le gouvernement britannique a d\u00e9clar\u00e9 le mouvement d\u2019action directe Palestine Action comme \u00e9tant une organisation terroriste, le soutien \u00e0 cette organisation constituant un d\u00e9lit p\u00e9nal. Des avocats, des pr\u00eatres et d\u2019autres personnalit\u00e9s ont \u00e9t\u00e9 arr\u00eat\u00e9\u00b7es lors d\u2019une action de protestation spontan\u00e9e. L\u2019\u00c9tat fran\u00e7ais menace depuis avril de dissoudre Urgence Palestine, mais ne l\u2019a pas encore fait, peut-\u00eatre en raison d\u2019une importante campagne internationale d\u2019opposition.",
+    s2p7: "En Allemagne, des dizaines de milliers de personnes mobilis\u00e9es sont confront\u00e9es \u00e0 une r\u00e9pression implacable. Les accusations mensong\u00e8res d\u2019antis\u00e9mitisme permettent d\u2019interdire les manifestations, de fermer des m\u00e9dias, de discr\u00e9diter tout le mouvement. Si l\u2019instrumentalisation de l\u2019antis\u00e9mitisme est un probl\u00e8me particulier en Allemagne, elle est utilis\u00e9e partout contre le mouvement, y compris contre les organisations juives qui affirment \u00ab Pas en notre nom \u00bb.",
+    s2p8: "Dans l\u2019\u00c9tat d\u2019Isra\u00ebl, m\u00eame si une grande majorit\u00e9 de la population juive soutient l\u2019action de l\u2019arm\u00e9e, il existe une r\u00e9action contre les crimes de guerre commis envers les Palestinien\u00b7nes, les actions des colons en Cisjordanie et la politique men\u00e9e par le gouvernement d\u2019extr\u00eame droite de Netanyahou, notamment la volont\u00e9 criminelle d\u2019expulser la population de Gaza.",
+    s2p9: "L\u2019hypocrisie r\u00e8gne alors que les gouvernements attaquent et criminalisent toutes les manifestations de soutien et de solidarit\u00e9 envers la r\u00e9sistance palestinienne, quelle que soit leur forme, m\u00eame limit\u00e9e \u2013 comme des chants lors d\u2019un festival de musique \u2013, tout en refusant de condamner Isra\u00ebl et de prendre des sanctions \u00e0 son encontre.",
+    s2p10: "Mais c\u2019est bien entendu en Palestine que la r\u00e9pression est la plus intense. En Cisjordanie, les attaques ont redoubl\u00e9 ces derniers mois, avec chaque jour des attaques de colons contre les Palestinien\u00b7nes, et des destructions de maisons. Il est \u00e9galement apparu qu\u2019Isra\u00ebl a arm\u00e9 et soutenu financi\u00e8rement des gangs palestiniens et des groupes djihadistes afin de saper la r\u00e9sistance \u00e0 Gaza de l\u2019int\u00e9rieur.",
+    s2p11: "Les massacres \u00e0 Gaza se poursuivent ; en un mois, plus de 600 Palestinien\u00b7nes ont \u00e9t\u00e9 tu\u00e9\u00b7es en attendant de l\u2019aide alimentaire. Les lieux de distribution de nourriture sont des guet-apens servant \u00e0 assassiner. Plusieurs \u00e9tudes sugg\u00e8rent maintenant que ce sont des centaines de milliers de gazaoui\u00b7es qui sont mort\u00b7es depuis deux ans.",
+    h3: "La r\u00e9sistance palestinienne est un point-cl\u00e9 de la situation mondiale",
+    s3p1: "Le peuple palestinien r\u00e9siste \u00e0 la seconde Nakba et \u00e0 l\u2019expulsion de son territoire avec les moyens dont il dispose. Jusqu\u2019\u00e0 pr\u00e9sent, malgr\u00e9 la famine, les conditions de vie terribles et les attaques meurtri\u00e8res, il tient bon, refuse de dispara\u00eetre et se d\u00e9fend.",
+    s3p2: "Le mouvement international de solidarit\u00e9 a permis de montrer la r\u00e9alit\u00e9 et l\u2019ampleur du g\u00e9nocide. Il a mobilis\u00e9 des millions de personnes, et la campagne de boycott, de d\u00e9sinvestissement et de sanctions, associ\u00e9e \u00e0 des mobilisations de masse, peut isoler ce r\u00e9gime criminel, comme cela s\u2019est d\u00e9j\u00e0 produit par le pass\u00e9, par exemple contre l\u2019apartheid en Afrique du Sud.",
+    h4: "Ce mouvement ne s\u2019arr\u00eatera pas",
+    s4p1: "Le sort du peuple palestinien est intimement li\u00e9 \u00e0 celui de l\u2019ensemble des peuples opprim\u00e9\u00b7es et au combat global contre les offensives imp\u00e9rialistes. Nous vivons une p\u00e9riode de d\u00e9veloppement des contradictions inter-imp\u00e9rialistes. Mais celles-ci ont leurs limites : ainsi la Russie par exemple n\u2019a pas soutenu l\u2019Iran lorsqu\u2019Isra\u00ebl a men\u00e9 une attaque contre lui. Les attaques isra\u00e9liennes et \u00e9tatsuniennes contre le Liban, la Syrie et l\u2019Iran, la complicit\u00e9 des \u00c9tats arabes montrent que les puissances imp\u00e9rialistes, les \u00c9tats-Unis en t\u00eate, veulent renforcer leur domination sur chaque centim\u00e8tre-carr\u00e9 du globe, dans une p\u00e9riode de crise \u00e9conomique et \u00e9cologique intense. Et le Moyen-Orient est un lieu strat\u00e9gique de ce champ de bataille, voire le lieu central.",
+    s4p2: "Emp\u00eacher la poursuite de la colonisation en Palestine, faire reculer Isra\u00ebl et les \u00c9tats-Unis, lib\u00e9rer la Palestine de l\u2019imp\u00e9rialisme sont des points-cl\u00e9s du rapport de forces mondial que nous devons construire pour changer le monde. Par cons\u00e9quent, la Quatri\u00e8me internationale appelle \u00e0 redoubler d\u2019efforts pour construire un mouvement mondial contre le g\u00e9nocide et pour la lib\u00e9ration de la Palestine, notamment \u00e0 travers des actions de masses et du monde du travail. Nous travaillerons \u00e0 ce que, notamment autour du 7 octobre 2025, des grandes mobilisations contribuent \u00e0 modifier le rapport de forces.",
+    closing1: "Lib\u00e9rons la Palestine, la Palestine nous lib\u00e9rera tou\u00b7tes !",
+    closing2: "De l\u2019Ukraine \u00e0 la Palestine, l\u2019occupation est un crime !",
+    footer: "Quatri\u00e8me Internationale \u2014 Bureau ex\u00e9cutif, le 13 juillet 2025",
+    sidebar_title: "D\u00e9clarations"
+  },
+
+  ar: {
+    overline: "\u0627\u0644\u0623\u0645\u0645\u064a\u0629 \u0627\u0644\u0631\u0627\u0628\u0639\u0629 \u2014 \u0627\u0644\u0645\u0643\u062a\u0628 \u0627\u0644\u062a\u0646\u0641\u064a\u0630\u064a\u060c \u064a\u0648\u0644\u064a\u0648 2025",
+    title: '\u0628\u0646\u0627\u0621 \u062d\u0631\u0643\u0629 \u0639\u0627\u0644\u0645\u064a\u0629 \u0636\u062f \u0627\u0644\u0625\u0628\u0627\u062f\u0629 \u0627\u0644\u062c\u0645\u0627\u0639\u064a\u0629 \u0641\u064a <em>\u0641\u0644\u0633\u0637\u064a\u0646</em>',
+    "title-em": "\u0641\u0644\u0633\u0637\u064a\u0646",
+    subtitle: "\u0625\u0639\u0644\u0627\u0646 \u0627\u0644\u0645\u0643\u062a\u0628 \u0627\u0644\u062a\u0646\u0641\u064a\u0630\u064a \u0644\u0644\u0623\u0645\u0645\u064a\u0629 \u0627\u0644\u0631\u0627\u0628\u0639\u0629",
+    slogan1: "!\u062d\u0631\u0631\u0648\u0627 \u0641\u0644\u0633\u0637\u064a\u0646\u060c \u0641\u0644\u0633\u0637\u064a\u0646 \u0633\u062a\u062d\u0631\u0631\u0646\u0627 \u062c\u0645\u064a\u0639\u0627\u064b",
+    slogan2: "!\u0645\u0646 \u0623\u0648\u0643\u0631\u0627\u0646\u064a\u0627 \u0625\u0644\u0649 \u0641\u0644\u0633\u0637\u064a\u0646\u060c \u0627\u0644\u0627\u062d\u062a\u0644\u0627\u0644 \u062c\u0631\u064a\u0645\u0629",
+    scroll: "\u0627\u0642\u0631\u0623 \u0627\u0644\u0625\u0639\u0644\u0627\u0646",
+    print: "\u0637\u0628\u0627\u0639\u0629",
+    s1p1: unavailable_msg,
+    s1p1_inner: unavailable_msg,
+    s1p2: "", s1p3: "",
+    h2: "", s2p1: "", s2p2: "", s2p3: "", s2p4: "", s2p5: "", s2p6: "", s2p7: "", s2p8: "", s2p9: "", s2p10: "", s2p11: "",
+    h3: "", s3p1: "", s3p2: "",
+    h4: "", s4p1: "", s4p2: "",
+    closing1: "!\u062d\u0631\u0631\u0648\u0627 \u0641\u0644\u0633\u0637\u064a\u0646",
+    closing2: "!\u0645\u0646 \u0623\u0648\u0643\u0631\u0627\u0646\u064a\u0627 \u0625\u0644\u0649 \u0641\u0644\u0633\u0637\u064a\u0646\u060c \u0627\u0644\u0627\u062d\u062a\u0644\u0627\u0644 \u062c\u0631\u064a\u0645\u0629",
+    footer: "\u0627\u0644\u0623\u0645\u0645\u064a\u0629 \u0627\u0644\u0631\u0627\u0628\u0639\u0629 \u2014 \u0627\u0644\u0645\u0643\u062a\u0628 \u0627\u0644\u062a\u0646\u0641\u064a\u0630\u064a\u060c 13 \u064a\u0648\u0644\u064a\u0648 2025",
+    sidebar_title: "\u0627\u0644\u0625\u0639\u0644\u0627\u0646\u0627\u062a"
+  },
+
+  pt: {
+    overline: "Quarta Internacional \u2014 Bureau Executivo, julho 2025",
+    title: 'Construindo um movimento global contra o genoc\u00eddio na <em>Palestina</em>',
+    "title-em": "Palestina",
+    subtitle: "Declara\u00e7\u00e3o do Bureau Executivo da Quarta Internacional",
+    slogan1: "Palestina livre, a Palestina nos libertar\u00e1 a todos!",
+    slogan2: "Da Ucr\u00e2nia \u00e0 Palestina, a ocupa\u00e7\u00e3o \u00e9 um crime!",
+    scroll: "Leia a Declara\u00e7\u00e3o",
+    print: "Imprimir",
+    s1p1: unavailable_msg,
+    s1p1_inner: unavailable_msg,
+    s1p2: "", s1p3: "",
+    h2: "", s2p1: "", s2p2: "", s2p3: "", s2p4: "", s2p5: "", s2p6: "", s2p7: "", s2p8: "", s2p9: "", s2p10: "", s2p11: "",
+    h3: "", s3p1: "", s3p2: "",
+    h4: "", s4p1: "", s4p2: "",
+    closing1: "Palestina livre, a Palestina nos libertar\u00e1 a todos!",
+    closing2: "Da Ucr\u00e2nia \u00e0 Palestina, a ocupa\u00e7\u00e3o \u00e9 um crime!",
+    footer: "Quarta Internacional \u2014 Bureau Executivo, 13 de julho de 2025",
+    sidebar_title: "Declara\u00e7\u00f5es"
+  }
+};
+
+const declarations = [
+  { title: { en: "Against Neo-Fascist Authoritarianism and All Forms of Imperialism", pt: "Contra o autoritarismo neofascista e todas as formas de imperialismo", fr: "Contre l'autoritarisme n\u00e9o-fasciste et toutes les formes d'imp\u00e9rialisme", es: "Contra el autoritarismo neofascista y todas las formas de imperialismo", ar: "\u0636\u062f \u0627\u0644\u0627\u0633\u062a\u0628\u062f\u0627\u062f \u0627\u0644\u0646\u064a\u0648\u0641\u0627\u0634\u064a \u0648\u062c\u0645\u064a\u0639 \u0623\u0634\u0643\u0627\u0644 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u0629" }, date: "2026-03-15", url: "index.html", current: false },
+  { title: { en: "Defeat the Imperialist Aggressors! Stop the US-Israeli War on Iran!", pt: "Para a derrota dos agressores imperialistas!", fr: "Pour la d\u00e9faite des agresseurs imp\u00e9rialistes !", es: "\u00a1Por la derrota de los agresores imperialistas!", ar: "\u0645\u0646 \u0623\u062c\u0644 \u0647\u0632\u064a\u0645\u0629 \u0627\u0644\u063a\u0632\u0627\u0629 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u064a\u0646!" }, date: "2026-03-13", url: "750-defeat-imperialist-aggressors.html", current: false },
+  { title: { en: "US/Israel Hands Off Iran! No Liberation Through US Bombs!", pt: "Estados Unidos/Israel, cessem toda interven\u00e7\u00e3o no Ir\u00e3!", fr: "\u00c9tats-Unis/Isra\u00ebl, cessez toute intervention en Iran !", es: "\u00a1EE. UU. e Israel fuera de Ir\u00e1n!", ar: "\u0627\u0644\u0648\u0644\u0627\u064a\u0627\u062a \u0627\u0644\u0645\u062a\u062d\u062f\u0629/\u0625\u0633\u0631\u0627\u0626\u064a\u0644 \u0627\u0631\u0641\u0639\u0648\u0627 \u0623\u064a\u062f\u064a\u0643\u0645 \u0639\u0646 \u0625\u064a\u0631\u0627\u0646!" }, date: "2026-02-28", url: "748-us-israel-hands-off-iran.html", current: false },
+  { title: { en: "Against the Theocratic and Authoritarian Regime in Iran and Imperialist Interference", pt: "Contra o regime teocr\u00e1tico e autorit\u00e1rio no Ir\u00e3 e a inger\u00eancia imperialista", fr: "Contre le r\u00e9gime th\u00e9ocratique et autoritaire de l'Iran et les ing\u00e9rences imp\u00e9rialistes", es: "Contra el r\u00e9gimen teocr\u00e1tico y autoritario de Ir\u00e1n y las injerencias imperialistas", ar: "\u0636\u062f \u0627\u0644\u0646\u0638\u0627\u0645 \u0627\u0644\u062b\u064a\u0648\u0642\u0631\u0627\u0637\u064a \u0627\u0644\u0645\u0633\u062a\u0628\u062f \u0641\u064a \u0625\u064a\u0631\u0627\u0646 \u0648\u0636\u062f \u0627\u0644\u062a\u062f\u062e\u0644\u0627\u062a \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u0629" }, date: "2026-01-05", url: "744-iran-solidarity.html", current: false },
+  { title: { en: "URGENT \u2014 Stop the Imperialist Aggression Against Venezuela!", pt: "URGENTE! Parar a agress\u00e3o imperialista contra a Venezuela!", fr: "URGENT \u2014 Halte \u00e0 l'agression imp\u00e9rialiste contre le Venezuela !", es: "URGENTE \u2014 \u00a1Alto a la agresi\u00f3n imperialista contra Venezuela!", ar: "\u0639\u0627\u062c\u0644 \u2014 \u0623\u0648\u0642\u0641\u0648\u0627 \u0627\u0644\u0639\u062f\u0648\u0627\u0646 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a \u0639\u0644\u0649 \u0641\u0646\u0632\u0648\u064a\u0644\u0627!" }, date: "2026-01-03", url: "743-stop-aggression-venezuela.html", current: false },
+  { title: { en: "Trump: Hands Off Venezuela and Latin America!", pt: "Trump: tire as m\u00e3os da Venezuela e da Am\u00e9rica Latina!", fr: "Halte aux attaques de Trump contre le Venezuela et l'Am\u00e9rique latine", es: "Trump: \u00a1Quita las manos de Venezuela y de Am\u00e9rica Latina!", ar: "\u062a\u0631\u0627\u0645\u0628: \u0627\u0631\u0641\u0639 \u064a\u062f\u064a\u0643 \u0639\u0646 \u0641\u0646\u0632\u0648\u064a\u0644\u0627 \u0648\u0623\u0645\u0631\u064a\u0643\u0627 \u0627\u0644\u0644\u0627\u062a\u064a\u0646\u064a\u0629!" }, date: "2025-10-27", url: "734-trump-hands-off-venezuela.html", current: false },
+  { title: { en: "After the Ceasefire: Our Tasks for the Liberation of Palestine", pt: "Ap\u00f3s o cessar-fogo: nossas tarefas para a liberta\u00e7\u00e3o da Palestina", fr: "Apr\u00e8s le cessez-le-feu, nos t\u00e2ches pour la lib\u00e9ration de la Palestine", es: "Despu\u00e9s del alto el fuego, nuestras tareas para la liberaci\u00f3n de Palestina", ar: "\u0628\u0639\u062f \u0648\u0642\u0641 \u0625\u0637\u0644\u0627\u0642 \u0627\u0644\u0646\u0627\u0631: \u0645\u0647\u0627\u0645\u0646\u0627 \u0644\u062a\u062d\u0631\u064a\u0631 \u0641\u0644\u0633\u0637\u064a\u0646" }, date: "2025-10-27", url: "735-palestine-ceasefire-tasks.html", current: false },
+  { title: { en: "Meeting of the Fourth International Bureau: Organizing to Act", pt: "Reuni\u00e3o do Bureau da Internacional: organizar-se para agir", fr: "R\u00e9union du Bureau de l'Internationale : s'organiser pour agir", es: "Reuni\u00f3n del Bur\u00f3 de la Internacional: organizarse para actuar", ar: "\u0627\u062c\u062a\u0645\u0627\u0639 \u0645\u0643\u062a\u0628 \u0627\u0644\u0623\u0645\u0645\u064a\u0629: \u062a\u0646\u0638\u064a\u0645 \u0627\u0644\u0639\u0645\u0644 \u0645\u0646 \u0623\u062c\u0644 \u0627\u0644\u0641\u0639\u0644" }, date: "2025-07-17", url: "724-bureau-meeting.html", current: false },
+  { title: { en: "Building a Global Movement Against Genocide in Palestine", pt: "Construindo um movimento global contra o genoc\u00eddio na Palestina", fr: "Construire un mouvement mondial contre le g\u00e9nocide en Palestine", es: "Construyendo un movimiento global contra el genocidio en Palestina", ar: "\u0628\u0646\u0627\u0621 \u062d\u0631\u0643\u0629 \u0639\u0627\u0644\u0645\u064a\u0629 \u0636\u062f \u0627\u0644\u0625\u0628\u0627\u062f\u0629 \u0627\u0644\u062c\u0645\u0627\u0639\u064a\u0629 \u0641\u064a \u0641\u0644\u0633\u0637\u064a\u0646" }, date: "2025-07-13", url: "721-global-movement-palestine.html", current: true },
+  { title: { en: "Trump's First Six Months: A Threat to Our Planet and Its Peoples", pt: "Os seis primeiros meses de Trump: uma amea\u00e7a ao nosso planeta e seus povos", fr: "Les six premiers mois de Trump : Une menace pour notre plan\u00e8te et ses peuples", es: "Los seis primeros meses de Trump: Una amenaza para nuestro planeta y sus pueblos", ar: "\u0623\u0634\u0647\u0631 \u062a\u0631\u0627\u0645\u0628 \u0627\u0644\u0633\u062a\u0629 \u0627\u0644\u0623\u0648\u0644\u0649: \u062a\u0647\u062f\u064a\u062f \u0644\u0643\u0648\u0643\u0628\u0646\u0627 \u0648\u0644\u0634\u0639\u0648\u0628\u0647" }, date: "2025-07-13", url: "720-trumps-first-six-months.html", current: false }
+];
+
+function toggleSidebar() { document.getElementById('sidebarOverlay').classList.toggle('open'); document.getElementById('sidebarPanel').classList.toggle('open'); }
+function renderSidebar(lang) { const t = translations[lang]; document.getElementById('sidebarTitle').textContent = t.sidebar_title || 'Declarations'; const list = document.getElementById('sidebarList'); list.innerHTML = declarations.map(d => { const cls = [d.current ? 'current' : '', d.url === '#' ? 'placeholder' : ''].filter(Boolean).join(' '); return `<li><a href="${d.url}" class="${cls}"><span class="decl-title">${d.title[lang] || d.title.en}</span><span class="decl-date">${d.date}</span></a></li>`; }).join(''); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { const overlay = document.getElementById('sidebarOverlay'); if (overlay.classList.contains('open')) toggleSidebar(); } });
+
+function setLang(lang) {
+  const html = document.documentElement; html.lang = lang; html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('.lang-bar button[data-lang]').forEach(btn => { btn.classList.toggle('active', btn.dataset.lang === lang); });
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => { const key = el.getAttribute('data-i18n'); if (t[key] !== undefined) { if (t[key].includes('<em>') || t[key].includes('<strong>')) { el.innerHTML = t[key]; } else { el.textContent = t[key]; } } });
+  renderSidebar(lang);
+}
+
+(function() { const supported = ['pt', 'es', 'fr', 'en', 'ar']; const langs = navigator.languages || [navigator.language || 'en']; let match = 'en'; for (const l of langs) { const code = l.split('-')[0].toLowerCase(); if (supported.includes(code)) { match = code; break; } } setLang(match); })();
+
+const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.section-block').forEach(block => observer.observe(block));
+window.addEventListener('scroll', () => { const scrollTop = window.scrollY; const docHeight = document.documentElement.scrollHeight - window.innerHeight; const progress = (scrollTop / docHeight) * 100; document.getElementById('scrollProgress').style.width = progress + '%'; }, { passive: true });
+</script>
+</body>
+</html>

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meeting of the Fourth International Bureau: Organizing to Act</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Sans+Arabic:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red: #C8102E;
+  --red-dark: #8B0000;
+  --red-bright: #E63946;
+  --red-glow: #FF1744;
+  --black: #0A0A0A;
+  --off-black: #141414;
+  --white: #F5F0EB;
+  --cream: #FAF7F2;
+  --gray: #888;
+  --text-body: rgba(245,240,235,0.85);
+  --bg-hero-red: rgba(200,16,46,0.18);
+  --bg-hero-red2: rgba(200,16,46,0.08);
+  --bg-hero-dark: rgba(139,0,0,0.1);
+  --stripe-opacity: 0.04;
+  --graphic-opacity: 0.06;
+  --langbar-bg: rgba(10,10,10,0.92);
+  --langbar-border: rgba(245,240,235,0.15);
+  --divider-red-alpha: rgba(200,16,46,0.3);
+  --closing-glow: rgba(200,16,46,0.12);
+  --ornament-line: linear-gradient(90deg, transparent, var(--red), transparent);
+  --footer-border: rgba(200,16,46,0.15);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-arabic: 'Noto Sans Arabic', 'Inter', sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --black: #FAF7F2;
+    --off-black: #F0EBE3;
+    --white: #1A1A1A;
+    --cream: #FFFFFF;
+    --gray: #666;
+    --text-body: rgba(26,26,26,0.8);
+    --bg-hero-red: rgba(200,16,46,0.08);
+    --bg-hero-red2: rgba(200,16,46,0.04);
+    --bg-hero-dark: rgba(139,0,0,0.04);
+    --stripe-opacity: 0.03;
+    --graphic-opacity: 0.04;
+    --langbar-bg: rgba(250,247,242,0.95);
+    --langbar-border: rgba(26,26,26,0.12);
+    --divider-red-alpha: rgba(200,16,46,0.2);
+    --closing-glow: rgba(200,16,46,0.06);
+    --footer-border: rgba(200,16,46,0.12);
+  }
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[dir="rtl"] body { font-family: var(--font-arabic); }
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3,
+html[dir="rtl"] .hero-title, html[dir="rtl"] .hero-subtitle {
+  font-family: var(--font-arabic);
+}
+
+/* ==================== LANGUAGE BAR ==================== */
+.lang-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.6rem 1rem;
+  background: var(--langbar-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--divider-red-alpha);
+  transition: transform 0.3s ease;
+}
+
+.lang-bar button {
+  background: none;
+  border: 1px solid var(--langbar-border);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 2px;
+}
+
+.lang-bar button:hover { border-color: var(--red); color: var(--red); }
+.lang-bar button.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: white;
+}
+
+.lang-bar .print-btn {
+  margin-left: 1rem;
+  border-color: var(--langbar-border);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lang-bar .print-btn svg { width: 14px; height: 14px; }
+.lang-bar .print-btn:hover { border-color: var(--white); color: var(--white); }
+
+/* ==================== HERO ==================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, var(--bg-hero-red) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, var(--bg-hero-red2) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, var(--bg-hero-dark) 0%, transparent 60%);
+  z-index: 0;
+}
+
+/* Animated diagonal stripes */
+.hero-stripes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: var(--stripe-opacity);
+}
+
+.hero-stripes::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    var(--red) 40px,
+    var(--red) 42px
+  );
+  animation: stripe-drift 30s linear infinite;
+}
+
+@keyframes stripe-drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(60px, 60px); }
+}
+
+/* Fist SVG graphic */
+.hero-graphic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: var(--graphic-opacity);
+  width: min(80vw, 600px);
+  height: auto;
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 900px; }
+
+.hero-overline {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 1.2rem;
+  border: 1px solid var(--divider-red-alpha);
+  border-radius: 2px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--red);
+  display: inline;
+}
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--red-bright);
+  margin-bottom: 2rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-slogans {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-slogan {
+  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-body);
+  text-transform: uppercase;
+}
+
+.hero-scroll {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: pulse-scroll 2s ease-in-out infinite;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.hero-scroll svg { width: 20px; height: 20px; }
+
+@keyframes pulse-scroll {
+  0%, 100% { opacity: 0.5; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(5px); }
+}
+
+/* ==================== RED DIVIDER ==================== */
+.red-divider {
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+
+.red-divider.thick {
+  height: 6px;
+  background: linear-gradient(90deg, transparent 5%, var(--red) 30%, var(--red-dark) 70%, transparent 95%);
+}
+
+/* ==================== BODY CONTENT ==================== */
+.declaration-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+.section-block {
+  margin-bottom: 3.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--red);
+  margin-bottom: 1.5rem;
+}
+
+.section-block p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-body);
+  margin-bottom: 1.25rem;
+}
+
+.section-block p:last-child { margin-bottom: 0; }
+
+
+/* ==================== CLOSING ==================== */
+.closing {
+  text-align: center;
+  padding: 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.closing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, var(--closing-glow), transparent 70%);
+}
+
+.closing-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+.closing-slogan {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--red);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 60px rgba(200,16,46,0.3);
+}
+
+.closing-sub {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 60px rgba(200,16,46,0.3);
+  margin-bottom: 1rem;
+}
+
+/* ==================== STAR ORNAMENT ==================== */
+.star-ornament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+  gap: 1.25rem;
+}
+
+.star-ornament .line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+
+.star-ornament svg { width: 28px; height: 28px; fill: var(--red); }
+
+/* Closing logo */
+.closing-logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  opacity: 1;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.75rem;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+  border-top: 1px solid var(--footer-border);
+}
+
+/* ==================== SCROLL PROGRESS ==================== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red-dark), var(--red-bright), var(--red-glow));
+  z-index: 1001;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar-toggle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  background: var(--langbar-bg);
+  border: none;
+  border-right: 1px solid var(--langbar-border);
+  border-bottom: 1px solid var(--langbar-border);
+  color: var(--white);
+  cursor: pointer;
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+[dir="rtl"] .sidebar-toggle {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--langbar-border);
+}
+.sidebar-toggle:hover { border-color: var(--red); color: var(--red); }
+.sidebar-toggle svg { width: 16px; height: 16px; }
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.sidebar-overlay.open { opacity: 1; visibility: visible; }
+
+.sidebar-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1101;
+  width: 320px;
+  max-width: 85vw;
+  background: var(--off-black);
+  border-right: 1px solid var(--divider-red-alpha);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+html[dir="rtl"] .sidebar-panel {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--divider-red-alpha);
+  transform: translateX(100%);
+}
+.sidebar-overlay.open + .sidebar-panel,
+.sidebar-panel.open { transform: translateX(0); }
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--divider-red-alpha);
+}
+.sidebar-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+}
+html[dir="rtl"] .sidebar-header h2 { font-family: var(--font-arabic); }
+.sidebar-close {
+  background: none;
+  border: none;
+  color: var(--gray);
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+.sidebar-close:hover { color: var(--white); }
+.sidebar-close svg { width: 20px; height: 20px; }
+
+.sidebar-list {
+  list-style: none;
+  padding: 0.75rem 0;
+  margin: 0;
+}
+.sidebar-list li { padding: 0; }
+.sidebar-list a {
+  display: block;
+  padding: 0.85rem 1.25rem;
+  text-decoration: none;
+  color: var(--text-body);
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+html[dir="rtl"] .sidebar-list a {
+  border-left: none;
+  border-right: 3px solid transparent;
+}
+.sidebar-list a:hover { background: rgba(200,16,46,0.06); }
+.sidebar-list a.current {
+  border-left-color: var(--red);
+  background: rgba(200,16,46,0.1);
+}
+html[dir="rtl"] .sidebar-list a.current {
+  border-left-color: transparent;
+  border-right-color: var(--red);
+}
+.sidebar-list a.placeholder { opacity: 0.55; }
+.sidebar-list .decl-title {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--white);
+}
+.sidebar-list a.placeholder .decl-title { color: var(--text-body); }
+.sidebar-list .decl-date {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray);
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .sidebar-panel { max-width: calc(85vw); width: 360px; }
+  .sidebar-toggle { padding: 0.35rem 0.5rem; }
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+  @page { margin: 2.5cm 3cm; }
+  .lang-bar, .scroll-progress, .hero-scroll, .hero-stripes, .hero-graphic, .sidebar-overlay, .sidebar-panel, .sidebar-toggle { display: none !important; }
+  body { background: white !important; color: black !important; font-size: 9pt; line-height: 1.5; }
+  .hero { min-height: auto; padding: 1.5rem 0; }
+  .hero::before { display: none; }
+  .hero-title { color: black !important; font-size: 22pt; }
+  .hero-title em { color: var(--red) !important; }
+  .hero-subtitle { color: var(--red) !important; font-size: 11pt; }
+  .hero-slogan { color: #333 !important; font-size: 8pt; }
+  .hero-overline { color: var(--red) !important; border-color: var(--red) !important; font-size: 7pt; }
+  .section-block { opacity: 1 !important; transform: none !important; margin-bottom: 1.5rem; }
+  .section-heading { color: var(--red) !important; font-size: 13pt; margin-bottom: 0.6rem; }
+  .section-block p { color: #222 !important; font-size: 9pt; line-height: 1.5; margin-bottom: 0.5rem; }
+
+  .closing-slogan { color: var(--red) !important; font-size: 16pt; }
+  .closing-sub { color: black !important; font-size: 12pt; }
+  .closing { padding: 2rem 0; }
+  .closing::before { display: none; }
+  .red-divider { background: var(--red) !important; height: 1px !important; }
+  .declaration-body { padding: 0.5rem 0; max-width: 100%; }
+  .star-ornament { padding: 0.8rem 0; }
+  footer { color: #666 !important; border-color: #ccc !important; font-size: 7pt; padding: 0.8rem 0; }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 640px) {
+  .hero { padding: 5rem 1.25rem 3rem; }
+  .declaration-body { padding: 2.5rem 1.25rem 4rem; }
+
+  .section-heading { font-size: 1.4rem; }
+  .lang-bar { gap: 0.15rem; flex-wrap: wrap; padding: 0.5rem 0.5rem; }
+  .lang-bar button { font-size: 0.65rem; padding: 0.25rem 0.5rem; }
+  .lang-bar .print-btn { margin-left: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Sidebar toggle -->
+<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open declarations menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
+<!-- Language bar -->
+<nav class="lang-bar" role="navigation" aria-label="Language selection">
+  <button data-lang="pt" onclick="setLang('pt')">Portugu&ecirc;s</button>
+  <button data-lang="es" onclick="setLang('es')">Espa&ntilde;ol</button>
+  <button data-lang="fr" onclick="setLang('fr')">Fran&ccedil;ais</button>
+  <button class="active" data-lang="en" onclick="setLang('en')">English</button>
+  <button data-lang="ar" onclick="setLang('ar')">&rlm;العربية</button>
+  <button class="print-btn" onclick="window.print()" title="Print / Save as PDF">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    <span data-i18n="print">Print</span>
+  </button>
+</nav>
+
+<!-- Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar-panel" id="sidebarPanel">
+  <div class="sidebar-header">
+    <h2 id="sidebarTitle">Declarations</h2>
+    <button class="sidebar-close" onclick="toggleSidebar()" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <ul class="sidebar-list" id="sidebarList"></ul>
+</aside>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-stripes"></div>
+
+  <!-- Fourth International logo -->
+  <svg class="hero-graphic" viewBox="0 0 1079 1081" fill="currentColor" color="var(--red)">
+    <g transform="translate(-652.248105,-1003.137222)">
+      <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1187.155773,1568.488198)"><path d="M0,5.914L1.769,5.914L6.055,0.997L9.337,0.997L10.168,0L5.482,0L0,5.914Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1258.140989,1478.695529)"><path d="M0,-11.521L4.532,-6.689L-2.959,1.007L-4.105,1.007L3.079,-6.604L1.316,-6.588L-6.483,1.839L2.818,1.839L5.373,-0.917L4.147,-0.917L2.334,1.007L1.08,1.007L6.756,-4.466L11.246,0.323L14.923,-3.098L7.868,-10.538C6.157,-8.827 5.259,-9.725 5.259,-9.725L1.881,-13.36L0,-11.521Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
+    </g>
+  </svg>
+
+  <div class="hero-content">
+    <span class="hero-overline" data-i18n="overline">Fourth International — Executive Bureau, July 2025</span>
+    <h1 class="hero-title" data-i18n="title">Meeting of the Fourth International Bureau: Organizing to <em data-i18n="title-em">Act</em></h1>
+    <p class="hero-subtitle" data-i18n="subtitle">Report of the Executive Bureau of the Fourth International</p>
+    <div class="hero-slogans">
+      <span class="hero-slogan" data-i18n="slogan1">Organizing to act!</span>
+    </div>
+  </div>
+  <a href="#declaration" class="hero-scroll">
+    <span data-i18n="scroll">Read the Report</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</header>
+
+<div class="red-divider thick"></div>
+
+<!-- DECLARATION BODY -->
+<main class="declaration-body" id="declaration">
+
+  <!-- Paragraph 1 -->
+  <section class="section-block">
+    <p data-i18n="s1p1">The Executive Bureau of the Fourth International met in mid-July. Elected by the broad leadership of the International -- the International Committee -- immediately after the last congress in February, the Bureau organizes the concrete activity of the International.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Paragraph 2 -->
+  <section class="section-block">
+    <p data-i18n="s1p2">It began with a discussion of the world situation, starting with Trump's offensive in the United States and his attempt to reorganize the world for the benefit of US imperialism. We therefore discussed the "No Kings" mobilizations, the struggle in solidarity with migrants, the disagreements within the US ruling class, customs duties and the economic situation, the attacks in the Middle East and Panama, but also the war in Ukraine, the battles against the far right in various countries (Brazil and Argentina in particular), the war between India and Pakistan, and the difficulties in building struggles. A statement was adopted specifically addressing the impacts of Trump's policies and the slogans we are promoting.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Paragraph 3 -->
+  <section class="section-block">
+    <p data-i18n="s1p3">A significant amount of time was also devoted to the genocide in Palestine and resistance movements around the world. We discussed the building of the solidarity movement, including demonstrations, caravans to Gaza, and flotillas. We voted for a statement addressing these issues and the initiatives we want to contribute to, particularly with regard to the mobilizations around October 7 and the coordination of the movement.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Paragraph 4 -->
+  <section class="section-block">
+    <p data-i18n="s1p4">This first Bureau meeting also devoted a significant amount of time to discussing the functioning of the International, the distribution of tasks and the responsibilities of the Bureau. We took stock of the educational schools, in particular the recent Asian regional school, the youth school and the international school in Amsterdam, and we reviewed the coordination of our work in Latin America, Africa and Europe and the building of the International in these regions. We discussed preparations for COP 30 and for ecosocialist conference, which will take place in Belem in November 2025, the March 2026 antifascist conference and the coordination of our work on Palestine. A progress report was given on the preparations for the youth camp. We also discussed the campaign around the <em>Manifesto for an Eco-Socialist Revolution</em> adopted at the last congress and the work needed to translate it into other languages, popularize it, and make it a basis for discussion with other currents and activists.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Paragraph 5 -->
+  <section class="section-block">
+    <p data-i18n="s1p5">A women-only meeting of the bureau addressed internal issues, including the problem of gender imbalance in the leadership, the need to promote women's voices, and the continental (meetings in Asia, Europe, and Latin America) and international (2027 seminar) actions we will organize regarding feminist work.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Paragraph 6 -->
+  <section class="section-block">
+    <p data-i18n="s1p6">Finally, the bureau discussed the distribution of tasks among comrades, relations between the bureau and its secretariat, the work needed to rejuvenate our leading bodies, and the preparation of the next International Committee, which will take place in February 2026. An update was given on our press, including the work to launch the Brazilian version of <em>Inprecor</em> and the need to strengthen <em>Punto de Vista Internacional</em>.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Paragraph 7 -->
+  <section class="section-block">
+    <p data-i18n="s1p7">This Bureau meeting was therefore an important moment in the life of the International, contributing to the organization of its political work and the building of militant campaigns and our organizations in the coming period.</p>
+    <p data-i18n="s1p8"><strong>July 17, 2025</strong></p>
+  </section>
+
+</main>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="closing-content section-block">
+    <p class="closing-slogan" data-i18n="closing1">Organizing to act!</p>
+    <div class="closing-logo">
+      <svg viewBox="0 0 1079 1081" fill="var(--red)" width="80" height="80">
+        <g transform="translate(-652.248105,-1003.137222)">
+          <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1187.155773,1568.488198)"><path d="M0,5.914L1.769,5.914L6.055,0.997L9.337,0.997L10.168,0L5.482,0L0,5.914Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1258.140989,1478.695529)"><path d="M0,-11.521L4.532,-6.689L-2.959,1.007L-4.105,1.007L3.079,-6.604L1.316,-6.588L-6.483,1.839L2.818,1.839L5.373,-0.917L4.147,-0.917L2.334,1.007L1.08,1.007L6.756,-4.466L11.246,0.323L14.923,-3.098L7.868,-10.538C6.157,-8.827 5.259,-9.725 5.259,-9.725L1.881,-13.36L0,-11.521Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span data-i18n="footer">Fourth International — Executive Bureau, July 17, 2025</span>
+</footer>
+
+<script>
+// ========== TRANSLATIONS ==========
+const translations = {
+  en: {
+    overline: "Fourth International \u2014 Executive Bureau, July 2025",
+    title: 'Meeting of the Fourth International Bureau: Organizing to <em>Act</em>',
+    "title-em": "Act",
+    subtitle: "Report of the Executive Bureau of the Fourth International",
+    slogan1: "Organizing to act!",
+    scroll: "Read the Report",
+    print: "Print",
+    s1p1: "The Executive Bureau of the Fourth International met in mid-July. Elected by the broad leadership of the International \u2014 the International Committee \u2014 immediately after the last congress in February, the Bureau organizes the concrete activity of the International.",
+    s1p2: "It began with a discussion of the world situation, starting with Trump\u2019s offensive in the United States and his attempt to reorganize the world for the benefit of US imperialism. We therefore discussed the \u201CNo Kings\u201D mobilizations, the struggle in solidarity with migrants, the disagreements within the US ruling class, customs duties and the economic situation, the attacks in the Middle East and Panama, but also the war in Ukraine, the battles against the far right in various countries (Brazil and Argentina in particular), the war between India and Pakistan, and the difficulties in building struggles. A statement was adopted specifically addressing the impacts of Trump\u2019s policies and the slogans we are promoting.",
+    s1p3: "A significant amount of time was also devoted to the genocide in Palestine and resistance movements around the world. We discussed the building of the solidarity movement, including demonstrations, caravans to Gaza, and flotillas. We voted for a statement addressing these issues and the initiatives we want to contribute to, particularly with regard to the mobilizations around October 7 and the coordination of the movement.",
+    s1p4: 'This first Bureau meeting also devoted a significant amount of time to discussing the functioning of the International, the distribution of tasks and the responsibilities of the Bureau. We took stock of the educational schools, in particular the recent Asian regional school, the youth school and the international school in Amsterdam, and we reviewed the coordination of our work in Latin America, Africa and Europe and the building of the International in these regions. We discussed preparations for COP 30 and for ecosocialist conference, which will take place in Belem in November 2025, the March 2026 antifascist conference and the coordination of our work on Palestine. A progress report was given on the preparations for the youth camp. We also discussed the campaign around the <em>Manifesto for an Eco-Socialist Revolution</em> adopted at the last congress and the work needed to translate it into other languages, popularize it, and make it a basis for discussion with other currents and activists.',
+    s1p5: "A women-only meeting of the bureau addressed internal issues, including the problem of gender imbalance in the leadership, the need to promote women\u2019s voices, and the continental (meetings in Asia, Europe, and Latin America) and international (2027 seminar) actions we will organize regarding feminist work.",
+    s1p6: 'Finally, the bureau discussed the distribution of tasks among comrades, relations between the bureau and its secretariat, the work needed to rejuvenate our leading bodies, and the preparation of the next International Committee, which will take place in February 2026. An update was given on our press, including the work to launch the Brazilian version of <em>Inprecor</em> and the need to strengthen <em>Punto de Vista Internacional</em>.',
+    s1p7: "This Bureau meeting was therefore an important moment in the life of the International, contributing to the organization of its political work and the building of militant campaigns and our organizations in the coming period.",
+    s1p8: "<strong>July 17, 2025</strong>",
+    closing1: "Organizing to act!",
+    footer: "Fourth International \u2014 Executive Bureau, July 17, 2025",
+    sidebar_title: "Declarations"
+  },
+
+  fr: {
+    overline: "Quatri\u00e8me Internationale \u2014 Bureau ex\u00e9cutif, juillet 2025",
+    title: "R\u00e9union du Bureau de l\u2019Internationale : s\u2019organiser pour <em>agir</em>",
+    "title-em": "agir",
+    subtitle: "Rapport du Bureau ex\u00e9cutif de la Quatri\u00e8me Internationale",
+    slogan1: "S\u2019organiser pour agir !",
+    scroll: "Lire le rapport",
+    print: "Imprimer",
+    s1p1: "Le Bureau ex\u00e9cutif de la IVe Internationale s\u2019est r\u00e9uni mi-juillet. \u00c9lu par la direction large de l\u2019Internationale \u2013 le comit\u00e9 international \u2013 imm\u00e9diatement apr\u00e8s le dernier congr\u00e8s, en f\u00e9vrier dernier, le bureau organise l\u2019activit\u00e9 concr\u00e8te de l\u2019Internationale.",
+    s1p2: "Il a ainsi d\u00e9but\u00e9 par une discussion sur la situation mondiale, partant de l\u2019offensive men\u00e9e par Trump aux \u00c9tats-Unis et pour r\u00e9organiser le monde au b\u00e9n\u00e9fice de l\u2019imp\u00e9rialisme \u00e9tatsunien. Nous avons donc abord\u00e9 les mobilisations \u00ab no kings \u00bb, la lutte de solidarit\u00e9 avec les migrant\u00b7es, les d\u00e9saccords au sein de la classe dominante \u00e9tatsunienne, les droits de douane et la situation \u00e9conomique, les attaques au Moyen-Orient, au Panama, mais aussi la guerre en Ukraine, les batailles contre l\u2019extr\u00eame droite dans divers pays (Br\u00e9sil et Argentine notamment), la guerre entre l\u2019Inde et le Pakistan et les difficult\u00e9s de la construction des luttes. Une d\u00e9claration a \u00e9t\u00e9 adopt\u00e9e concernant particuli\u00e8rement les impacts de la politique de Trump et les mots d\u2019ordre que nous mettons en avant.",
+    s1p3: "Un temps important a aussi \u00e9t\u00e9 consacr\u00e9 au g\u00e9nocide en Palestine et aux r\u00e9sistances dans le monde. Nous avons ainsi \u00e9chang\u00e9 sur la construction du mouvement de solidarit\u00e9, que ce soit les manifestations ou les caravanes pour Gaza, ainsi que les flottilles. Nous avons vot\u00e9 une d\u00e9claration qui aborde ces \u00e9l\u00e9ments et les initiatives auxquelles nous voulons contribuer, notamment en ce qui concerne les mobilisations autour du 7 octobre prochain et la coordination du mouvement.",
+    s1p4: 'Ce premier Bureau a aussi consacr\u00e9 un temps important \u00e0 un \u00e9change sur le fonctionnement de l\u2019Internationale, la r\u00e9partition des t\u00e2ches et les responsabilit\u00e9s du bureau. Ainsi, nous avons fait le bilan des \u00e9coles de formation, en particulier celle qui a eu lieu r\u00e9cemment \u00e0 Manille, l\u2019\u00e9cole jeune et l\u2019\u00e9cole internationale d\u2019Amsterdam, nous avons fait le point sur la coordination de notre travail en Am\u00e9rique latine, en Afrique et en Europe et la construction de l\u2019Internationale dans ces r\u00e9gions. Nous avons abord\u00e9 la pr\u00e9paration de la COP 30 qui aura lieu \u00e0 Bel\u00e9m en novembre 2025 et la coordination de notre travail sur la Palestine. Un point d\u2019\u00e9tape a \u00e9t\u00e9 r\u00e9alis\u00e9 sur la pr\u00e9paration du camp de jeunes. Nous avons \u00e9galement abord\u00e9 la campagne autour du <em>Manifeste pour une r\u00e9volution \u00e9cosocialiste</em> adopt\u00e9 au dernier congr\u00e8s et le travail n\u00e9cessaire pour le traduire dans le monde entier, le populariser et en faire un support de discussion avec d\u2019autres courants et militant\u00b7es.',
+    s1p5: "Une r\u00e9union non-mixte des femmes du bureau a abord\u00e9 les questions internes, notamment le probl\u00e8me de la disproportion hommes-femmes dans les instances, la n\u00e9cessit\u00e9 de favoriser la parole des femmes, et les actions continentales (meetings en Asie, Europe et Am\u00e9rique latine) et internationales (s\u00e9minaire de 2027) que nous allons organiser concernant le travail f\u00e9ministe.",
+    s1p6: 'Enfin, le bureau a discut\u00e9 de la r\u00e9partition des t\u00e2ches entre camarades, les relations entre le bureau et son secr\u00e9tariat, le travail n\u00e9cessaire pour rajeunir nos instances de direction et la pr\u00e9paration du prochain Comit\u00e9 international, qui aura lieu en f\u00e9vrier 2026. Un point a \u00e9t\u00e9 fait sur notre presse, et notamment le travail pour lancer la version br\u00e9silienne d\u2019<em>Inprecor</em> et la n\u00e9cessit\u00e9 de renforcer <em>Punto de Vista Internacional</em>.',
+    s1p7: "Ce Bureau aura donc \u00e9t\u00e9 un moment important de la vie de l\u2019Internationale, contribuant \u00e0 organiser son travail politique et la construction des campagnes militantes et de nos organisations dans la prochaine p\u00e9riode.",
+    s1p8: "<strong>Le 17 juillet 2025</strong>",
+    closing1: "S\u2019organiser pour agir !",
+    footer: "Quatri\u00e8me Internationale \u2014 Bureau ex\u00e9cutif, le 17 juillet 2025",
+    sidebar_title: "D\u00e9clarations"
+  },
+
+  es: {
+    overline: "Cuarta Internacional \u2014 Bur\u00f3 Ejecutivo, julio 2025",
+    title: "Reuni\u00f3n del Bur\u00f3 de la Internacional: organizarse para <em>actuar</em>",
+    "title-em": "actuar",
+    subtitle: "Informe del Bur\u00f3 Ejecutivo de la Cuarta Internacional",
+    slogan1: "\u00a1Organizarse para actuar!",
+    scroll: "Leer el informe",
+    print: "Imprimir",
+    s1p1: "El Bur\u00f3 Ejecutivo de la IV Internacional se reuni\u00f3 a mediados de julio. Elegido por la direcci\u00f3n amplia de la Internacional \u2014el Comit\u00e9 Internacional\u2014 inmediatamente despu\u00e9s del \u00faltimo congreso, en febrero pasado, el bur\u00f3 organiza la actividad concreta de la Internacional.",
+    s1p2: "Comenz\u00f3 as\u00ed con una discusi\u00f3n sobre la situaci\u00f3n mundial, partiendo de la ofensiva impulsada por Trump en Estados Unidos y de su objetivo de reorganizar el mundo en beneficio del imperialismo estadounidense. Hablamos entonces de las movilizaciones \u201Cno kings\u201D, de la lucha solidaria con les migrantes, de los desacuerdos en el seno de la clase dominante estadounidense, de los aranceles y la situaci\u00f3n econ\u00f3mica, de los ataques en Medio Oriente y en Panam\u00e1, pero tambi\u00e9n de la guerra en Ucrania, de las batallas contra la extrema derecha en diversos pa\u00edses (en particular Brasil y Argentina), de la guerra entre India y Pakist\u00e1n y de las dificultades para construir las luchas. Se adopt\u00f3 una declaraci\u00f3n en particular sobre los impactos de la pol\u00edtica de Trump y las consignas que ponemos por delante.",
+    s1p3: "Tambi\u00e9n se dedic\u00f3 un tiempo importante al genocidio en Palestina y a las resistencias en el mundo. Intercambiamos sobre la construcci\u00f3n del movimiento de solidaridad, ya sea en las manifestaciones, en las caravanas hacia Gaza o en las flotillas. Votamos una declaraci\u00f3n que aborda estos elementos y las iniciativas a las que queremos contribuir, en particular en lo referente a las movilizaciones en torno al pr\u00f3ximo 7 de octubre y a la coordinaci\u00f3n del movimiento.",
+    s1p4: 'Este primer Bur\u00f3 tambi\u00e9n dedic\u00f3 un tiempo importante a intercambiar sobre el funcionamiento de la Internacional, la distribuci\u00f3n de tareas y las responsabilidades del bur\u00f3. Hicimos as\u00ed un balance de las escuelas de formaci\u00f3n, en particular la reciente escuela regional en Asia, la escuela de j\u00f3venes y la escuela internacional de Amsterdam; adem\u00e1s, hicimos un punto de situaci\u00f3n sobre la coordinaci\u00f3n de nuestro trabajo en Latinoam\u00e9rica, \u00c1frica y Europa, y sobre la construcci\u00f3n de la Internacional en estas regiones. Abordamos la preparaci\u00f3n de la COP 30 y por la conferencia ecosocialista que se realizar\u00e1 en Bel\u00e9m en noviembre de 2025, la conferencia antifascista de marzo de 2026 as\u00ed como la coordinaci\u00f3n de nuestro trabajo sobre Palestina. Se hizo tambi\u00e9n un balance parcial sobre la preparaci\u00f3n del campamento de j\u00f3venes. Asimismo, discutimos la campa\u00f1a en torno al <em>Manifiesto por una Revoluci\u00f3n Ecosocialista</em> adoptado en el \u00faltimo congreso, y el trabajo necesario para traducirlo en todo el mundo, popularizarlo y convertirlo en una herramienta de discusi\u00f3n con otras corrientes y activistas.',
+    s1p5: "Una reuni\u00f3n no mixta de las mujeres del bur\u00f3 abord\u00f3 cuestiones internas, en particular el problema de la desproporci\u00f3n entre varones y mujeres en los organismos, la necesidad de favorecer la palabra de las mujeres y las acciones continentales (reuniones en Asia, Europa y Am\u00e9rica Latina) e internacionales (seminario de 2027) que vamos a organizar en torno al trabajo feminista.",
+    s1p6: 'Por \u00faltimo, el bur\u00f3 discuti\u00f3 la distribuci\u00f3n de tareas entre camaradas, las relaciones entre el bur\u00f3 y su secretariado, el trabajo necesario para rejuvenecer nuestros organismos de direcci\u00f3n y la preparaci\u00f3n del pr\u00f3ximo Comit\u00e9 Internacional, que tendr\u00e1 lugar en febrero de 2026. Se hizo tambi\u00e9n un balance sobre nuestra prensa, en particular sobre el trabajo para lanzar la versi\u00f3n brasile\u00f1a de <em>Inprecor</em> y la necesidad de fortalecer <em>Punto de Vista Internacional</em>.',
+    s1p7: "Este Bur\u00f3 ha sido, por lo tanto, un momento importante en la vida de la Internacional, contribuyendo a organizar su trabajo pol\u00edtico y a construir las campa\u00f1as militantes y nuestras organizaciones para el pr\u00f3ximo per\u00edodo.",
+    s1p8: "<strong>17 de julio de 2025</strong>",
+    closing1: "\u00a1Organizarse para actuar!",
+    footer: "Cuarta Internacional \u2014 Bur\u00f3 Ejecutivo, 17 de julio de 2025",
+    sidebar_title: "Declaraciones"
+  },
+
+  ar: {
+    overline: "\u0627\u0644\u0623\u0645\u0645\u064a\u0629 \u0627\u0644\u0631\u0627\u0628\u0639\u0629 \u2014 \u0627\u0644\u0645\u0643\u062a\u0628 \u0627\u0644\u062a\u0646\u0641\u064a\u0630\u064a\u060c \u064a\u0648\u0644\u064a\u0648 2025",
+    title: '\u0627\u062c\u062a\u0645\u0627\u0639 \u0645\u0643\u062a\u0628 \u0627\u0644\u0623\u0645\u0645\u064a\u0629: \u062a\u0646\u0638\u064a\u0645 \u0627\u0644\u0639\u0645\u0644 \u0645\u0646 \u0623\u062c\u0644 <em>\u0627\u0644\u0641\u0639\u0644</em>',
+    "title-em": "\u0627\u0644\u0641\u0639\u0644",
+    subtitle: "\u062a\u0642\u0631\u064a\u0631 \u0627\u0644\u0645\u0643\u062a\u0628 \u0627\u0644\u062a\u0646\u0641\u064a\u0630\u064a \u0644\u0644\u0623\u0645\u0645\u064a\u0629 \u0627\u0644\u0631\u0627\u0628\u0639\u0629",
+    slogan1: "!\u062a\u0646\u0638\u064a\u0645 \u0627\u0644\u0639\u0645\u0644 \u0645\u0646 \u0623\u062c\u0644 \u0627\u0644\u0641\u0639\u0644",
+    scroll: "\u0627\u0642\u0631\u0623 \u0627\u0644\u062a\u0642\u0631\u064a\u0631",
+    print: "\u0637\u0628\u0627\u0639\u0629",
+    s1p1: "\u0627\u062c\u062a\u0645\u0639 \u0627\u0644\u0645\u0643\u062a\u0628 \u0627\u0644\u062a\u0646\u0641\u064a\u0630\u064a \u0644\u0644\u0623\u0645\u0645\u064a\u0629 \u0627\u0644\u0631\u0627\u0628\u0639\u0629 \u0641\u064a \u0645\u0646\u062a\u0635\u0641 \u064a\u0648\u0644\u064a\u0648. \u0627\u0646\u062a\u064f\u062e\u0650\u0628 \u0627\u0644\u0645\u0643\u062a\u0628 \u0645\u0646 \u0642\u0628\u0644 \u0627\u0644\u0642\u064a\u0627\u062f\u0629 \u0627\u0644\u0639\u0631\u064a\u0636\u0629 \u0644\u0644\u0623\u0645\u0645\u064a\u0629 \u2013 \u0627\u0644\u0644\u062c\u0646\u0629 \u0627\u0644\u0639\u0627\u0644\u0645\u064a\u0629 \u2013 \u062a\u0648\u0627 \u0628\u0639\u062f \u0627\u0644\u0645\u0624\u062a\u0645\u0631 \u0627\u0644\u0623\u062e\u064a\u0631 \u0641\u064a \u0641\u0628\u0631\u0627\u064a\u0631 \u0627\u0644\u0645\u0627\u0636\u064a\u060c \u0648\u064a\u0642\u0648\u0645 \u0628\u062a\u0646\u0638\u064a\u0645 \u0646\u0634\u0627\u0637 \u0627\u0644\u0623\u0645\u0645\u064a\u0629 \u0627\u0644\u0645\u0644\u0645\u0648\u0633.",
+    s1p2: "\u0647\u0643\u0630\u0627 \u0628\u062f\u0623 \u0628\u0646\u0642\u0627\u0634 \u062d\u0648\u0644 \u0627\u0644\u0648\u0636\u0639 \u0627\u0644\u0639\u0627\u0644\u0645\u064a\u060c \u0627\u0646\u0637\u0644\u0627\u0642\u0627\u064b \u0645\u0646 \u0647\u062c\u0648\u0645 \u062a\u0631\u0627\u0645\u0628 \u0641\u064a \u0627\u0644\u0648\u0644\u0627\u064a\u0627\u062a \u0627\u0644\u0645\u062a\u062d\u062f\u0629 \u0644\u0625\u0639\u0627\u062f\u0629 \u062a\u0646\u0638\u064a\u0645 \u0627\u0644\u0639\u0627\u0644\u0645 \u0644\u0635\u0627\u0644\u062d \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u0629 \u0627\u0644\u0623\u0645\u0631\u064a\u0643\u064a\u0629. \u0644\u0630\u0644\u0643 \u062a\u0637\u0631\u0642\u0646\u0627 \u0644\u062a\u0639\u0628\u0626\u0627\u062a \u00ab\u0644\u0627 \u0645\u0644\u0648\u0643\u00bb\u060c \u0648\u0646\u0636\u0627\u0644 \u0627\u0644\u062a\u0636\u0627\u0645\u0646 \u0645\u0639 \u0627\u0644\u0645\u0647\u0627\u062c\u0631\u064a\u0646/\u062a\u060c \u0648\u0627\u0644\u062e\u0644\u0627\u0641\u0627\u062a \u0636\u0645\u0646 \u0627\u0644\u0637\u0628\u0642\u0629 \u0627\u0644\u0633\u0627\u0626\u062f\u0629 \u0627\u0644\u0623\u0645\u0631\u064a\u0643\u064a\u0629\u060c \u0648\u0627\u0644\u0631\u0633\u0648\u0645 \u0627\u0644\u062c\u0645\u0631\u0643\u064a\u0629 \u0648\u0627\u0644\u0648\u0636\u0639 \u0627\u0644\u0627\u0642\u062a\u0635\u0627\u062f\u064a\u060c \u0648\u0627\u0644\u0647\u062c\u0645\u0627\u062a \u0641\u064a \u0627\u0644\u0634\u0631\u0642 \u0627\u0644\u0623\u0648\u0633\u0637 \u0648\u0628\u0646\u0645\u0627\u060c \u0648\u0643\u0630\u0644\u0643 \u0627\u0644\u062d\u0631\u0628 \u0641\u064a \u0623\u0648\u0643\u0631\u0627\u0646\u064a\u0627\u060c \u0648\u0627\u0644\u0645\u0639\u0627\u0631\u0643 \u0636\u062f \u0627\u0644\u064a\u0645\u064a\u0646 \u0627\u0644\u0645\u062a\u0637\u0631\u0641 \u0641\u064a \u0645\u062e\u062a\u0644\u0641 \u0627\u0644\u0628\u0644\u062f\u0627\u0646 (\u0627\u0644\u0628\u0631\u0627\u0632\u064a\u0644 \u0648\u0627\u0644\u0623\u0631\u062c\u0646\u062a\u064a\u0646 \u0639\u0644\u0649 \u0648\u062c\u0647 \u0627\u0644\u062e\u0635\u0648\u0635)\u060c \u0648\u062d\u0631\u0628 \u0627\u0644\u0647\u0646\u062f \u0648\u0628\u0627\u0643\u0633\u062a\u0627\u0646\u060c \u0648\u0635\u0639\u0648\u0628\u0627\u062a \u0628\u0646\u0627\u0621 \u0627\u0644\u0646\u0636\u0627\u0644\u0627\u062a. \u062a\u0645 \u0627\u0639\u062a\u0645\u0627\u062f \u0628\u064a\u0627\u0646 \u064a\u062a\u0639\u0644\u0642 \u0628\u0648\u062c\u0647 \u062e\u0627\u0635 \u0628\u062a\u0623\u062b\u064a\u0631\u0627\u062a \u0633\u064a\u0627\u0633\u0629 \u062a\u0631\u0627\u0645\u0628 \u0648\u0627\u0644\u0634\u0639\u0627\u0631\u0627\u062a \u0627\u0644\u062a\u064a \u0646\u062a\u0642\u062f\u0645 \u0628\u0647\u0627.",
+    s1p3: "\u0643\u0645\u0627 \u062a\u0645 \u062a\u062e\u0635\u064a\u0635 \u062d\u064a\u0632 \u0648\u0642\u062a \u0645\u0647\u0645 \u0644\u0644\u0625\u0628\u0627\u062f\u0629 \u0627\u0644\u062c\u0645\u0627\u0639\u064a\u0629 \u0641\u064a \u0641\u0644\u0633\u0637\u064a\u0646 \u0648\u0627\u0644\u0645\u0642\u0627\u0648\u0645\u0627\u062a \u0641\u064a \u0627\u0644\u0639\u0627\u0644\u0645. \u0648\u062a\u0628\u0627\u062f\u0644\u0646\u0627 \u0627\u0644\u0622\u0631\u0627\u0621 \u062d\u0648\u0644 \u0628\u0646\u0627\u0621 \u062d\u0631\u0643\u0629 \u0627\u0644\u062a\u0636\u0627\u0645\u0646\u060c \u0633\u0648\u0627\u0621 \u0627\u0644\u0645\u0638\u0627\u0647\u0631\u0627\u062a \u0623\u0648 \u0627\u0644\u0642\u0648\u0627\u0641\u0644 \u0625\u0644\u0649 \u063a\u0632\u0629\u060c \u0623\u0648 \u0627\u0644\u0623\u0633\u0627\u0637\u064a\u0644. \u0635\u0648\u062a\u0646\u0627 \u0639\u0644\u0649 \u0628\u064a\u0627\u0646 \u064a\u062a\u0646\u0627\u0648\u0644 \u0647\u0630\u0647 \u0627\u0644\u0639\u0646\u0627\u0635\u0631 \u0648\u0627\u0644\u0645\u0628\u0627\u062f\u0631\u0627\u062a \u0627\u0644\u062a\u064a \u0646\u0631\u064a\u062f \u0627\u0644\u0625\u0633\u0647\u0627\u0645 \u0641\u064a\u0647\u0627\u060c \u0644\u0627 \u0633\u064a\u0645\u0627 \u0645\u0627 \u064a\u062a\u0639\u0644\u0642 \u0628\u0627\u0644\u062a\u0639\u0628\u0626\u0627\u062a \u062d\u0648\u0644 7 \u0623\u0643\u062a\u0648\u0628\u0631 \u0627\u0644\u0645\u0642\u0628\u0644 \u0648\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u062d\u0631\u0643\u0629.",
+    s1p4: '\u0643\u0645\u0627 \u062e\u0635\u0635 \u0647\u0630\u0627 \u0627\u0644\u0645\u0643\u062a\u0628 \u0627\u0644\u0623\u0648\u0644 \u0648\u0642\u062a\u064b\u0627 \u0645\u0647\u0645\u0627 \u0644\u062a\u0628\u0627\u062f\u0644 \u0627\u0644\u0622\u0631\u0627\u0621 \u062d\u0648\u0644 \u0633\u064a\u0631 \u0639\u0645\u0644 \u0627\u0644\u0623\u0645\u0645\u064a\u0629 \u0648\u062a\u0648\u0632\u064a\u0639 \u0645\u0647\u0627\u0645 \u0627\u0644\u0645\u0643\u062a\u0628 \u0648\u0645\u0633\u0624\u0648\u0644\u064a\u0627\u062a\u0647. \u0648\u0647\u0643\u0630\u0627\u060c \u0648\u0636\u0639\u0646\u0627 \u062a\u0642\u064a\u064a\u0645\u0627 \u0644\u0645\u062f\u0627\u0631\u0633 \u0627\u0644\u062a\u0643\u0648\u064a\u0646\u060c \u0628\u062e\u0627\u0635\u0629 \u062a\u0644\u0643 \u0627\u0644\u0645\u0646\u0638\u0645\u0629 \u0645\u0624\u062e\u0631\u0627\u064b \u0641\u064a \u0645\u0627\u0646\u064a\u0644\u0627\u060c \u0648\u0645\u062f\u0631\u0633\u0629 \u0627\u0644\u0634\u0628\u0627\u0628 \u0648\u0627\u0644\u0645\u062f\u0631\u0633\u0629 \u0627\u0644\u062f\u0648\u0644\u064a\u0629 \u0641\u064a \u0623\u0645\u0633\u062a\u0631\u062f\u0627\u0645\u060c \u0648\u0627\u0633\u062a\u0639\u0631\u0636\u0646\u0627 \u062a\u0646\u0633\u064a\u0642 \u0639\u0645\u0644\u0646\u0627 \u0641\u064a \u0623\u0645\u0631\u064a\u0643\u0627 \u0627\u0644\u0644\u0627\u062a\u064a\u0646\u064a\u0629 \u0648\u0623\u0641\u0631\u064a\u0642\u064a\u0627 \u0648\u0623\u0648\u0631\u0648\u0628\u0627 \u0648\u0628\u0646\u0627\u0621 \u0627\u0644\u0623\u0645\u0645\u064a\u0629 \u0641\u064a \u0647\u0630\u0647 \u0627\u0644\u0645\u0646\u0627\u0637\u0642. \u0648\u062a\u0637\u0631\u0642\u0646\u0627 \u0644\u062a\u062d\u0636\u064a\u0631 \u0645\u0624\u062a\u0645\u0631 \u0627\u0644\u0623\u0637\u0631\u0627\u0641 \u0627\u0644\u062b\u0644\u0627\u062b\u064a\u0646 \u0627\u0644\u0630\u064a \u0633\u064a\u0639\u0642\u062f \u0641\u064a \u0628\u064a\u0644\u064a\u0645 \u0641\u064a \u0646\u0648\u0641\u0645\u0628\u0631 2025 \u0648\u062a\u0646\u0633\u064a\u0642 \u0639\u0645\u0644\u0646\u0627 \u0628\u0634\u0623\u0646 \u0641\u0644\u0633\u0637\u064a\u0646. \u0648\u062a\u0645 \u0625\u062c\u0631\u0627\u0621 \u062a\u0642\u064a\u064a\u0645 \u0645\u0631\u062d\u0644\u064a \u0644\u0644\u062a\u062d\u0636\u064a\u0631 \u0644\u0645\u062e\u064a\u0645 \u0627\u0644\u0634\u0628\u0627\u0628. \u0643\u0645\u0627 \u0646\u0627\u0642\u0634\u0646\u0627 \u0627\u0644\u062d\u0645\u0644\u0629 \u062d\u0648\u0644 <em>\u0627\u0644\u0628\u064a\u0627\u0646 \u0645\u0646 \u0623\u062c\u0644 \u062b\u0648\u0631\u0629 \u0627\u0634\u062a\u0631\u0627\u0643\u064a\u0629 \u0625\u064a\u0643\u0648\u0644\u0648\u062c\u064a\u0629</em>\u060c \u0627\u0644\u0645\u0639\u062a\u0645\u062f \u0641\u064a \u0627\u0644\u0645\u0624\u062a\u0645\u0631 \u0627\u0644\u0623\u062e\u064a\u0631\u060c \u0648\u0627\u0644\u0639\u0645\u0644 \u0627\u0644\u0644\u0627\u0632\u0645 \u0644\u062a\u0631\u062c\u0645\u062a\u0647 \u0641\u064a \u0627\u0644\u0639\u0627\u0644\u0645 \u0628\u0631\u0645\u062a\u0647\u060c \u0648\u062a\u0639\u0645\u064a\u0645\u0647 \u0648\u062c\u0639\u0644\u0647 \u0623\u062f\u0627\u0629 \u0646\u0642\u0627\u0634 \u0645\u0639 \u062a\u064a\u0627\u0631\u0627\u062a \u0648\u0645\u0646\u0627\u0636\u0644\u064a\u0646 \u0622\u062e\u0631\u064a\u0646.',
+    s1p5: "\u0648\u062a\u0637\u0631\u0642 \u0627\u062c\u062a\u0645\u0627\u0639 \u062e\u0627\u0635 \u0644\u0646\u0633\u0627\u0621 \u0627\u0644\u0645\u0643\u062a\u0628 \u0644\u0644\u0645\u0633\u0627\u0626\u0644 \u0627\u0644\u062f\u0627\u062e\u0644\u064a\u0629\u060c \u0648\u0628\u062e\u0627\u0635\u0629 \u0645\u0634\u0643\u0644\u0629 \u0639\u062f\u0645 \u062a\u0646\u0627\u0633\u0628 \u0645\u0643\u0627\u0646\u0629 \u0627\u0644\u0631\u062c\u0627\u0644 \u0648\u0627\u0644\u0646\u0633\u0627\u0621 \u0641\u064a \u0627\u0644\u0647\u064a\u0626\u0627\u062a\u060c \u0648\u0636\u0631\u0648\u0631\u0629 \u062a\u0634\u062c\u064a\u0639 \u0627\u0644\u0646\u0633\u0627\u0621 \u0639\u0644\u0649 \u0627\u0644\u062a\u0639\u0628\u064a\u0631 \u0639\u0646 \u0622\u0631\u0627\u0626\u0647\u0646\u060c \u0648\u0627\u0644\u0623\u0646\u0634\u0637\u0629 \u0627\u0644\u0642\u0627\u0631\u064a\u0629 (\u0627\u062c\u062a\u0645\u0627\u0639\u0627\u062a \u0641\u064a \u0622\u0633\u064a\u0627 \u0648\u0623\u0648\u0631\u0648\u0628\u0627 \u0648\u0623\u0645\u0631\u064a\u0643\u0627 \u0627\u0644\u0644\u0627\u062a\u064a\u0646\u064a\u0629) \u0648\u0627\u0644\u062f\u0648\u0644\u064a\u0629 (\u0646\u062f\u0648\u0629 \u0639\u0627\u0645 2027) \u0627\u0644\u062a\u064a \u0633\u0646\u0646\u0638\u0645\u0647\u0627 \u0628\u0634\u0623\u0646 \u0627\u0644\u0639\u0645\u0644 \u0627\u0644\u0646\u0633\u0648\u064a.",
+    s1p6: '\u0648\u0623\u062e\u064a\u0631\u064b\u0627\u060c \u0646\u0627\u0642\u0634 \u0627\u0644\u0645\u0643\u062a\u0628 \u062a\u0648\u0632\u064a\u0639 \u0627\u0644\u0645\u0647\u0627\u0645 \u0628\u064a\u0646 \u0627\u0644\u0631\u0641\u0627\u0642/\u062a\u060c \u0648\u0627\u0644\u0639\u0644\u0627\u0642\u0627\u062a \u0628\u064a\u0646 \u0627\u0644\u0645\u0643\u062a\u0628 \u0648\u0623\u0645\u0627\u0646\u062a\u0647\u060c \u0648\u0627\u0644\u0639\u0645\u0644 \u0627\u0644\u0644\u0627\u0632\u0645 \u0644\u062a\u062c\u062f\u064a\u062f \u0647\u064a\u0626\u0627\u062a\u0646\u0627 \u0627\u0644\u0642\u064a\u0627\u062f\u064a\u0629\u060c \u0648\u062a\u062d\u0636\u064a\u0631 \u0627\u062c\u062a\u0645\u0627\u0639 \u0627\u0644\u0644\u062c\u0646\u0629 \u0627\u0644\u0639\u0627\u0644\u0645\u064a\u0629 \u0627\u0644\u0645\u0642\u0628\u0644 \u0641\u064a \u0641\u0628\u0631\u0627\u064a\u0631 2026. \u0648\u062c\u0631\u0649 \u062a\u0642\u064a\u064a\u0645 \u0644\u0648\u0633\u0627\u0626\u0644 \u0625\u0639\u0644\u0627\u0645\u0646\u0627\u060c \u0648\u0644\u0627 \u0633\u064a\u0645\u0627 \u0627\u0644\u0639\u0645\u0644 \u0645\u0646 \u0623\u062c\u0644 \u0625\u0637\u0644\u0627\u0642 \u0627\u0644\u0646\u0633\u062e\u0629 \u0627\u0644\u0628\u0631\u0627\u0632\u064a\u0644\u064a\u0629 \u0645\u0646 <em>Inprecor</em> \u0648\u0636\u0631\u0648\u0631\u0629 \u062a\u0639\u0632\u064a\u0632 <em>Punto de Vista Internacional</em>.',
+    s1p7: "\u0643\u0627\u0646 \u0627\u062c\u062a\u0645\u0627\u0639 \u0627\u0644\u0645\u0643\u062a\u0628 \u0647\u0630\u0627 \u0644\u062d\u0638\u0629 \u0645\u0647\u0645\u0629 \u0641\u064a \u062d\u064a\u0627\u0629 \u0627\u0644\u0623\u0645\u0645\u064a\u0629\u060c \u062d\u064a\u062b \u0623\u0633\u0647\u0645 \u0641\u064a \u062a\u0646\u0638\u064a\u0645 \u0639\u0645\u0644\u0647\u0627 \u0627\u0644\u0633\u064a\u0627\u0633\u064a \u0648\u0628\u0646\u0627\u0621 \u0627\u0644\u062d\u0645\u0644\u0627\u062a \u0627\u0644\u0646\u0636\u0627\u0644\u064a\u0629 \u0648\u0645\u0646\u0638\u0645\u0627\u062a\u0646\u0627 \u0641\u064a \u0627\u0644\u062d\u0642\u0628\u0629 \u0627\u0644\u0645\u0642\u0628\u0644\u0629.",
+    s1p8: "<strong>17 \u064a\u0648\u0644\u064a\u0648 2025</strong>",
+    closing1: "!\u062a\u0646\u0638\u064a\u0645 \u0627\u0644\u0639\u0645\u0644 \u0645\u0646 \u0623\u062c\u0644 \u0627\u0644\u0641\u0639\u0644",
+    footer: "\u0627\u0644\u0623\u0645\u0645\u064a\u0629 \u0627\u0644\u0631\u0627\u0628\u0639\u0629 \u2014 \u0627\u0644\u0645\u0643\u062a\u0628 \u0627\u0644\u062a\u0646\u0641\u064a\u0630\u064a\u060c 17 \u064a\u0648\u0644\u064a\u0648 2025",
+    sidebar_title: "\u0627\u0644\u0625\u0639\u0644\u0627\u0646\u0627\u062a"
+  },
+
+  pt: {
+    overline: "Quarta Internacional \u2014 Bureau Executivo, julho 2025",
+    title: 'Reuni\u00e3o do Bureau da Internacional: organizar-se para <em>agir</em>',
+    "title-em": "agir",
+    subtitle: "Relat\u00f3rio do Bureau Executivo da Quarta Internacional",
+    slogan1: "Organizar-se para agir!",
+    scroll: "Leia o relat\u00f3rio",
+    print: "Imprimir",
+    s1p1: "This translation is not yet available. / Esta tradu\u00e7\u00e3o ainda n\u00e3o est\u00e1 dispon\u00edvel. / Esta traducci\u00f3n a\u00fan no est\u00e1 disponible. / Cette traduction n'est pas encore disponible. / \u0647\u0630\u0647 \u0627\u0644\u062a\u0631\u062c\u0645\u0629 \u063a\u064a\u0631 \u0645\u062a\u0648\u0641\u0631\u0629 \u0628\u0639\u062f.",
+    s1p2: "",
+    s1p3: "",
+    s1p4: "",
+    s1p5: "",
+    s1p6: "",
+    s1p7: "",
+    s1p8: "",
+    closing1: "Organizar-se para agir!",
+    footer: "Quarta Internacional \u2014 Bureau Executivo, 17 de julho de 2025",
+    sidebar_title: "Declara\u00e7\u00f5es"
+  }
+};
+
+// ========== DECLARATIONS DATA ==========
+const declarations = [
+  { title: { en: "Against Neo-Fascist Authoritarianism and All Forms of Imperialism", pt: "Contra o autoritarismo neofascista e todas as formas de imperialismo", fr: "Contre l'autoritarisme n\u00e9o-fasciste et toutes les formes d'imp\u00e9rialisme", es: "Contra el autoritarismo neofascista y todas las formas de imperialismo", ar: "\u0636\u062f \u0627\u0644\u0627\u0633\u062a\u0628\u062f\u0627\u062f \u0627\u0644\u0646\u064a\u0648\u0641\u0627\u0634\u064a \u0648\u062c\u0645\u064a\u0639 \u0623\u0634\u0643\u0627\u0644 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u0629" }, date: "2026-03-15", url: "index.html", current: false },
+  { title: { en: "Defeat the Imperialist Aggressors! Stop the US-Israeli War on Iran!", pt: "Para a derrota dos agressores imperialistas!", fr: "Pour la d\u00e9faite des agresseurs imp\u00e9rialistes !", es: "\u00a1Por la derrota de los agresores imperialistas!", ar: "\u0645\u0646 \u0623\u062c\u0644 \u0647\u0632\u064a\u0645\u0629 \u0627\u0644\u063a\u0632\u0627\u0629 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u064a\u0646!" }, date: "2026-03-13", url: "750-defeat-imperialist-aggressors.html", current: false },
+  { title: { en: "US/Israel Hands Off Iran! No Liberation Through US Bombs!", pt: "Estados Unidos/Israel, cessem toda interven\u00e7\u00e3o no Ir\u00e3!", fr: "\u00c9tats-Unis/Isra\u00ebl, cessez toute intervention en Iran !", es: "\u00a1EE. UU. e Israel fuera de Ir\u00e1n!", ar: "\u0627\u0644\u0648\u0644\u0627\u064a\u0627\u062a \u0627\u0644\u0645\u062a\u062d\u062f\u0629/\u0625\u0633\u0631\u0627\u0626\u064a\u0644 \u0627\u0631\u0641\u0639\u0648\u0627 \u0623\u064a\u062f\u064a\u0643\u0645 \u0639\u0646 \u0625\u064a\u0631\u0627\u0646!" }, date: "2026-02-28", url: "748-us-israel-hands-off-iran.html", current: false },
+  { title: { en: "Against the Theocratic and Authoritarian Regime in Iran and Imperialist Interference", pt: "Contra o regime teocr\u00e1tico e autorit\u00e1rio no Ir\u00e3 e a inger\u00eancia imperialista", fr: "Contre le r\u00e9gime th\u00e9ocratique et autoritaire de l'Iran et les ing\u00e9rences imp\u00e9rialistes", es: "Contra el r\u00e9gimen teocr\u00e1tico y autoritario de Ir\u00e1n y las injerencias imperialistas", ar: "\u0636\u062f \u0627\u0644\u0646\u0638\u0627\u0645 \u0627\u0644\u062b\u064a\u0648\u0642\u0631\u0627\u0637\u064a \u0627\u0644\u0645\u0633\u062a\u0628\u062f \u0641\u064a \u0625\u064a\u0631\u0627\u0646 \u0648\u0636\u062f \u0627\u0644\u062a\u062f\u062e\u0644\u0627\u062a \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u0629" }, date: "2026-01-05", url: "744-iran-solidarity.html", current: false },
+  { title: { en: "URGENT \u2014 Stop the Imperialist Aggression Against Venezuela!", pt: "URGENTE! Parar a agress\u00e3o imperialista contra a Venezuela!", fr: "URGENT \u2014 Halte \u00e0 l'agression imp\u00e9rialiste contre le Venezuela !", es: "URGENTE \u2014 \u00a1Alto a la agresi\u00f3n imperialista contra Venezuela!", ar: "\u0639\u0627\u062c\u0644 \u2014 \u0623\u0648\u0642\u0641\u0648\u0627 \u0627\u0644\u0639\u062f\u0648\u0627\u0646 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a \u0639\u0644\u0649 \u0641\u0646\u0632\u0648\u064a\u0644\u0627!" }, date: "2026-01-03", url: "743-stop-aggression-venezuela.html", current: false },
+  { title: { en: "Trump: Hands Off Venezuela and Latin America!", pt: "Trump: tire as m\u00e3os da Venezuela e da Am\u00e9rica Latina!", fr: "Halte aux attaques de Trump contre le Venezuela et l'Am\u00e9rique latine", es: "Trump: \u00a1Quita las manos de Venezuela y de Am\u00e9rica Latina!", ar: "\u062a\u0631\u0627\u0645\u0628: \u0627\u0631\u0641\u0639 \u064a\u062f\u064a\u0643 \u0639\u0646 \u0641\u0646\u0632\u0648\u064a\u0644\u0627 \u0648\u0623\u0645\u0631\u064a\u0643\u0627 \u0627\u0644\u0644\u0627\u062a\u064a\u0646\u064a\u0629!" }, date: "2025-10-27", url: "734-trump-hands-off-venezuela.html", current: false },
+  { title: { en: "After the Ceasefire: Our Tasks for the Liberation of Palestine", pt: "Ap\u00f3s o cessar-fogo: nossas tarefas para a liberta\u00e7\u00e3o da Palestina", fr: "Apr\u00e8s le cessez-le-feu, nos t\u00e2ches pour la lib\u00e9ration de la Palestine", es: "Despu\u00e9s del alto el fuego, nuestras tareas para la liberaci\u00f3n de Palestina", ar: "\u0628\u0639\u062f \u0648\u0642\u0641 \u0625\u0637\u0644\u0627\u0642 \u0627\u0644\u0646\u0627\u0631: \u0645\u0647\u0627\u0645\u0646\u0627 \u0644\u062a\u062d\u0631\u064a\u0631 \u0641\u0644\u0633\u0637\u064a\u0646" }, date: "2025-10-27", url: "735-palestine-ceasefire-tasks.html", current: false },
+  { title: { en: "Meeting of the Fourth International Bureau: Organizing to Act", pt: "Reuni\u00e3o do Bureau da Internacional: organizar-se para agir", fr: "R\u00e9union du Bureau de l'Internationale : s'organiser pour agir", es: "Reuni\u00f3n del Bur\u00f3 de la Internacional: organizarse para actuar", ar: "\u0627\u062c\u062a\u0645\u0627\u0639 \u0645\u0643\u062a\u0628 \u0627\u0644\u0623\u0645\u0645\u064a\u0629: \u062a\u0646\u0638\u064a\u0645 \u0627\u0644\u0639\u0645\u0644 \u0645\u0646 \u0623\u062c\u0644 \u0627\u0644\u0641\u0639\u0644" }, date: "2025-07-17", url: "724-bureau-meeting.html", current: true },
+  { title: { en: "Building a Global Movement Against Genocide in Palestine", pt: "Construindo um movimento global contra o genoc\u00eddio na Palestina", fr: "Construire un mouvement mondial contre le g\u00e9nocide en Palestine", es: "Construyendo un movimiento global contra el genocidio en Palestina", ar: "\u0628\u0646\u0627\u0621 \u062d\u0631\u0643\u0629 \u0639\u0627\u0644\u0645\u064a\u0629 \u0636\u062f \u0627\u0644\u0625\u0628\u0627\u062f\u0629 \u0627\u0644\u062c\u0645\u0627\u0639\u064a\u0629 \u0641\u064a \u0641\u0644\u0633\u0637\u064a\u0646" }, date: "2025-07-13", url: "721-global-movement-palestine.html", current: false },
+  { title: { en: "Trump's First Six Months: A Threat to Our Planet and Its Peoples", pt: "Os seis primeiros meses de Trump: uma amea\u00e7a ao nosso planeta e seus povos", fr: "Les six premiers mois de Trump : Une menace pour notre plan\u00e8te et ses peuples", es: "Los seis primeros meses de Trump: Una amenaza para nuestro planeta y sus pueblos", ar: "\u0623\u0634\u0647\u0631 \u062a\u0631\u0627\u0645\u0628 \u0627\u0644\u0633\u062a\u0629 \u0627\u0644\u0623\u0648\u0644\u0649: \u062a\u0647\u062f\u064a\u062f \u0644\u0643\u0648\u0643\u0628\u0646\u0627 \u0648\u0644\u0634\u0639\u0648\u0628\u0647" }, date: "2025-07-13", url: "720-trumps-first-six-months.html", current: false }
+];
+
+// ========== SIDEBAR ==========
+function toggleSidebar() {
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+  document.getElementById('sidebarPanel').classList.toggle('open');
+}
+
+function renderSidebar(lang) {
+  const t = translations[lang];
+  document.getElementById('sidebarTitle').textContent = t.sidebar_title || 'Declarations';
+  const list = document.getElementById('sidebarList');
+  list.innerHTML = declarations.map(d => {
+    const cls = [d.current ? 'current' : '', d.url === '#' ? 'placeholder' : ''].filter(Boolean).join(' ');
+    return `<li><a href="${d.url}" class="${cls}"><span class="decl-title">${d.title[lang] || d.title.en}</span><span class="decl-date">${d.date}</span></a></li>`;
+  }).join('');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const overlay = document.getElementById('sidebarOverlay');
+    if (overlay.classList.contains('open')) toggleSidebar();
+  }
+});
+
+// ========== SET LANGUAGE ==========
+function setLang(lang) {
+  const html = document.documentElement;
+  html.lang = lang;
+  html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+  // Update active button
+  document.querySelectorAll('.lang-bar button[data-lang]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Update all translatable elements
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      if (t[key].includes('<em>') || t[key].includes('<strong>')) {
+        el.innerHTML = t[key];
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+
+  // Update sidebar
+  renderSidebar(lang);
+}
+
+// ========== AUTO-DETECT LANGUAGE ==========
+(function() {
+  const supported = ['pt', 'es', 'fr', 'en', 'ar'];
+  const langs = navigator.languages || [navigator.language || 'en'];
+  let match = 'en';
+  for (const l of langs) {
+    const code = l.split('-')[0].toLowerCase();
+    if (supported.includes(code)) { match = code; break; }
+  }
+  setLang(match);
+})();
+
+// ========== SCROLL ANIMATIONS ==========
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.section-block').forEach(block => observer.observe(block));
+
+// ========== SCROLL PROGRESS BAR ==========
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollProgress').style.width = progress + '%';
+}, { passive: true });
+</script>
+</body>
+</html>

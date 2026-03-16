@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trump: Hands Off Venezuela and Latin America! — Fourth International</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Sans+Arabic:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red: #C8102E;
+  --red-dark: #8B0000;
+  --red-bright: #E63946;
+  --red-glow: #FF1744;
+  --black: #0A0A0A;
+  --off-black: #141414;
+  --white: #F5F0EB;
+  --cream: #FAF7F2;
+  --gray: #888;
+  --text-body: rgba(245,240,235,0.85);
+  --bg-hero-red: rgba(200,16,46,0.18);
+  --bg-hero-red2: rgba(200,16,46,0.08);
+  --bg-hero-dark: rgba(139,0,0,0.1);
+  --stripe-opacity: 0.04;
+  --graphic-opacity: 0.06;
+  --langbar-bg: rgba(10,10,10,0.92);
+  --langbar-border: rgba(245,240,235,0.15);
+  --divider-red-alpha: rgba(200,16,46,0.3);
+  --closing-glow: rgba(200,16,46,0.12);
+  --ornament-line: linear-gradient(90deg, transparent, var(--red), transparent);
+  --footer-border: rgba(200,16,46,0.15);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-arabic: 'Noto Sans Arabic', 'Inter', sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --black: #FAF7F2;
+    --off-black: #F0EBE3;
+    --white: #1A1A1A;
+    --cream: #FFFFFF;
+    --gray: #666;
+    --text-body: rgba(26,26,26,0.8);
+    --bg-hero-red: rgba(200,16,46,0.08);
+    --bg-hero-red2: rgba(200,16,46,0.04);
+    --bg-hero-dark: rgba(139,0,0,0.04);
+    --stripe-opacity: 0.03;
+    --graphic-opacity: 0.04;
+    --langbar-bg: rgba(250,247,242,0.95);
+    --langbar-border: rgba(26,26,26,0.12);
+    --divider-red-alpha: rgba(200,16,46,0.2);
+    --closing-glow: rgba(200,16,46,0.06);
+    --footer-border: rgba(200,16,46,0.12);
+  }
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-body); background: var(--black); color: var(--white); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+html[dir="rtl"] body { font-family: var(--font-arabic); }
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] .hero-title, html[dir="rtl"] .hero-subtitle { font-family: var(--font-arabic); }
+
+.lang-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 0.25rem; padding: 0.6rem 1rem; background: var(--langbar-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--divider-red-alpha); transition: transform 0.3s ease; }
+.lang-bar button { background: none; border: 1px solid var(--langbar-border); color: var(--white); font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.75rem; cursor: pointer; transition: all 0.25s ease; border-radius: 2px; }
+.lang-bar button:hover { border-color: var(--red); color: var(--red); }
+.lang-bar button.active { background: var(--red); border-color: var(--red); color: white; }
+.lang-bar .print-btn { margin-left: 1rem; border-color: var(--langbar-border); display: flex; align-items: center; gap: 0.35rem; }
+.lang-bar .print-btn svg { width: 14px; height: 14px; }
+.lang-bar .print-btn:hover { border-color: var(--white); color: var(--white); }
+
+.hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 6rem 2rem 4rem; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, var(--bg-hero-red) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 20% 80%, var(--bg-hero-red2) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 80% 20%, var(--bg-hero-dark) 0%, transparent 60%); z-index: 0; }
+.hero-stripes { position: absolute; inset: 0; z-index: 0; overflow: hidden; opacity: var(--stripe-opacity); }
+.hero-stripes::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: repeating-linear-gradient(-45deg, transparent, transparent 40px, var(--red) 40px, var(--red) 42px); animation: stripe-drift 30s linear infinite; }
+@keyframes stripe-drift { from { transform: translate(0, 0); } to { transform: translate(60px, 60px); } }
+.hero-graphic { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; opacity: var(--graphic-opacity); width: min(80vw, 600px); height: auto; }
+.hero-content { position: relative; z-index: 1; max-width: 900px; }
+.hero-overline { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red-bright); margin-bottom: 1.5rem; padding: 0.4rem 1.2rem; border: 1px solid var(--divider-red-alpha); border-radius: 2px; }
+.hero-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.8rem, 7vw, 5.5rem); line-height: 1.05; color: var(--white); margin-bottom: 1.5rem; text-wrap: balance; }
+.hero-title em { font-style: italic; color: var(--red); display: inline; }
+.hero-subtitle { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.1rem, 2.5vw, 1.6rem); line-height: 1.4; color: var(--red-bright); margin-bottom: 2rem; max-width: 750px; margin-left: auto; margin-right: auto; }
+.hero-slogans { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2.5rem; }
+.hero-slogan { font-size: clamp(0.85rem, 1.8vw, 1.05rem); font-weight: 500; letter-spacing: 0.04em; color: var(--text-body); text-transform: uppercase; }
+.hero-scroll { margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--gray); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; animation: pulse-scroll 2s ease-in-out infinite; cursor: pointer; text-decoration: none; }
+.hero-scroll svg { width: 20px; height: 20px; }
+@keyframes pulse-scroll { 0%, 100% { opacity: 0.5; transform: translateY(0); } 50% { opacity: 1; transform: translateY(5px); } }
+
+.red-divider { height: 4px; background: linear-gradient(90deg, transparent, var(--red), transparent); }
+.red-divider.thick { height: 6px; background: linear-gradient(90deg, transparent 5%, var(--red) 30%, var(--red-dark) 70%, transparent 95%); }
+
+.declaration-body { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+.section-block { margin-bottom: 3.5rem; opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.section-block.visible { opacity: 1; transform: translateY(0); }
+.section-heading { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2; color: var(--red); margin-bottom: 1.5rem; }
+.section-block p { font-size: 1.05rem; line-height: 1.85; color: var(--text-body); margin-bottom: 1.25rem; }
+.section-block p:last-child { margin-bottom: 0; }
+
+.closing { text-align: center; padding: 2rem 2rem; position: relative; overflow: hidden; }
+.closing::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 50% 50%, var(--closing-glow), transparent 70%); }
+.closing-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.closing-slogan { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.2rem, 6vw, 4.5rem); line-height: 1.1; color: var(--red); margin-bottom: 1.25rem; text-transform: uppercase; letter-spacing: 0.02em; text-shadow: 0 0 60px rgba(200,16,46,0.3); }
+.closing-sub { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.8rem, 5vw, 3.5rem); line-height: 1.1; color: var(--red); text-transform: uppercase; letter-spacing: 0.02em; text-shadow: 0 0 60px rgba(200,16,46,0.3); margin-bottom: 1rem; }
+
+.star-ornament { display: flex; justify-content: center; align-items: center; padding: 3rem 0; gap: 1.25rem; }
+.star-ornament .line { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--red), transparent); }
+.star-ornament svg { width: 28px; height: 28px; fill: var(--red); }
+.closing-logo { display: flex; justify-content: center; margin-top: 2rem; opacity: 1; }
+
+footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--gray); letter-spacing: 0.05em; border-top: 1px solid var(--footer-border); }
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--red-dark), var(--red-bright), var(--red-glow)); z-index: 1001; width: 0%; transition: width 0.1s linear; }
+
+.sidebar-toggle { position: fixed; top: 0; left: 0; z-index: 1001; background: var(--langbar-bg); border: none; border-right: 1px solid var(--langbar-border); border-bottom: 1px solid var(--langbar-border); color: var(--white); cursor: pointer; padding: 0.6rem 0.75rem; display: flex; align-items: center; justify-content: center; transition: all 0.25s ease; }
+[dir="rtl"] .sidebar-toggle { left: auto; right: 0; border-right: none; border-left: 1px solid var(--langbar-border); }
+.sidebar-toggle:hover { border-color: var(--red); color: var(--red); }
+.sidebar-toggle svg { width: 16px; height: 16px; }
+.sidebar-overlay { position: fixed; inset: 0; z-index: 1100; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+.sidebar-overlay.open { opacity: 1; visibility: visible; }
+.sidebar-panel { position: fixed; top: 0; left: 0; bottom: 0; z-index: 1101; width: 320px; max-width: 85vw; background: var(--off-black); border-right: 1px solid var(--divider-red-alpha); transform: translateX(-100%); transition: transform 0.3s ease; overflow-y: auto; display: flex; flex-direction: column; }
+html[dir="rtl"] .sidebar-panel { left: auto; right: 0; border-right: none; border-left: 1px solid var(--divider-red-alpha); transform: translateX(100%); }
+.sidebar-overlay.open + .sidebar-panel, .sidebar-panel.open { transform: translateX(0); }
+.sidebar-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--divider-red-alpha); }
+.sidebar-header h2 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--white); margin: 0; }
+html[dir="rtl"] .sidebar-header h2 { font-family: var(--font-arabic); }
+.sidebar-close { background: none; border: none; color: var(--gray); cursor: pointer; padding: 0.25rem; transition: color 0.2s ease; }
+.sidebar-close:hover { color: var(--white); }
+.sidebar-close svg { width: 20px; height: 20px; }
+.sidebar-list { list-style: none; padding: 0.75rem 0; margin: 0; }
+.sidebar-list li { padding: 0; }
+.sidebar-list a { display: block; padding: 0.85rem 1.25rem; text-decoration: none; color: var(--text-body); border-left: 3px solid transparent; transition: all 0.2s ease; }
+html[dir="rtl"] .sidebar-list a { border-left: none; border-right: 3px solid transparent; }
+.sidebar-list a:hover { background: rgba(200,16,46,0.06); }
+.sidebar-list a.current { border-left-color: var(--red); background: rgba(200,16,46,0.1); }
+html[dir="rtl"] .sidebar-list a.current { border-left-color: transparent; border-right-color: var(--red); }
+.sidebar-list a.placeholder { opacity: 0.55; }
+.sidebar-list .decl-title { display: block; font-size: 0.9rem; font-weight: 500; line-height: 1.4; color: var(--white); }
+.sidebar-list a.placeholder .decl-title { color: var(--text-body); }
+.sidebar-list .decl-date { display: block; font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem; }
+
+@media (max-width: 640px) {
+  .sidebar-panel { max-width: calc(85vw); width: 360px; }
+  .sidebar-toggle { padding: 0.35rem 0.5rem; }
+}
+
+@media print {
+  @page { margin: 2.5cm 3cm; }
+  .lang-bar, .scroll-progress, .hero-scroll, .hero-stripes, .hero-graphic, .sidebar-overlay, .sidebar-panel, .sidebar-toggle { display: none !important; }
+  body { background: white !important; color: black !important; font-size: 9pt; line-height: 1.5; }
+  .hero { min-height: auto; padding: 1.5rem 0; }
+  .hero::before { display: none; }
+  .hero-title { color: black !important; font-size: 22pt; }
+  .hero-title em { color: var(--red) !important; }
+  .hero-subtitle { color: var(--red) !important; font-size: 11pt; }
+  .hero-slogan { color: #333 !important; font-size: 8pt; }
+  .hero-overline { color: var(--red) !important; border-color: var(--red) !important; font-size: 7pt; }
+  .section-block { opacity: 1 !important; transform: none !important; margin-bottom: 1.5rem; }
+  .section-heading { color: var(--red) !important; font-size: 13pt; margin-bottom: 0.6rem; }
+  .section-block p { color: #222 !important; font-size: 9pt; line-height: 1.5; margin-bottom: 0.5rem; }
+  .closing-slogan { color: var(--red) !important; font-size: 16pt; }
+  .closing-sub { color: black !important; font-size: 12pt; }
+  .closing { padding: 2rem 0; }
+  .closing::before { display: none; }
+  .red-divider { background: var(--red) !important; height: 1px !important; }
+  .declaration-body { padding: 0.5rem 0; max-width: 100%; }
+  .star-ornament { padding: 0.8rem 0; }
+  footer { color: #666 !important; border-color: #ccc !important; font-size: 7pt; padding: 0.8rem 0; }
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 5rem 1.25rem 3rem; }
+  .declaration-body { padding: 2.5rem 1.25rem 4rem; }
+  .section-heading { font-size: 1.4rem; }
+  .lang-bar { gap: 0.15rem; flex-wrap: wrap; padding: 0.5rem 0.5rem; }
+  .lang-bar button { font-size: 0.65rem; padding: 0.25rem 0.5rem; }
+  .lang-bar .print-btn { margin-left: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open declarations menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
+<nav class="lang-bar" role="navigation" aria-label="Language selection">
+  <button data-lang="pt" onclick="setLang('pt')">Portugu&ecirc;s</button>
+  <button data-lang="es" onclick="setLang('es')">Espa&ntilde;ol</button>
+  <button data-lang="fr" onclick="setLang('fr')">Fran&ccedil;ais</button>
+  <button class="active" data-lang="en" onclick="setLang('en')">English</button>
+  <button data-lang="ar" onclick="setLang('ar')">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</button>
+  <button class="print-btn" onclick="window.print()" title="Print / Save as PDF">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    <span data-i18n="print">Print</span>
+  </button>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar-panel" id="sidebarPanel">
+  <div class="sidebar-header">
+    <h2 id="sidebarTitle">Declarations</h2>
+    <button class="sidebar-close" onclick="toggleSidebar()" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <ul class="sidebar-list" id="sidebarList"></ul>
+</aside>
+
+<header class="hero">
+  <div class="hero-stripes"></div>
+  <svg class="hero-graphic" viewBox="0 0 1079 1081" fill="currentColor" color="var(--red)">
+    <g transform="translate(-652.248105,-1003.137222)">
+      <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1187.155773,1568.488198)"><path d="M0,5.914L1.769,5.914L6.055,0.997L9.337,0.997L10.168,0L5.482,0L0,5.914Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1258.140989,1478.695529)"><path d="M0,-11.521L4.532,-6.689L-2.959,1.007L-4.105,1.007L3.079,-6.604L1.316,-6.588L-6.483,1.839L2.818,1.839L5.373,-0.917L4.147,-0.917L2.334,1.007L1.08,1.007L6.756,-4.466L11.246,0.323L14.923,-3.098L7.868,-10.538C6.157,-8.827 5.259,-9.725 5.259,-9.725L1.881,-13.36L0,-11.521Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
+    </g>
+  </svg>
+
+  <div class="hero-content">
+    <span class="hero-overline" data-i18n="overline">Fourth International — Executive Bureau, 27 October 2025</span>
+    <h1 class="hero-title" data-i18n="title">Trump: Hands Off Venezuela and <em data-i18n="title-em">Latin America!</em></h1>
+    <p class="hero-subtitle" data-i18n="subtitle">Declaration of the Executive Bureau of the Fourth International</p>
+    <div class="hero-slogans">
+      <span class="hero-slogan" data-i18n="slogan1">US troops and weapons out of the Caribbean!</span>
+      <span class="hero-slogan" data-i18n="slogan2">US hands off Venezuela and Latin America!</span>
+    </div>
+  </div>
+  <a href="#declaration" class="hero-scroll">
+    <span data-i18n="scroll">Read the Declaration</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</header>
+
+<div class="red-divider thick"></div>
+
+<main class="declaration-body" id="declaration">
+
+  <!-- Intro -->
+  <section class="section-block">
+    <p data-i18n="intro"><em>Economic blackmail and threats against Brazil, Colombia, Mexico, and Argentina are part of a new phase in US policy toward Latin America. But the greatest danger falls on Venezuela, whose government Trump is determined to overthrow. The deployment of 10,000 soldiers, a massive arsenal in the Caribbean, and attacks that have already killed more than 60 rafters threaten not only Venezuela but the entire region. It is the urgent duty of activists around the world to raise their voices and mobilize against US interventionism under Trump.</em></p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 1: Unprecedented military deployment -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h1">Unprecedented military deployment in the Caribbean</h2>
+    <p data-i18n="s1p1">The central target of the US offensive is undoubtedly Venezuela. With unprecedented stridency and brazenness, the imperialist leader and his secretaries of state and war, Marco Rubio and Peter Hegseth, have already decreed that criminal drug cartels are "terrorist organizations", considered Maduro as the head of a cartel that does not exist (the Soles cartel), and offered a $50 million reward for information leading to the capture of the Venezuelan.</p>
+    <p data-i18n="s1p2">Most threateningly, they have deployed around 10,000 marines to the Caribbean, with aircraft carriers (the largest in their navy), torpedo boats and nuclear submarines, warships equipped with medium-range missiles, B-52 bombers, and the technological capacity for large-scale data analysis, in a maneuver defined by geopolitical experts as a "seismic realignment." Puerto Rico has been remilitarized, and military cooperation agreements with Caribbean countries have been used to build an army infrastructure that appears to precede a large-scale attack on the country that was the scene of the great Bolivarian revolution. Over the past two months, these forces have carried out seven attacks on rafters (alleged traffickers), resulting in 46 deaths and two arrests.</p>
+    <p data-i18n="s1p3">On October 15, in a move unprecedented even during the Cold War (CIA operations were secret), Trump announced that he had authorized the Central Intelligence Agency to carry out operations in Venezuela. According to the Washington Post, the president signed a document authorizing the CIA to carry out covert operations in foreign countries, ranging from clandestine information gathering to training opposition guerrilla forces and carrying out lethal attacks.</p>
+    <p data-i18n="s1p4">On Sunday, October 19, in a further escalation, US forces carried out a deadly attack against what was supposedly a ship belonging to Colombia's ELN group in the waters of the Pacific Ocean. In response to Gustavo Petro's justified protest, Trump insulted the Colombian president as a "drug trafficker" and head of "a weak and very bad government," threatening, as usual, with tariffs and funding cuts, while at the same time revoking the US visas of Petro, his family, and his advisors. While Petro recalled the Colombian ambassador to Washington, Trump said at a press conference &mdash; in response to a journalist &mdash; that he does not need a declaration of war for his operations against trafficking in what he considers his waters. "We go there and we kill them."</p>
+    <p data-i18n="s1p5">Trump's top advisers are reportedly urging him to invade Venezuela to overthrow Maduro, according to open speculation in the US. Of course, the awarding of the Nobel Peace Prize to the far-right Venezuelan leader Mar&iacute;a Corina Machado &ndash; which, if it weren't serious, would be one of the worst jokes of our time &ndash; is part of a deliberate plan to reinforce what the hawks see as the alternative to Maduro. The Trump administration appears to be forcing a transition to a far-right government led by Edmundo Gonz&aacute;lez Urrutia and Mar&iacute;a Corina, who has already called for sanctions against Venezuela, without any concern for their effects on the impoverished population and is now handing over the fate of the nation to the boots of Yankee soldiers.</p>
+    <p data-i18n="s1p6">It may seem unlikely that the US would invade by land countries whose governments it accuses of complicity in drug trafficking, such as Venezuela, Colombia, or Mexico itself. A prolonged ground invasion would meet with strong resistance from the armed forces under Maduro's command, possibly with widespread support and sympathy in the region, meaning a new and closer Iraq. Entering a war of this magnitude contradicts Trump's rhetoric to his domestic audience, to whom he has promised to "end the wars." Furthermore, there are signs of opposition to such a solution from sectors of the US military high command, as evidenced by the early resignation of the head of the Southern Military Command, Admiral Alvin Hosley, on October 16.</p>
+    <p data-i18n="s1p7">In any case, prudence dictates that we should not rule out the possibility of any warmongering "madness" on the part of the neo-fascist leader. At the very least, based on his rhetoric, he may opt for drone or aircraft attacks against specific targets in Venezuela in a continued attempt to weaken the government.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 2: A return to the past -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h2">A return to the past</h2>
+    <p data-i18n="s2p1">Since the first days of his return to the Oval Office of the White House, Donald Trump, emboldened by his neo-fascist hawks, has kept Mexico under heavy tariff and police-military pressure (so that the Sheinbaum government will stop the flow of migrants at the border and combat local drug cartels). CIA drones fly over Mexican territory in the supposed search for cocaine and other drug laboratories.</p>
+    <p data-i18n="s2p2">Trump has meddled in Brazil's internal politics to defend his friend Bolsonaro, convicted of attempted coup (imposing 50% tariffs on Brazilian exports to the US and opening a trade investigation against Brazil's timid policies to restrict US big tech companies). Not even Argentina, governed by his compadre Javier Milei, escapes threats and blackmail: in mid-October, commenting on a new US$20 billion loan from the IMF to the country, Trump conditioned his continued support for the Southern neo-fascist libertarian on a victory for Milei's party in the October 26 parliamentary elections, in which the possibility of the president's neo-fascist coalition finally controlling Congress is at stake (with low chances). "If [Milei] loses, we are not going to be generous with Argentina," Trump said. The episode points to the normalization of the rhetoric and practice of the US government's direct interference in the internal political affairs of sovereign states.</p>
+    <p data-i18n="s2p3">The combination of gestures, punitive rhetoric, and enormous military deployment constitutes an attack on Latin American neighbors not seen since the invasion of Grenada in 1982. In the context of the substantive change that Trump's White House is imposing on the global power relations that have been in place for the last eight decades, US policy toward Latin America is taking a turn toward the interventionist past of military aggression and open political interference that had already marked the imperialist power's treatment of the entire South during the Cold War.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 3: A call for solidarity -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h3">A call for international anti-imperialist solidarity</h2>
+    <p data-i18n="s3p1">The accusation that Maduro and senior Venezuelan government officials are members of cartels, stupid as it is, seeks to justify the violation of the principle of self-determination of peoples and the territorial sovereignty of Venezuela. There is an unprecedented warmongering offensive in the region, which must be forcefully rejected by socialists, social activists, and progressive sectors, regardless of what they or we think about the government of Nicol&aacute;s Maduro, its anti-worker, anti-popular policies, and its anti-democratic drift.</p>
+    <p data-i18n="s3p2">It is time to call on the democratic, anticolonial, progressive, and revolutionary forces of the world, and of the region in particular, to defend the territorial integrity of Venezuela, the Caribbean countries, and all of Latin America in the face of attempts at military or political intervention, that is, attempts to define "from above and outside" (read: in the Oval Office) the political course of sovereign countries. It is the Venezuelan people who must decide on their government, without any interference. It is the sovereign peoples of Latin America and all corners of the globe who must decide on their tyrants, their parliaments, and the trials in their judicial systems.</p>
+    <p data-i18n="s3p3">We must demand that the governments of Lula, Petro, Boric, and Sheinbaum do their utmost to prevent any possibility of military aggression and political intervention in Venezuela. It is positive that Lula offers himself as a "mediator," as he did in his meeting with Trump, but all these governments must be vehement and even repetitive in rejecting any US initiative against Venezuela.</p>
+    <p data-i18n="s3p4">The Fourth International's solidarity with Venezuela includes demanding that Maduro restore political freedoms for the social movement, the left, and the workers of Venezuela. This is the path, together with legitimate popular military mobilization, to build genuine national and regional unity against imperialist aggression. Only the broadest unity of action can contain, resist, and defeat the ongoing aggression.</p>
+  </section>
+
+</main>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="closing-content section-block">
+    <p class="closing-slogan" data-i18n="closing1">US hands off Venezuela!</p>
+    <p class="closing-sub" data-i18n="closing2">Demilitarize Puerto Rico now!</p>
+    <div class="closing-logo">
+      <svg viewBox="0 0 1079 1081" fill="var(--red)" width="80" height="80">
+        <g transform="translate(-652.248105,-1003.137222)">
+          <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1187.155773,1568.488198)"><path d="M0,5.914L1.769,5.914L6.055,0.997L9.337,0.997L10.168,0L5.482,0L0,5.914Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1258.140989,1478.695529)"><path d="M0,-11.521L4.532,-6.689L-2.959,1.007L-4.105,1.007L3.079,-6.604L1.316,-6.588L-6.483,1.839L2.818,1.839L5.373,-0.917L4.147,-0.917L2.334,1.007L1.08,1.007L6.756,-4.466L11.246,0.323L14.923,-3.098L7.868,-10.538C6.157,-8.827 5.259,-9.725 5.259,-9.725L1.881,-13.36L0,-11.521Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span data-i18n="footer">Fourth International &mdash; Executive Bureau, 27 October 2025</span>
+</footer>
+
+<script>
+const translations = {
+  en: {
+    overline: "Fourth International \u2014 Executive Bureau, 27 October 2025",
+    title: 'Trump: Hands Off Venezuela and <em>Latin America!</em>',
+    "title-em": "Latin America!",
+    subtitle: "Declaration of the Executive Bureau of the Fourth International",
+    slogan1: "US troops and weapons out of the Caribbean!",
+    slogan2: "US hands off Venezuela and Latin America!",
+    scroll: "Read the Declaration",
+    print: "Print",
+    intro: '<em>Economic blackmail and threats against Brazil, Colombia, Mexico, and Argentina are part of a new phase in US policy toward Latin America. But the greatest danger falls on Venezuela, whose government Trump is determined to overthrow. The deployment of 10,000 soldiers, a massive arsenal in the Caribbean, and attacks that have already killed more than 60 rafters threaten not only Venezuela but the entire region. It is the urgent duty of activists around the world to raise their voices and mobilize against US interventionism under Trump.</em>',
+    h1: "Unprecedented military deployment in the Caribbean",
+    s1p1: 'The central target of the US offensive is undoubtedly Venezuela. With unprecedented stridency and brazenness, the imperialist leader and his secretaries of state and war, Marco Rubio and Peter Hegseth, have already decreed that criminal drug cartels are \u201Cterrorist organizations\u201D, considered Maduro as the head of a cartel that does not exist (the Soles cartel), and offered a $50 million reward for information leading to the capture of the Venezuelan.',
+    s1p2: 'Most threateningly, they have deployed around 10,000 marines to the Caribbean, with aircraft carriers (the largest in their navy), torpedo boats and nuclear submarines, warships equipped with medium-range missiles, B-52 bombers, and the technological capacity for large-scale data analysis, in a maneuver defined by geopolitical experts as a \u201Cseismic realignment.\u201D Puerto Rico has been remilitarized, and military cooperation agreements with Caribbean countries have been used to build an army infrastructure that appears to precede a large-scale attack on the country that was the scene of the great Bolivarian revolution. Over the past two months, these forces have carried out seven attacks on rafters (alleged traffickers), resulting in 46 deaths and two arrests.',
+    s1p3: "On October 15, in a move unprecedented even during the Cold War (CIA operations were secret), Trump announced that he had authorized the Central Intelligence Agency to carry out operations in Venezuela. According to the Washington Post, the president signed a document authorizing the CIA to carry out covert operations in foreign countries, ranging from clandestine information gathering to training opposition guerrilla forces and carrying out lethal attacks.",
+    s1p4: 'On Sunday, October 19, in a further escalation, US forces carried out a deadly attack against what was supposedly a ship belonging to Colombia\u2019s ELN group in the waters of the Pacific Ocean. In response to Gustavo Petro\u2019s justified protest, Trump insulted the Colombian president as a \u201Cdrug trafficker\u201D and head of \u201Ca weak and very bad government,\u201D threatening, as usual, with tariffs and funding cuts, while at the same time revoking the US visas of Petro, his family, and his advisors. While Petro recalled the Colombian ambassador to Washington, Trump said at a press conference \u2014 in response to a journalist \u2014 that he does not need a declaration of war for his operations against trafficking in what he considers his waters. \u201CWe go there and we kill them.\u201D',
+    s1p5: "Trump\u2019s top advisers are reportedly urging him to invade Venezuela to overthrow Maduro, according to open speculation in the US. Of course, the awarding of the Nobel Peace Prize to the far-right Venezuelan leader Mar\u00eda Corina Machado \u2013 which, if it weren\u2019t serious, would be one of the worst jokes of our time \u2013 is part of a deliberate plan to reinforce what the hawks see as the alternative to Maduro. The Trump administration appears to be forcing a transition to a far-right government led by Edmundo Gonz\u00e1lez Urrutia and Mar\u00eda Corina, who has already called for sanctions against Venezuela, without any concern for their effects on the impoverished population and is now handing over the fate of the nation to the boots of Yankee soldiers.",
+    s1p6: 'It may seem unlikely that the US would invade by land countries whose governments it accuses of complicity in drug trafficking, such as Venezuela, Colombia, or Mexico itself. A prolonged ground invasion would meet with strong resistance from the armed forces under Maduro\u2019s command, possibly with widespread support and sympathy in the region, meaning a new and closer Iraq. Entering a war of this magnitude contradicts Trump\u2019s rhetoric to his domestic audience, to whom he has promised to \u201Cend the wars.\u201D Furthermore, there are signs of opposition to such a solution from sectors of the US military high command, as evidenced by the early resignation of the head of the Southern Military Command, Admiral Alvin Hosley, on October 16.',
+    s1p7: 'In any case, prudence dictates that we should not rule out the possibility of any warmongering \u201Cmadness\u201D on the part of the neo-fascist leader. At the very least, based on his rhetoric, he may opt for drone or aircraft attacks against specific targets in Venezuela in a continued attempt to weaken the government.',
+    h2: "A return to the past",
+    s2p1: "Since the first days of his return to the Oval Office of the White House, Donald Trump, emboldened by his neo-fascist hawks, has kept Mexico under heavy tariff and police-military pressure (so that the Sheinbaum government will stop the flow of migrants at the border and combat local drug cartels). CIA drones fly over Mexican territory in the supposed search for cocaine and other drug laboratories.",
+    s2p2: 'Trump has meddled in Brazil\u2019s internal politics to defend his friend Bolsonaro, convicted of attempted coup (imposing 50% tariffs on Brazilian exports to the US and opening a trade investigation against Brazil\u2019s timid policies to restrict US big tech companies). Not even Argentina, governed by his compadre Javier Milei, escapes threats and blackmail: in mid-October, commenting on a new US$20 billion loan from the IMF to the country, Trump conditioned his continued support for the Southern neo-fascist libertarian on a victory for Milei\u2019s party in the October 26 parliamentary elections. \u201CIf [Milei] loses, we are not going to be generous with Argentina,\u201D Trump said. The episode points to the normalization of the rhetoric and practice of the US government\u2019s direct interference in the internal political affairs of sovereign states.',
+    s2p3: "The combination of gestures, punitive rhetoric, and enormous military deployment constitutes an attack on Latin American neighbors not seen since the invasion of Grenada in 1982. In the context of the substantive change that Trump\u2019s White House is imposing on the global power relations that have been in place for the last eight decades, US policy toward Latin America is taking a turn toward the interventionist past of military aggression and open political interference that had already marked the imperialist power\u2019s treatment of the entire South during the Cold War.",
+    h3: "A call for international anti-imperialist solidarity",
+    s3p1: "The accusation that Maduro and senior Venezuelan government officials are members of cartels, stupid as it is, seeks to justify the violation of the principle of self-determination of peoples and the territorial sovereignty of Venezuela. There is an unprecedented warmongering offensive in the region, which must be forcefully rejected by socialists, social activists, and progressive sectors, regardless of what they or we think about the government of Nicol\u00e1s Maduro, its anti-worker, anti-popular policies, and its anti-democratic drift.",
+    s3p2: 'It is time to call on the democratic, anticolonial, progressive, and revolutionary forces of the world, and of the region in particular, to defend the territorial integrity of Venezuela, the Caribbean countries, and all of Latin America in the face of attempts at military or political intervention, that is, attempts to define \u201Cfrom above and outside\u201D (read: in the Oval Office) the political course of sovereign countries. It is the Venezuelan people who must decide on their government, without any interference. It is the sovereign peoples of Latin America and all corners of the globe who must decide on their tyrants, their parliaments, and the trials in their judicial systems.',
+    s3p3: 'We must demand that the governments of Lula, Petro, Boric, and Sheinbaum do their utmost to prevent any possibility of military aggression and political intervention in Venezuela. It is positive that Lula offers himself as a \u201Cmediator,\u201D as he did in his meeting with Trump, but all these governments must be vehement and even repetitive in rejecting any US initiative against Venezuela.',
+    s3p4: "The Fourth International\u2019s solidarity with Venezuela includes demanding that Maduro restore political freedoms for the social movement, the left, and the workers of Venezuela. This is the path, together with legitimate popular military mobilization, to build genuine national and regional unity against imperialist aggression. Only the broadest unity of action can contain, resist, and defeat the ongoing aggression.",
+    closing1: "US hands off Venezuela!",
+    closing2: "Demilitarize Puerto Rico now!",
+    footer: "Fourth International \u2014 Executive Bureau, 27 October 2025",
+    sidebar_title: "Declarations"
+  },
+
+  es: {
+    overline: "Cuarta Internacional \u2014 Bur\u00f3 Ejecutivo, 27 de octubre de 2025",
+    title: 'Trump: \u00a1Quita las manos de Venezuela y de <em>Am\u00e9rica Latina!</em>',
+    "title-em": "Am\u00e9rica Latina!",
+    subtitle: "Declaraci\u00f3n del Bur\u00f3 Ejecutivo de la Cuarta Internacional",
+    slogan1: "\u00a1Fuera las tropas y las armas yanquis del mar Caribe!",
+    slogan2: "\u00a1Yanquis: manos fuera de Venezuela y de toda Am\u00e9rica Latina!",
+    scroll: "Leer la Declaraci\u00f3n",
+    print: "Imprimir",
+    intro: '<em>El chantaje econ\u00f3mico y las amenazas contra Brasil, Colombia, M\u00e9xico y Argentina forman parte de una nueva fase en la pol\u00edtica estadounidense hacia Am\u00e9rica Latina. Pero el mayor peligro recae sobre Venezuela, cuyo gobierno Trump est\u00e1 decidido a derrocar. El despliegue de 10 000 soldados, un gigantesco arsenal en el Caribe y ataques que ya han asesinado m\u00e1s de 60 balseros, amenazan no solo a Venezuela, sino a toda la regi\u00f3n. Es deber urgente de los activistas de todo el mundo alzar la voz y movilizarse contra el intervencionismo estadounidense bajo Trump.</em>',
+    h1: "Despliegue militar sin precedentes en el Caribe",
+    s1p1: "El blanco principal de la ofensiva estadounidense es Venezuela. Con una estridencia y un descaro sin precedentes, el l\u00edder imperialista y sus secretarios de Estado y de Guerra, Marco Rubio y Peter Hegseth, han decretado que los c\u00e1rteles de la droga son \u00aborganizaciones terroristas\u00bb, han considerado a Maduro como el jefe de un c\u00e1rtel que no existe (el C\u00e1rtel de los Soles) y han ofrecido una recompensa de 50 millones de d\u00f3lares por informaci\u00f3n que conduzca a la captura del venezolano.",
+    s1p2: "Lo m\u00e1s amenazante es que han desplegado alrededor de 10 000 marines en el Caribe, con portaaviones (los m\u00e1s grandes de su armada), torpederos y submarinos nucleares, buques de guerra equipados con misiles de medio alcance, bombarderos B-52 y la capacidad tecnol\u00f3gica para el an\u00e1lisis de datos a gran escala, en una maniobra definida por los especialistas en geopol\u00edtica como un \u00abreajuste s\u00edsmico\u00bb. Puerto Rico ha sido remilitarizado y los acuerdos de cooperaci\u00f3n militar con los pa\u00edses del Caribe se han utilizado para construir una infraestructura militar que parece preceder a un ataque a gran escala contra el pa\u00eds que fue escenario de la gran revoluci\u00f3n bolivariana. En los \u00faltimos dos meses, estas fuerzas han llevado a cabo ataques contra balseros (presuntos traficantes), que han causado m\u00e1s de 60 muertes.",
+    s1p3: "El 15 de octubre, en una medida sin precedentes incluso durante la Guerra Fr\u00eda (las operaciones de la CIA eran secretas), Trump anunci\u00f3 que hab\u00eda autorizado a la Agencia Central de Inteligencia a llevar a cabo operaciones en Venezuela. Seg\u00fan el Washington Post, el presidente firm\u00f3 un documento que autoriza a la CIA a llevar a cabo operaciones encubiertas en pa\u00edses extranjeros, que van desde la recopilaci\u00f3n clandestina de informaci\u00f3n hasta el entrenamiento de fuerzas guerrilleras de la oposici\u00f3n y la realizaci\u00f3n de ataques letales.",
+    s1p4: "El domingo 19 de octubre, en una nueva escalada, las fuerzas estadounidenses llevaron a cabo un ataque mortal contra lo que supuestamente era un barco perteneciente al grupo colombiano ELN en aguas del oc\u00e9ano Pac\u00edfico. En respuesta a la justificada protesta del mandatario colombiano, Trump insult\u00f3 a Gustavo Petro, calific\u00e1ndolo de \u00abnarcotraficante\u00bb y jefe de \u00abun gobierno d\u00e9bil y muy malo\u00bb, amenazando, como de costumbre, con aranceles y recortes de fondos, al tiempo que revocaba los visados estadounidenses de Petro, su familia y sus asesores. Mientras Petro retiraba al embajador colombiano en Washington, Trump dec\u00eda en una rueda de prensa, en respuesta a un periodista, que no necesita una declaraci\u00f3n de guerra para sus operaciones contra el tr\u00e1fico en lo que \u00e9l considera sus aguas. \u00abVamos all\u00ed y los matamos\u00bb.",
+    s1p5: "Seg\u00fan especulaciones abiertas en Estados Unidos, los principales asesores de Trump le est\u00e1n instando a invadir Venezuela para derrocar a Maduro. Por supuesto, la concesi\u00f3n del Premio Nobel de la Paz a la l\u00edder ultraderechista venezolana Mar\u00eda Corina Machado \u2014 que, si no fuera grave, ser\u00eda uno de los peores chistes de nuestro tiempo \u2014 forma parte de un plan deliberado para reforzar lo que los halcones ven como la alternativa a Maduro. La administraci\u00f3n Trump parece estar forzando una transici\u00f3n hacia un gobierno de extrema derecha liderado por Edmundo Gonz\u00e1lez Urrutia y Mar\u00eda Corina, quien ya ha pedido sanciones contra Venezuela, sin preocuparse por sus efectos sobre la poblaci\u00f3n empobrecida, y ahora entrega el destino de la naci\u00f3n a las botas de los soldados yanquis.",
+    s1p6: "Puede parecer improbable que Estados Unidos invada por tierra pa\u00edses cuyos gobiernos acusa de complicidad en el tr\u00e1fico de drogas, como Venezuela, Colombia o el propio M\u00e9xico. Una invasi\u00f3n terrestre prolongada se encontrar\u00eda con una fuerte resistencia de las fuerzas armadas bajo el mando de Maduro, posiblemente con un amplio apoyo y simpat\u00eda en la regi\u00f3n, lo que significar\u00eda un nuevo y m\u00e1s cercano Irak. Entrar en una guerra de esta magnitud contradice la ret\u00f3rica de Trump ante su audiencia dom\u00e9stica, a la que ha prometido \u00abponer fin a las guerras\u00bb. Adem\u00e1s, hay indicios de oposici\u00f3n a esta soluci\u00f3n por parte de sectores del alto mando militar estadounidense, como lo demuestra la dimisi\u00f3n anticipada del jefe del Comando Militar Sur, el almirante Alvin Hosley, el 16 de octubre.",
+    s1p7: "La prudencia dicta, sin embargo, que no debemos descartar la posibilidad de cualquier \u00ablocura\u00bb belicista por parte del l\u00edder neofascista. Como m\u00ednimo, bas\u00e1ndonos en su ret\u00f3rica, podr\u00eda optar por ataques con drones o aviones contra objetivos espec\u00edficos en Venezuela en un intento continuado de debilitar al gobierno sudamericano.",
+    h2: "Un retorno al pasado",
+    s2p1: "Desde los primeros d\u00edas de su regreso al Despacho Oval de la Casa Blanca, Donald Trump, envalentonado por sus halcones neofascistas, ha mantenido a M\u00e9xico bajo una fuerte presi\u00f3n arancelaria y policial-militar (para que el gobierno de Claudia Sheinbaum detenga el flujo de migrantes en la frontera y combata los c\u00e1rteles locales de la droga). Los drones de la CIA sobrevuelan el territorio mexicano en la supuesta b\u00fasqueda de laboratorios de coca\u00edna y otras drogas.",
+    s2p2: "Trump se ha entrometido en la pol\u00edtica interna de Brasil para defender a su amigo Bolsonaro, condenado por intento de golpe de Estado (imponiendo aranceles del 50% a las exportaciones brasile\u00f1as a Estados Unidos y abriendo una investigaci\u00f3n comercial contra las t\u00edmidas pol\u00edticas de Brasil para imponer l\u00edmites a las grandes empresas tecnol\u00f3gicas estadounidenses). Ni siquiera Argentina, gobernada por su compadre Javier Milei, escapa a las amenazas y al chantaje: a mediados de octubre, al comentar un nuevo pr\u00e9stamo de 20 000 millones de d\u00f3lares del FMI al pa\u00eds, Trump condicion\u00f3 su continuo apoyo al libertario neofascista del Sur a la victoria del partido de Milei en las elecciones parlamentarias del 26 de octubre. \u00abSi [Milei] pierde, no vamos a ser generosos con Argentina\u00bb, dijo Trump. El episodio apunta a la normalizaci\u00f3n de la ret\u00f3rica y la pr\u00e1ctica de la injerencia directa del gobierno estadounidense en los asuntos pol\u00edticos internos de Estados soberanos.",
+    s2p3: "La combinaci\u00f3n de gestos, ret\u00f3rica punitiva y enorme despliegue militar constituye un ataque a los vecinos latinoamericanos que no se ve\u00eda desde la invasi\u00f3n de Granada en 1982. En el contexto del cambio sustantivo que la Casa Blanca de Trump est\u00e1 imponiendo en las relaciones de poder globales que han existido durante las \u00faltimas ocho d\u00e9cadas, la pol\u00edtica estadounidense hacia Am\u00e9rica Latina est\u00e1 dando un giro hacia el pasado intervencionista de agresi\u00f3n militar e interferencia pol\u00edtica abierta que ya hab\u00eda marcado el trato de la potencia imperialista hacia todo el Sur durante la Guerra Fr\u00eda.",
+    h3: "Un llamamiento a la solidaridad internacional antiimperialista",
+    s3p1: "La acusaci\u00f3n de que Maduro y altos funcionarios del gobierno venezolano son miembros de c\u00e1rteles, por est\u00fapida que sea, busca justificar la violaci\u00f3n del principio de autodeterminaci\u00f3n de los pueblos y la soberan\u00eda territorial de Venezuela. Se est\u00e1 produciendo una ofensiva belicista sin precedentes en la regi\u00f3n, que debe ser rechazada en\u00e9rgicamente por los socialistas, los activistas sociales y los sectores progresistas, independientemente de lo que ellos o nosotros pensemos sobre el gobierno de Nicol\u00e1s Maduro, sus pol\u00edticas antiobreras y antipopulares y su deriva antidemocr\u00e1tica.",
+    s3p2: "Es hora de hacer un llamamiento a las fuerzas democr\u00e1ticas, anticolonialistas, progresistas y revolucionarias del mundo, y de la regi\u00f3n en particular, para defender la integridad territorial de Venezuela, los pa\u00edses del Caribe y toda Am\u00e9rica Latina frente a los intentos de intervenci\u00f3n militar o pol\u00edtica, es decir, los intentos de definir \u00abdesde arriba y desde fuera\u00bb (l\u00e9ase: en el Despacho Oval) el rumbo pol\u00edtico de pa\u00edses soberanos. Es el pueblo venezolano quien debe decidir sobre su gobierno, sin ninguna injerencia.",
+    s3p3: "Debemos exigir que los gobiernos de Lula, Petro, Boric y Sheinbaum hagan todo lo posible para evitar cualquier posibilidad de agresi\u00f3n militar e intervenci\u00f3n pol\u00edtica en Venezuela. Es positivo que Lula se ofrezca como \u00abmediador\u00bb, como lo hizo en su reuni\u00f3n con Trump. Pero todos estos gobiernos deben ser vehementes e incluso repetitivos en rechazar cualquier iniciativa estadounidense contra Venezuela.",
+    s3p4: "La solidaridad de la Cuarta Internacional con Venezuela incluye exigir a Maduro que restaure las libertades pol\u00edticas para el movimiento social, la izquierda y los trabajadores de Venezuela. Este es el camino, junto con la movilizaci\u00f3n militar popular leg\u00edtima, para construir una verdadera unidad nacional y regional contra la agresi\u00f3n imperialista. Solo la unidad de acci\u00f3n m\u00e1s amplia puede contener, resistir y derrotar la agresi\u00f3n en curso.",
+    closing1: "\u00a1Yanquis fuera de Venezuela!",
+    closing2: "\u00a1Desmilitaricen Puerto Rico ahora!",
+    footer: "Cuarta Internacional \u2014 Bur\u00f3 Ejecutivo, 27 de octubre de 2025",
+    sidebar_title: "Declaraciones"
+  },
+
+  fr: {
+    overline: "Quatri\u00e8me Internationale \u2014 Bureau ex\u00e9cutif, 27 octobre 2025",
+    title: "Halte aux attaques de Trump contre le Venezuela et <em>l\u2019Am\u00e9rique latine</em>",
+    "title-em": "l\u2019Am\u00e9rique latine",
+    subtitle: "D\u00e9claration du Bureau ex\u00e9cutif de la IVe Internationale",
+    slogan1: "Troupes et armes yankee hors de la mer des Cara\u00efbes\u00a0!",
+    slogan2: "Halte aux agressions US contre le Venezuela et toute l\u2019Am\u00e9rique latine\u00a0!",
+    scroll: "Lire la D\u00e9claration",
+    print: "Imprimer",
+    intro: "<em>Les chantages et les menaces \u00e9conomiques \u00e0 l\u2019encontre du Br\u00e9sil, de la Colombie, du Mexique et de l\u2019Argentine s\u2019inscrivent dans une nouvelle phase de la politique \u00e9tasunienne envers l\u2019Am\u00e9rique latine. Mais le danger le plus grand p\u00e8se sur le Venezuela, dont Trump est d\u00e9termin\u00e9 \u00e0 renverser le gouvernement. Le d\u00e9ploiement de 10 000 soldats, d\u2019un arsenal gigantesque dans les Cara\u00efbes et d\u2019attaques qui ont d\u00e9j\u00e0 assassin\u00e9 plus de 60 personnes en mer, menace non seulement le Venezuela mais aussi toute la r\u00e9gion. Il est du devoir urgent des militant\u00b7es du monde entier d\u2019\u00e9lever la voix et de se mobiliser contre l\u2019interventionnisme des \u00c9tats-Unis gouvern\u00e9s par Trump.</em>",
+    h1: "D\u00e9ploiement militaire sans pr\u00e9c\u00e9dent dans les Cara\u00efbes",
+    s1p1: "La cible principale de l\u2019offensive am\u00e9ricaine est sans aucun doute le Venezuela. Avec une virulence \u00e9hont\u00e9e sans pr\u00e9c\u00e9dent, le leader imp\u00e9rialiste et ses secr\u00e9taires d\u2019\u00c9tat et \u00e0 la Guerre, Marco Rubio et Peter Hegseth, ont \u00e9mis un d\u00e9cret qualifiant les cartels criminels de la drogue d\u2019\u00ab organisations terroristes \u00bb, ont d\u00e9sign\u00e9 Maduro comme le chef d\u2019un cartel qui n\u2019existe pas (le Cartel de los Soles) et ont offert une r\u00e9compense de 50 millions de dollars pour toute information permettant de capturer le V\u00e9n\u00e9zu\u00e9lien.",
+    s1p2: "Encore plus mena\u00e7ant, le d\u00e9ploiement dans les Cara\u00efbes d\u2019environ 10 000 marines, avec des porte-avions (les plus grands de leur marine), des torpilleurs et des sous-marins nucl\u00e9aires, des navires de guerre \u00e9quip\u00e9s de missiles \u00e0 moyenne port\u00e9e, des bombardiers B52 et une capacit\u00e9 technologique permettant d\u2019effectuer des analyses de donn\u00e9es \u00e0 grande \u00e9chelle, dans le cadre d\u2019une man\u0153uvre qualifi\u00e9e par les sp\u00e9cialistes de \u00ab r\u00e9organisation sismique \u00bb. Porto Rico a \u00e9t\u00e9 remilitaris\u00e9 et les accords de coop\u00e9ration militaire avec les pays des Cara\u00efbes ont \u00e9t\u00e9 utilis\u00e9s pour construire une infrastructure militaire qui semble pr\u00e9c\u00e9der une attaque \u00e0 grande \u00e9chelle contre le pays qui a \u00e9t\u00e9 le th\u00e9\u00e2tre de la grande r\u00e9volution bolivarienne. Au cours des deux derniers mois, ces forces ont men\u00e9 des attaques contre des bateaux (pr\u00e9sum\u00e9s trafiquants), faisant plus de 60 morts.",
+    s1p3: "Le 15 octobre \u2013 et cela n\u2019avait pas eu lieu m\u00eame pendant la guerre froide, puisque les op\u00e9rations de la CIA \u00e9taient secr\u00e8tes \u2013, Trump a annonc\u00e9 qu\u2019il avait autoris\u00e9 la CIA \u00e0 mener des op\u00e9rations au Venezuela. Selon le Washington Post, le pr\u00e9sident aurait sign\u00e9 un document autorisant la CIA \u00e0 mener des op\u00e9rations secr\u00e8tes dans des pays \u00e9trangers, allant de la collecte clandestine d\u2019informations \u00e0 la formation de forces de gu\u00e9rilla de l\u2019opposition et \u00e0 la r\u00e9alisation d\u2019attaques meurtri\u00e8res.",
+    s1p4: "Le dimanche 19 octobre, dans un nouveau pas vers l\u2019escalade, les forces \u00e9tasuniennes ont men\u00e9 une attaque meurtri\u00e8re dans l\u2019oc\u00e9an Pacifique contre un navire suppos\u00e9 appartenir au groupe colombien de l\u2019ELN. Face \u00e0 la juste protestation de Gustavo Petro, Trump a insult\u00e9 le pr\u00e9sident colombien en le traitant de \u00ab trafiquant de drogue \u00bb et de chef d\u2019un \u00ab gouvernement faible et tr\u00e8s mauvais \u00bb, mena\u00e7ant, comme d\u2019habitude, d\u2019imposer des droits de douane et de couper les financements, tout en retirant le visa am\u00e9ricain \u00e0 Petro, \u00e0 sa famille et \u00e0 ses conseillers. Alors que Petro rappelait l\u2019ambassadeur colombien \u00e0 Washington, Trump d\u00e9clarait lors d\u2019une conf\u00e9rence de presse qu\u2019il n\u2019avait pas besoin d\u2019une d\u00e9claration de guerre pour mener ses op\u00e9rations contre le trafic dans ce qu\u2019il consid\u00e8re comme ses eaux territoriales. \u00ab Nous y allons et nous les tuons \u00bb.",
+    s1p5: "Selon des sp\u00e9culations publiques aux \u00c9tats-Unis, les principaux conseillers de Trump l\u2019inciteraient \u00e0 envahir le Venezuela pour renverser Maduro. Et l\u2019attribution du prix Nobel de la paix \u00e0 la dirigeante d\u2019extr\u00eame droite v\u00e9n\u00e9zu\u00e9lienne Mar\u00eda Corina Machado fait partie d\u2019un plan d\u00e9lib\u00e9r\u00e9 visant \u00e0 renforcer celle qui est consid\u00e9r\u00e9e par les faucons comme l\u2019alternative \u00e0 Maduro. L\u2019administration Trump semble vouloir forcer une transition vers un gouvernement d\u2019extr\u00eame droite dirig\u00e9 par Edmundo Gonz\u00e1lez Urrutia et Mar\u00eda Corina Machado \u2013 qui a d\u00e9j\u00e0 demand\u00e9 des sanctions contre le Venezuela, sans se soucier des effets de celles-ci sur la population appauvrie, et qui livre d\u00e9sormais le sort de la nation aux bottes des soldats yankees.",
+    s1p6: "Il peut sembler improbable que les \u00c9tats-Unis envahissent par voie terrestre les pays dont ils accusent les gouvernements de complicit\u00e9 avec le trafic de drogue. Tout d\u2019abord parce qu\u2019une guerre d\u2019invasion terrestre prolong\u00e9e se heurterait \u00e0 une forte r\u00e9sistance de la part des forces arm\u00e9es sous le commandement de Maduro, \u00e9ventuellement avec l\u2019aide et la sympathie de la population de la r\u00e9gion, ce qui signifierait un nouvel Irak plus proche. S\u2019engager dans un conflit arm\u00e9 de cette ampleur contredit le discours de Trump \u00e0 l\u2019intention de son public national, auquel il a promis de \u00ab mettre fin aux guerres \u00bb. Troisi\u00e8mement, parce qu\u2019il y a des signes d\u2019opposition de la part de certains hauts responsables am\u00e9ricains, comme semble l\u2019indiquer la d\u00e9mission pr\u00e9matur\u00e9e du chef du Commandement militaire sud, l\u2019amiral Alvin Hosley, le 16 octobre.",
+    s1p7: "Quoi qu\u2019il en soit, la prudence conseille de ne pas \u00e9carter la possibilit\u00e9 d\u2019une \u00ab folie \u00bb belliciste de la part du leader n\u00e9ofasciste. \u00c0 tout le moins, d\u2019apr\u00e8s ses discours, il est possible qu\u2019il opte pour des attaques par drones ou avions contre des cibles sp\u00e9cifiques au Venezuela, afin de continuer \u00e0 affaiblir le gouvernement.",
+    h2: "Un retour vers le pass\u00e9",
+    s2p1: "Depuis les premiers jours de son retour dans le Bureau ovale de la Maison Blanche, Donald Trump, encourag\u00e9 par ses faucons n\u00e9ofascistes, maintient le Mexique sous une forte pression tarifaire et polici\u00e8re-militaire (afin que le gouvernement de Claudia Sheinbaum mette fin au flux migratoire \u00e0 la fronti\u00e8re et combatte les cartels locaux du trafic de drogue). Des drones de la CIA survolent le territoire mexicain \u00e0 la pr\u00e9tendue recherche de laboratoires de coca\u00efne et d\u2019autres drogues.",
+    s2p2: "Trump s\u2019est ing\u00e9r\u00e9 dans la politique int\u00e9rieure du Br\u00e9sil pour d\u00e9fendre son ami Bolsonaro, condamn\u00e9 pour tentative de coup d\u2019\u00c9tat (en imposant des droits de douane de 50 % sur les exportations br\u00e9siliennes vers les \u00c9tats-Unis et en ouvrant une enqu\u00eate commerciale contre les timides politiques br\u00e9siliennes visant \u00e0 limiter les entreprises am\u00e9ricaines de la big tech). M\u00eame l\u2019Argentine, gouvern\u00e9e par son comp\u00e8re Javier Milei, n\u2019\u00e9chappe pas aux menaces et au chantage. \u00ab Si [Milei] perd, nous ne serons pas g\u00e9n\u00e9reux avec l\u2019Argentine \u00bb, a d\u00e9clar\u00e9 Trump. Cet \u00e9pisode t\u00e9moigne d\u2019une normalisation de la rh\u00e9torique et de la pratique d\u2019ing\u00e9rence directe du gouvernement am\u00e9ricain dans les affaires politiques internes d\u2019\u00c9tats souverains.",
+    s2p3: "Tous ces positionnements, ces discours punitifs et cet \u00e9norme d\u00e9ploiement militaire constituent une attaque contre les voisins latino-am\u00e9ricains in\u00e9dite depuis l\u2019invasion de la Grenade en 1982. Dans le cadre du changement substantiel que la Maison Blanche de Trump impose aux relations de pouvoir mondiales en vigueur depuis huit d\u00e9cennies, la politique am\u00e9ricaine \u00e0 l\u2019\u00e9gard de l\u2019Am\u00e9rique latine fait un retour au pass\u00e9 interventionniste, marqu\u00e9 par l\u2019agression militaire et l\u2019ing\u00e9rence politique ouverte, qui avait d\u00e9j\u00e0 caract\u00e9ris\u00e9 les relations de la puissance imp\u00e9rialiste avec tout le Sud pendant la guerre froide.",
+    h3: "Appel \u00e0 la solidarit\u00e9 internationale anti-imp\u00e9rialiste",
+    s3p1: "L\u2019accusation port\u00e9e contre Maduro et les hauts dirigeants du gouvernement v\u00e9n\u00e9zu\u00e9lien d\u2019\u00eatre membres de cartels, aussi stupide soit-elle, vise \u00e0 justifier la violation du principe d\u2019autod\u00e9termination des peuples et de la souverainet\u00e9 territoriale du Venezuela.",
+    s3p2: "Il est temps d\u2019appeler les forces d\u00e9mocratiques, anticoloniales, progressistes et r\u00e9volutionnaires du monde \u00e0 d\u00e9fendre l\u2019int\u00e9grit\u00e9 territoriale du Venezuela, des pays des Cara\u00efbes et de toute l\u2019Am\u00e9rique latine, face aux tentatives d\u2019intervention militaire ou politique, c\u2019est-\u00e0-dire aux tentatives de d\u00e9finir \u00ab d\u2019en haut et de l\u2019ext\u00e9rieur \u00bb l\u2019orientation politique de pays souverains. C\u2019est au peuple v\u00e9n\u00e9zu\u00e9lien de d\u00e9cider de son gouvernement, sans ing\u00e9rence d\u2019aucune sorte.",
+    s3p3: "Nous devons exiger que les gouvernements de Lula, Petro, Boric et Sheinbaum fassent tout leur possible pour emp\u00eacher toute possibilit\u00e9 d\u2019agression militaire et d\u2019intervention politique au Venezuela. Il est positif que Lula se propose comme \u00ab m\u00e9diateur \u00bb, mais tous ces gouvernements doivent rejeter clairement toute initiative am\u00e9ricaine contre le Venezuela.",
+    s3p4: "La solidarit\u00e9 de la IVe Internationale avec le Venezuela inclut l\u2019exigence faite \u00e0 Maduro de r\u00e9tablir les libert\u00e9s politiques pour le mouvement social, la gauche et les travailleurs et travailleuses du Venezuela. C\u2019est la voie \u00e0 suivre, parall\u00e8lement \u00e0 la l\u00e9gitime mobilisation militaire populaire, pour construire une v\u00e9ritable unit\u00e9 nationale et r\u00e9gionale contre l\u2019agression imp\u00e9rialiste. Seule la plus large unit\u00e9 d\u2019action peut contenir, r\u00e9sister et vaincre l\u2019agression en cours.",
+    closing1: "Halte aux agressions US contre le Venezuela\u00a0!",
+    closing2: "D\u00e9militarisation imm\u00e9diate de Porto Rico\u00a0!",
+    footer: "Quatri\u00e8me Internationale \u2014 Bureau ex\u00e9cutif, 27 octobre 2025",
+    sidebar_title: "D\u00e9clarations"
+  },
+
+  pt: {
+    overline: "Quarta Internacional \u2014 Bureau Executivo, 27 de outubro de 2025",
+    title: 'Trump: tire as m\u00e3os da Venezuela e da <em>Am\u00e9rica Latina!</em>',
+    "title-em": "Am\u00e9rica Latina!",
+    subtitle: "This translation is not yet available. / Esta traducci\u00f3n a\u00fan no est\u00e1 disponible. / Cette traduction n\u2019est pas encore disponible. / Esta tradu\u00e7\u00e3o ainda n\u00e3o est\u00e1 dispon\u00edvel. / \u0647\u0630\u0647 \u0627\u0644\u062a\u0631\u062c\u0645\u0629 \u063a\u064a\u0631 \u0645\u062a\u0648\u0641\u0631\u0629 \u0628\u0639\u062f.",
+    slogan1: "",
+    slogan2: "",
+    scroll: "Leia a Declara\u00e7\u00e3o",
+    print: "Imprimir",
+    intro: "This translation is not yet available. / Esta traducci\u00f3n a\u00fan no est\u00e1 disponible. / Cette traduction n\u2019est pas encore disponible. / Esta tradu\u00e7\u00e3o ainda n\u00e3o est\u00e1 dispon\u00edvel. / \u0647\u0630\u0647 \u0627\u0644\u062a\u0631\u062c\u0645\u0629 \u063a\u064a\u0631 \u0645\u062a\u0648\u0641\u0631\u0629 \u0628\u0639\u062f.",
+    h1: "", s1p1: "", s1p2: "", s1p3: "", s1p4: "", s1p5: "", s1p6: "", s1p7: "",
+    h2: "", s2p1: "", s2p2: "", s2p3: "",
+    h3: "", s3p1: "", s3p2: "", s3p3: "", s3p4: "",
+    closing1: "Fora tropas dos EUA!",
+    closing2: "Desmilitarizem Porto Rico!",
+    footer: "Quarta Internacional \u2014 Bureau Executivo, 27 de outubro de 2025",
+    sidebar_title: "Declara\u00e7\u00f5es"
+  },
+
+  ar: {
+    overline: "\u0627\u0644\u0623\u0645\u0645\u064a\u0629 \u0627\u0644\u0631\u0627\u0628\u0639\u0629 \u2014 \u0627\u0644\u0645\u0643\u062a\u0628 \u0627\u0644\u062a\u0646\u0641\u064a\u0630\u064a\u060c 27 \u0623\u0643\u062a\u0648\u0628\u0631 2025",
+    title: '\u062a\u0631\u0627\u0645\u0628: \u0627\u0631\u0641\u0639 \u064a\u062f\u064a\u0643 \u0639\u0646 \u0641\u0646\u0632\u0648\u064a\u0644\u0627 \u0648<em>\u0623\u0645\u0631\u064a\u0643\u0627 \u0627\u0644\u0644\u0627\u062a\u064a\u0646\u064a\u0629!</em>',
+    "title-em": "\u0623\u0645\u0631\u064a\u0643\u0627 \u0627\u0644\u0644\u0627\u062a\u064a\u0646\u064a\u0629!",
+    subtitle: "\u0647\u0630\u0647 \u0627\u0644\u062a\u0631\u062c\u0645\u0629 \u063a\u064a\u0631 \u0645\u062a\u0648\u0641\u0631\u0629 \u0628\u0639\u062f.",
+    slogan1: "", slogan2: "",
+    scroll: "\u0627\u0642\u0631\u0623 \u0627\u0644\u0625\u0639\u0644\u0627\u0646",
+    print: "\u0637\u0628\u0627\u0639\u0629",
+    intro: "This translation is not yet available. / Esta traducci\u00f3n a\u00fan no est\u00e1 disponible. / Cette traduction n\u2019est pas encore disponible. / Esta tradu\u00e7\u00e3o ainda n\u00e3o est\u00e1 dispon\u00edvel. / \u0647\u0630\u0647 \u0627\u0644\u062a\u0631\u062c\u0645\u0629 \u063a\u064a\u0631 \u0645\u062a\u0648\u0641\u0631\u0629 \u0628\u0639\u062f.",
+    h1: "", s1p1: "", s1p2: "", s1p3: "", s1p4: "", s1p5: "", s1p6: "", s1p7: "",
+    h2: "", s2p1: "", s2p2: "", s2p3: "",
+    h3: "", s3p1: "", s3p2: "", s3p3: "", s3p4: "",
+    closing1: "!\u062a\u0631\u0627\u0645\u0628 \u0627\u0631\u0641\u0639 \u064a\u062f\u064a\u0643 \u0639\u0646 \u0641\u0646\u0632\u0648\u064a\u0644\u0627",
+    closing2: "!\u0623\u0648\u0642\u0641\u0648\u0627 \u0627\u0644\u0639\u062f\u0648\u0627\u0646",
+    footer: "\u0627\u0644\u0623\u0645\u0645\u064a\u0629 \u0627\u0644\u0631\u0627\u0628\u0639\u0629 \u2014 \u0627\u0644\u0645\u0643\u062a\u0628 \u0627\u0644\u062a\u0646\u0641\u064a\u0630\u064a\u060c 27 \u0623\u0643\u062a\u0648\u0628\u0631 2025",
+    sidebar_title: "\u0627\u0644\u0625\u0639\u0644\u0627\u0646\u0627\u062a"
+  }
+};
+
+const declarations = [
+  { title: { en: "Against Neo-Fascist Authoritarianism and All Forms of Imperialism", pt: "Contra o autoritarismo neofascista e todas as formas de imperialismo", fr: "Contre l'autoritarisme n\u00e9o-fasciste et toutes les formes d'imp\u00e9rialisme", es: "Contra el autoritarismo neofascista y todas las formas de imperialismo", ar: "\u0636\u062f \u0627\u0644\u0627\u0633\u062a\u0628\u062f\u0627\u062f \u0627\u0644\u0646\u064a\u0648\u0641\u0627\u0634\u064a \u0648\u062c\u0645\u064a\u0639 \u0623\u0634\u0643\u0627\u0644 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u0629" }, date: "2026-03-15", url: "index.html", current: false },
+  { title: { en: "Defeat the Imperialist Aggressors! Stop the US-Israeli War on Iran!", pt: "Para a derrota dos agressores imperialistas!", fr: "Pour la d\u00e9faite des agresseurs imp\u00e9rialistes !", es: "\u00a1Por la derrota de los agresores imperialistas!", ar: "\u0645\u0646 \u0623\u062c\u0644 \u0647\u0632\u064a\u0645\u0629 \u0627\u0644\u063a\u0632\u0627\u0629 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u064a\u0646!" }, date: "2026-03-13", url: "750-defeat-imperialist-aggressors.html", current: false },
+  { title: { en: "US/Israel Hands Off Iran! No Liberation Through US Bombs!", pt: "Estados Unidos/Israel, cessem toda interven\u00e7\u00e3o no Ir\u00e3!", fr: "\u00c9tats-Unis/Isra\u00ebl, cessez toute intervention en Iran !", es: "\u00a1EE. UU. e Israel fuera de Ir\u00e1n!", ar: "\u0627\u0644\u0648\u0644\u0627\u064a\u0627\u062a \u0627\u0644\u0645\u062a\u062d\u062f\u0629/\u0625\u0633\u0631\u0627\u0626\u064a\u0644 \u0627\u0631\u0641\u0639\u0648\u0627 \u0623\u064a\u062f\u064a\u0643\u0645 \u0639\u0646 \u0625\u064a\u0631\u0627\u0646!" }, date: "2026-02-28", url: "748-us-israel-hands-off-iran.html", current: false },
+  { title: { en: "Against the Theocratic and Authoritarian Regime in Iran and Imperialist Interference", pt: "Contra o regime teocr\u00e1tico e autorit\u00e1rio no Ir\u00e3 e a inger\u00eancia imperialista", fr: "Contre le r\u00e9gime th\u00e9ocratique et autoritaire de l'Iran et les ing\u00e9rences imp\u00e9rialistes", es: "Contra el r\u00e9gimen teocr\u00e1tico y autoritario de Ir\u00e1n y las injerencias imperialistas", ar: "\u0636\u062f \u0627\u0644\u0646\u0638\u0627\u0645 \u0627\u0644\u062b\u064a\u0648\u0642\u0631\u0627\u0637\u064a \u0627\u0644\u0645\u0633\u062a\u0628\u062f \u0641\u064a \u0625\u064a\u0631\u0627\u0646 \u0648\u0636\u062f \u0627\u0644\u062a\u062f\u062e\u0644\u0627\u062a \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a\u0629" }, date: "2026-01-05", url: "744-iran-solidarity.html", current: false },
+  { title: { en: "URGENT \u2014 Stop the Imperialist Aggression Against Venezuela!", pt: "URGENTE! Parar a agress\u00e3o imperialista contra a Venezuela!", fr: "URGENT \u2014 Halte \u00e0 l\u2019agression imp\u00e9rialiste contre le Venezuela !", es: "URGENTE \u2014 \u00a1Alto a la agresi\u00f3n imperialista contra Venezuela!", ar: "\u0639\u0627\u062c\u0644 \u2014 \u0623\u0648\u0642\u0641\u0648\u0627 \u0627\u0644\u0639\u062f\u0648\u0627\u0646 \u0627\u0644\u0625\u0645\u0628\u0631\u064a\u0627\u0644\u064a \u0639\u0644\u0649 \u0641\u0646\u0632\u0648\u064a\u0644\u0627!" }, date: "2026-01-03", url: "743-stop-aggression-venezuela.html", current: false },
+  { title: { en: "Trump: Hands Off Venezuela and Latin America!", pt: "Trump: tire as m\u00e3os da Venezuela e da Am\u00e9rica Latina!", fr: "Halte aux attaques de Trump contre le Venezuela et l'Am\u00e9rique latine", es: "Trump: \u00a1Quita las manos de Venezuela y de Am\u00e9rica Latina!", ar: "\u062a\u0631\u0627\u0645\u0628: \u0627\u0631\u0641\u0639 \u064a\u062f\u064a\u0643 \u0639\u0646 \u0641\u0646\u0632\u0648\u064a\u0644\u0627 \u0648\u0623\u0645\u0631\u064a\u0643\u0627 \u0627\u0644\u0644\u0627\u062a\u064a\u0646\u064a\u0629!" }, date: "2025-10-27", url: "734-trump-hands-off-venezuela.html", current: true },
+  { title: { en: "After the Ceasefire: Our Tasks for the Liberation of Palestine", pt: "Ap\u00f3s o cessar-fogo: nossas tarefas para a liberta\u00e7\u00e3o da Palestina", fr: "Apr\u00e8s le cessez-le-feu, nos t\u00e2ches pour la lib\u00e9ration de la Palestine", es: "Despu\u00e9s del alto el fuego, nuestras tareas para la liberaci\u00f3n de Palestina", ar: "\u0628\u0639\u062f \u0648\u0642\u0641 \u0625\u0637\u0644\u0627\u0642 \u0627\u0644\u0646\u0627\u0631: \u0645\u0647\u0627\u0645\u0646\u0627 \u0644\u062a\u062d\u0631\u064a\u0631 \u0641\u0644\u0633\u0637\u064a\u0646" }, date: "2025-10-27", url: "735-palestine-ceasefire-tasks.html", current: false },
+  { title: { en: "Meeting of the Fourth International Bureau: Organizing to Act", pt: "Reuni\u00e3o do Bureau da Internacional: organizar-se para agir", fr: "R\u00e9union du Bureau de l'Internationale : s'organiser pour agir", es: "Reuni\u00f3n del Bur\u00f3 de la Internacional: organizarse para actuar", ar: "\u0627\u062c\u062a\u0645\u0627\u0639 \u0645\u0643\u062a\u0628 \u0627\u0644\u0623\u0645\u0645\u064a\u0629: \u062a\u0646\u0638\u064a\u0645 \u0627\u0644\u0639\u0645\u0644 \u0645\u0646 \u0623\u062c\u0644 \u0627\u0644\u0641\u0639\u0644" }, date: "2025-07-17", url: "724-bureau-meeting.html", current: false },
+  { title: { en: "Building a Global Movement Against Genocide in Palestine", pt: "Construindo um movimento global contra o genoc\u00eddio na Palestina", fr: "Construire un mouvement mondial contre le g\u00e9nocide en Palestine", es: "Construyendo un movimiento global contra el genocidio en Palestina", ar: "\u0628\u0646\u0627\u0621 \u062d\u0631\u0643\u0629 \u0639\u0627\u0644\u0645\u064a\u0629 \u0636\u062f \u0627\u0644\u0625\u0628\u0627\u062f\u0629 \u0627\u0644\u062c\u0645\u0627\u0639\u064a\u0629 \u0641\u064a \u0641\u0644\u0633\u0637\u064a\u0646" }, date: "2025-07-13", url: "721-global-movement-palestine.html", current: false },
+  { title: { en: "Trump's First Six Months: A Threat to Our Planet and Its Peoples", pt: "Os seis primeiros meses de Trump: uma amea\u00e7a ao nosso planeta e seus povos", fr: "Les six premiers mois de Trump : Une menace pour notre plan\u00e8te et ses peuples", es: "Los seis primeros meses de Trump: Una amenaza para nuestro planeta y sus pueblos", ar: "\u0623\u0634\u0647\u0631 \u062a\u0631\u0627\u0645\u0628 \u0627\u0644\u0633\u062a\u0629 \u0627\u0644\u0623\u0648\u0644\u0649: \u062a\u0647\u062f\u064a\u062f \u0644\u0643\u0648\u0643\u0628\u0646\u0627 \u0648\u0644\u0634\u0639\u0648\u0628\u0647" }, date: "2025-07-13", url: "720-trumps-first-six-months.html", current: false }
+];
+
+function toggleSidebar() {
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+  document.getElementById('sidebarPanel').classList.toggle('open');
+}
+
+function renderSidebar(lang) {
+  const t = translations[lang];
+  document.getElementById('sidebarTitle').textContent = t.sidebar_title || 'Declarations';
+  const list = document.getElementById('sidebarList');
+  list.innerHTML = declarations.map(d => {
+    const cls = [d.current ? 'current' : '', d.url === '#' ? 'placeholder' : ''].filter(Boolean).join(' ');
+    return `<li><a href="${d.url}" class="${cls}"><span class="decl-title">${d.title[lang] || d.title.en}</span><span class="decl-date">${d.date}</span></a></li>`;
+  }).join('');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const overlay = document.getElementById('sidebarOverlay');
+    if (overlay.classList.contains('open')) toggleSidebar();
+  }
+});
+
+function setLang(lang) {
+  const html = document.documentElement;
+  html.lang = lang;
+  html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('.lang-bar button[data-lang]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      if (t[key].includes('<em>') || t[key].includes('<strong>')) {
+        el.innerHTML = t[key];
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+  renderSidebar(lang);
+}
+
+(function() {
+  const supported = ['pt', 'es', 'fr', 'en', 'ar'];
+  const langs = navigator.languages || [navigator.language || 'en'];
+  let match = 'en';
+  for (const l of langs) {
+    const code = l.split('-')[0].toLowerCase();
+    if (supported.includes(code)) { match = code; break; }
+  }
+  setLang(match);
+})();
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.section-block').forEach(block => observer.observe(block));
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollProgress').style.width = progress + '%';
+}, { passive: true });
+</script>
+</body>
+</html>

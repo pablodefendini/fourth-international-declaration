@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Defeat the Imperialist Aggressors! Stop the US-Israeli War on Iran! — Fourth International</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Sans+Arabic:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red: #C8102E;
+  --red-dark: #8B0000;
+  --red-bright: #E63946;
+  --red-glow: #FF1744;
+  --black: #0A0A0A;
+  --off-black: #141414;
+  --white: #F5F0EB;
+  --cream: #FAF7F2;
+  --gray: #888;
+  --text-body: rgba(245,240,235,0.85);
+  --bg-hero-red: rgba(200,16,46,0.18);
+  --bg-hero-red2: rgba(200,16,46,0.08);
+  --bg-hero-dark: rgba(139,0,0,0.1);
+  --stripe-opacity: 0.04;
+  --graphic-opacity: 0.06;
+  --langbar-bg: rgba(10,10,10,0.92);
+  --langbar-border: rgba(245,240,235,0.15);
+  --divider-red-alpha: rgba(200,16,46,0.3);
+  --closing-glow: rgba(200,16,46,0.12);
+  --ornament-line: linear-gradient(90deg, transparent, var(--red), transparent);
+  --footer-border: rgba(200,16,46,0.15);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-arabic: 'Noto Sans Arabic', 'Inter', sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --black: #FAF7F2;
+    --off-black: #F0EBE3;
+    --white: #1A1A1A;
+    --cream: #FFFFFF;
+    --gray: #666;
+    --text-body: rgba(26,26,26,0.8);
+    --bg-hero-red: rgba(200,16,46,0.08);
+    --bg-hero-red2: rgba(200,16,46,0.04);
+    --bg-hero-dark: rgba(139,0,0,0.04);
+    --stripe-opacity: 0.03;
+    --graphic-opacity: 0.04;
+    --langbar-bg: rgba(250,247,242,0.95);
+    --langbar-border: rgba(26,26,26,0.12);
+    --divider-red-alpha: rgba(200,16,46,0.2);
+    --closing-glow: rgba(200,16,46,0.06);
+    --footer-border: rgba(200,16,46,0.12);
+  }
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[dir="rtl"] body { font-family: var(--font-arabic); }
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3,
+html[dir="rtl"] .hero-title, html[dir="rtl"] .hero-subtitle {
+  font-family: var(--font-arabic);
+}
+
+/* ==================== LANGUAGE BAR ==================== */
+.lang-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.6rem 1rem;
+  background: var(--langbar-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--divider-red-alpha);
+  transition: transform 0.3s ease;
+}
+
+.lang-bar button {
+  background: none;
+  border: 1px solid var(--langbar-border);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 2px;
+}
+
+.lang-bar button:hover { border-color: var(--red); color: var(--red); }
+.lang-bar button.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: white;
+}
+
+.lang-bar .print-btn {
+  margin-left: 1rem;
+  border-color: var(--langbar-border);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lang-bar .print-btn svg { width: 14px; height: 14px; }
+.lang-bar .print-btn:hover { border-color: var(--white); color: var(--white); }
+
+/* ==================== HERO ==================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, var(--bg-hero-red) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, var(--bg-hero-red2) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, var(--bg-hero-dark) 0%, transparent 60%);
+  z-index: 0;
+}
+
+/* Animated diagonal stripes */
+.hero-stripes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: var(--stripe-opacity);
+}
+
+.hero-stripes::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    var(--red) 40px,
+    var(--red) 42px
+  );
+  animation: stripe-drift 30s linear infinite;
+}
+
+@keyframes stripe-drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(60px, 60px); }
+}
+
+/* Fist SVG graphic */
+.hero-graphic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: var(--graphic-opacity);
+  width: min(80vw, 600px);
+  height: auto;
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 900px; }
+
+.hero-overline {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 1.2rem;
+  border: 1px solid var(--divider-red-alpha);
+  border-radius: 2px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--red);
+  display: inline;
+}
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--red-bright);
+  margin-bottom: 2rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-slogans {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-slogan {
+  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-body);
+  text-transform: uppercase;
+}
+
+.hero-scroll {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: pulse-scroll 2s ease-in-out infinite;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.hero-scroll svg { width: 20px; height: 20px; }
+
+@keyframes pulse-scroll {
+  0%, 100% { opacity: 0.5; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(5px); }
+}
+
+/* ==================== RED DIVIDER ==================== */
+.red-divider {
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+
+.red-divider.thick {
+  height: 6px;
+  background: linear-gradient(90deg, transparent 5%, var(--red) 30%, var(--red-dark) 70%, transparent 95%);
+}
+
+/* ==================== BODY CONTENT ==================== */
+.declaration-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+.section-block {
+  margin-bottom: 3.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--red);
+  margin-bottom: 1.5rem;
+}
+
+.section-block p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-body);
+  margin-bottom: 1.25rem;
+}
+
+.section-block p:last-child { margin-bottom: 0; }
+
+
+/* ==================== CLOSING ==================== */
+.closing {
+  text-align: center;
+  padding: 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.closing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, var(--closing-glow), transparent 70%);
+}
+
+.closing-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+.closing-slogan {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--red);
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 60px rgba(200,16,46,0.3);
+}
+
+.closing-sub {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 60px rgba(200,16,46,0.3);
+  margin-bottom: 1rem;
+}
+
+/* ==================== STAR ORNAMENT ==================== */
+.star-ornament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+  gap: 1.25rem;
+}
+
+.star-ornament .line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+
+.star-ornament svg { width: 28px; height: 28px; fill: var(--red); }
+
+/* Closing logo */
+.closing-logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  opacity: 1;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.75rem;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+  border-top: 1px solid var(--footer-border);
+}
+
+/* ==================== SCROLL PROGRESS ==================== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red-dark), var(--red-bright), var(--red-glow));
+  z-index: 1001;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar-toggle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  background: var(--langbar-bg);
+  border: none;
+  border-right: 1px solid var(--langbar-border);
+  border-bottom: 1px solid var(--langbar-border);
+  color: var(--white);
+  cursor: pointer;
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+[dir="rtl"] .sidebar-toggle {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--langbar-border);
+}
+.sidebar-toggle:hover { border-color: var(--red); color: var(--red); }
+.sidebar-toggle svg { width: 16px; height: 16px; }
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.sidebar-overlay.open { opacity: 1; visibility: visible; }
+
+.sidebar-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1101;
+  width: 320px;
+  max-width: 85vw;
+  background: var(--off-black);
+  border-right: 1px solid var(--divider-red-alpha);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+html[dir="rtl"] .sidebar-panel {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--divider-red-alpha);
+  transform: translateX(100%);
+}
+.sidebar-overlay.open + .sidebar-panel,
+.sidebar-panel.open { transform: translateX(0); }
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--divider-red-alpha);
+}
+.sidebar-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+}
+html[dir="rtl"] .sidebar-header h2 { font-family: var(--font-arabic); }
+.sidebar-close {
+  background: none;
+  border: none;
+  color: var(--gray);
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+.sidebar-close:hover { color: var(--white); }
+.sidebar-close svg { width: 20px; height: 20px; }
+
+.sidebar-list {
+  list-style: none;
+  padding: 0.75rem 0;
+  margin: 0;
+}
+.sidebar-list li { padding: 0; }
+.sidebar-list a {
+  display: block;
+  padding: 0.85rem 1.25rem;
+  text-decoration: none;
+  color: var(--text-body);
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+html[dir="rtl"] .sidebar-list a {
+  border-left: none;
+  border-right: 3px solid transparent;
+}
+.sidebar-list a:hover { background: rgba(200,16,46,0.06); }
+.sidebar-list a.current {
+  border-left-color: var(--red);
+  background: rgba(200,16,46,0.1);
+}
+html[dir="rtl"] .sidebar-list a.current {
+  border-left-color: transparent;
+  border-right-color: var(--red);
+}
+.sidebar-list a.placeholder { opacity: 0.55; }
+.sidebar-list .decl-title {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--white);
+}
+.sidebar-list a.placeholder .decl-title { color: var(--text-body); }
+.sidebar-list .decl-date {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray);
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .sidebar-panel { max-width: calc(85vw); width: 360px; }
+  .sidebar-toggle { padding: 0.35rem 0.5rem; }
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+  @page { margin: 2.5cm 3cm; }
+  .lang-bar, .scroll-progress, .hero-scroll, .hero-stripes, .hero-graphic, .sidebar-overlay, .sidebar-panel, .sidebar-toggle { display: none !important; }
+  body { background: white !important; color: black !important; font-size: 9pt; line-height: 1.5; }
+  .hero { min-height: auto; padding: 1.5rem 0; }
+  .hero::before { display: none; }
+  .hero-title { color: black !important; font-size: 22pt; }
+  .hero-title em { color: var(--red) !important; }
+  .hero-subtitle { color: var(--red) !important; font-size: 11pt; }
+  .hero-slogan { color: #333 !important; font-size: 8pt; }
+  .hero-overline { color: var(--red) !important; border-color: var(--red) !important; font-size: 7pt; }
+  .section-block { opacity: 1 !important; transform: none !important; margin-bottom: 1.5rem; }
+  .section-heading { color: var(--red) !important; font-size: 13pt; margin-bottom: 0.6rem; }
+  .section-block p { color: #222 !important; font-size: 9pt; line-height: 1.5; margin-bottom: 0.5rem; }
+
+  .closing-slogan { color: var(--red) !important; font-size: 16pt; }
+  .closing-sub { color: black !important; font-size: 12pt; }
+  .closing { padding: 2rem 0; }
+  .closing::before { display: none; }
+  .red-divider { background: var(--red) !important; height: 1px !important; }
+  .declaration-body { padding: 0.5rem 0; max-width: 100%; }
+  .star-ornament { padding: 0.8rem 0; }
+  footer { color: #666 !important; border-color: #ccc !important; font-size: 7pt; padding: 0.8rem 0; }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 640px) {
+  .hero { padding: 5rem 1.25rem 3rem; }
+  .declaration-body { padding: 2.5rem 1.25rem 4rem; }
+
+  .section-heading { font-size: 1.4rem; }
+  .lang-bar { gap: 0.15rem; flex-wrap: wrap; padding: 0.5rem 0.5rem; }
+  .lang-bar button { font-size: 0.65rem; padding: 0.25rem 0.5rem; }
+  .lang-bar .print-btn { margin-left: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Sidebar toggle -->
+<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Open declarations menu">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
+<!-- Language bar -->
+<nav class="lang-bar" role="navigation" aria-label="Language selection">
+  <button data-lang="pt" onclick="setLang('pt')">Português</button>
+  <button data-lang="es" onclick="setLang('es')">Español</button>
+  <button data-lang="fr" onclick="setLang('fr')">Français</button>
+  <button class="active" data-lang="en" onclick="setLang('en')">English</button>
+  <button data-lang="ar" onclick="setLang('ar')">العربية</button>
+  <button class="print-btn" onclick="window.print()" title="Print / Save as PDF">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    <span data-i18n="print">Print</span>
+  </button>
+</nav>
+
+<!-- Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar-panel" id="sidebarPanel">
+  <div class="sidebar-header">
+    <h2 id="sidebarTitle">Declarations</h2>
+    <button class="sidebar-close" onclick="toggleSidebar()" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <ul class="sidebar-list" id="sidebarList"></ul>
+</aside>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-stripes"></div>
+
+  <!-- Fourth International logo -->
+  <svg class="hero-graphic" viewBox="0 0 1079 1081" fill="currentColor" color="var(--red)">
+    <g transform="translate(-652.248105,-1003.137222)">
+      <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1187.155773,1568.488198)"><path d="M0,5.914L1.769,5.914L6.055,0.997L9.337,0.997L10.168,0L5.482,0L0,5.914Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1258.140989,1478.695529)"><path d="M0,-11.521L4.532,-6.689L-2.959,1.007L-4.105,1.007L3.079,-6.604L1.316,-6.588L-6.483,1.839L2.818,1.839L5.373,-0.917L4.147,-0.917L2.334,1.007L1.08,1.007L6.756,-4.466L11.246,0.323L14.923,-3.098L7.868,-10.538C6.157,-8.827 5.259,-9.725 5.259,-9.725L1.881,-13.36L0,-11.521Z" style="fill-rule:nonzero;"/></g>
+      <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
+    </g>
+  </svg>
+
+  <div class="hero-content">
+    <span class="hero-overline" data-i18n="overline">Fourth International — Executive Bureau, March 2026</span>
+    <h1 class="hero-title" data-i18n="title">Defeat the Imperialist Aggressors! Stop the US-Israeli War on <em data-i18n="title-em">Iran!</em></h1>
+    <p class="hero-subtitle" data-i18n="subtitle">Executive Bureau Statement</p>
+    <div class="hero-slogans">
+      <span class="hero-slogan" data-i18n="slogan1">Down with US imperialism</span>
+      <span class="hero-slogan" data-i18n="slogan2">No war, no dictators — hands off Iran</span>
+    </div>
+  </div>
+  <a href="#declaration" class="hero-scroll">
+    <span data-i18n="scroll">Read the Declaration</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</header>
+
+<div class="red-divider thick"></div>
+
+<!-- DECLARATION BODY -->
+<main class="declaration-body" id="declaration">
+
+  <!-- Section 1 -->
+  <section class="section-block">
+    <p data-i18n="p1">In the second week of the US-Israel war on Iran, the situation is escalating through Trump's threats of hitting Iran even harder if they continue to control the oil flow within the Strait of Hormuz. Following Trump's assault on Venezuela, threats to Cuba and coveting of Greenland and alongside the ongoing genocide against the Palestinian people, this latest phase in his imperial ambition is deeply threatening, especially to the peoples of the Middle East but also more widely.</p>
+    <p data-i18n="p2">The aggression against Iran is directly related to the Zionist offensive against Palestine. Israel maintains its offensive against Gaza and continues to block the entry of humanitarian aid.</p>
+    <p data-i18n="p3">Israel has also intensified its military operations against Lebanon. Bombings and evacuation orders in the south of the country have already resulted in hundreds of deaths and the displacement of hundreds of thousands of people. Everything indicates that the Israeli government seeks to exploit the regional war to consolidate its strategic project of a "Greater Israel".</p>
+    <p data-i18n="p4">Since 28 February the US-Israeli war on Iran has killed more than 1300 people in Iran including 200 children and tens of health workers. Iran has responded to the attacks by hitting US military bases in the Middle East, Hezbollah has attacked Israel in defence of Iran and Israel has killed more than 500 people in Lebanon and caused many thousands to be displaced.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 2 -->
+  <section class="section-block">
+    <p data-i18n="p5">Attacks on the military bases of the US and its allies and on the support infrastructure of the US/Israeli assault against Iran are legitimate responses to such aggression. We emphasize that we support Iran's right to defend itself against the US and Israeli gangsters. The US and Israel are the aggressors, and they can end this war at any moment by ceasing their aggression.</p>
+    <p data-i18n="p6">Claiming to attack only military and strategic facilities, US and Israeli forces disguise the reality that the main target of the attacks, the Islamic Revolutionary Guard Corps (IRGC), has gone beyond being a military corps. It has become a huge social and economic institution controlling more than one third of Iran's GDP, with its affiliated foundations dominating many sectors from agriculture and food production to construction. Iran has been ruled by a strongly institutionalized Islamic Regime embedded in all sectors of life for more than 40 years, which renders the claims for "targeted attacks" untenable.</p>
+    <p data-i18n="p7">The attack on Iran has led to ecological devastation, in particular the bombing of the oil refinery in Tehran which filled the sky with black smoke filled with toxic hydrocarbons, sulfur oxides and nitrogen compounds. This toxic smoke filling the lungs of Iranians is only the latest example of war leading to the poisoning of the natural world which all humans rely on, from the ecocide in Gaza to the destruction of the Kakhovka Dam in Ukraine by Russian bombing in 2023.</p>
+    <p data-i18n="p8">Trump's inconsistent and cynical discourse on the aims and targets of US-Israeli war against Iran in these two weeks, has ranged from branding the assault as a helping hand to the Iranians' fight for democracy and as a pre-emptive war against Iran's nuclear program, to threatening the whole nation with annihilation. It is clear that an entrenched authoritarian regime such as the Islamic Republic of Iran will not be brought down simply by assassinating its 86-year-old leader or demolishing its cities. What the United States appears to seek is the creation of a chaotic situation in which a new authority, presented as the "lesser evil", will be accepted in order to stop the bloodshed. History may record this moment as the hijacking of a popular uprising through war and massacre.</p>
+  </section>
+
+  <div class="star-ornament"><span class="line"></span><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg><span class="line"></span></div>
+
+  <!-- Section 3 -->
+  <section class="section-block">
+    <h2 class="section-heading" data-i18n="h2">We stand with the Iranian people in their struggle against tyranny</h2>
+    <p data-i18n="p9">Iranians have been fighting for decades against their oppressive regime. Major examples include the 1999 student uprisings, the 2009 Green Movement, and the 2022 "Woman, Life, Freedom" movement. They have not only fought against the oppressive regime through protests, but also by building civil society institutions wherever possible and by pushing for gender equality despite heavy repression.</p>
+    <p data-i18n="p10">The last example of these protests started in the last days of 2025 and faced brutal suppression by the Iranian regime with an estimated death toll ranging between 10,000 to 30,000 people. Due to the highly repressive nature of the regime, this number remains unconfirmed. If these estimates are accurate, this would constitute the largest massacre carried out by the Iranian regime in decades.</p>
+    <p data-i18n="p11">From the standpoint of a political perspective based on the self-organization and self-emancipation of the masses, the imposition of Khameini or Pahlavi hereditary rulers can only aggravate the situation and once again block Iranians' decades long struggle for social justice and democracy. Foreign interventions hijacking Iranians' fights against authoritarian rule is not new. From British support to the first Pahlavi's coup in 1921 and his abdication by Allied Forces in 1941 in favor of his son Mohammad Reza Pahlavi, to the US and British orchestrated coup in 1953 against democratically elected prime minister Mosaddegh who nationalized Iranian oil, to decades long economic sanctions against the current regime that has not weakened the government but damaged the social and economic lives of millions of Iranians, imperialist foreign interventions have crushed the possibility of a democratic future for Iran and have helped create the conditions for the Islamic Republic to exist and rule.</p>
+    <p data-i18n="p12">There is no possibility of liberation under war. While cities are demolished and thousands of people are killed, the possibility of building a democratic movement is crushed further. The Fourth International's fundamental compass has always been the perspective of the self-emancipation of the working masses. History has shown us dozens of times that any intervention carried out "in the name of freedom" from above, whether through compromises or through bombs, only produces another form of barbarism for workers, women and youth.</p>
+    <p data-i18n="p13">As we saw in the Iran-Iraq war after the 1979 revolution, the state of emergencies imposed due to wars can only crush opposition further. At this moment, pro-democracy forces inside Iran, including but not limited to thousands of political prisoners, are among the main targets of the Islamic regime, and their lives are in danger under the pretext of war. For this reason, we demand the immediate end to this imperialist assault on Iran, reaffirm that we stand with the struggle waged by the people of Iran against the oppressive Islamic Regime and support Iran's right to defend itself against US and Israeli gangsters.</p>
+  </section>
+
+</main>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="closing-content section-block">
+    <p class="closing-slogan" data-i18n="closing1">Down with US imperialism</p>
+    <p class="closing-sub" data-i18n="closing2">No war, no dictators — hands off Iran</p>
+    <div class="closing-logo">
+      <svg viewBox="0 0 1079 1081" fill="var(--red)" width="80" height="80">
+        <g transform="translate(-652.248105,-1003.137222)">
+          <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1187.155773,1568.488198)"><path d="M0,5.914L1.769,5.914L6.055,0.997L9.337,0.997L10.168,0L5.482,0L0,5.914Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1258.140989,1478.695529)"><path d="M0,-11.521L4.532,-6.689L-2.959,1.007L-4.105,1.007L3.079,-6.604L1.316,-6.588L-6.483,1.839L2.818,1.839L5.373,-0.917L4.147,-0.917L2.334,1.007L1.08,1.007L6.756,-4.466L11.246,0.323L14.923,-3.098L7.868,-10.538C6.157,-8.827 5.259,-9.725 5.259,-9.725L1.881,-13.36L0,-11.521Z" style="fill-rule:nonzero;"/></g>
+          <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span data-i18n="footer">Fourth International — Executive Bureau, March 12, 2026</span>
+</footer>
+
+<script>
+// ========== TRANSLATIONS ==========
+const defined_unavailable = "This translation is not yet available. / Esta tradução ainda não está disponível.";
+
+const translations = {
+  en: {
+    overline: "Fourth International — Executive Bureau, March 2026",
+    title: 'Defeat the Imperialist Aggressors! Stop the US-Israeli War on <em>Iran!</em>',
+    "title-em": "Iran!",
+    subtitle: "Executive Bureau Statement",
+    slogan1: "Down with US imperialism",
+    slogan2: "No war, no dictators — hands off Iran",
+    scroll: "Read the Declaration",
+    print: "Print",
+    h2: "We stand with the Iranian people in their struggle against tyranny",
+    p1: "In the second week of the US-Israel war on Iran, the situation is escalating through Trump's threats of hitting Iran even harder if they continue to control the oil flow within the Strait of Hormuz. Following Trump's assault on Venezuela, threats to Cuba and coveting of Greenland and alongside the ongoing genocide against the Palestinian people, this latest phase in his imperial ambition is deeply threatening, especially to the peoples of the Middle East but also more widely.",
+    p2: "The aggression against Iran is directly related to the Zionist offensive against Palestine. Israel maintains its offensive against Gaza and continues to block the entry of humanitarian aid.",
+    p3: 'Israel has also intensified its military operations against Lebanon. Bombings and evacuation orders in the south of the country have already resulted in hundreds of deaths and the displacement of hundreds of thousands of people. Everything indicates that the Israeli government seeks to exploit the regional war to consolidate its strategic project of a "Greater Israel".',
+    p4: "Since 28 February the US-Israeli war on Iran has killed more than 1300 people in Iran including 200 children and tens of health workers. Iran has responded to the attacks by hitting US military bases in the Middle East, Hezbollah has attacked Israel in defence of Iran and Israel has killed more than 500 people in Lebanon and caused many thousands to be displaced.",
+    p5: "Attacks on the military bases of the US and its allies and on the support infrastructure of the US/Israeli assault against Iran are legitimate responses to such aggression. We emphasize that we support Iran's right to defend itself against the US and Israeli gangsters. The US and Israel are the aggressors, and they can end this war at any moment by ceasing their aggression.",
+    p6: 'Claiming to attack only military and strategic facilities, US and Israeli forces disguise the reality that the main target of the attacks, the Islamic Revolutionary Guard Corps (IRGC), has gone beyond being a military corps. It has become a huge social and economic institution controlling more than one third of Iran\'s GDP, with its affiliated foundations dominating many sectors from agriculture and food production to construction. Iran has been ruled by a strongly institutionalized Islamic Regime embedded in all sectors of life for more than 40 years, which renders the claims for "targeted attacks" untenable.',
+    p7: "The attack on Iran has led to ecological devastation, in particular the bombing of the oil refinery in Tehran which filled the sky with black smoke filled with toxic hydrocarbons, sulfur oxides and nitrogen compounds. This toxic smoke filling the lungs of Iranians is only the latest example of war leading to the poisoning of the natural world which all humans rely on, from the ecocide in Gaza to the destruction of the Kakhovka Dam in Ukraine by Russian bombing in 2023.",
+    p8: 'Trump\'s inconsistent and cynical discourse on the aims and targets of US-Israeli war against Iran in these two weeks, has ranged from branding the assault as a helping hand to the Iranians\' fight for democracy and as a pre-emptive war against Iran\'s nuclear program, to threatening the whole nation with annihilation. It is clear that an entrenched authoritarian regime such as the Islamic Republic of Iran will not be brought down simply by assassinating its 86-year-old leader or demolishing its cities. What the United States appears to seek is the creation of a chaotic situation in which a new authority, presented as the "lesser evil", will be accepted in order to stop the bloodshed. History may record this moment as the hijacking of a popular uprising through war and massacre.',
+    p9: 'Iranians have been fighting for decades against their oppressive regime. Major examples include the 1999 student uprisings, the 2009 Green Movement, and the 2022 "Woman, Life, Freedom" movement. They have not only fought against the oppressive regime through protests, but also by building civil society institutions wherever possible and by pushing for gender equality despite heavy repression.',
+    p10: "The last example of these protests started in the last days of 2025 and faced brutal suppression by the Iranian regime with an estimated death toll ranging between 10,000 to 30,000 people. Due to the highly repressive nature of the regime, this number remains unconfirmed. If these estimates are accurate, this would constitute the largest massacre carried out by the Iranian regime in decades.",
+    p11: "From the standpoint of a political perspective based on the self-organization and self-emancipation of the masses, the imposition of Khameini or Pahlavi hereditary rulers can only aggravate the situation and once again block Iranians' decades long struggle for social justice and democracy. Foreign interventions hijacking Iranians' fights against authoritarian rule is not new. From British support to the first Pahlavi's coup in 1921 and his abdication by Allied Forces in 1941 in favor of his son Mohammad Reza Pahlavi, to the US and British orchestrated coup in 1953 against democratically elected prime minister Mosaddegh who nationalized Iranian oil, to decades long economic sanctions against the current regime that has not weakened the government but damaged the social and economic lives of millions of Iranians, imperialist foreign interventions have crushed the possibility of a democratic future for Iran and have helped create the conditions for the Islamic Republic to exist and rule.",
+    p12: 'There is no possibility of liberation under war. While cities are demolished and thousands of people are killed, the possibility of building a democratic movement is crushed further. The Fourth International\'s fundamental compass has always been the perspective of the self-emancipation of the working masses. History has shown us dozens of times that any intervention carried out "in the name of freedom" from above, whether through compromises or through bombs, only produces another form of barbarism for workers, women and youth.',
+    p13: "As we saw in the Iran-Iraq war after the 1979 revolution, the state of emergencies imposed due to wars can only crush opposition further. At this moment, pro-democracy forces inside Iran, including but not limited to thousands of political prisoners, are among the main targets of the Islamic regime, and their lives are in danger under the pretext of war. For this reason, we demand the immediate end to this imperialist assault on Iran, reaffirm that we stand with the struggle waged by the people of Iran against the oppressive Islamic Regime and support Iran's right to defend itself against US and Israeli gangsters.",
+    closing1: "Down with US imperialism",
+    closing2: "No war, no dictators — hands off Iran",
+    footer: "Fourth International — Executive Bureau, March 12, 2026",
+    sidebar_title: "Declarations"
+  },
+
+  fr: {
+    overline: "Quatrième Internationale — Bureau exécutif, mars 2026",
+    title: 'Pour la défaite des agresseurs impérialistes ! Stop à la guerre israélo-étatsunienne contre l\'<em>Iran !</em>',
+    "title-em": "Iran !",
+    subtitle: "Déclaration du Bureau exécutif",
+    slogan1: "À bas l'impérialisme américain",
+    slogan2: "Pas de guerre, pas de dictateurs — ne touchez pas à l'Iran",
+    scroll: "Lire la Déclaration",
+    print: "Imprimer",
+    h2: "Nous soutenons le peuple iranien dans sa lutte contre la tyrannie",
+    p1: "Au cours de la deuxième semaine de la guerre israélo-étatsunienne contre l'Iran, la situation s'aggrave. Cela sous l'effet des menaces de Trump de frapper encore plus durement le pays si celui-ci persiste à contrôler le flux pétrolier dans le détroit d'Ormuz. Après l'attaque de Trump contre le Venezuela, ses menaces contre Cuba et sa convoitise pour le Groenland – sans oublier le génocide en cours contre le peuple palestinien – cette nouvelle étape de son ambition impérialiste constitue une menace profonde, en particulier pour les peuples du Moyen-Orient, mais aussi bien au-delà.",
+    p2: "L'agression contre l'Iran est directement liée à l'offensive sioniste contre la Palestine. Israël poursuit son offensive contre Gaza et continue de bloquer l'entrée de l'aide humanitaire.",
+    p3: "Israël a également intensifié ses opérations militaires contre le Liban. Les bombardements et les ordres d'évacuation dans le sud du pays ont déjà fait des centaines de morts et causé le déplacement de centaines de milliers de personnes. Tout indique que le gouvernement israélien cherche à exploiter la guerre régionale pour consolider son projet stratégique d'un « Grand Israël ».",
+    p4: "Depuis le 28 février, la guerre israélio-étatsunienne contre l'Iran a fait plus de 1 300 morts en Iran, dont 200 enfants et des dizaines de travailleurs de la santé. L'Iran a répondu aux attaques en frappant des bases militaires américaines au Moyen-Orient ; le Hezbollah a attaqué Israël pour défendre l'Iran ; et Israël a tué plus de 500 personnes au Liban, provoquant le déplacement de plusieurs milliers d'autres.",
+    p5: "Les attaques contre les bases militaires des États-Unis et de leurs alliés, ainsi que contre les infrastructures soutenant l'assaut américano-israélien contre l'Iran, sont une réponse légitime face à une telle agression. Nous soulignons que nous soutenons le droit de l'Iran à se défendre contre les gangsters étatsuniens et israéliens. Les États-Unis et Israël sont les agresseurs, et ils peuvent mettre fin à cette guerre à tout moment en cessant leur agression.",
+    p6: "En prétendant ne viser que des installations militaires et stratégiques, les forces américaines et israéliennes dissimulent le fait que la principale cible de leurs attaques, le Corps des gardiens de la révolution islamique (CGRI), dépasse largement le statut d'un simple corps militaire. Il est devenu une immense institution sociale et économique contrôlant plus d'un tiers du PIB iranien, ses fondations affiliées dominant de nombreux secteurs, de l'agriculture et la production alimentaire à la construction. L'Iran est gouverné depuis plus de quarante ans par un régime islamique fortement institutionnalisé, enraciné dans tous les secteurs de la vie sociale, ce qui rend indéfendables les affirmations selon lesquelles il s'agirait d'« attaques ciblées ».",
+    p7: "L'attaque contre l'Iran a également provoqué un désastre écologique. Le bombardement de la raffinerie de pétrole de Téhéran a notamment rempli le ciel d'une fumée noire chargée d'hydrocarbures, d'oxydes de soufre et de composés azotés, tous toxiques. Cette fumée qui envahit les poumons des Iranien·nes n'est que le dernier exemple en date d'une guerre qui empoisonne la nature, dont dépend l'ensemble de l'humanité, depuis l'écocide à Gaza jusqu'à la destruction du barrage de Kakhovka en Ukraine par les bombardements russes en 2023.",
+    p8: "Au cours de ces deux semaines, le discours incohérent et cynique de Trump sur les objectifs et les cibles de la guerre israélo-américaine contre l'Iran a oscillé entre la présentation de l'attaque comme un soutien à la lutte des Iranien·nes pour la démocratie, celle d'une guerre préventive contre le programme nucléaire iranien, et la menace d'anéantir toute la nation. Il est clair qu'un régime autoritaire solidement établi comme la République islamique d'Iran ne sera pas renversé simplement en assassinant son dirigeant, âgé de 86 ans, ou en détruisant ses villes. Ce que les États-Unis semblent rechercher, c'est la création d'une situation chaotique dans laquelle une nouvelle autorité, présentée comme le « moindre mal », serait acceptée afin de mettre fin au bain de sang. L'histoire retiendra peut-être ce moment comme le détournement d'un soulèvement populaire par la guerre et le massacre.",
+    p9: "Les Iranien·nes luttent depuis des décennies contre leur régime oppressif. Parmi les exemples majeurs figurent les soulèvements étudiants de 1999, le Mouvement vert de 2009 et le mouvement « Femme, vie, liberté » de 2022. Ils ont combattu le régime non seulement par des manifestations, mais aussi en créant, partout où cela était possible, des institutions de la société civile et en faisant pression pour l'égalité de genre, malgré une répression énorme.",
+    p10: "Le dernier épisode de ces mobilisations a commencé dans les derniers jours de 2025 et a été brutalement réprimé par le régime iranien, faisant entre 10 000 et 30 000 morts selon les estimations. En raison de la nature extrêmement répressive du régime, ce chiffre reste impossible à confirmer. Si ces estimations sont exactes, il s'agirait du plus grand massacre perpétré par le régime iranien depuis des décennies.",
+    p11: "Du point de vue d'une perspective politique fondée sur l'auto-organisation et l'auto-émancipation des masses, l'imposition de dirigeants héréditaires tels que Khamenei ou Pahlavi ne peut qu'aggraver la situation et bloquer une fois de plus la lutte menée depuis des décennies par les Iranien·nes pour la justice sociale et la démocratie. Les interventions étrangères qui détournent les luttes des Iranien·nes contre le régime autoritaire ne sont pas nouvelles. Du soutien britannique au premier coup d'État de Pahlavi en 1921, son abdication face aux forces alliées en 1941 au profit de son fils Mohammad Reza Pahlavi, le coup d'État orchestré par les États-Unis et la Grande-Bretagne en 1953 contre le Premier ministre démocratiquement élu Mossadegh – qui avait nationalisé le pétrole iranien – jusqu'aux sanctions économiques imposées depuis des décennies contre le régime actuel – qui n'ont pas affaibli le gouvernement mais ont gravement affecté la vie sociale et économique de millions d'Iraniens –, les interventions impérialistes étrangères ont écrasé les perspectives d'avenir démocratique pour l'Iran et ont contribué à créer les conditions de l'existence et de la domination de la République islamique.",
+    p12: "Il n'y a aucune possibilité de libération dans un contexte de guerre. Alors que les villes sont détruites et que des milliers de personnes sont tuées, la possibilité de construire un mouvement démocratique est encore plus mis en difficulté. La boussole fondamentale de la Quatrième Internationale a toujours été la perspective de l'auto-émancipation des masses laborieuses. L'histoire nous a montré à de nombreuses reprises que toute intervention menée « au nom de la liberté » par le haut – qu'elle passe par des compromis ou par des bombes – ne produit qu'une nouvelle forme de barbarie pour les travailleur·ses, les femmes et les jeunes.",
+    p13: "Comme nous l'avons vu lors de la guerre Iran-Irak après la révolution de 1979, l'état d'urgence imposé par les guerres ne peut qu'écraser davantage l'opposition. Aujourd'hui, les forces pro-démocratiques en Iran – y compris les milliers de prisonniers politiques – figurent parmi les principales cibles du régime islamique, et leur vie est menacée sous le prétexte de la guerre. C'est pourquoi nous exigeons la fin immédiate de cette attaque impérialiste contre l'Iran, réaffirmons notre soutien à la lutte menée par le peuple iranien contre le régime islamique oppressif et défendons le droit de l'Iran à se défendre contre les gangsters étatsuniens et israéliens.",
+    closing1: "À bas l'impérialisme américain",
+    closing2: "Pas de guerre, pas de dictateurs — ne touchez pas à l'Iran",
+    footer: "Quatrième Internationale — Bureau exécutif, 12 mars 2026",
+    sidebar_title: "Déclarations"
+  },
+
+  es: {
+    overline: "Cuarta Internacional — Buró Ejecutivo, marzo 2026",
+    title: '¡Por la derrota de los agresores imperialistas! ¡Parar la guerra estadounidense-israelí contra <em>Irán!</em>',
+    "title-em": "Irán!",
+    subtitle: "Declaración del Buró Ejecutivo",
+    slogan1: "¡Abajo el imperialismo estadounidense!",
+    slogan2: "Ni guerra, ni dictadores — fuera las manos de Irán",
+    scroll: "Leer la Declaración",
+    print: "Imprimir",
+    h2: "Estamos junto al pueblo iraní en su lucha contra la tiranía",
+    p1: "En la segunda semana de la guerra de EE. UU.–Israel contra Irán, la situación está escalando a través de las amenazas de Trump de golpear a Irán aún más fuerte si continúan controlando el flujo de petróleo dentro del Estrecho de Ormuz. Después del ataque de Trump contra Venezuela, las amenazas a Cuba y la codicia sobre Groenlandia, y junto con el genocidio en curso contra el pueblo palestino, esta última fase de su ambición imperial es profundamente amenazante, especialmente para los pueblos de Medio Oriente, pero también de manera más amplia.",
+    p2: "La agresión contra Irán está directamente relacionada con la ofensiva sionista contra Palestina. Israel mantiene su ofensiva contra Gaza y continúa bloqueando la entrada de ayuda humanitaria.",
+    p3: 'Israel también ha intensificado sus operaciones militares contra el Líbano. Los bombardeos y las órdenes de evacuación en el sur del país ya han resultado en cientos de muertes y el desplazamiento de cientos de miles de personas. Todo indica que el gobierno israelí busca explotar la guerra regional para consolidar su proyecto estratégico de un "Gran Israel".',
+    p4: "Desde el 28 de febrero, la guerra estadounidense-israelí contra Irán ha causado la muerte de más de 1300 personas en Irán, incluidos 200 niños y decenas de trabajadores de la salud. Irán ha respondido a los ataques golpeando bases militares de EE. UU. en Medio Oriente; Hezbollah ha atacado a Israel en defensa de Irán, e Israel ha matado a más de 500 personas en el Líbano y ha provocado el desplazamiento de muchos miles.",
+    p5: "Los ataques contra las bases militares de EE. UU. y sus aliados, y contra la infraestructura de apoyo del asalto estadounidense/israelí contra Irán, son respuestas legítimas a tal agresión. Enfatizamos que apoyamos el derecho de Irán a defenderse contra los gánsteres de EE. UU. e Israel. EE. UU. e Israel son los agresores, y pueden terminar esta guerra en cualquier momento cesando su agresión.",
+    p6: "Al afirmar que atacan solo instalaciones militares y estratégicas, las fuerzas de EE. UU. e Israel disfrazan la realidad de que el principal objetivo de los ataques, el Cuerpo de la Guardia Revolucionaria Islámica (IRGC), ha ido más allá de ser un cuerpo militar. Se ha convertido en una enorme institución social y económica que controla más de un tercio del PBI de Irán, con sus fundaciones afiliadas dominando muchos sectores, desde la agricultura y la producción de alimentos hasta la construcción. Irán ha sido gobernado por un régimen islámico fuertemente institucionalizado, incrustado en todos los sectores de la vida durante más de 40 años, lo que vuelve insostenibles las afirmaciones sobre \"ataques selectivos\".",
+    p7: "El ataque contra Irán ha provocado devastación ecológica, en particular el bombardeo de la refinería de petróleo en Teherán, que llenó el cielo de humo negro cargado de hidrocarburos tóxicos, óxidos de azufre y compuestos de nitrógeno. Este humo tóxico que llena los pulmones de los iraníes es solo el ejemplo más reciente de cómo la guerra conduce al envenenamiento del mundo natural del que dependen todos los seres humanos, desde el ecocidio en Gaza hasta la destrucción de la represa de Kajovka en Ucrania por los bombardeos rusos en 2023.",
+    p8: 'El discurso inconsistente y cínico de Trump sobre los objetivos y blancos de la guerra estadounidense-israelí contra Irán durante estas dos semanas ha oscilado entre presentar el ataque como una ayuda a la lucha de los iraníes por la democracia y como una guerra preventiva contra el programa nuclear de Irán, hasta amenazar a toda la nación con la aniquilación. Está claro que un régimen autoritario profundamente arraigado como la República Islámica de Irán no será derribado simplemente asesinando a su líder de 86 años o demoliendo sus ciudades. Lo que Estados Unidos parece buscar es la creación de una situación caótica en la que una nueva autoridad, presentada como el "mal menor", sea aceptada para detener el derramamiento de sangre. La historia podría registrar este momento como el secuestro de un levantamiento popular mediante la guerra y la masacre.',
+    p9: 'Los iraníes han estado luchando durante décadas contra su régimen opresivo. Ejemplos importantes incluyen los levantamientos estudiantiles de 1999, el Movimiento Verde de 2009 y el movimiento "Mujer, Vida, Libertad" de 2022. No solo han luchado contra el régimen opresivo a través de protestas, sino también construyendo instituciones de la sociedad civil siempre que fue posible y empujando por la igualdad de género a pesar de la fuerte represión.',
+    p10: "El último ejemplo de estas protestas comenzó en los últimos días de 2025 y enfrentó una represión brutal por parte del régimen iraní, con un número estimado de muertos que oscila entre 10.000 y 30.000 personas. Debido al carácter altamente represivo del régimen, esta cifra sigue sin poder confirmarse. Si estas estimaciones son correctas, esto constituiría la mayor masacre llevada a cabo por el régimen iraní en décadas.",
+    p11: "Desde el punto de vista de una perspectiva política basada en la autoorganización y la autoemancipación de las masas, la imposición de gobernantes hereditarios como Jamenei o Pahlavi solo puede agravar la situación y bloquear una vez más la lucha de décadas de los iraníes por la justicia social y la democracia. Las intervenciones extranjeras que secuestran las luchas de los iraníes contra el dominio autoritario no son algo nuevo. Desde el apoyo británico al golpe del primer Pahlavi en 1921 y su abdicación por las Fuerzas Aliadas en 1941 en favor de su hijo Mohammad Reza Pahlavi, hasta el golpe organizado por Estados Unidos y Gran Bretaña en 1953 contra el primer ministro democráticamente electo Mosaddegh, quien nacionalizó el petróleo iraní; desde las sanciones económicas durante décadas contra el régimen actual, que no han debilitado al gobierno pero sí han dañado la vida social y económica de millones de iraníes, las intervenciones imperialistas extranjeras han aplastado la posibilidad de un futuro democrático para Irán y han ayudado a crear las condiciones para que la República Islámica exista y gobierne.",
+    p12: "No hay posibilidad de liberación bajo la guerra. Mientras las ciudades son demolidas y miles de personas son asesinadas, la posibilidad de construir un movimiento democrático queda aún más aplastada. La brújula fundamental de la Cuarta Internacional siempre ha sido la perspectiva de la autoemancipación de las masas trabajadoras. La historia nos ha mostrado decenas de veces que cualquier intervención llevada a cabo \"en nombre de la libertad\" desde arriba, ya sea a través de compromisos o de bombas, solo produce otra forma de barbarie para trabajadores, mujeres y jóvenes.",
+    p13: "Como vimos en la guerra Irán-Irak después de la revolución de 1979, los estados de emergencia impuestos debido a las guerras solo pueden aplastar aún más a la oposición. En este momento, las fuerzas pro-democracia dentro de Irán, incluidos —pero no limitados a— miles de prisioneros políticos, están entre los principales objetivos del régimen islámico, y sus vidas están en peligro bajo el pretexto de la guerra. Por esta razón, exigimos el fin inmediato de este asalto imperialista contra Irán, reafirmamos que estamos junto a la lucha que libra el pueblo de Irán contra el opresivo Régimen Islámico y apoyamos el derecho de Irán a defenderse contra los gánsteres de Estados Unidos e Israel.",
+    closing1: "¡Abajo el imperialismo estadounidense!",
+    closing2: "Ni guerra, ni dictadores — fuera las manos de Irán",
+    footer: "Cuarta Internacional — Buró Ejecutivo, 12 de marzo de 2026",
+    sidebar_title: "Declaraciones"
+  },
+
+  ar: {
+    overline: "الأممية الرابعة — المكتب التنفيذي، مارس 2026",
+    title: 'من أجل هزيمة الغزاة الإمبرياليين! لنوقف الحرب الإسرائيلية-الأمريكية ضد <em>إيران!</em>',
+    "title-em": "إيران!",
+    subtitle: "بيان المكتب التنفيذي",
+    slogan1: "تسقط الإمبريالية الأمريكية",
+    slogan2: "لا للحرب، لا للديكتاتورية — ارفعوا أيديكم عن إيران",
+    scroll: "اقرأ الإعلان",
+    print: "طباعة",
+    h2: "نحن ندعم الشعب الإيراني في نضاله ضد الطغيان",
+    p1: "خلال الأسبوع الثاني من الحرب الإسرائيلية الأمريكية ضد إيران، تزداد الأوضاع تفاقما، وذلك جراء تهديدات ترامب بتوجيه ضربات أكثر شدة للبلد إذا استمرت هذا الأخير في السيطرة على تدفق النفط عبر مضيق هرمز. بعد هجوم ترامب على فنزويلا، وتهديداته لكوبا، وطمعه في غرينلاند - ناهيك عن الإبادة الجارية ضد الشعب الفلسطيني - تشكل هذه المرحلة الجديدة من طموحه الإمبريالي تهديدًا عميقا، لا سيما لشعوب الشرق الأوسط، بل ولما هو أبعد من ذلك.",
+    p2: "يرتبط العدوان على إيران مباشرة بالهجوم الصهيوني على فلسطين، حيث تواصل إسرائيل هجومها على غزة وتستمر في منع دخول المساعدات الإنسانية.",
+    p3: "كما كثفت إسرائيل عملياتها العسكرية ضد لبنان، حيث أسفر القصف وأوامر الإجلاء في جنوب البلاد عن مئات القتلى وتسببا في نزوح مئات الآلاف من الأشخاص. كل شيء يشير إلى أن الحكومة الإسرائيلية تسعى إلى استغلال الحرب الإقليمية لتعزيز مشروعها الاستراتيجي المتمثل في \"إسرائيل الكبرى\".",
+    p4: "منذ 28 فبراير، أسفرت الحرب الإسرائيلية-الأمريكية ضد إيران عن مقتل أكثر من ألف و300 شخص في إيران، بينهم 200 طفل وعشرات من العاملين في مجال الصحة. وردت إيران على الهجمات بقصف قواعد عسكرية أمريكية في الشرق الأوسط، كما هاجم حزب الله إسرائيل للدفاع عن إيران، وقتلت إسرائيل أكثر من 500 شخص في لبنان، مما تسبب في نزوح عدة آلاف آخرين.",
+    p5: "إن الهجمات على القواعد العسكرية للولايات المتحدة وحلفائها، وكذلك على البنى التحتية الداعمة للهجوم الأمريكي-الإسرائيلي على إيران، تعد ردا مشروعا في مواجهة مثل هذا العدوان. ونؤكد أننا ندعم حق إيران في الدفاع عن نفسها ضد العصابات الأمريكية والإسرائيلية. فالولايات المتحدة وإسرائيل هما المعتديان، ويمكنهما إنهاء هذه الحرب في أي وقت بوقف عدوانهما.",
+    p6: "وبادعاء أن ضرباتها تستهدف فقط منشآت عسكرية واستراتيجية، تخفي القوات الأمريكية والإسرائيلية حقيقة أن الهدف الرئيسي لهجماتها، وهو فيلق الحرس الثوري الإسلامي، يتجاوز بكثير مجرد كونه فيلقا عسكريًا. فهو أصبح مؤسسة اجتماعية واقتصادية ضخمة تسيطر على أكثر من ثلث الناتج المحلي الإجمالي الإيراني، وتهيمن مؤسساته التابعة على العديد من القطاعات، من الزراعة وإنتاج الغذاء إلى البناء. يصعب تبني الادعاءات بكون هذه الهجمات \"محددة الأهداف\"، لكون إيران يحكمها منذ أكثر من أربعين عامًا نظام إسلامي جد متأصل مؤسسيًا، ومتجذر في جميع مجالات الحياة الاجتماعية.",
+    p7: "كما تسبب الهجوم على إيران أيضا في كارثة بيئية. فقد أدى قصف مصفاة النفط في طهران إلى ملء السماء بدخان أسود مشبع بالهيدروكربونات وأكاسيد الكبريت والمركبات النيتروجينية، وجميعها مواد سامة. هذا الدخان الذي يملأ رئات الإيرانيين/ات هو أحدث مثال على حرب تسمم الطبيعة التي تعتمد عليها البشرية جمعاء، من الإبادة البيئية في غزة إلى تدمير سد كاخوفكا في أوكرانيا بالقصف الروسي في عام 2023.",
+    p8: "خلال هذين الأسبوعين، تأرجح خطاب ترامب الذي اتسم بالتناقض والوقاحة حول أهداف الحرب الإسرائيلية الأمريكية ضد إيران بين تقديم الهجوم باعتباره دعما لنضال الإيرانيين/ات من أجل الديمقراطية، أو حربا وقائية ضد البرنامج النووي الإيراني، أو تهديدا بإبادة الأمة بأكملها. ومن الواضح أن نظامًا استبداديًا راسخًا مثل جمهورية إيران الإسلامية لن تتم الإطاحة به بمجرد اغتيال زعيمه البالغ من العمر 86 عامًا أو بتدمير مُدُنه. يبدو أن ما تسعى إليه الولايات المتحدة هو خلق حالة من الفوضى يتم فيها قبول سلطة جديدة، تُقدم باعتبارها \"أهون الشرور\"، من أجل إنهاء إراقة الدماء. وربما يسجل التاريخ هذا اللحظة بوصفها تحريفا لانتفاضة شعبية باستخدام الحرب والمجازر.",
+    p9: "يناضل الإيرانيون/ات منذ عقود ضد نظامهم القمعي. ومن أبرز الأمثلة على ذلك انتفاضات الطلاب عام 1999، والحركة الخضراء عام 2009، وحركة \"المرأة، الحياة، الحرية\" عام 2022. قاوموا النظام ليس فقط بالمظاهرات، بل أيضًا بإنشاء مؤسسات المجتمع المدني حيثما أمكن ذلك، وبالضغط من أجل المساواة بين الجنسين، رغم القمع الشديد.",
+    p10: "بدأت الحلقة الأخيرة من هذه التعبئات في الأيام الأخيرة من عام 2025 وقمعها النظام الإيراني بوحشية، مما أسفر عن مقتل ما بين 10 آلاف و30 ألف شخص وفقًا للتقديرات. ونظراً للطبيعة القمعية للغاية للنظام، يستحيل تأكيد هذا الرقم. وإذا صحت هذه التقديرات، فستكون هذه أكبر مجزرة يرتكبها النظام الإيراني منذ عقود.",
+    p11: "من منظور سياسي قائم على التنظيم الذاتي والتحرر الذاتي للجماهير، فإن فرض قادة بالوراثة مثل خامنئي أو بهلوي لن يؤدي إلا الى تفاقم الوضع، ويعرقل مرة أخرى النضال الذي يخوضه الإيرانيون/ات منذ عقود من أجل العدالة الاجتماعية والديمقراطية. كما أن التدخلات الأجنبية التي تحرف نضال الإيرانيين/ات ضد النظام الاستبدادي ليست جديدة. فجميع التدخلات الإمبريالية الأجنبية، بدءا بالدعم البريطاني لأول انقلاب لبهلوي عام 1921، إلى تنازله عن العرش أمام قوات الحلفاء عام 1941 لصالح ابنه محمد رضا بهلوي، ثم الانقلاب الذي دبرته الولايات المتحدة وبريطانيا عام 1953 ضد رئيس الوزراء المنتخب ديمقراطياً محمد مصدق - الذي أمم النفط الإيراني - وصولاً إلى العقوبات الاقتصادية المفروضة منذ عقود على النظام الحالي - والتي لم تضعف الحكومة ولكنها أثرت بشكل خطير على الحياة الاجتماعية والاقتصادية لملايين الإيرانيين/ات – سحقت آفاق المستقبل الديمقراطي لإيران وساهمت في خلق شروط وجود الجمهورية الإسلامية وبسط هيمنتها.",
+    p12: "لا توجد أي إمكانية للتحرر في سياق الحرب. فبينما تُدمر المدن ويُقتل آلاف الأشخاص، تصبح إمكانية بناء حركة ديمقراطية أكثر صعوبة. لطالما كانت البوصلة الأساسية للأممية الرابعة هي منظور التحرر الذاتي للجماهير الكادحة. وقد أظهر التاريخ مرارًا وتكرارًا أن أي تدخل يتم \"باسم الحرية\" من أعلى - سواء كان ذلك عن طريق التسويات أو القنابل - لا ينتج الا شكلا جديدا من الهمجية ضد العمال/ات والنساء والشباب.",
+    p13: "وكما رأينا في الحرب الإيرانية-العراقية بعد ثورة 1979، فإن حالة الطوارئ التي تفرضها الحروب لا يمكنها الا أن تسحق المعارضة بشكل أكبر. واليوم، تعد القوى المؤيدة للديمقراطية في إيران – بما في ذلك آلاف السجناء السياسيين – من بين الأهداف الرئيسية للنظام الإسلامي، كما أن حياتهم مهددة بذريعة الحرب. ولهذا، نطالب بالوقف الفوري لهذا الهجوم الإمبريالي على إيران، ونؤكد من جديد دعمنا لنضال الشعب الإيراني ضد النظام الإسلامي القمعي، وندافع عن حق إيران في الدفاع عن نفسها ضد العصابات الأمريكية والإسرائيلية.",
+    closing1: "تسقط الإمبريالية الأمريكية",
+    closing2: "لا للحرب، لا للديكتاتورية — ارفعوا أيديكم عن إيران",
+    footer: "الأممية الرابعة — المكتب التنفيذي، 12 مارس 2026",
+    sidebar_title: "الإعلانات"
+  },
+
+  pt: {
+    overline: "Quarta Internacional — Bureau Executivo, março 2026",
+    title: 'Para a derrota dos agressores imperialistas! Pare a guerra israelo-estadunidense contra o <em>Irã!</em>',
+    "title-em": "Irã!",
+    subtitle: "Declaração do Bureau Executivo",
+    slogan1: "Abaixo o imperialismo americano",
+    slogan2: "Nem guerra, nem ditadores — tirem as mãos do Irã",
+    scroll: "Leia a Declaração",
+    print: "Imprimir",
+    h2: "Apoiamos o povo iraniano em sua luta contra a tirania",
+    p1: "This translation is not yet available. / Esta traducción aún no está disponible. / Cette traduction n'est pas encore disponible. / Esta tradução ainda não está disponível. / هذه الترجمة غير متوفرة بعد.",
+    p2: "",
+    p3: "",
+    p4: "",
+    p5: "",
+    p6: "",
+    p7: "",
+    p8: "",
+    p9: "",
+    p10: "",
+    p11: "",
+    p12: "",
+    p13: "",
+    closing1: "Abaixo o imperialismo americano",
+    closing2: "Nem guerra, nem ditadores — tirem as mãos do Irã",
+    footer: "Quarta Internacional — Bureau Executivo, 12 de março de 2026",
+    sidebar_title: "Declarações"
+  }
+};
+
+// ========== DECLARATIONS DATA ==========
+const declarations = [
+  {
+    title: { en: "Against Neo-Fascist Authoritarianism and All Forms of Imperialism", pt: "Contra o autoritarismo neofascista e todas as formas de imperialismo", fr: "Contre l'autoritarisme néo-fasciste et toutes les formes d'impérialisme", es: "Contra el autoritarismo neofascista y todas las formas de imperialismo", ar: "ضد الاستبداد النيوفاشي وجميع أشكال الإمبريالية" },
+    date: "2026-03-15",
+    url: "index.html",
+    current: false
+  },
+  {
+    title: { en: "Defeat the Imperialist Aggressors! Stop the US-Israeli War on Iran!", pt: "Para a derrota dos agressores imperialistas! Pare a guerra israelo-estadunidense contra o Irã!", fr: "Pour la défaite des agresseurs impérialistes ! Stop à la guerre israélo-étatsunienne contre l'Iran !", es: "¡Por la derrota de los agresores imperialistas! ¡Parar la guerra estadounidense-israelí contra Irán!", ar: "من أجل هزيمة الغزاة الإمبرياليين! لنوقف الحرب الإسرائيلية-الأمريكية ضد إيران!" },
+    date: "2026-03-13",
+    url: "750-defeat-imperialist-aggressors.html",
+    current: true
+  },
+  {
+    title: { en: "US/Israel Hands Off Iran! No Liberation Through US Bombs!", pt: "Estados Unidos/Israel, cessem toda intervenção no Irã! Nenhuma libertação por bombas americanas!", fr: "États-Unis/Israël, cessez toute intervention en Iran ! Pas de libération par les bombes américaines !", es: "¡EE. UU. e Israel fuera de Irán! No habrá liberación con bombas estadounidenses", ar: "الولايات المتحدة/إسرائيل ارفعوا أيديكم عن إيران! لا تحرير بالقنابل الأمريكية!" },
+    date: "2026-02-28",
+    url: "748-us-israel-hands-off-iran.html",
+    current: false
+  },
+  {
+    title: { en: "Against the Theocratic and Authoritarian Regime in Iran and Imperialist Interference", pt: "Contra o regime teocrático e autoritário no Irã e a ingerência imperialista", fr: "Contre le régime théocratique et autoritaire de l'Iran et les ingérences impérialistes", es: "Contra el régimen teocrático y autoritario de Irán y las injerencias imperialistas", ar: "ضد النظام الثيوقراطي المستبد في إيران وضد التدخلات الإمبريالية" },
+    date: "2026-01-05",
+    url: "744-iran-solidarity.html",
+    current: false
+  },
+  {
+    title: { en: "URGENT — Stop the Imperialist Aggression Against Venezuela!", pt: "URGENTE! Parar a agressão imperialista contra a Venezuela!", fr: "URGENT — Halte à l'agression impérialiste contre le Venezuela !", es: "URGENTE — ¡Alto a la agresión imperialista contra Venezuela!", ar: "عاجل — أوقفوا العدوان الإمبريالي على فنزويلا!" },
+    date: "2026-01-03",
+    url: "743-stop-aggression-venezuela.html",
+    current: false
+  },
+  {
+    title: { en: "Trump: Hands Off Venezuela and Latin America!", pt: "Trump: tire as mãos da Venezuela e da América Latina!", fr: "Halte aux attaques de Trump contre le Venezuela et l'Amérique latine", es: "Trump: ¡Quita las manos de Venezuela y de América Latina!", ar: "ترامب: ارفع يديك عن فنزويلا وأمريكا اللاتينية!" },
+    date: "2025-10-27",
+    url: "734-trump-hands-off-venezuela.html",
+    current: false
+  },
+  {
+    title: { en: "After the Ceasefire: Our Tasks for the Liberation of Palestine", pt: "Após o cessar-fogo: nossas tarefas para a libertação da Palestina", fr: "Après le cessez-le-feu, nos tâches pour la libération de la Palestine", es: "Después del alto el fuego, nuestras tareas para la liberación de Palestina", ar: "بعد وقف إطلاق النار: مهامنا لتحرير فلسطين" },
+    date: "2025-10-27",
+    url: "735-palestine-ceasefire-tasks.html",
+    current: false
+  },
+  {
+    title: { en: "Meeting of the Fourth International Bureau: Organizing to Act", pt: "Reunião do Bureau da Internacional: organizar-se para agir", fr: "Réunion du Bureau de l'Internationale : s'organiser pour agir", es: "Reunión del Buró de la Internacional: organizarse para actuar", ar: "اجتماع مكتب الأممية: تنظيم العمل من أجل الفعل" },
+    date: "2025-07-17",
+    url: "724-bureau-meeting.html",
+    current: false
+  },
+  {
+    title: { en: "Building a Global Movement Against Genocide in Palestine", pt: "Construindo um movimento global contra o genocídio na Palestina", fr: "Construire un mouvement mondial contre le génocide en Palestine", es: "Construyendo un movimiento global contra el genocidio en Palestina", ar: "بناء حركة عالمية ضد الإبادة الجماعية في فلسطين" },
+    date: "2025-07-13",
+    url: "721-global-movement-palestine.html",
+    current: false
+  },
+  {
+    title: { en: "Trump's First Six Months: A Threat to Our Planet and Its Peoples", pt: "Os seis primeiros meses de Trump: uma ameaça ao nosso planeta e seus povos", fr: "Les six premiers mois de Trump : Une menace pour notre planète et ses peuples", es: "Los seis primeros meses de Trump: Una amenaza para nuestro planeta y sus pueblos", ar: "أشهر ترامب الستة الأولى: تهديد لكوكبنا ولشعوبه" },
+    date: "2025-07-13",
+    url: "720-trumps-first-six-months.html",
+    current: false
+  }
+];
+
+// ========== SIDEBAR ==========
+function toggleSidebar() {
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+  document.getElementById('sidebarPanel').classList.toggle('open');
+}
+
+function renderSidebar(lang) {
+  const t = translations[lang];
+  document.getElementById('sidebarTitle').textContent = t.sidebar_title || 'Declarations';
+  const list = document.getElementById('sidebarList');
+  list.innerHTML = declarations.map(d => {
+    const cls = [d.current ? 'current' : '', d.url === '#' ? 'placeholder' : ''].filter(Boolean).join(' ');
+    return `<li><a href="${d.url}" class="${cls}"><span class="decl-title">${d.title[lang] || d.title.en}</span><span class="decl-date">${d.date}</span></a></li>`;
+  }).join('');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const overlay = document.getElementById('sidebarOverlay');
+    if (overlay.classList.contains('open')) toggleSidebar();
+  }
+});
+
+// ========== SET LANGUAGE ==========
+function setLang(lang) {
+  const html = document.documentElement;
+  html.lang = lang;
+  html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+  // Update active button
+  document.querySelectorAll('.lang-bar button[data-lang]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Update all translatable elements
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      if (t[key].includes('<em>') || t[key].includes('<strong>')) {
+        el.innerHTML = t[key];
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+
+  // Update sidebar
+  renderSidebar(lang);
+}
+
+// ========== AUTO-DETECT LANGUAGE ==========
+(function() {
+  const supported = ['pt', 'es', 'fr', 'en', 'ar'];
+  const langs = navigator.languages || [navigator.language || 'en'];
+  let match = 'en';
+  for (const l of langs) {
+    const code = l.split('-')[0].toLowerCase();
+    if (supported.includes(code)) { match = code; break; }
+  }
+  setLang(match);
+})();
+
+// ========== SCROLL ANIMATIONS ==========
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.section-block').forEach(block => observer.observe(block));
+
+// ========== SCROLL PROGRESS BAR ==========
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollProgress').style.width = progress + '%';
+}, { passive: true });
+</script>
+</body>
+</html>
