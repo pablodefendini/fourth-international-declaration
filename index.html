@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Declaration of the Fourth International — Brazil 2026</title>
+<title>Declaration of the Fourth International — Porto Alegre 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Sans+Arabic:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -232,9 +232,17 @@ html[dir="rtl"] .hero-title, html[dir="rtl"] .hero-subtitle {
   color: var(--red-bright);
   margin-bottom: 2rem;
   max-width: 750px;
+}
+.hero-subtitle a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+  transition: color 0.25s ease;
   margin-left: auto;
   margin-right: auto;
 }
+.hero-subtitle a:hover { color: var(--white); }
 
 .hero-slogans {
   display: flex;
@@ -664,9 +672,9 @@ html[dir="rtl"] .sidebar-list a.current {
   </svg>
 
   <div class="hero-content">
-    <span class="hero-overline" data-i18n="overline">Fourth International — Brazil 2026</span>
+    <span class="hero-overline" data-i18n="overline">Fourth International — Porto Alegre 2026</span>
     <h1 class="hero-title" data-i18n="title">Against Neo-Fascist Authoritarianism and All Forms of <em data-i18n="title-em">Imperialism</em></h1>
-    <p class="hero-subtitle" data-i18n="subtitle">Declaration of the Fourth International at the 1st International Anti-Fascist Conference for the Sovereignty of Peoples</p>
+    <p class="hero-subtitle" data-i18n="subtitle">Declaration of the Fourth International at the <a href="https://antifas2026.org/en/" target="_blank" rel="noopener">1st International Anti-Fascist Conference for the Sovereignty of Peoples</a></p>
     <div class="hero-slogans">
       <span class="hero-slogan" data-i18n="slogan1">Unite the anti-fascist struggle throughout Latin America!</span>
       <span class="hero-slogan" data-i18n="slogan2">For a global anti-fascist and anti-imperialist front!</span>
@@ -786,7 +794,7 @@ html[dir="rtl"] .sidebar-list a.current {
 </section>
 
 <footer>
-  <span data-i18n="footer">Fourth International — Brazil, 2026</span>
+  <span data-i18n="footer">Fourth International — Porto Alegre, 2026</span>
   <div class="footer-links">
     <a href="https://fourth.international" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg>fourth.international</a>
     <a href="https://instagram.com/fourth.international" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>@fourth.international</a>
@@ -798,9 +806,9 @@ html[dir="rtl"] .sidebar-list a.current {
 // ========== TRANSLATIONS ==========
 const translations = {
   en: {
-    overline: "Fourth International — Brazil 2026",
+    overline: "Fourth International — Porto Alegre 2026",
     title: 'Against Neo-Fascist Authoritarianism and All Forms of <em>Imperialism</em>',
-    subtitle: "Declaration of the Fourth International at the 1st International Anti-Fascist Conference for the Sovereignty of Peoples",
+    subtitle: 'Declaration of the Fourth International at the <a href="https://antifas2026.org/en/" target="_blank" rel="noopener">1st International Anti-Fascist Conference for the Sovereignty of Peoples</a>',
     slogan1: "Unite the anti-fascist struggle throughout Latin America!",
     slogan2: "For a global anti-fascist and anti-imperialist front!",
     scroll: "Read the Declaration",
@@ -841,14 +849,14 @@ const translations = {
     s8p3: 'Today more than ever, we must practice consistent internationalism, a solidarity without borders that encompasses the struggles of workers, the oppressed, and for self-determination in all countries of the world, without exception. It is a policy that opposes all forms of imperialism. It does not subordinate the struggle in any country to that of another country. It is the policy that corresponds to the slogan <em>Workers of the world, unite!</em>',
     closing1: "For solidarity without borders!",
     closing2: "For internationalism without exceptions!",
-    footer: "Fourth International — Brazil, 2026",
+    footer: "Fourth International — Porto Alegre, 2026",
     sidebar_title: "Declarations"
   },
 
   fr: {
-    overline: "Quatrième Internationale — Brésil 2026",
+    overline: "Quatrième Internationale — Porto Alegre 2026",
     title: "Contre l\u2019autoritarisme néofasciste et tous les <em>impérialismes</em> !",
-    subtitle: "Déclaration de la Quatrième Internationale à la 1ère Conférence internationale antifasciste pour la souveraineté des peuples",
+    subtitle: 'Déclaration de la Quatrième Internationale à la <a href="https://antifas2026.org/fr/" target="_blank" rel="noopener">1ère Conférence internationale antifasciste pour la souveraineté des peuples</a>',
     slogan1: "Unissons la lutte antifasciste en Amérique latine !",
     slogan2: "Pour un front antifasciste et anti-impérialiste mondial !",
     scroll: "Lire la Déclaration",
@@ -888,14 +896,14 @@ const translations = {
     s8p2: 'Aujourd\u2019hui plus que jamais, nous devons pratiquer cet internationalisme cohérent, une solidarité sans frontières qui englobe les luttes des travailleuses et des travailleurs, des opprimé\u00b7es et pour l\u2019autodétermination dans tous les pays du monde, sans exception. C\u2019est une politique qui s\u2019oppose à tous les impérialismes. Elle ne subordonne en aucune manière la lutte menée dans un pays à celle menée dans un autre pays. C\u2019est l\u2019orientation qui correspond au slogan <em>\u00ab Prolétaires de tous les pays, unissez-vous ! \u00bb</em>',
     closing1: "Pour une solidarité sans frontières !",
     closing2: "Pour un internationalisme sans exception !",
-    footer: "Quatrième Internationale — Brésil, 2026",
+    footer: "Quatrième Internationale — Porto Alegre, 2026",
     sidebar_title: "Déclarations"
   },
 
   es: {
-    overline: "Cuarta Internacional — Brasil 2026",
+    overline: "Cuarta Internacional — Porto Alegre 2026",
     title: "Contra el autoritarismo neofascista y todas las formas de <em>imperialismo</em>",
-    subtitle: "Declaración de la Cuarta Internacional en la 1ª Conferencia Internacional Antifascista por la Soberanía de los Pueblos",
+    subtitle: 'Declaración de la Cuarta Internacional en la <a href="https://antifas2026.org/es/" target="_blank" rel="noopener">1ª Conferencia Internacional Antifascista por la Soberanía de los Pueblos</a>',
     slogan1: "¡Unir la lucha antifascista en toda América Latina!",
     slogan2: "¡Por un frente antifascista y antiimperialista global!",
     scroll: "Leer la Declaración",
@@ -944,14 +952,14 @@ const translations = {
     s8p4: "Es la política que corresponde a la consigna ¡Proletarios de todos los países, uníos!",
     closing1: "¡Por la solidaridad sin fronteras!",
     closing2: "¡Por el internacionalismo sin excepciones!",
-    footer: "Cuarta Internacional — Brasil, 2026",
+    footer: "Cuarta Internacional — Porto Alegre, 2026",
     sidebar_title: "Declaraciones"
   },
 
   ar: {
-    overline: "الأممية الرابعة — البرازيل 2026",
+    overline: "الأممية الرابعة — بورتو أليغري 2026",
     title: "ضد الاستبداد النيوفاشي وجميع أشكال <em>الإمبريالية</em>",
-    subtitle: "إعلان الأممية الرابعة في المؤتمر الدولي الأول لمناهضة الفاشية من أجل سيادة الشعوب",
+    subtitle: 'إعلان الأممية الرابعة في <a href="https://antifas2026.org/fr/" target="_blank" rel="noopener">المؤتمر الدولي الأول لمناهضة الفاشية من أجل سيادة الشعوب</a>',
     slogan1: "!توحيد النضال المناهض للفاشية في جميع أنحاء أمريكا اللاتينية",
     slogan2: "!من أجل جبهة عالمية مناهضة للفاشية والإمبريالية",
     scroll: "اقرأ الإعلان",
@@ -1000,14 +1008,14 @@ const translations = {
     s8p4: "إنها السياسة التي تتوافق مع شعار: يا عمال العالم، اتحدوا!",
     closing1: "!من أجل التضامن بلا حدود",
     closing2: "!من أجل الأممية بلا استثناءات",
-    footer: "الأممية الرابعة — البرازيل، 2026",
+    footer: "الأممية الرابعة — بورتو أليغري، 2026",
     sidebar_title: "الإعلانات"
   },
 
   pt: {
-    overline: "Quarta Internacional — Brasil 2026",
+    overline: "Quarta Internacional — Porto Alegre 2026",
     title: "Contra o autoritarismo neofascista e todas as formas de <em>imperialismo</em>",
-    subtitle: "Declaração da Quarta Internacional na 1ª Conferência Internacional Antifascista pela Soberania dos Povos",
+    subtitle: 'Declaração da Quarta Internacional na <a href="https://antifas2026.org/pt/" target="_blank" rel="noopener">1ª Conferência Internacional Antifascista pela Soberania dos Povos</a>',
     slogan1: "Unir a luta antifascista em toda a América Latina!",
     slogan2: "Por uma frente antifascista e anti-imperialista global!",
     scroll: "Leia a Declaração",
@@ -1048,7 +1056,7 @@ const translations = {
     s8p3: 'Hoje mais do que nunca, devemos praticar um internacionalismo consequente, uma solidariedade sem fronteiras que abranja as lutas dos trabalhadores, dos oprimidos e pela autodeterminação em todos os países do mundo, sem exceção. É uma política que se opõe a todas as formas de imperialismo. Não subordina a luta de nenhum país à de outro. É a política que corresponde à palavra de ordem <em>Trabalhadores de todo o mundo, uni-vos!</em>',
     closing1: "Pela solidariedade sem fronteiras!",
     closing2: "Pelo internacionalismo sem exceções!",
-    footer: "Quarta Internacional — Brasil, 2026",
+    footer: "Quarta Internacional — Porto Alegre, 2026",
     sidebar_title: "Declarações"
   }
 };
@@ -1156,7 +1164,7 @@ function setLang(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) {
-      if (t[key].includes('<em>') || t[key].includes('<strong>')) {
+      if (t[key].includes('<em>') || t[key].includes('<strong>') || t[key].includes('<a ')) {
         el.innerHTML = t[key];
       } else {
         el.textContent = t[key];
