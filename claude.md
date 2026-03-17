@@ -31,6 +31,7 @@ The print button calls `window.print()`. A `@media print` block strips dark back
 - All theme colors use CSS custom properties defined in `:root` and overridden in the `prefers-color-scheme: light` media query
 - Section dividers use the `.star-ornament` class (star SVG flanked by gradient lines)
 - The English text matches the formatting of the canonical docx source (paragraph breaks, bold, italics)
+- **IMPORTANT: When changing presentation elements (CSS, footer, lang-bar, sidebar, print styles, etc.), update ALL HTML files** — since every declaration is a standalone file, shared UI changes must be applied to every `.html` file in the project
 
 ## Sidebar (declarations index)
 

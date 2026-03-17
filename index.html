@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Declaration of the Fourth International — Antifascist Forum, Brazil</title>
+<title>Declaration of the Fourth International — Brazil 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Sans+Arabic:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -387,6 +387,8 @@ html[dir="rtl"] .hero-title, html[dir="rtl"] .hero-subtitle {
   margin-top: 2rem;
   opacity: 1;
 }
+.closing-logo a { display: inline-flex; transition: transform 0.3s ease; }
+.closing-logo a:hover { transform: scale(1.1); }
 
 /* ==================== FOOTER ==================== */
 footer {
@@ -396,6 +398,31 @@ footer {
   color: var(--gray);
   letter-spacing: 0.05em;
   border-top: 1px solid var(--footer-border);
+}
+.footer-links {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
+}
+.footer-links a:hover { color: var(--red); }
+.footer-links svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 
 /* ==================== SCROLL PROGRESS ==================== */
@@ -412,7 +439,7 @@ footer {
 
 /* ==================== SIDEBAR ==================== */
 .sidebar-toggle {
-  display: none;
+  display: none; /* hidden until more declarations are live */
   position: fixed;
   top: 0;
   left: 0;
@@ -424,7 +451,6 @@ footer {
   color: var(--white);
   cursor: pointer;
   padding: 0.6rem 0.75rem;
-  /* display: flex; — hidden for now */
   align-items: center;
   justify-content: center;
   transition: all 0.25s ease;
@@ -638,9 +664,9 @@ html[dir="rtl"] .sidebar-list a.current {
   </svg>
 
   <div class="hero-content">
-    <span class="hero-overline" data-i18n="overline">Fourth International — Antifascist Forum, Brazil 2026</span>
+    <span class="hero-overline" data-i18n="overline">Fourth International — Brazil 2026</span>
     <h1 class="hero-title" data-i18n="title">Against Neo-Fascist Authoritarianism and All Forms of <em data-i18n="title-em">Imperialism</em></h1>
-    <p class="hero-subtitle" data-i18n="subtitle">Declaration of the Fourth International at the Anti-Fascist Conference</p>
+    <p class="hero-subtitle" data-i18n="subtitle">Declaration of the Fourth International at the 1st International Anti-Fascist Conference for the Sovereignty of Peoples</p>
     <div class="hero-slogans">
       <span class="hero-slogan" data-i18n="slogan1">Unite the anti-fascist struggle throughout Latin America!</span>
       <span class="hero-slogan" data-i18n="slogan2">For a global anti-fascist and anti-imperialist front!</span>
@@ -680,7 +706,7 @@ html[dir="rtl"] .sidebar-list a.current {
   <section class="section-block">
     <h2 class="section-heading" data-i18n="h3">A united front of the exploited and oppressed!</h2>
     <p data-i18n="s3p1">There is an urgent need for a united front of the exploited and oppressed, free from subordination to governments and parties, capable of acting with full independence to confront the new faces of fascism <strong>with mobilization and coordination among the oppressed.</strong></p>
-    <p data-i18n="s3p2">This Anti-Fascist Conference is an extraordinary opportunity to deploy across the globe, starting with the American continent, a strong united action by the forces present here against hegemonic imperialism. New conferences and meetings must be held on other continents and in other major regions: the United States, Europe, Africa, Asia. Let us make this meeting a modest but strong starting point for an international campaign that serves the struggles and, at the same time, the construction of an alternative program to that presented to us by the representatives of capital.</p>
+    <p data-i18n="s3p2">This 1st International Anti-Fascist Conference for the Sovereignty of Peoples is an extraordinary opportunity to deploy across the globe, starting with the American continent, a strong united action by the forces present here against hegemonic imperialism. New conferences and meetings must be held on other continents and in other major regions: the United States, Europe, Africa, Asia. Let us make this meeting a modest but strong starting point for an international campaign that serves the struggles and, at the same time, the construction of an alternative program to that presented to us by the representatives of capital.</p>
     <p data-i18n="s3p3">The far right is growing by presenting itself as a radical alternative to the status quo, its elites, and its parties. We know that it does so demagogically to defend the system it claims to challenge, but there is a key lesson here: in order to grow, resistance must also be a radical alternative to the crisis of the prevailing system, its policies of hunger and repression, its worn-out institutions, and its parties.</p>
     <p data-i18n="s3p4">The crisis of capitalist civilization (economic, political, ecological, climatic) raises the possibility and necessity of linking immediate concerns, including the anti-fascist struggle, with the need to overcome capitalism. A set of demands is needed that, based on the most urgent popular concerns, leads to the questioning of private control of production and to an understanding of the need to place it under the democratic control of working people and their communities.</p>
   </section>
@@ -745,6 +771,7 @@ html[dir="rtl"] .sidebar-list a.current {
     <p class="closing-slogan" data-i18n="closing1">For solidarity without borders!</p>
     <p class="closing-sub" data-i18n="closing2">For internationalism without exceptions!</p>
     <div class="closing-logo">
+      <a href="https://fourth.international" target="_blank" rel="noopener noreferrer" aria-label="Fourth International">
       <svg viewBox="0 0 1079 1081" fill="var(--red)" width="80" height="80">
         <g transform="translate(-652.248105,-1003.137222)">
           <g transform="matrix(31.699735,0,0,31.699735,1557.693974,1476.20076)"><path d="M0,1.086L-3.174,1.086L-1.497,-0.838L-2.731,-0.838L-5.292,1.924L-0.699,1.924L0,1.086Z" style="fill-rule:nonzero;"/></g>
@@ -753,21 +780,27 @@ html[dir="rtl"] .sidebar-list a.current {
           <g transform="matrix(31.699735,0,0,31.699735,1045.515017,1144.83392)"><path d="M0,20.342L5.65,14.362L6.382,14.362L1.747,19.279L3.123,19.279L8.611,13.358L-2.033,13.358L6.668,3.956L5.083,3.971L-4.667,14.362L-0.37,14.362L-3.421,17.125C-5.861,14.002 -6.078,11.112 -6.078,11.112C-6.078,11.112 -7.146,2.945 -2.657,-0.476C1.833,-3.897 4.869,-3.94 11.497,-2.7C11.497,-2.7 -2.272,-9.284 -9.028,2.945C-13.315,10.705 -10.182,17.052 -7.319,20.656L-12.406,25.265L-8.771,29.626L-3.672,24.229C-2.126,25.302 3.453,28.373 12.095,24.196L16.67,29.626L20.39,26.248L13.763,19.663C13.763,19.663 5.517,24.099 0,20.342" style="fill-rule:nonzero;"/></g>
         </g>
       </svg>
+      </a>
     </div>
   </div>
 </section>
 
 <footer>
-  <span data-i18n="footer">Fourth International — Antifascist Forum, Brazil, 2026</span>
+  <span data-i18n="footer">Fourth International — Brazil, 2026</span>
+  <div class="footer-links">
+    <a href="https://fourth.international" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg>fourth.international</a>
+    <a href="https://instagram.com/fourth.international" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>@fourth.international</a>
+    <a href="https://facebook.com/FourthInternational" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>FourthInternational</a>
+  </div>
 </footer>
 
 <script>
 // ========== TRANSLATIONS ==========
 const translations = {
   en: {
-    overline: "Fourth International — Antifascist Forum, Brazil 2026",
+    overline: "Fourth International — Brazil 2026",
     title: 'Against Neo-Fascist Authoritarianism and All Forms of <em>Imperialism</em>',
-    subtitle: "Declaration of the Fourth International at the Anti-Fascist Conference",
+    subtitle: "Declaration of the Fourth International at the 1st International Anti-Fascist Conference for the Sovereignty of Peoples",
     slogan1: "Unite the anti-fascist struggle throughout Latin America!",
     slogan2: "For a global anti-fascist and anti-imperialist front!",
     scroll: "Read the Declaration",
@@ -786,7 +819,7 @@ const translations = {
     s2p1: "But imperialism's march is already beginning to encounter tremendous obstacles. The victorious struggle of the people of Minneapolis/Saint Paul and of all the community and popular resistance in the United States to the persecution of migrants points the way to defeating the extreme right. Only the combination of the international struggle of the peoples with a defeat of Trump on his own turf can stop their joint project.",
     s2p2: "The same is true of the working classes in Argentina against Milei and the peasants in India against Modi's policies. In Argentina, Milei faced the fourth general strike, now against labour reform, in an example of unified struggle that has the left as one of its pillars, with 90% of the population opposed to this measure. In Brazil, the victory of the indigenous resistance struggle against Cargill and the privatization of large Amazonian rivers points to hope and paths forward.",
     s3p1: 'There is an urgent need for a united front of the exploited and oppressed, free from subordination to governments and parties, capable of acting with full independence to confront the new faces of fascism <strong>with mobilization and coordination among the oppressed.</strong>',
-    s3p2: "This Anti-Fascist Conference is an extraordinary opportunity to deploy across the globe, starting with the American continent, a strong united action by the forces present here against hegemonic imperialism. New conferences and meetings must be held on other continents and in other major regions: the United States, Europe, Africa, Asia. Let us make this meeting a modest but strong starting point for an international campaign that serves the struggles and, at the same time, the construction of an alternative program to that presented to us by the representatives of capital.",
+    s3p2: "This 1st International Anti-Fascist Conference for the Sovereignty of Peoples is an extraordinary opportunity to deploy across the globe, starting with the American continent, a strong united action by the forces present here against hegemonic imperialism. New conferences and meetings must be held on other continents and in other major regions: the United States, Europe, Africa, Asia. Let us make this meeting a modest but strong starting point for an international campaign that serves the struggles and, at the same time, the construction of an alternative program to that presented to us by the representatives of capital.",
     s3p3: "The far right is growing by presenting itself as a radical alternative to the status quo, its elites, and its parties. We know that it does so demagogically to defend the system it claims to challenge, but there is a key lesson here: in order to grow, resistance must also be a radical alternative to the crisis of the prevailing system, its policies of hunger and repression, its worn-out institutions, and its parties.",
     s3p4: "The crisis of capitalist civilization (economic, political, ecological, climatic) raises the possibility and necessity of linking immediate concerns, including the anti-fascist struggle, with the need to overcome capitalism. A set of demands is needed that, based on the most urgent popular concerns, leads to the questioning of private control of production and to an understanding of the need to place it under the democratic control of working people and their communities.",
     s4p1: 'Trump\'s national security strategy states: "The disproportionate influence of the largest, richest, and strongest nations is an immemorial truth of international relations." It is, quite simply, an invitation to divide the world among the most powerful.',
@@ -808,70 +841,61 @@ const translations = {
     s8p3: 'Today more than ever, we must practice consistent internationalism, a solidarity without borders that encompasses the struggles of workers, the oppressed, and for self-determination in all countries of the world, without exception. It is a policy that opposes all forms of imperialism. It does not subordinate the struggle in any country to that of another country. It is the policy that corresponds to the slogan <em>Workers of the world, unite!</em>',
     closing1: "For solidarity without borders!",
     closing2: "For internationalism without exceptions!",
-    footer: "Fourth International — Antifascist Forum, Brazil, 2026",
+    footer: "Fourth International — Brazil, 2026",
     sidebar_title: "Declarations"
   },
 
   fr: {
-    overline: "Quatrième Internationale — Forum antifasciste, Brésil 2026",
-    title: "Contre l'autoritarisme néo-fasciste et toutes les formes d'<em>impérialisme</em>",
-    subtitle: "Déclaration de la Quatrième Internationale à la Conférence antifasciste",
-    slogan1: "Unissons la lutte antifasciste dans toute l'Amérique latine !",
+    overline: "Quatrième Internationale — Brésil 2026",
+    title: "Contre l\u2019autoritarisme néofasciste et tous les <em>impérialismes</em> !",
+    subtitle: "Déclaration de la Quatrième Internationale à la 1ère Conférence internationale antifasciste pour la souveraineté des peuples",
+    slogan1: "Unissons la lutte antifasciste en Amérique latine !",
     slogan2: "Pour un front antifasciste et anti-impérialiste mondial !",
     scroll: "Lire la Déclaration",
     print: "Imprimer",
-    h2: "Les peuples des États-Unis, d'Argentine et d'Inde montrent la voie",
-    h3: "Un front uni des exploités et des opprimés !",
-    h4: "Pas d'illusions dans les « modèles » capitalistes",
-    h5: "Solidarité avec les opprimés du monde entier !",
-    h6: "Rejeter l'intervention, soutenir les luttes",
-    h7: "Revendications universelles de la classe ouvrière",
-    h8: "L'hypocrisie de l'Occident et un anti-impérialisme conséquent",
-    s1p1: "Le second mandat de Donald Trump, avec son programme d'extrême droite, a provoqué un tournant dans la situation internationale. Dans son empressement à réaffirmer une hégémonie aussi affaiblie que son économie, il piétine la Charte des Nations Unies et la souveraineté des peuples avec une politique étrangère de recolonisation et de guerre.",
-    s1p2: "Avec son partenaire dans les massacres, Netanyahou, Trump bombarde l'Iran pour assurer la domination totale du marché du pétrole et du gaz. Cela fait suite au génocide du peuple de Gaza, à l'invasion du Venezuela, à la tentative d'étrangler Cuba et aux menaces d'annexer le Groenland.",
-    s1p3: "Le tyran s'efforce de normaliser le langage génocidaire, le chantage et l'interventionnisme, ainsi que le racisme, la misogynie et la haine des migrants — cherchant à expulser des millions de travailleurs des États-Unis. Il soutient Bolsonaro, Milei, Bukele et les partis européens « patriotiques » (lisez : d'extrême droite).",
-    s1p4: "L'autoritarisme sanglant est l'instrument central de l'impérialisme à notre époque, car il a besoin d'imposer des politiques de famine, la prolifération de technologies et pratiques écocides, le pouvoir excessif des Big Tech, la dépossession des ressources naturelles et énergétiques de tous les peuples, et l'augmentation des dépenses militaires. S'il n'est pas vaincu, l'impérialisme yankee s'engagera dans une marche aveugle vers la catastrophe écologique.",
-    s2p1: "Mais la marche de l'impérialisme commence déjà à rencontrer des obstacles considérables. La lutte victorieuse du peuple de Minneapolis/Saint Paul et de toute la résistance communautaire et populaire aux États-Unis contre la persécution des migrants montre la voie pour vaincre l'extrême droite. Seule la combinaison de la lutte internationale des peuples avec une défaite de Trump sur son propre terrain peut arrêter leur projet commun.",
-    s2p2: "Il en va de même des classes ouvrières en Argentine contre Milei et des paysans en Inde contre les politiques de Modi. En Argentine, Milei a fait face à la quatrième grève générale, cette fois contre la réforme du travail, dans un exemple de lutte unifiée qui a la gauche comme l'un de ses piliers, avec 90 % de la population opposée à cette mesure.",
-    s2p3: "Au Brésil, la victoire de la lutte de résistance indigène contre Cargill et la privatisation des grands fleuves amazoniens ouvre l'espoir et des chemins vers l'avenir.",
-    s3p1: "Il y a un besoin urgent d'un front uni des exploités et des opprimés, libre de toute subordination aux gouvernements et aux partis, capable d'agir en toute indépendance pour affronter les nouveaux visages du fascisme par la mobilisation et la coordination entre les opprimés.",
-    s3p2: "Cette Conférence antifasciste est une occasion extraordinaire de déployer à travers le globe, en commençant par le continent américain, une action unie forte des forces présentes ici contre l'impérialisme hégémonique. De nouvelles conférences et réunions doivent se tenir sur d'autres continents et dans d'autres grandes régions : les États-Unis, l'Europe, l'Afrique, l'Asie.",
-    pq1: "Faisons de cette réunion un point de départ modeste mais fort pour une campagne internationale qui serve les luttes et, en même temps, la construction d'un programme alternatif à celui que nous présentent les représentants du capital.",
-    s3p3: "L'extrême droite grandit en se présentant comme une alternative radicale au statu quo, à ses élites et à ses partis. Nous savons qu'elle le fait de manière démagogique pour défendre le système qu'elle prétend contester, mais il y a une leçon clé ici : pour grandir, la résistance doit aussi être une alternative radicale à la crise du système en place, de ses politiques de famine et de répression, de ses institutions usées et de ses partis.",
-    s3p4: "La crise de la civilisation capitaliste (économique, politique, écologique, climatique) soulève la possibilité et la nécessité de relier les préoccupations immédiates, y compris la lutte antifasciste, au besoin de dépasser le capitalisme. Un ensemble de revendications est nécessaire qui, à partir des préoccupations populaires les plus urgentes, mène à la remise en question du contrôle privé de la production et à la compréhension de la nécessité de le placer sous le contrôle démocratique des travailleurs et de leurs communautés.",
-    s4p1: "La stratégie de sécurité nationale de Trump déclare : « L'influence disproportionnée des nations les plus grandes, les plus riches et les plus fortes est une vérité immémoriale des relations internationales. » C'est, tout simplement, une invitation à diviser le monde entre les plus puissants. Il n'y a pas de place pour les illusions ici.",
-    s4p2: "Ni l'Union européenne ou ses composantes, ni les gouvernements de la Russie ou de la Chine ne représentent une alternative ou un mur de défense contre l'impérialisme américain — comme leurs actions stériles face aux attaques américaines contre le Venezuela, Cuba et l'Iran nous l'ont montré.",
-    s4p3: "La Chine est devenue une puissance capitaliste plus intéressée par la consolidation de ses affaires et de ses propres zones d'influence militaire (en Asie) et économique (Eurasie, Afrique et Amérique latine). Plus régionale par nature, la Russie de Poutine cherche à rétablir ce qui fut autrefois l'empire tsariste, avec une économie militarisée et un régime de plus en plus autoritaire.",
-    s4p4: "Dans ce contexte de tensions entre anciennes et nouvelles puissances ou puissances aspirantes, la tâche de la gauche ne peut être de célébrer la multipolarité résultant de la confrontation entre projets capitalistes.",
-    s5p1: "À la prétendue « vérité immémoriale » de Trump sur la domination des puissants, nous opposons trois orientations : la défense du droit de tous les peuples à l'autodétermination, la solidarité avec les exploités et les opprimés dans tous les pays, et donc l'opposition à toutes les formes d'impérialisme.",
-    s5p2: "Nous rejetons l'agression des États-Unis contre le Venezuela et l'enlèvement de son président et de son ancien député, et nous rejetons également l'agression de la Fédération de Russie contre l'Ukraine. Nous reconnaissons le droit du Venezuela, de Cuba, de l'Iran et de tout pays attaqué par les États-Unis de se défendre, y compris militairement, et de chercher les moyens matériels nécessaires à cette résistance où qu'ils puissent les trouver, et nous reconnaissons le même droit pour l'Ukraine, qui est attaquée par l'impérialisme russe.",
-    s5p3: "Nous dénonçons et combattons les politiques anti-immigrés, xénophobes et islamophobes aux États-Unis et en Europe occidentale. Nous adoptons la même position envers la répression par le gouvernement chinois de divers peuples et groupes ethniques.",
-    s5p4: "Nous répudions la persécution, la répression et la censure aux États-Unis, au Royaume-Uni, en Allemagne et dans d'autres pays des manifestations contre le génocide en Palestine, et nous dénonçons également la répression et l'emprisonnement en Russie des opposants à la guerre d'agression contre l'Ukraine.",
-    s5p5: "Nous ne soutenons pas le gouvernement Maduro. Nous dénonçons ses actions anti-démocratiques et anti-ouvrières. Mais aucune action répréhensible du gouvernement Maduro ne peut valider l'agression des États-Unis contre le Venezuela. Nous exigeons donc le retrait des États-Unis du Venezuela et la libération de l'ancienne députée Cilia et du président Maduro.",
-    s5p6: "Nous proposons la dissolution de l'OTAN, ainsi que de l'Organisation du traité de sécurité collective.",
-    s5p7: "Nous ne soutenons pas le gouvernement Zelensky en Ukraine. Nous dénonçons ses politiques anti-ouvrières, corrompues, anti-démocratiques et chauvines. Mais aucune politique contestable de ce gouvernement ne justifie l'invasion et les bombardements russes. C'est pourquoi nous organisons notre solidarité avec le peuple ukrainien.",
-    s6p1: "Les gouvernements bourgeois refusent de reconnaître que les mobilisations populaires contre eux sont le résultat de profondes contradictions sociales. Typiquement, ils les attribuent à l'action d'« agents » internes ou externes. Nous ne pouvons accepter cette conception conspirationniste de l'histoire.",
-    s6p2: "Sans aucun doute, l'impérialisme et ses agences tentent de profiter des luttes, comme celle du peuple iranien contre la théocratie autoritaire, mais cela ne réduit pas ces luttes à une opération de l'impérialisme. Nous devons nous opposer à une telle intervention, tout en continuant à soutenir ces luttes.",
-    pq2: "Prêcher au peuple qu'il doit accepter les dictatures qui l'oppriment et le maltraitent comme le « moindre mal » fait de ceux qui le font des promoteurs de la résignation et de la soumission.",
-    s6p3: "Les peuples opprimés auront peu d'intérêt pour un anti-impérialisme ou une analyse géopolitique qui exclut leurs revendications démocratiques et économiques les plus pressantes. Il nous appartient de faire en sorte que les militants voient notre anti-impérialisme comme leur allié, ou que, tragiquement, ils ne trouvent encouragement et soutien que dans le camp de l'impérialisme qui cherche à les exploiter.",
-    s7p1: "Historiquement, l'impérialisme américain et de l'OTAN a agi au nom de la liberté, de la démocratie, etc. La gauche n'est pas dupe de ces proclamations. Mais nous devons être conséquents. Il en va de même des impérialismes rivaux : nous devons expliquer comment, au nom de la multipolarité, de l'anti-hégémonie, du rejet du modèle hypocrite de la démocratie occidentale et de l'eurocentrisme, on tente de justifier le déni des droits démocratiques de la classe ouvrière, des femmes, des minorités religieuses et des personnes LGBTTQI+.",
-    pq3: "Les droits syndicaux, les droits des femmes, la liberté d'expression, de réunion et d'association, et l'élection et la révocation des dirigeants ne sont pas des « valeurs occidentales » ou des « modèles libéraux » ou des idées eurocentriques que l'impérialisme cherche à imposer : ce sont des revendications historiques de la classe ouvrière internationale.",
-    s7p2: "C'est pourquoi nous les défendons dans le monde entier, dans tous les pays, sans exception. Nous rejetons le chantage selon lequel toute critique ou revendication faite aux gouvernements progressistes, ou à ceux qui se proclament progressistes, est destructrice et favorable à l'impérialisme. Ce qui affaiblit la lutte, ce n'est pas la critique et le débat, mais leur suppression.",
-    s8p1: "Nous connaissons l'hypocrisie de l'impérialisme occidental lorsqu'il dénonce la répression en Iran ou l'invasion de l'Ukraine. Quelle autorité morale peuvent revendiquer les complices du génocide à Gaza ? Quel respect peuvent mériter ceux qui viennent d'enlever le président du Venezuela ?",
-    s8p2: "Mais dénoncer l'hypocrisie de l'Occident et ses crimes ne peut devenir notre silence sur les abus des gouvernements de Poutine ou de Xi Jinping, ni l'idée que ces abus sont des « inventions de l'impérialisme ».",
-    s8p3: "Nous n'opposons pas aux doubles standards de l'impérialisme occidental un autre double standard, mais le rejet de tous ceux qui exploitent et oppriment.",
-    pq4: "Aujourd'hui plus que jamais, nous devons pratiquer un internationalisme conséquent, une solidarité sans frontières qui englobe les luttes des travailleurs, des opprimés et pour l'autodétermination dans tous les pays du monde, sans exception. C'est une politique qui s'oppose à toutes les formes d'impérialisme. Elle ne subordonne la lutte d'aucun pays à celle d'un autre.",
-    s8p4: "C'est la politique qui correspond au mot d'ordre Prolétaires de tous les pays, unissez-vous !",
-    closing1: "Pour la solidarité sans frontières !",
-    closing2: "Pour l'internationalisme sans exceptions !",
-    footer: "Quatrième Internationale — Forum antifasciste, Brésil, 2026",
+    h2: "Les peuples des États-Unis, d\u2019Argentine et d\u2019Inde montrent la voie",
+    h3: "Front unique des exploités et des opprimés !",
+    h4: "Aucune d\u2019illusions dans les \u00ab modèles \u00bb capitalistes",
+    h5: "Solidarité avec les opprimé\u00b7es du monde entier !",
+    h6: "Refuser l\u2019intervention, soutenir les luttes",
+    h7: "Exigences universelles de la classe ouvrière",
+    h8: "L\u2019hypocrisie de l\u2019Occident et l\u2019anti-impérialisme cohérent",
+    s1p1: "Le deuxième mandat de Donald Trump, avec son programme d\u2019extrême droite, a imposé un tournant dans la situation internationale. Dans son désir de réaffirmer une hégémonie aussi affaiblie que son économie, il bafoue la Charte des Nations unies et la souveraineté des peuples avec une politique étrangère de recolonisation et guerrière.",
+    s1p2: "Avec son partenaire de massacres Netanyahu, Trump bombarde l\u2019Iran pour garantir sa domination totale sur le marché du pétrole et du gaz. Cela après le génocide du peuple de Gaza, l\u2019invasion du Venezuela, la tentative d\u2019étranglement de Cuba et les menaces d\u2019annexion du Groenland.",
+    s1p3: "Le tyran s\u2019efforce de normaliser le langage génocidaire, le chantage et l\u2019interventionnisme, ainsi que le racisme, la misogynie et la haine des migrants, en essayant d\u2019expulser des millions de travailleurs et travailleuses des États-Unis. Il soutient Bolsonaro, Milei, Bukele, les partis européens \u00ab patriotes \u00bb (comprendre d\u2019extrême droite).",
+    s1p4: 'L\u2019autoritarisme sanglant est l\u2019instrument central de l\u2019impérialisme de notre époque. Il a besoin d\u2019imposer des politiques de famine, la prolifération de technologies et de pratiques écocides, le pouvoir démesuré des <em>Big Techs</em>, la spoliation des ressources naturelles et énergétiques de tous les peuples, l\u2019augmentation des dépenses militaires. S\u2019il n\u2019est pas battu, l\u2019impérialisme yankee se lancera dans une marche aveugle vers le désastre écologique.',
+    s2p1: "Mais la marche de l\u2019impérialisme commence déjà à rencontrer d\u2019énormes obstacles. La lutte victorieuse du peuple de Minneapolis/Saint Paul et de toute la résistance communautaire et populaire américaine contre la persécution des migrant\u00b7es montre la voie à suivre pour vaincre l\u2019extrême droite. Seule la combinaison de la lutte avec une défaite de Trump sur son propre terrain pourra mettre fin à leur projet commun.",
+    s2p2: "Il en va de même pour les classes populaires argentines contre Milei et les paysans indiens contre les politiques de Modi. En Argentine, Milei a été confronté à une quatrième grève générale, cette fois contre la réforme du travail, exemple d\u2019une lutte unifiée qui trouve l\u2019un de ses piliers dans la gauche, avec 90 % de la population opposée à cette mesure. Au Brésil, la victoire de la lutte de la résistance indigène contre Cargill et la privatisation des grands fleuves amazoniens est porteuse d\u2019espoir et ouvre des perspectives.",
+    s3p1: 'Il est urgent de créer un front unique des exploité\u00b7es et des opprimé\u00b7es, libre de toute subordination aux gouvernements et aux partis, capable d\u2019agir en toute indépendance pour affronter les nouveaux visages du fascisme <strong>par la mobilisation et la coordination des opprimé\u00b7es.</strong>',
+    s3p2: "Cette 1ère Conférence internationale antifasciste pour la souveraineté des peuples est une occasion unique de déployer à travers le monde, en commençant par le continent américain, une action unitaire forte des forces ici présentes contre l\u2019impérialisme hégémonique. De nouvelles conférences et rencontres doivent être organisées sur d\u2019autres continents et dans d\u2019autres grandes régions : États-Unis, Europe, Afrique, Asie. Faisons de cette rencontre un modeste mais solide coup d\u2019envoi d\u2019une campagne internationale qui serve les luttes et, en même temps, la construction d\u2019un programme alternatif à celui que nous présentent les représentants du capital.",
+    s3p3: "L\u2019extrême droite se développe en se présentant comme une alternative radicale à l\u2019ordre établi, à ses élites et à ses partis. Nous savons qu\u2019elle le fait de manière démagogique pour défendre le système qu\u2019elle prétend défier, mais il y a là une leçon essentielle à retenir : pour se développer, la résistance doit également constituer une alternative radicale à la crise du système en place, à ses politiques de faim et de répression, à ses institutions usées et à ses partis.",
+    s3p4: "La crise de la civilisation capitaliste (économique, politique, écologique, climatique) soulève la possibilité et la nécessité de relier les préoccupations immédiates, y compris la lutte antifasciste, à la nécessité de dépasser le capitalisme. Il est nécessaire de travailleur\u00b7euses et de leurs communautés.",
+    s4p1: "La stratégie de sécurité nationale de Trump l\u2019affirme : \u00ab L\u2019influence démesurée des nations les plus grandes, les plus riches et les plus fortes est une vérité immémoriale des relations internationales. \u00bb Il s\u2019agit tout simplement d\u2019une invitation à la répartition du monde entre les plus puissants.",
+    s4p2: "Ne nous faisons pas d\u2019illusions. Ni l\u2019Union européenne ou ses composantes, ni les gouvernements russe ou chinois ne représentent une alternative ou un rempart contre l\u2019impérialisme américain, comme l\u2019ont démontré leurs actions stériles face aux attaques des États-Unis contre le Venezuela, Cuba et l\u2019Iran.",
+    s4p3: "La Chine est devenue une puissance capitaliste davantage intéressée par la consolidation de ses affaires et de ses propres zones d\u2019influence militaire (en Asie) et économique (Eurasie, Afrique et Amérique latine). De nature plus régionale, la Russie de Poutine cherche à rétablir ce qui était l\u2019empire tsariste, avec une économie militarisée et un régime de plus en plus autoritaire. Dans ce contexte de tensions entre anciennes et nouvelles puissances ou puissances émergentes, la tâche de la gauche ne peut être de célébrer la multipolarité résultant de l\u2019affrontement des projets capitalistes.",
+    s5p1: "À la prétendue \u00ab vérité immémoriale \u00bb de Trump sur la domination des puissants, nous opposons trois orientations : la défense du droit de tous les peuples à l\u2019autodétermination, la solidarité avec les exploité\u00b7es et les opprimé\u00b7es de tous les pays, et donc l\u2019opposition à tous les impérialismes.",
+    s5p2: "Nous rejetons l\u2019agression des États-Unis contre le Venezuela et l\u2019enlèvement de son président et de l\u2019ancienne députée, et nous rejetons également l\u2019agression contre l\u2019Ukraine par la Fédération de Russie. Nous reconnaissons le droit du Venezuela, de Cuba, de l\u2019Iran et de tout pays agressé par les États-Unis à se défendre, y compris militairement, et à se procurer les moyens matériels nécessaires à cette résistance là où",
+    s5p3: "Nous dénonçons et combattons les politiques anti-immigré\u00b7es, xénophobe et islamophobe aux États-Unis et en Europe occidentale. Nous adoptons la même attitude à l\u2019égard de la répression de divers peuples et groupes ethniques par le gouvernement chinois.",
+    s5p4: "Nous condamnons la persécution, la répression et la censure aux États-Unis, au Royaume-Uni, en Allemagne et dans d\u2019autres pays à l\u2019encontre des manifestations contre le génocide en Palestine, nous dénonçons également la répression et l\u2019emprisonnement en Russie des opposant\u00b7es à la guerre d\u2019agression contre l\u2019Ukraine.",
+    s5p5: "Nous ne soutenons pas le gouvernement Maduro. Nous dénonçons ses actions antidémocratiques et anti-ouvrières. Mais aucune action répréhensible du gouvernement Maduro ne peut justifier l\u2019agression des États-Unis contre le Venezuela. Nous exigeons donc le retrait des États-Unis du Venezuela et la libération de l\u2019ancienne députée Cilia Flores et du président Maduro.",
+    s5p6: "Nous proposons la dissolution de l\u2019OTAN, ainsi que de l\u2019Organisation du Traité de Sécurité collective. Nous ne soutenons pas le gouvernement Zelensky en Ukraine. Nous dénonçons ses politiques anti-ouvrières, corrompues, antidémocratiques et chauvines. Mais aucune politique contestable de ce gouvernement ne justifie l\u2019invasion et les bombardements russes. Nous organisons donc notre solidarité avec le peuple ukrainien.",
+    s6p1: "Les gouvernements bourgeois refusent de reconnaître que les mobilisations populaires contre eux sont le résultat de profondes contradictions sociales. Ils les attribuent généralement à l\u2019action d\u2019\u00ab agents \u00bb internes ou externes. Nous ne pouvons pas accepter cette conception policière de l\u2019histoire. Il ne fait aucun doute que l\u2019impérialisme et ses agences tentent de tirer parti des luttes, comme celle du peuple iranien contre la théocratie autoritaire, mais cela ne réduit pas ces luttes à une opération de l\u2019impérialisme. Nous devons nous opposer à cette intervention, tout en continuant à soutenir ces luttes.",
+    s6p2: "Prêcher aux peuples qu\u2019ils doivent accepter les dictatures qui les oppriment et les maltraitent comme un \u00ab moindre mal \u00bb fait de ceux qui le font des promoteurs de la résignation et de la soumission. Les peuples opprimés ne s\u2019intéresseront guère à un anti-impérialisme ou à une analyse géopolitique qui exclut leurs revendications démocratiques et économiques les plus pressantes. C\u2019est à nous qu\u2019il revient de faire en sorte que les militant\u00b7es considèrent notre anti-impérialisme comme un allié, sans quoi, malheureusement, iels ne trouveront encouragement et soutien que dans le camp de l\u2019impérialisme qui cherche à les exploiter.",
+    s7p1: "Historiquement, l\u2019impérialisme américain et celui de l\u2019OTAN ont agi au nom de la liberté, de la démocratie, etc. La gauche ne se laisse pas berner par ces proclamations. Mais il faut être cohérent\u00b7e. Il en va de même pour les impérialismes rivaux : il faut expliquer comment, au nom de la multipolarité, de l\u2019anti-hégémonisme, du rejet du modèle hypocrite de démocratie occidentale et de l\u2019eurocentrisme, on tente de justifier le déni des droits démocratiques de la classe ouvrière, des femmes, des minorités religieuses et des personnes LGBTQIA+.",
+    s7p2: "Face au relativisme culturel taillé sur mesure pour les gouvernements autoritaires (de Russie et de Chine, entre autres), nous affirmons que les droits syndicaux, la liberté d\u2019expression, de réunion et d\u2019association, l\u2019élection et la révocabilité des dirigeant\u00b7es ne sont pas des \u00ab valeurs occidentales \u00bb ou des \u00ab modèles libéraux \u00bb ou eurocentriques que l\u2019impérialisme tente d\u2019imposer : ce sont des exigences historiques de la classe ouvrière internationale. C\u2019est pourquoi nous les défendons partout dans le monde, dans tous les pays, sans exception.",
+    s7p3: "Nous rejetons le chantage selon lequel toute critique ou revendication à l\u2019égard des gouvernements progressistes, ou qui se proclament progressistes, est destructrice et favorable à l\u2019impérialisme. Ce qui affaiblit la lutte, ce n\u2019est pas la critique et le débat, mais leur musellement.",
+    s8p1: "Nous connaissons l\u2019hypocrisie de l\u2019impérialisme occidental lorsqu\u2019il dénonce la répression en Iran ou l\u2019invasion de l\u2019Ukraine. À quelle morale peuvent faire appel les complices du génocide à Gaza ? Quel respect peuvent mériter ceux qui viennent d\u2019enlever le président du Venezuela ? Mais la dénonciation de l\u2019hypocrisie de",
+    s8p2: 'Aujourd\u2019hui plus que jamais, nous devons pratiquer cet internationalisme cohérent, une solidarité sans frontières qui englobe les luttes des travailleuses et des travailleurs, des opprimé\u00b7es et pour l\u2019autodétermination dans tous les pays du monde, sans exception. C\u2019est une politique qui s\u2019oppose à tous les impérialismes. Elle ne subordonne en aucune manière la lutte menée dans un pays à celle menée dans un autre pays. C\u2019est l\u2019orientation qui correspond au slogan <em>\u00ab Prolétaires de tous les pays, unissez-vous ! \u00bb</em>',
+    closing1: "Pour une solidarité sans frontières !",
+    closing2: "Pour un internationalisme sans exception !",
+    footer: "Quatrième Internationale — Brésil, 2026",
     sidebar_title: "Déclarations"
   },
 
   es: {
-    overline: "Cuarta Internacional — Foro Antifascista, Brasil 2026",
+    overline: "Cuarta Internacional — Brasil 2026",
     title: "Contra el autoritarismo neofascista y todas las formas de <em>imperialismo</em>",
-    subtitle: "Declaración de la Cuarta Internacional en la Conferencia Antifascista",
+    subtitle: "Declaración de la Cuarta Internacional en la 1ª Conferencia Internacional Antifascista por la Soberanía de los Pueblos",
     slogan1: "¡Unir la lucha antifascista en toda América Latina!",
     slogan2: "¡Por un frente antifascista y antiimperialista global!",
     scroll: "Leer la Declaración",
@@ -891,7 +915,7 @@ const translations = {
     s2p2: "Lo mismo ocurre con las clases trabajadoras de Argentina contra Milei y los campesinos de India contra las políticas de Modi. En Argentina, Milei enfrentó la cuarta huelga general, ahora contra la reforma laboral, en un ejemplo de lucha unificada que tiene a la izquierda como uno de sus pilares, con el 90% de la población opuesta a esta medida.",
     s2p3: "En Brasil, la victoria de la lucha de resistencia indígena contra Cargill y la privatización de los grandes ríos amazónicos apunta a la esperanza y a caminos hacia adelante.",
     s3p1: "Existe una necesidad urgente de un frente unido de los explotados y oprimidos, libre de subordinación a gobiernos y partidos, capaz de actuar con plena independencia para enfrentar las nuevas caras del fascismo con movilización y coordinación entre los oprimidos.",
-    s3p2: "Esta Conferencia Antifascista es una oportunidad extraordinaria para desplegar a lo largo del globo, comenzando por el continente americano, una fuerte acción unitaria de las fuerzas aquí presentes contra el imperialismo hegemónico. Nuevas conferencias y reuniones deben celebrarse en otros continentes y en otras grandes regiones: Estados Unidos, Europa, África, Asia.",
+    s3p2: "Esta 1ª Conferencia Internacional Antifascista por la Soberanía de los Pueblos es una oportunidad extraordinaria para desplegar a lo largo del globo, comenzando por el continente americano, una fuerte acción unitaria de las fuerzas aquí presentes contra el imperialismo hegemónico. Nuevas conferencias y reuniones deben celebrarse en otros continentes y en otras grandes regiones: Estados Unidos, Europa, África, Asia.",
     pq1: "Hagamos de este encuentro un punto de partida modesto pero fuerte para una campaña internacional que sirva a las luchas y, al mismo tiempo, a la construcción de un programa alternativo al que nos presentan los representantes del capital.",
     s3p3: "La extrema derecha crece presentándose como una alternativa radical al statu quo, a sus élites y a sus partidos. Sabemos que lo hace demagógicamente para defender el sistema que dice desafiar, pero hay una lección clave aquí: para crecer, la resistencia también debe ser una alternativa radical a la crisis del sistema prevaleciente, sus políticas de hambre y represión, sus instituciones desgastadas y sus partidos.",
     s3p4: "La crisis de la civilización capitalista (económica, política, ecológica, climática) plantea la posibilidad y la necesidad de vincular las preocupaciones inmediatas, incluida la lucha antifascista, con la necesidad de superar el capitalismo. Se necesita un conjunto de demandas que, partiendo de las preocupaciones populares más urgentes, conduzca al cuestionamiento del control privado de la producción y a la comprensión de la necesidad de colocarlo bajo el control democrático de los trabajadores y sus comunidades.",
@@ -920,14 +944,14 @@ const translations = {
     s8p4: "Es la política que corresponde a la consigna ¡Proletarios de todos los países, uníos!",
     closing1: "¡Por la solidaridad sin fronteras!",
     closing2: "¡Por el internacionalismo sin excepciones!",
-    footer: "Cuarta Internacional — Foro Antifascista, Brasil, 2026",
+    footer: "Cuarta Internacional — Brasil, 2026",
     sidebar_title: "Declaraciones"
   },
 
   ar: {
-    overline: "الأممية الرابعة — المنتدى المناهض للفاشية، البرازيل 2026",
+    overline: "الأممية الرابعة — البرازيل 2026",
     title: "ضد الاستبداد النيوفاشي وجميع أشكال <em>الإمبريالية</em>",
-    subtitle: "إعلان الأممية الرابعة في المؤتمر المناهض للفاشية",
+    subtitle: "إعلان الأممية الرابعة في المؤتمر الدولي الأول لمناهضة الفاشية من أجل سيادة الشعوب",
     slogan1: "!توحيد النضال المناهض للفاشية في جميع أنحاء أمريكا اللاتينية",
     slogan2: "!من أجل جبهة عالمية مناهضة للفاشية والإمبريالية",
     scroll: "اقرأ الإعلان",
@@ -947,7 +971,7 @@ const translations = {
     s2p2: "ينطبق الأمر نفسه على الطبقات العاملة في الأرجنتين ضد ميلي والفلاحين في الهند ضد سياسات مودي. في الأرجنتين، واجه ميلي الإضراب العام الرابع، هذه المرة ضد إصلاح العمل، في مثال على النضال الموحد الذي تشكل اليسار أحد أعمدته، مع معارضة 90% من السكان لهذا الإجراء.",
     s2p3: "في البرازيل، يشير انتصار نضال المقاومة الأصلية ضد كارغيل وخصخصة الأنهار الأمازونية الكبرى إلى الأمل والمسارات المستقبلية.",
     s3p1: "هناك حاجة ملحة لجبهة موحدة للمستغَلين والمضطهَدين، حرة من التبعية للحكومات والأحزاب، قادرة على العمل باستقلالية تامة لمواجهة الوجوه الجديدة للفاشية بالتعبئة والتنسيق بين المضطهَدين.",
-    s3p2: "يُعدّ هذا المؤتمر المناهض للفاشية فرصة استثنائية لنشر عمل موحد قوي عبر الكرة الأرضية، بدءاً من القارة الأمريكية، من قبل القوى الحاضرة هنا ضد الإمبريالية المهيمنة. يجب عقد مؤتمرات واجتماعات جديدة في قارات ومناطق كبرى أخرى: الولايات المتحدة وأوروبا وأفريقيا وآسيا.",
+    s3p2: "يُعدّ هذا المؤتمر الدولي الأول لمناهضة الفاشية من أجل سيادة الشعوب فرصة استثنائية لنشر عمل موحد قوي عبر الكرة الأرضية، بدءاً من القارة الأمريكية، من قبل القوى الحاضرة هنا ضد الإمبريالية المهيمنة. يجب عقد مؤتمرات واجتماعات جديدة في قارات ومناطق كبرى أخرى: الولايات المتحدة وأوروبا وأفريقيا وآسيا.",
     pq1: "لنجعل من هذا الاجتماع نقطة انطلاق متواضعة لكن قوية لحملة دولية تخدم النضالات وفي الوقت نفسه بناء برنامج بديل لذلك الذي يقدمه لنا ممثلو رأس المال.",
     s3p3: "ينمو اليمين المتطرف بتقديم نفسه كبديل جذري للوضع الراهن ونخبه وأحزابه. نعلم أنه يفعل ذلك بشكل ديماغوجي للدفاع عن النظام الذي يدّعي تحديه، لكن هناك درس أساسي هنا: لكي تنمو المقاومة، يجب أن تكون أيضاً بديلاً جذرياً لأزمة النظام السائد وسياسات الجوع والقمع ومؤسساته البالية وأحزابه.",
     s3p4: "تطرح أزمة الحضارة الرأسمالية (الاقتصادية والسياسية والبيئية والمناخية) إمكانية وضرورة ربط الاهتمامات الفورية، بما فيها النضال المناهض للفاشية، بالحاجة إلى تجاوز الرأسمالية. هناك حاجة إلى مجموعة من المطالب التي، انطلاقاً من الاهتمامات الشعبية الأكثر إلحاحاً، تقود إلى التشكيك في السيطرة الخاصة على الإنتاج وفهم الحاجة إلى وضعها تحت السيطرة الديمقراطية للعمال ومجتمعاتهم.",
@@ -976,14 +1000,14 @@ const translations = {
     s8p4: "إنها السياسة التي تتوافق مع شعار: يا عمال العالم، اتحدوا!",
     closing1: "!من أجل التضامن بلا حدود",
     closing2: "!من أجل الأممية بلا استثناءات",
-    footer: "الأممية الرابعة — المنتدى المناهض للفاشية، البرازيل، 2026",
+    footer: "الأممية الرابعة — البرازيل، 2026",
     sidebar_title: "الإعلانات"
   },
 
   pt: {
-    overline: "Quarta Internacional — Fórum Antifascista, Brasil 2026",
+    overline: "Quarta Internacional — Brasil 2026",
     title: "Contra o autoritarismo neofascista e todas as formas de <em>imperialismo</em>",
-    subtitle: "Declaração da Quarta Internacional na Conferência Antifascista",
+    subtitle: "Declaração da Quarta Internacional na 1ª Conferência Internacional Antifascista pela Soberania dos Povos",
     slogan1: "Unir a luta antifascista em toda a América Latina!",
     slogan2: "Por uma frente antifascista e anti-imperialista global!",
     scroll: "Leia a Declaração",
@@ -1002,7 +1026,7 @@ const translations = {
     s2p1: "Mas a marcha do imperialismo já está começando a encontrar obstáculos tremendos. A luta vitoriosa do povo de Minneapolis/Saint Paul e de toda a resistência comunitária e popular nos Estados Unidos contra a perseguição aos migrantes aponta o caminho para derrotar a extrema direita. Somente a combinação da luta internacional dos povos com uma derrota de Trump em seu próprio terreno pode deter seu projeto conjunto.",
     s2p2: "O mesmo vale para as classes trabalhadoras na Argentina contra Milei e os camponeses na Índia contra as políticas de Modi. Na Argentina, Milei enfrentou a quarta greve geral, agora contra a reforma trabalhista, num exemplo de luta unificada que tem a esquerda como um de seus pilares, com 90% da população oposta a essa medida. No Brasil, a vitória da luta de resistência indígena contra a Cargill e a privatização dos grandes rios amazônicos aponta para a esperança e caminhos adiante.",
     s3p1: 'Há uma necessidade urgente de uma frente unida dos explorados e oprimidos, livre de subordinação a governos e partidos, capaz de agir com plena independência para enfrentar as novas faces do fascismo <strong>com mobilização e coordenação entre os oprimidos.</strong>',
-    s3p2: "Esta Conferência Antifascista é uma oportunidade extraordinária para implantar em todo o globo, começando pelo continente americano, uma forte ação unitária das forças aqui presentes contra o imperialismo hegemônico. Novas conferências e reuniões devem ser realizadas em outros continentes e em outras grandes regiões: os Estados Unidos, a Europa, a África, a Ásia. Façamos deste encontro um ponto de partida modesto, mas forte, para uma campanha internacional que sirva às lutas e, ao mesmo tempo, à construção de um programa alternativo àquele que nos é apresentado pelos representantes do capital.",
+    s3p2: "Esta 1ª Conferência Internacional Antifascista pela Soberania dos Povos é uma oportunidade extraordinária para implantar em todo o globo, começando pelo continente americano, uma forte ação unitária das forças aqui presentes contra o imperialismo hegemônico. Novas conferências e reuniões devem ser realizadas em outros continentes e em outras grandes regiões: os Estados Unidos, a Europa, a África, a Ásia. Façamos deste encontro um ponto de partida modesto, mas forte, para uma campanha internacional que sirva às lutas e, ao mesmo tempo, à construção de um programa alternativo àquele que nos é apresentado pelos representantes do capital.",
     s3p3: "A extrema direita cresce ao se apresentar como uma alternativa radical ao status quo, suas elites e seus partidos. Sabemos que o faz de forma demagógica para defender o sistema que alega desafiar, mas há uma lição fundamental aqui: para crescer, a resistência também deve ser uma alternativa radical à crise do sistema vigente, suas políticas de fome e repressão, suas instituições desgastadas e seus partidos.",
     s3p4: "A crise da civilização capitalista (econômica, política, ecológica, climática) levanta a possibilidade e a necessidade de vincular as preocupações imediatas, incluindo a luta antifascista, à necessidade de superar o capitalismo. É necessário um conjunto de demandas que, a partir das preocupações populares mais urgentes, leve ao questionamento do controle privado da produção e à compreensão da necessidade de colocá-lo sob o controle democrático dos trabalhadores e de suas comunidades.",
     s4p1: "A estratégia de segurança nacional de Trump afirma: \"A influência desproporcional das nações maiores, mais ricas e mais fortes é uma verdade imemorial das relações internacionais.\" É, simplesmente, um convite para dividir o mundo entre os mais poderosos.",
@@ -1024,7 +1048,7 @@ const translations = {
     s8p3: 'Hoje mais do que nunca, devemos praticar um internacionalismo consequente, uma solidariedade sem fronteiras que abranja as lutas dos trabalhadores, dos oprimidos e pela autodeterminação em todos os países do mundo, sem exceção. É uma política que se opõe a todas as formas de imperialismo. Não subordina a luta de nenhum país à de outro. É a política que corresponde à palavra de ordem <em>Trabalhadores de todo o mundo, uni-vos!</em>',
     closing1: "Pela solidariedade sem fronteiras!",
     closing2: "Pelo internacionalismo sem exceções!",
-    footer: "Quarta Internacional — Fórum Antifascista, Brasil, 2026",
+    footer: "Quarta Internacional — Brasil, 2026",
     sidebar_title: "Declarações"
   }
 };
