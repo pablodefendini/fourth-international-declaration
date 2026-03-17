@@ -126,6 +126,32 @@ html[dir="rtl"] .hero-title, html[dir="rtl"] .hero-subtitle {
 .lang-bar .print-btn svg { width: 14px; height: 14px; }
 .lang-bar .print-btn:hover { border-color: var(--white); color: var(--white); }
 
+/* ==================== DRAFT BANNER ==================== */
+.draft-banner {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    #FFD600,
+    #FFD600 10px,
+    #222 10px,
+    #222 20px
+  );
+  color: #000;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 0.35rem 1.5rem;
+  border: 2px solid #000;
+}
+.draft-banner span {
+  background: #FFD600;
+  padding: 0.1rem 0.4rem;
+}
+@media print { .draft-banner { display: none !important; } }
+
 /* ==================== HERO ==================== */
 .hero {
   position: relative;
@@ -679,6 +705,7 @@ html[dir="rtl"] .sidebar-list a.current {
       <span class="hero-slogan" data-i18n="slogan1">Unite the anti-fascist struggle throughout Latin America!</span>
       <span class="hero-slogan" data-i18n="slogan2">For a global anti-fascist and anti-imperialist front!</span>
     </div>
+    <div class="draft-banner" id="draftBanner" style="display:none;" data-i18n="draft_label">NOT FINAL DRAFT</div>
   </div>
   <a href="#declaration" class="hero-scroll">
     <span data-i18n="scroll">Read the Declaration</span>
@@ -953,7 +980,8 @@ const translations = {
     closing1: "¡Por la solidaridad sin fronteras!",
     closing2: "¡Por el internacionalismo sin excepciones!",
     footer: "Cuarta Internacional — Porto Alegre, 2026",
-    sidebar_title: "Declaraciones"
+    sidebar_title: "Declaraciones",
+    draft_label: "LA TRADUCCIÓN AÚN NO ES FINAL"
   },
 
   ar: {
@@ -1009,7 +1037,8 @@ const translations = {
     closing1: "!من أجل التضامن بلا حدود",
     closing2: "!من أجل الأممية بلا استثناءات",
     footer: "الأممية الرابعة — بورتو أليغري، 2026",
-    sidebar_title: "الإعلانات"
+    sidebar_title: "الإعلانات",
+    draft_label: "مسودة — الترجمة ليست نهائية بعد"
   },
 
   pt: {
@@ -1057,7 +1086,8 @@ const translations = {
     closing1: "Pela solidariedade sem fronteiras!",
     closing2: "Pelo internacionalismo sem exceções!",
     footer: "Quarta Internacional — Porto Alegre, 2026",
-    sidebar_title: "Declarações"
+    sidebar_title: "Declarações",
+    draft_label: "RASCUNHO — A TRADUÇÃO AINDA NÃO É DEFINITIVA"
   }
 };
 
@@ -1171,6 +1201,17 @@ function setLang(lang) {
       }
     }
   });
+
+  // Draft banner
+  const banner = document.getElementById('draftBanner');
+  if (banner) {
+    if (t.draft_label) {
+      banner.innerHTML = '<span>' + t.draft_label + '</span>';
+      banner.style.display = '';
+    } else {
+      banner.style.display = 'none';
+    }
+  }
 
   // Update sidebar
   renderSidebar(lang);
