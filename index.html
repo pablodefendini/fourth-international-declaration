@@ -611,30 +611,151 @@ html[dir="rtl"] .sidebar-list a.current {
 
 /* ==================== PRINT STYLES ==================== */
 @media print {
-  @page { margin: 2.5cm 3cm; }
-  .lang-bar, .scroll-progress, .hero-scroll, .hero-stripes, .hero-graphic, .sidebar-overlay, .sidebar-panel, .sidebar-toggle { display: none !important; }
-  body { background: white !important; color: black !important; font-size: 9pt; line-height: 1.5; }
-  .hero { min-height: auto; padding: 1.5rem 0; }
-  .hero::before { display: none; }
-  .hero-title { color: black !important; font-size: 22pt; }
-  .hero-title em { color: var(--red) !important; }
-  .hero-subtitle { color: var(--red) !important; font-size: 11pt; }
-  .hero-slogan { color: #333 !important; font-size: 8pt; }
-  .hero-overline { color: var(--red) !important; border-color: var(--red) !important; font-size: 7pt; }
-  .section-block { opacity: 1 !important; transform: none !important; margin-bottom: 1.5rem; }
-  .section-heading { color: var(--red) !important; font-size: 13pt; margin-bottom: 0.6rem; }
-  .section-block p { color: #222 !important; font-size: 9pt; line-height: 1.5; margin-bottom: 0.5rem; }
+  /* A3 page with small margins */
+  @page { size: A3; margin: 1in 0.5in 1in 0.5in; }
 
-  .closing-slogan { color: var(--red) !important; font-size: 16pt; }
-  .closing-sub { color: black !important; font-size: 12pt; }
-  .closing { padding: 2rem 0; }
-  .closing::before { display: none; }
-  .red-divider { background: var(--red) !important; height: 1px !important; }
-  .declaration-body { padding: 0.5rem 0 !important; max-width: 100% !important; width: 100% !important; columns: 2 1.5cm !important; orphans: 3; widows: 3; }
-  .section-block { break-inside: avoid-column; margin-bottom: 1rem !important; }
-  .section-heading { break-after: avoid-column; }
-  .star-ornament { padding: 0.8rem 0; column-span: all !important; }
-  footer { color: #666 !important; border-color: #ccc !important; font-size: 7pt; padding: 0.8rem 0; }
+  /* Reset everything for print flow */
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+    background: white !important;
+    color: black !important;
+    font-size: 10pt !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    orphans: 4 !important;
+    widows: 4 !important;
+  }
+
+  /* Hide all UI chrome */
+  .lang-bar, .scroll-progress, .hero-scroll, .hero-stripes,
+  .hero-graphic, .sidebar-overlay, .sidebar-panel, .sidebar-toggle,
+  .hero::before, .closing::before, .draft-banner { display: none !important; }
+
+  /* Hero: compact, full-width, centered, spans both columns */
+  .hero {
+    display: block !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    height: auto !important;
+    padding: 0.15in 0 0.1in !important;
+    overflow: visible !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    position: static !important;
+    float: none !important;
+    flex-direction: unset !important;
+    justify-content: unset !important;
+    align-items: unset !important;
+  }
+  .hero-content { width: 100% !important; max-width: none !important; margin: 0 auto !important; text-align: center !important; }
+  .hero-overline { color: var(--red) !important; border-color: var(--red) !important; font-size: 8pt !important; display: inline-block !important; }
+  .hero-title { color: black !important; font-size: 24pt !important; line-height: 1.15 !important; margin-bottom: 0.08in !important; text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+  .hero-title em { color: var(--red) !important; }
+  .hero-subtitle { color: var(--red) !important; font-size: 10pt !important; max-width: none !important; text-align: center !important; margin-left: auto !important; margin-right: auto !important; margin-bottom: 0.04in !important; }
+  .hero-subtitle a { color: var(--red) !important; }
+  .hero-slogans { margin-top: 0.04in !important; margin-bottom: 0 !important; text-align: center !important; }
+  .hero-slogan { color: #333 !important; font-size: 9pt !important; }
+
+  /* Declaration body */
+  .declaration-body {
+    display: block !important;
+    padding: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    direction: ltr !important;
+  }
+  /* Two-column grid added by JS before print */
+  .print-columns {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    column-gap: 0.4in !important;
+  }
+  .print-col {
+    display: block !important;
+    overflow: visible !important;
+  }
+  [dir="rtl"] .declaration-body {
+    direction: rtl !important;
+    columns: 1 !important;
+    column-count: 1 !important;
+  }
+  [dir="rtl"] .hero {
+    direction: rtl !important;
+  }
+
+  /* Section blocks flow naturally across columns */
+  .section-block {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+    overflow: visible !important;
+    margin-bottom: 0 !important;
+    break-inside: auto !important;
+  }
+  .section-block p {
+    color: #222 !important;
+    font-size: 9.5pt !important;
+    line-height: 14pt !important;
+    margin-top: 0 !important;
+    margin-bottom: 14pt !important;
+    orphans: 4 !important;
+    widows: 4 !important;
+    text-align: justify !important;
+    hyphens: auto !important;
+  }
+
+  /* Section headings: stay with content */
+  .section-heading {
+    color: var(--red) !important;
+    font-size: 14pt !important;
+    margin-top: 29pt !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 2in !important;
+    margin-bottom: -2in !important;
+  }
+
+  /* Hide star ornaments in print — use spacing instead */
+  .star-ornament {
+    display: none !important;
+  }
+  .star-ornament .line { background: linear-gradient(90deg, transparent, #ccc, transparent) !important; }
+  .star-ornament svg { fill: var(--red) !important; width: 18px !important; height: 18px !important; }
+
+  /* Red dividers — hide in print */
+  .red-divider { display: none !important; }
+
+  /* Closing section — span both columns */
+  .closing {
+    display: block !important;
+    overflow: visible !important;
+    padding: 0.2in 0 0.1in !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: none !important;
+    column-span: all !important;
+  }
+  .closing .closing-content { text-align: center !important; display: block !important; width: 100% !important; }
+  .closing .closing-slogan { color: var(--red) !important; font-size: 18pt !important; text-align: center !important; display: block !important; margin-left: auto !important; margin-right: auto !important; }
+  .closing .closing-sub { color: black !important; font-size: 14pt !important; text-align: center !important; display: block !important; margin-left: auto !important; margin-right: auto !important; }
+
+  /* Footer */
+  footer {
+    color: #666 !important;
+    border-color: #ccc !important;
+    font-size: 8pt !important;
+    padding: 0.15in 0 !important;
+  }
+  .social-links a { color: #666 !important; }
+  .social-links svg { width: 10px !important; height: 10px !important; }
+  .closing-logo { display: block !important; margin-top: 0.15in !important; }
+  .closing-logo svg { fill: var(--red) !important; width: 50px !important; height: 50px !important; }
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -719,6 +840,7 @@ html[dir="rtl"] .sidebar-list a.current {
 <!-- DECLARATION BODY -->
 <main class="declaration-body" id="declaration">
 
+
   <!-- Section 1 -->
   <section class="section-block">
     <p data-i18n="s1p1">Donald Trump's second term, with its far-right agenda, has brought about a shift in the international situation. In his eagerness to reaffirm a hegemony as weakened as his economy, he tramples on the United Nations Charter and the sovereignty of peoples with a foreign policy of recolonization and war.</p>
@@ -799,8 +921,6 @@ html[dir="rtl"] .sidebar-list a.current {
     <p data-i18n="s8p3">Today more than ever, we must practice consistent internationalism, a solidarity without borders that encompasses the struggles of workers, the oppressed, and for self-determination in all countries of the world, without exception. It is a policy that opposes all forms of imperialism. It does not subordinate the struggle in any country to that of another country. It is the policy that corresponds to the slogan <em>Workers of the world, unite!</em></p>
   </section>
 
-</main>
-
 <!-- CLOSING -->
 <section class="closing">
   <div class="closing-content section-block">
@@ -820,6 +940,8 @@ html[dir="rtl"] .sidebar-list a.current {
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <span data-i18n="footer">Fourth International — Porto Alegre, 2026</span>
@@ -1239,6 +1361,63 @@ window.addEventListener('scroll', () => {
   const progress = (scrollTop / docHeight) * 100;
   document.getElementById('scrollProgress').style.width = progress + '%';
 }, { passive: true });
+
+// Before print: split content into two grid columns
+window.addEventListener('beforeprint', () => {
+  const body = document.querySelector('.declaration-body');
+  if (body.querySelector('.print-columns')) return;
+
+  const items = Array.from(body.children).filter(el =>
+    !el.classList.contains('hero') && !el.classList.contains('closing')
+  );
+
+  // Measure heights to split evenly
+  const heights = items.map(el => el.offsetHeight);
+  const totalHeight = heights.reduce((a, b) => a + b, 0);
+  const halfHeight = totalHeight / 2;
+
+  const col1 = document.createElement('div');
+  col1.className = 'print-col';
+  const col2 = document.createElement('div');
+  col2.className = 'print-col';
+  const wrapper = document.createElement('div');
+  wrapper.className = 'print-columns';
+  wrapper.appendChild(col1);
+  wrapper.appendChild(col2);
+
+  let cumHeight = 0;
+  items.forEach(el => {
+    cumHeight += el.offsetHeight;
+    if (cumHeight <= halfHeight) {
+      col1.appendChild(el);
+    } else {
+      col2.appendChild(el);
+    }
+  });
+
+  // Insert wrapper where first section was
+  const closing = body.querySelector('.closing');
+  if (closing) {
+    body.insertBefore(wrapper, closing);
+  } else {
+    body.appendChild(wrapper);
+  }
+});
+
+window.addEventListener('afterprint', () => {
+  const body = document.querySelector('.declaration-body');
+  const wrapper = body.querySelector('.print-columns');
+  if (!wrapper) return;
+  const closing = body.querySelector('.closing');
+  const cols = wrapper.querySelectorAll('.print-col');
+  cols.forEach(col => {
+    while (col.firstChild) {
+      if (closing) body.insertBefore(col.firstChild, closing);
+      else body.appendChild(col.firstChild);
+    }
+  });
+  wrapper.remove();
+});
 </script>
 </body>
 </html>
