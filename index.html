@@ -675,10 +675,20 @@ html[dir="rtl"] .sidebar-list a.current {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     column-gap: 0.4in !important;
+    align-items: start !important;
+    margin-top: 0.25in !important;
   }
   .print-col {
     display: block !important;
     overflow: visible !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  .print-col > *:first-child {
+    margin-top: 0 !important;
+  }
+  .print-col > *:first-child > *:first-child {
+    margin-top: 0 !important;
   }
   [dir="rtl"] .declaration-body {
     direction: rtl !important;
@@ -827,7 +837,6 @@ html[dir="rtl"] .sidebar-list a.current {
       <span class="hero-slogan" data-i18n="slogan1">Unite the anti-fascist struggle throughout Latin America!</span>
       <span class="hero-slogan" data-i18n="slogan2">For a global anti-fascist and anti-imperialist front!</span>
     </div>
-    <div class="draft-banner" id="draftBanner" style="display:none;" data-i18n="draft_label">NOT FINAL DRAFT</div>
   </div>
   <a href="#declaration" class="hero-scroll">
     <span data-i18n="scroll">Read the Declaration</span>
@@ -1152,7 +1161,6 @@ const translations = {
     closing2: "!من أجل الأممية بلا استثناءات",
     footer: "الأممية الرابعة — بورتو أليغري، 2026",
     sidebar_title: "الإعلانات",
-    draft_label: "مسودة — الترجمة ليست نهائية بعد"
   },
 
   pt: {
@@ -1201,7 +1209,6 @@ const translations = {
     closing2: "Pelo internacionalismo sem exceções!",
     footer: "Quarta Internacional — Porto Alegre, 2026",
     sidebar_title: "Declarações",
-    draft_label: "RASCUNHO — A TRADUÇÃO AINDA NÃO É DEFINITIVA"
   }
 };
 
@@ -1315,17 +1322,6 @@ function setLang(lang) {
       }
     }
   });
-
-  // Draft banner
-  const banner = document.getElementById('draftBanner');
-  if (banner) {
-    if (t.draft_label) {
-      banner.innerHTML = '<span>' + t.draft_label + '</span>';
-      banner.style.display = '';
-    } else {
-      banner.style.display = 'none';
-    }
-  }
 
   // Update sidebar
   renderSidebar(lang);
