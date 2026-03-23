@@ -690,6 +690,12 @@ html[dir="rtl"] .sidebar-list a.current {
   .print-col > *:first-child > *:first-child {
     margin-top: 0 !important;
   }
+  .print-col > .star-ornament:first-child {
+    display: none !important;
+  }
+  .print-col > .star-ornament:first-child + .section-block .section-heading {
+    margin-top: 0 !important;
+  }
   [dir="rtl"] .declaration-body {
     direction: rtl !important;
     columns: 1 !important;
@@ -796,7 +802,7 @@ html[dir="rtl"] .sidebar-list a.current {
   <button data-lang="es" onclick="setLang('es')">Español</button>
   <button data-lang="fr" onclick="setLang('fr')">Français</button>
   <button class="active" data-lang="en" onclick="setLang('en')">English</button>
-  <button data-lang="ar" onclick="setLang('ar')">العربية</button>
+  <!-- <button data-lang="ar" onclick="setLang('ar')">العربية</button> -->
   <button class="print-btn" onclick="window.print()" title="Print / Save as PDF">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
     <span data-i18n="print">Print</span>
@@ -1381,13 +1387,21 @@ window.addEventListener('beforeprint', () => {
   wrapper.appendChild(col1);
   wrapper.appendChild(col2);
 
+  // Split items into two columns, keeping headings with their content
   let cumHeight = 0;
-  items.forEach(el => {
+  let splitDone = false;
+  items.forEach((el, i) => {
+    if (splitDone) { col2.appendChild(el); return; }
     cumHeight += el.offsetHeight;
-    if (cumHeight <= halfHeight) {
-      col1.appendChild(el);
-    } else {
+    if (cumHeight > halfHeight) {
+      // Check if previous item in col1 is a star ornament — if so, move it to col2 too
+      if (col1.lastElementChild && col1.lastElementChild.classList.contains('star-ornament')) {
+        col2.appendChild(col1.lastElementChild);
+      }
       col2.appendChild(el);
+      splitDone = true;
+    } else {
+      col1.appendChild(el);
     }
   });
 
